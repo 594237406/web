@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>string</title>
+		<script type="text/javascript">
+			var str="123 ,aa 234 fdsfqe,213,432  fdqwe ,fadweq213fd";
+			//取出字符串中的数字
+			var temp="";
+			var result=[];
+			
+			for(var i=0;i<str.length;i++){
+				var charStr=str.charAt(i);
+				//console.log(charStr)
+				if(charStr!=' '&&!isNaN(charStr)){
+					temp+=charStr;
+				}else{
+					if(temp){
+						result.push(temp);
+						temp="";
+					}
+				}
+			}
+			alert(result);
+			
+			var reg=/\d+/g;
+			alert(str.match(reg));
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

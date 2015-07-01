@@ -1,0 +1,16 @@
+<script type="text/javascript">
+	
+	var newWin=window.open("","newWin","");
+	//window.showModelDialog
+	//window.showModelessDialog
+	newWin.navigate("open.html");
+	//window.focus();
+	//window.blur();
+	var ret=window.confirm("关闭吗？");
+	if(ret){
+		window.newWin.close();
+	}else{
+		alert("不关闭！");
+	}
+	
+</script>

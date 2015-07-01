@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Uniform Speed</title>
+<style>
+	#move{
+		width:100px;
+		height:100px;
+		background: red;
+		position: absolute;
+		left:0px;
+		top:50px;
+	}
+</style> 
+<script type="text/javascript">
+	var timer;
+	function move(){
+		var move=document.getElementById("move");
+		var speed=10;
+		timer=setInterval(function(){
+			if((move.offsetLeft>=document.documentElement.offsetWidth-move.offsetWidth)||(move.offsetTop>=document.documentElement.offsetHeight-move.offsetHeight)){
+				clearInterval(timer);
+			}else{
+				move.style.left=move.offsetLeft+speed+"px";
+			}
+		},10);
+	}
+</script>
+</head>
+<body>
+	<input type="button" value="运动" onclick="move()"></input> 
+	<div id="move">aaaaa</div>
+</body>
+</html>

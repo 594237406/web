@@ -1,0 +1,13 @@
+<script>
+	function say(){
+		var qs="?debug=true";
+		
+		with(location){
+			var url = href+qs;
+		}
+		
+		return url;
+	}
+	
+	alert(say())
+</script>

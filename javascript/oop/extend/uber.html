@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>uber</title>
+		<script type="text/javascript">
+			function extend(Child,Parent){
+				var F=function(){};
+				F.prototype=Parent.prototype;
+				Child.prototype=new F();
+				Child.prototype.constructor=Child;
+			}
+		
+		
+			function Shape(){}
+			Shape.prototype.name='shape';
+			Shape.prototype.toString=function(){
+				console.log(this.constructor.name);
+				var result=[];
+				//父级调用，没有uber属性，子级调用，引用父级原型
+				if(this.constructor.uber){
+					//调用父级的toString;
+					result[result.length]=this.constructor.uber.toString();
+				}
+				
+				result[result.length]=this.name;
+				return result.join(',');
+			}
+			
+			
+			function TwoShape(){} 	
+			
+			extend(TwoShape,Shape);
+			TwoShape.uber=Shape.prototype;		//子对象的uber指向父级原型
+			TwoShape.prototype.name='2D Shape';
+			
+			var my=new TwoShape();
+			alert(my.toString());
+		
+		</script>
+	</head>
+	<body>
+	
+	</body>
+</html>

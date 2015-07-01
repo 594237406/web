@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>scroll-load</title>
+		<style type="text/css">
+			img{
+				width: 400px;
+				height: 300px;
+				margin-bottom: 100px;
+			}
+		</style>
+		
+		<script type="text/javascript">
+			window.onload=window.onresize=window.onscroll=function(ev){
+				var imgs=document.getElementsByTagName("img");
+				var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+				var arr=["http://img0.bdstatic.com/img/image/shouye/mxlt-9417129221.jpg",
+				         "http://img0.bdstatic.com/img/image/shouye/mxhsy-9550964235.jpg",
+				         "http://img0.bdstatic.com/img/image/shouye/mnqc-11684608279.jpg",
+				         "http://img0.bdstatic.com/img/image/shouye/mnxqx-11475808310.jpg",
+				         "http://b.hiphotos.baidu.com/image/w%3D310/sign=6603c1d80946f21fc9345852c6256b31/96dda144ad345982037e6ab10ff431adcbef8419.jpg"];
+				for(var i=0;i<imgs.length;i++){
+					var img=imgs[i];
+					if((scrollTop+document.documentElement.clientHeight)>img.offsetTop){
+						if(img.getAttribute("src")=="images/bg.png"){
+							img.src=arr[i];
+							console.log(img.src+":"+i);
+						}
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<img src="images/bg.png" /><br/>
+		<img src="images/bg.png" /><br/>
+		<img src="images/bg.png" /><br/>
+		<img src="images/bg.png" /><br/>
+		<img src="images/bg.png" /><br/>
+	</body>
+</html>

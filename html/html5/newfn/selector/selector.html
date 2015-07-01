@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+	<title>selector</title>
+	<script type="text/javascript">
+		window.onload=function(){
+			var div1=document.querySelector("#a");
+			div1.innerHTML="test1";
+			
+			var div2=document.querySelector(".b");
+			div2.innerHTML="test2";
+			
+			div2.classList.add("x");
+			div2.classList.remove("b");
+			div2.classList.toggle("b");		//if has not class,add,if has class,remove
+			
+			var div3=document.querySelector("[name='c']");
+			div3.innerHTML="test3";
+			
+			var div4=document.querySelectorAll("[name='d']");
+			for(var i=0;i<div4.length;i++){
+				div4[i].innerHTML="testAll";				
+			}
+			
+			var div5=document.querySelectorAll(".d");
+			for(var i=0;i<div5.length;i++){
+				div5[i].innerHTML="testAll1";				
+			}
+		}
+	</script>
+	<style>
+		.x{
+			background: red;
+		}
+	</style>
+	<body>
+		<div id="a" name="a" class="a"></div>
+		<div id="b" name="b" class="b"></div>
+		<div id="c" name="c" class="c"></div>
+		<div id="d" name="d" class="d"></div>
+		<div id="e" name="d" class="d"></div>
+	</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<script>
+
+	//设置cookies
+	function setCookie(name,value,iDay){
+		var nDate=new Date();
+		nDate.setDate(nDate.getDate()+iDay);
+		document.cookie=name+"="+value+";expires="+nDate;	//设置过期时间
+	}
+	
+	//获取cookies
+	function getCookie(name){
+		var eachCookie=document.cookie.split("; ");
+		
+		for(var i=0,j=eachCookie.length;i<j;i++){
+			var map=eachCookie[i].split("=");
+			var eachName=map[0];
+			var eachValue=map[1];
+			if(eachName==name){		//名称
+				return eachValue;	//值			
+			}
+		}
+		return "";
+	}
+	
+	//移除cookies
+	function removeCookie(name){
+		setCookie(name,"",-1);
+	}
+
+	setCookie("userName", "lhj", 30);
+	setCookie("userPass", "123456", 30);
+	
+	removeCookie("userName", "lhj", 30);
+	alert(getCookie("userName"));
+	alert(getCookie("userPass"));
+</script>
+</head>
+<body>
+
+</body>
+</html>

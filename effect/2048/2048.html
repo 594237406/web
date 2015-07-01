@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>2048</title>
+		<style>
+			html,body{height:100%;width:80%;}
+			body{background:#bfbfff url(img/body_bg.gif) repeat-x 0 bottom;}
+			p,input{margin:0;padding:0;}
+			.wrap{width:320px;margin:0 auto 0;position:relative;top:120px;}
+			#scroe{width:262px;height:185px;background:url(img/scroe.png) no-repeat;position:absolute;left:-90px;top:-80px;}
+			#scroe .scroeNum{height:50px;text-align: center;font-size:30px;line-height:50px;font-weigth:bold;color:#fff;font-family: Arial;}
+			.summary{width:300px;font-size:14px;line-height: 18px;color:#fff;position:absolute;bottom:200px;left:50%;margin-left: 180px;}
+		
+			#con{width: 320px;height: 436px;background: url(img/bg.png) no-repeat;margin-top:-30px;}
+			#con div{float:left;width:80px;height:109px;position: relative;}
+			#con img{vertical-align:top;border:none;width:80px;height:109px;position: absolute;top:0;left:0;}
+		
+			#mask{width:100%;height:100%;background:#000;border-radius:10px;opacity: 0.1;filter:alpha(opacity:10);position:absolute;left:0;top:0;display:none;}
+			#jump{width:260px;height:180px;background:#eccbf0;box-shadow:inset 0 0 8px #6fd9f0;position:absolute;top:150px;left:30px;border-radius:10px;display:none;}
+			#jump input{width:100px;height:36px;margin:30px 80px;}
+			#jump p{margin-top:30px;height:60px;line-height:60px;text-align:center;color:#fff;font-weight: bold;}
+		
+			#load{width:100%;height:100%;background:#bfbfff;position:absolute;top:0;left:0;z-index:1;}
+			#loadProg {width:300px;height:30px;border:1px solid #777;position:absolute;top:50%;left:50%;margin:-15px 0 0 -150px;border-radius: 5px;}
+			#loadProg .loadBar{width:0;height:30px;background:#ccc;opacity: 0.6;filter:alpha(opacity:60);}
+			#loadProg .loadNum{font:bold 14px/30px Arial;position:absolute;top:0;left:50%;}
+		</style>
+		<script type="text/javascript" src="2048.js"></script>
+		
+	</head>
+	<body>
+		<p class="summary">玩法说明：
+		<br/>1.用键盘上下左右键控制数字走向<br/>2.当点击了一个方向时，格子中的数字会全部往那个方向
+		移动，直到不能再移动，如果有相同的数字则会合并<br/>3.当格子中不再有可移动和可合并的数字时，游戏结束</p>
+		<div class="wrap">
+			<div id = "scroe">
+				<p class="scroeNum">0</p>
+			</div>
+			<div id="con">
+				<div id="00"></div>
+				<div id="01"></div>
+				<div id="02"></div>
+				<div id="03"></div>
+				<div id="10"></div>
+				<div id="11"></div>
+				<div id="12"></div>
+				<div id="13"></div>
+				<div id="20"></div>
+				<div id="21"></div>
+				<div id="22"></div>
+				<div id="23"></div>
+				<div id="30"></div>
+				<div id="31"></div>
+				<div id="32"></div>
+				<div id="33"></div>
+			</div>
+			<div id="mask"></div>
+			<div id="jump">
+				<p>恭喜你已经达到2048</p>
+				<input type="button" value="继续挑战">
+			</div>
+		</div>
+		<div id="load">
+			<div id="loadProg">
+				<div class="loadBar"></div>
+				<div class="loadNum">0%</div>
+			</div>		
+		</div>
+	</body>
+</html>

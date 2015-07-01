@@ -1,0 +1,17 @@
+<script>
+	function Person(){
+
+	}
+
+	Person.publishFun=function(){
+		alert("publishFun");
+	}
+
+	Person.prototype.breath = function(){
+		alert("privateFun") 
+	};
+	var person = new Person;
+
+	person.breath();
+	Person.publishFun();
+</script>

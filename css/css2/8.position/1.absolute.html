@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>absolute</title>
+    <style>
+        /*absulute：使元素脱离文档流，使内嵌支持宽高，使z-index控制层级，
+        z-index只支持定位元素，静态定位元素无效*/
+        .box1 {
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+            z-index: 2;
+        }
+
+        .box2 {
+            width: 200px;
+            height: 200px;
+            background: blue;
+            position: absolute;
+            z-index: 1;
+        }
+
+        /*默认z-index:auto*/
+        .box3 {
+            width: 300px;
+            height: 300px;
+            background: yellow;
+            position: absolute;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function () {
+            alert(getStyle(document.querySelector(".box3"), "zIndex"));
+        }
+
+        function getStyle(obj, attr) {
+            if (obj.currentStyle) {
+                return objF.currentStyle[attr];
+            }
+            else {
+                return getComputedStyle(obj, false)[attr];
+            }
+        }
+    </script>
+</head>
+
+<body>
+<!-- 定位元素层级后者高于前者 ,div3>div2>div1-->
+<span class="box1">div1</span>
+
+<div class="box2">div2</div>
+<div class="box3">div3</div>
+</body>
+</html>

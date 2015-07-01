@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>target</title>
+		<style>
+		div{width:300px;height:200px;background:#000; font:50px/200px "微软雅黑"; color:#fff; text-align:center; display:none;}
+		/*锚点元素，比如点击a:div1，显示hash值为div1的元素*/
+		div:target{ display:block;}
+		</style>
+	</head>
+	<body>
+		<a href="#div1">div1</a>
+		<a href="#div2">div2</a>
+		<a href="#div3">div3</a>
+		<div id="div1">div1</div>
+		<div id="div2">div2</div>
+		<div id="div3">div3</div>
+	</body>
+</html>

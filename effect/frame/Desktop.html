@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head jwcid="@Head" noneCss="true">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Asiainfo-Linkage</title>
+<style  type="text/css">
+/*定义禁示选中的CSS， Firefox、Chrome、Safaria 浏览器使用*/
+.user_select_none{-moz-user-select:none;-webkit-user-select: none;-khtml-user-select:none;}
+</style>
+<script language="javascript" src="desktop/js/desktop.js"></script>
+<script language="javascript" src="desktop/js/adapter.js"></script>
+</head>
+<body>
+
+
+
+<!-- 背景 开始 -->
+<div class="m_bg">
+	<div class="logo"></div>
+</div>
+<!-- 背景 结束 -->
+
+<!-- 桌面 开始 -->
+<div class="m_ico">
+	<ul id="shortCutList">
+		<!--<li class="add" style="left:250px; top:330px;">
+			<a href="#nogo"></a>
+		</li>-->
+	</ul>
+</div>
+<!-- 桌面 结束 -->
+
+
+
+<!-- 部件 开始 -->
+
+<!-- 部件 结束 -->
+
+
+<!-- 遮罩 开始 -->
+<div id="ddCover" class="m_cover" style="display:none;">
+	<iframe></iframe>
+	<div></div>
+</div>
+<!-- 遮罩 结束 -->
+
+
+<!-- 模拟窗口 开始 -->
+<div id="ddProxy" class="m_windowCopy" style="left:-1000px; top:-1000px;display:none"></div>
+<!-- 模拟窗口 结束 -->
+
+<!-- 菜单 开始 -->
+<div id="menuid" class="m_menu" style="display:none">
+	<div class="top"></div>
+	<div class="content">
+		<div class="user">
+			<a href="javascript:Desktop.shortcutMgr.open(13);">Edit Profile</a>
+			<a href="#nogo">Change Password</a>
+			<span></span>
+			<a href="#nogo">Help</a>
+			<a href="#nogo">Help Index</a>
+			<a href="#nogo">Site Map </a>
+			<a href="#nogo">Email Settings</a>
+			<span></span>
+			<a href="#nogo">Email Settings</a>
+			<a href="#nogo">Change</a>
+			<a href="#nogo">Screenshots</a>
+			<a class="exit" href="#nogo"></a>
+			<a class="lock" href="#nogo"></a>
+		</div>
+		<div class="menu">
+			<div class="menuTop"><span class="left"></span><span class="right"></span><span class="center"></span></div>
+			<div class="menuContent" id="menu_content">
+				<div class="root">
+					<div class="list" id="menu_root">
+						<!-- 
+						<ul id="menuid_1" menuid="1">
+							<li class="on"><a href="#nogo" onclick="">资源管理    </a></li>
+							<li><a href="#nogo">账务管理    </a></li>
+							<li><a href="#nogo">市场营销管理</a></li>
+							<li><a href="#nogo">账务管理    </a></li>
+							<li><a href="#nogo">销售管理    </a></li>
+							<li><a href="#nogo">渠道管理    </a></li>
+							<li><a href="#nogo">个人业务    </a></li>
+						</ul>
+						-->
+					</div>
+					<div class="search">
+						<input class="tip" id="menu_search" type="text" value="搜索菜单" />
+					</div>
+				</div>
+				<div class="branch" id="menu_branch">
+					<!-- 
+					<ul id="menuid_11">
+						<li class="on"><a href="#nogo">日常业务  </a></li>
+						<li><a href="#nogo">开户业务  </a></li>
+						<li><a href="#nogo">其他业务类</a></li>
+						<li><a href="#nogo">特殊业务类</a></li>
+						<li><a href="#nogo">查询类    </a></li>
+						<li><a href="#nogo">双节营销  </a></li>
+					</ul>
+					-->
+				</div>
+				<div class="leaf" id="menu_leaf">
+					<!-- 
+					<div id="leafid-1">
+						<div class="title">日常业务</div>
+						<ul id="menuid_111">
+							<li><a href="#nogo">家庭短号服务              </a></li>
+							<li><a href="#nogo">家庭客户资料综合查询      </a></li>
+						</ul>
+						<div class="title">AAA业务</div>
+						<ul id="menuid_112">
+							<li><a href="#nogo">过户                      </a></li>
+							<li><a href="#nogo">业务返销                  </a></li>
+							<li><a href="#nogo">家庭统付服务              </a></li>
+						</ul>
+					</div>
+					-->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 菜单 结束 -->
+
+<!-- 任务栏 开始 -->
+<div class="m_task" id="taskid">
+	<div class="bg"></div>
+	<div class="user">
+		<div class="ico"></div>
+		<div class="info">
+			<div class="name"><span jwcid="@Insert" value="ognl:getContext().getSession().getAttribute('__LOGIN_CUST_ACCOUNT__')"></span></div>
+			<div class="position">Customer Manager</div>
+		</div>
+		<div class="pointer"></div>
+	</div>
+	<div class="fn">
+		<ul>
+			<li class="desktop"><b></b><i></i></li>
+			<li class="widgetAdd"><b></b><i></i></li>
+			<li class="screen"><b></b><i></i></li>
+			<li class="msg"><b></b><i>6</i></li>
+			<li class="config"><b></b><i></i></li>
+		</ul>
+	</div>
+	<div class="closeAll"><b></b></div>
+	<div class="task"><!-- task-full -->
+		<table>
+			<tr id="taskItemList">
+				
+			</tr>
+		</table>
+	</div>
+</div>
+<!-- 任务栏 结束 -->
+
+</body>
+</html>

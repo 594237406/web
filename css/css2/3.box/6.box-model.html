@@ -1,0 +1,56 @@
+<!--<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">-->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>box-width-height</title>
+    <style>
+        #test {
+            border: 20px solid black;
+            margin: 15px;
+            width: 100px;
+            padding: 20px;
+            height: 100px;
+            background: red;
+        }
+
+    </style>
+    <script>
+        window.onload = function () {
+            /*
+             标准盒子模型：
+             盒子大小 = border + padding + width/height
+             盒子宽度 = 左border+左padding+width+右padding +右border
+             盒子高度 = 上border+上padding+height+下padding+下border
+             */
+
+            /*
+             混杂盒子模型：
+             盒子大小 = width/height
+             盒子宽度 = width = offsetWidth
+             盒子高度 = height = offsetHeight
+             */
+
+            if (document.compatMode == "CSS1Compat") {
+                alert("Standards mode");
+            } else {
+                alert("Quirks mode");
+            }
+            var test = document.getElementById("test");
+            alert(test.style.width);	//标准：100px，怪异：100px=offsetWidth=width(外层宽度)
+
+            //标准：180，怪异: 100
+            //标准算法：100(content)+20(padding)*2+20(border)*2
+            //怪异算法：100(offsetWidth)
+            alert(test.offsetWidth);
+
+            //标准：140，怪异: 60
+            //标准算法：100(content)+20(padding)*2
+            //怪异算法：100(offsetWidth)-20(border)*2
+            alert(test.clientWidth);	//标准：130，怪异: 60
+        }
+    </script>
+</head>
+<body>
+<div id="test"></div>
+</body>
+</html>

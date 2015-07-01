@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ability</title>
+<script type="text/javascript">
+// 	if (object.propertyInQuestion) {
+// 		// 使用 object.propertyInQuestion
+// 	}
+// 	举例来说，IE 5.0 之前的版本不支持 document.getElementById() 这个 DOM 方法。尽管可以使用非标准的 document.all 
+// 	属性实现相同的目的，但 IE 的早期版本中确实不存在 document.getElementById() 。于是，也就有了类似下面的能力检测代码：
+	function getElement(id) {
+		if (document.getElementById){
+			return document.getElementById(id);
+		} else if (document.all) {
+			return document.all[id];
+		} else {
+			throw new Error("No way to retrieve element!");
+		}
+	}
+</script>
+</head>
+<body>
+</body>
+</html>

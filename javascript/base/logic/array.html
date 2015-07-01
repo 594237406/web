@@ -1,0 +1,34 @@
+<script>
+	var a=[3,4,5];
+	a.c=7;
+	a.__proto__.sum=6;
+
+	//console.log(a.hasOwnProperty("c"))
+	//console.log(a.hasOwnProperty("sum"))
+// 	for(var i=0;i<a.length;i++){
+// 		console.log(i+":"+a[i]);	//不会输出sum
+// 	}
+	//forin 可以打印原型上的属性，打不会打印原型链的属性
+	for(var i in a){
+		console.log(i+":"+a[i]);	//会输出sum
+		
+		//删原型属性
+		if(!a.hasOwnProperty(i)){
+			//alert(1);
+			delete a.__proto__[i];
+		}
+		
+		//删属性
+		if(a.hasOwnProperty(i)){
+			delete a[i];
+		}
+	}
+	
+	for(var i in a){
+		console.log(i+":"+a[i]);	//会输出sum
+	}
+	
+	
+	
+	
+</script>

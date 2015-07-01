@@ -1,0 +1,53 @@
+<script>
+	var n=0377;
+	//alert(typeof n);						//"number"
+	//alert(n);								//"255"
+
+	/*E*/
+	var e_sub=123.456e-3;					//小数点前移3位
+	//alert(e_sub);							//0.123456
+	var e_add=123.456e+3;					//小数点后移3位
+	//alert(e_add);							//123456
+
+	/*Infinity*/
+	var infinity=Infinity;					//无穷大
+	//alert(typeof infinity);				//"number"
+	var infinity_1=1e309;	
+	//alert(infinity_1);					//"Infinity"
+	var infinity_2=6/0;	
+	//alert(infinity_2);					//"Infinity"
+	var infinity_3=-6/0;					//负无穷
+	//alert(infinity_3);					//"-Infinity"
+	var infinity_4=Infinity-Infinity;
+	//alert(infinity_4);					//"NaN"
+	var infinity_5=Infinity*2;
+	//alert(infinity_5);					//"Infinity"
+
+	/*string*/
+	var string_1="lhj";
+	string_1+="wx";
+	//alert(string_1);						//"lhjwx"
+	var string_2="100";
+	//alert(string_2*2);					//200(number)
+	//alert(string_2+2);					//1002(string)
+
+	/*bool*/
+	var bool_1=!!(""||0||undefined||null||NaN||false);	//这六值返回false
+	//alert(bool_1)							//false
+	var bool_2=b=3;							
+	//alert(bool_2);						//3
+	var bool_3=true&&(b=3);
+	//alert(bool_3);						//3
+	var bool_4=(1==="1").toString()+":"+(1=="1").toString();
+	//alert(bool_4);						//true:false
+	var bool_5=NaN==NaN;					//NaN不等于任何东西
+	//alert(bool_5);						//false				
+	
+	/*undefined、null*/
+	//alert(udf1);							//报错：未定义
+	//alert(typeof udf1)					//udefined
+	var udf_2;								//undefined				
+	var udf_3=1+undefined;					//NaN
+	var udf_4=1+null;						//1
+	
+</script>

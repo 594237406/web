@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>animation</title>
+<style>
+div{
+	width:100px;
+	height:100px;
+	background:red;
+	animation:myfirst 5s;
+	-webkit-animation:myfirst 5s; /* Safari and Chrome */
+}
+ 
+@keyframes myfirst{
+	from {background:red;}
+	to {background:yellow;}
+}
+
+@-webkit-keyframes myfirst {
+	from {background:red;}
+	to {background:yellow;}
+}
+</style>
+</head>
+<body>
+	<div></div>
+</body>
+</html>

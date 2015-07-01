@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Fade Color</title>
+<style>
+	img{
+		filter:alpha(opacity:30);
+		opacity:0.3;
+		width:400px;
+		height:280px;
+		margin: 10px;
+		
+	}
+</style> 
+<script type="text/javascript">
+	function fade(obj,alpha,target,period){
+		obj.timer=clearInterval(obj.timer);
+		obj.timer=setInterval(function(){
+			if(alpha==target){
+				clearInterval(obj.timer);
+			}else{
+				var speed=(target-alpha)/8;
+				speed=speed>0?Math.ceil(speed):Math.floor(speed);
+				if(alpha==target){
+					clearInterval(obj.timer);
+				}else{
+					alpha+=speed;
+				}
+
+				obj.style.filter="alpha(opacity:"+alpha+")";
+				obj.style.opacity=alpha/100;
+				console.log(alpha);
+			}
+		},period);
+	}
+	
+	window.onload=function(){
+		var imgs=document.getElementsByTagName("img");
+		
+		for(var i=0;i<imgs.length;i++){
+			var img=imgs[i];
+			img.timer=null;
+			img.onmouseover=function(){
+				fade(this,30,100,30);
+			}
+			
+			img.onmouseout=function(){
+				fade(this,100,30,30);
+			}
+		}
+	}
+</script>
+</head>
+<body>
+	<img src="fade1.jpg">
+	<img src="fade2.jpg">
+	<img src="fade3.jpg">
+</body>
+</html>

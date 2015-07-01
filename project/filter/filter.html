@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8"/>
+<title>Filter</title>
+<script type="text/javascript" src="data.js"></script>
+
+<script type="text/javascript" src="filter/jUtils.js"></script>
+<script type="text/javascript" src="filter/jAnimate.js"></script>
+<script type="text/javascript" src="filter/jFilter.js"></script>
+<link rel="stylesheet" type="text/css" href="filter/jFilter.css">
+<script type="text/javascript">
+	$(function(){
+		//加载漏斗
+		var filter=new JFilter("filter",datas2);
+		configAnimate();
+	})
+	
+	//动画效果
+	function configAnimate(){
+		//动画效果
+		var height=$("#filterFrame").elements[0].offsetHeight;
+		$("#filterFrame").css("height", "0px");
+		$(".connectLine").css("display", "none");
+ 		$("#filterFrame").animate({"height":height},function(){
+ 			$(".connectLine").css("display", "block");
+ 		});
+	}
+
+</script>
+</head>
+<body>
+	<div id="filterFrame" class="filterFrame">
+		<table id="filter" class="filter"></table>
+	</div>
+</body>
+</html>

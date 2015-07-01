@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+	<script type="text/javascript">
+		window.onload=function(){
+			var text=document.querySelector("#text");
+			text.addEventListener("invalid",fn,false);
+			
+			var text=document.querySelector("#email");
+			text.addEventListener("invalid",fn,false);
+			
+		}
+		
+		function fn(){
+			var validity=this.validity;		// valid message
+			
+			
+			alert("is null:"+validity.valueMissing);				// is null
+			alert("is pass:"+validity.valid);						// is pass
+			alert("type error:"+validity.typeMismatch);				// type error
+			alert("pattern error:"+validity.patternMismatch);		// pattern
+			
+			//valueMissing   当输入值为空的时候返回true
+			//typeMismatch   当输入类型和要求的类型不一致的时候返回true
+			//patternMismatch 当用户输入的内容和预期的正则要求不匹配 返回true
+			//tooLong 当用户输入的长度 超出了maxlength的限制 返回true
+			//rangeOverflow 当用户选择范围超出范围
+		}
+	</script>
+
+	<body>
+		<form id="testform" action="x.jsp">
+			Text<input placeholder="input me" autocomplete  required id="text" pattern="\d{1,5}" /><br/>
+			Email<input type="email" placeholder="example@163.com" id="email"/><br/>
+			<input type="submit"  value="save" />
+			<input type="submit" value="save to drafts" formaction="http://www.qq.com" formnovalidate />
+		</form>
+		
+	</body>
+</html>
+
+

@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>gradient</title>
+		<script>
+			window.onload=function(){
+				var c=getCanvas();
+				
+				//xStrat,yStart,xEnd,yEnd
+				var my_gradient=c.createLinearGradient(0,0,300,225);
+				my_gradient.addColorStop(0,"black");
+				my_gradient.addColorStop(1,"white");
+				
+				c.fillStyle=my_gradient;
+				c.fillRect(0,0,300,225);
+				
+				var my_gradient=c.createLinearGradient(0,0,300,0);
+				my_gradient.addColorStop(0,"red");
+				my_gradient.addColorStop(1,"green");
+				
+				c.fillStyle=my_gradient;
+				c.fillRect(0,250,300,225);
+			}
+			
+			function getCanvas(){
+				var elem = document.getElementById('myCanvas');    
+				if (elem && elem.getContext) {    
+					var context = elem.getContext('2d');
+					return context;
+				}
+			}
+		</script>
+		
+		<style>
+			canvas{
+				border: 1px solid black;	
+			}
+		</style>
+	</head>
+
+	<body>
+		<canvas id="myCanvas" width="500" height="500">    
+			Fallback content, in case the browser does not support Canvas.    
+		</canvas>  
+	</body>
+</html>

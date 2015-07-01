@@ -1,0 +1,106 @@
+<!DOCTYPE>
+	<html>
+		<head>
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+			<title>arc</title>
+			<script>
+				window.onload=function(){
+					var canvas=document.getElementById("canvas");
+					
+					//获得绘图环境,目前没有3D，使用webgl制作3D绘图
+					var ce=canvas.getContext("2d");
+					
+					function drawClock(){
+						ce.clearRect(0,0,canvas.width,canvas.height);
+						
+						var date=new Date();
+						
+						var iHour=date.getHours();
+						var iMunite=date.getMinutes();
+						var iSecond=date.getSeconds();
+// 						alert(iHous);
+// 						alert(iMunite);
+// 						alert(iSecond);
+
+						var rHour=(iHour*30+iMunite/2-90)*Math.PI/180;
+						var rMunite=(iMunite*6+iSecond/10-90)*Math.PI/180;
+						var rSecond=(iSecond*6-90)*Math.PI/180;
+
+						var x=200;
+						var y=200;
+						var r=150;
+						
+						ce.beginPath();
+						for(var i=0;i<60;i++){
+							ce.moveTo(x,y);
+							ce.arc(x,y,r,i*6*Math.PI/180,(i+1)*6*Math.PI/180,false);
+						}
+						ce.closePath();
+						ce.stroke();
+						
+						ce.beginPath();
+						ce.fillStyle="#FFFFFF";
+						ce.moveTo(x,y);
+						ce.arc(x,y,r*19/20,0,360*Math.PI/180,false);
+						ce.closePath();
+						ce.fill();
+						
+						ce.beginPath();
+						ce.lineWidth=3;
+						for(var i=0;i<12;i++){
+							ce.moveTo(x,y);
+							ce.arc(x,y,r,i*30*Math.PI/180,(i+1)*30*Math.PI/180,false);
+						}
+						ce.closePath();
+						ce.stroke();
+						
+						ce.beginPath();
+						ce.fillStyle="#FFFFFF";
+						ce.moveTo(x,y);
+						ce.arc(x,y,r*18/20,0,360*Math.PI/180,false);
+						ce.closePath();
+						ce.fill();
+						
+						
+						ce.beginPath();
+						ce.lineWidth=5;
+						ce.moveTo(x,y);
+						ce.arc(x,y,r*14/20,rHour,rHour,false);
+						ce.closePath();
+						ce.stroke();
+						
+						ce.beginPath();
+						ce.lineWidth=3;
+						ce.moveTo(x,y);
+						ce.arc(x,y,r*16/20,rMunite,rMunite,false);
+						ce.closePath();
+						ce.stroke();
+						
+						ce.beginPath();
+						ce.lineWidth=1;
+						ce.moveTo(x,y);
+						ce.arc(x,y,r*18/20,rSecond,rSecond,false);
+						ce.closePath();
+						ce.stroke();
+					}
+					
+					drawClock();
+					setInterval(drawClock,1000);
+				}
+			</script>
+			<style type="text/css">
+				body{background: black;	}
+				
+				/*默认300*150*/
+				canvas{background: white;}
+				
+				span{background: white;}
+			</style>
+		</head>
+	<body>
+		<!-- 标签上写宽高，style设置会等比例缩放，比如设置成300*300，则画布元素纵向会被缩放2倍 -->
+		<canvas width="400" height="400" id="canvas">
+			<span>浏览器不支持canvas</span>
+		</canvas>
+	</body>
+</html>

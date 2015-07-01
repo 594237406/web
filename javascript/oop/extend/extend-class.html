@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>extend-class</title>
+		<script>
+			//类 : JS是没有类的概念的 , 把JS中的构造函数看做的类
+			//要做属性和方法继承的时候，要分开继承
+			
+			
+			function Aaa(){   //父类
+				this.name = [1,2,3];
+			}	
+			Aaa.prototype.showName = function(){
+				alert( this.name );
+			};
+			
+			//错误的类继承方法：原型继承对象，原型会有对象（this）的属性，而原型中不应该出现对象的属性
+// 			function Bbb(){   //子类
+// 			}
+			
+// 			//Bbb的原型对象=Aaa对象
+// 			var a1=new Aaa();
+// 			Bbb.prototype=a1;
+// 			Bbb.prototype.constructor = Bbb; 			//修正指向问题
+			
+// 			//Bbb对象找Bbb原型对象，没有找到，Bbb原型对象=Aaa对象，Aaa对象找Aaa原型对象，找到showName方法
+// 			var b1=new Bbb();
+// 			b1.name.push(4);
+// 			b1.showName();								//1,2,3,4
+			
+// 			//无论b1,b2，都引用Aaa对象
+// 			var b2=new Bbb();
+// 			b2.showName();								//1,2,3,4
+			
+			
+			//类继承原理
+			//a1对象的属性赋给了Bbb原型对象，所以a1会改变，但是a2是新创建，不会改变值
+//			var a2=new Aaa();
+// 			a1.showName();								//1,2,3,4
+// 			a2.showName();								//1,2,3
+			
+			function Bbb(){   //子类
+				Aaa.call(this);
+			}
+			//F只做方法继承,F没有属性，B的属性采用构造函数继承
+			var F = function(){};
+			F.prototype = Aaa.prototype;
+			Bbb.prototype = new F();
+			Bbb.prototype.constructor = Bbb; 			//修正指向问题
+			
+			
+			//b1《Bbb的原型对象《F对象《F原型对象=A原型对象
+			var b1 = new Bbb();
+			alert( b1.constructor );	//Bbb类
+			b1.name.push(4);
+			b1.showName();				//1，2，3
+			var b2 = new Bbb();
+			alert( b2.name );
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

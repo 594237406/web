@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Uniform Speed Stop Util</title>
+<style>
+	#shareDiv{
+		width:100px;
+		height:200px;
+		background: #CCCCCC;
+		position: absolute;
+		left:-100px;
+		top:50px;
+	}
+	
+	#shareSpan{
+		width:20px;
+		height:60px;
+		background: yellow;
+		position: absolute;
+		left:100px;
+		top:70px;
+	}
+</style> 
+<script type="text/javascript">
+	var timer;
+	function move(obj,distance,period,target,direction){
+		timer=clearInterval(timer);
+		timer=setInterval(function(){
+			var offset;
+			if(direction=="left"||direction=="right"){
+				offset="offsetLeft";
+				direction="left";
+			}else if(direction=="top"||direction=="bottom"){
+				offset="offsetTop";
+				direction="top";
+			}
+			
+			if(obj[offset]==target){	//如果每次运动值
+				clearInterval(timer);
+			}else{
+				console.log(direction+":"+ (obj[offset]+ distance) +"px");
+				obj["style"].cssText=direction+":"+ (obj[offset]+ distance) +"px";
+			}
+		},period);
+	}
+	
+	window.onload=function(){
+		var shareDiv=document.getElementById("shareDiv");
+		
+		shareDiv.onmouseover=function(){
+			move(this,5,30,0,"right");
+		}
+		
+		shareDiv.onmouseout=function(){
+			move(this,-5,30,-100,"left");
+		}
+	}
+</script>
+</head>
+<body>
+	<div id="shareDiv">
+		<span id="shareSpan">分享到</span>
+	</div>
+</body>
+</html>

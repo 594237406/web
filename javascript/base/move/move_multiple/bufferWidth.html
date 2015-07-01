@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Uniform Speed Stop</title>
+<style>
+	div{
+		width:100px;
+		height:50px;
+		background: red;
+		margin-top: 50px;
+	}
+</style> 
+<script type="text/javascript">
+	window.onload=function(){
+		var div=document.getElementsByTagName("div");
+		for(var i=0;i<div.length;i++){
+			div[i].timer=null;
+			div[i].onmouseover=function(){
+				changeWidth(this,300);
+			}
+			
+			div[i].onmouseout=function(){
+				changeWidth(this,100);
+			}
+		}
+		
+
+	}
+	
+	function changeWidth(obj,target){
+		clearInterval(obj.timer);
+		obj.timer=setInterval(function(){
+			var speed=(target-obj.offsetWidth)/8;
+			speed=speed>0?Math.ceil(speed):Math.floor(speed);
+			
+			if(obj.offsetWidth==target){
+				clearInterval(obj.timer);
+			}else{
+				obj.style.width=obj.offsetWidth+speed+"px";
+			}
+		},30);
+	}
+</script>
+</head>
+<body>
+	<div></div> 
+	<div></div> 
+	<div></div> 
+</body>
+</html>

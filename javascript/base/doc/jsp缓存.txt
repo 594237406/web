@@ -1,0 +1,59 @@
+页面缓存技术
+一.概述   
+    页面缓存实现原理:服务器（并非浏览器）会把返回的页面存储在缓存文件夹中，当再次请求服务器的时候，会根据设置判断是否请求服务器，设置
+    参数如下：
+   	（1） 打开新窗口
+	如果指定cache-control的值为private、no-cache、must-revalidate，那么打开新窗口访问时都会重新访问服务器。
+	而如果指定了max-age值，那么在此值内的时间里就不会重新访问服务器，例如：Cache-control: max-age=5，表示当访问此网页后的5秒内再次访问不会去服务器	
+	（2） 在地址栏回车
+	如果值为private或must-revalidate（和网上说的不一样），则只有第一次访问时会访问服务器，以后就不再访问。
+	如果值为no-cache，那么每次都会访问。如果值为max-age，则在过期之前不会重新访问。
+	（3） 按后退按扭
+	如果值为private、must-revalidate、max-age，则不会重访问，
+	而如果为no-cache，则每次都重新访问
+	（4） 按刷新按扭
+	无论为何值，都会重新访问 
+	
+	当指定Cache-control值为“no-cache”时，访问此页面不会在Internet临时文章夹留下页面备份。
+	另外，通过指定“Expires”值也会影响到缓存。
+	例如，指定Expires值为一个早已过去的时间，那么访问此网时若重复在地址栏按回车，那么每次都会重复访问：
+	Expires: Fri, 31 Dec 1999 16:00:00 GMT 
+	Expires值是可以通过在Internet临时文件夹中查看临时文件的属性看到的
+
+二.禁用缓存
+
+1.服务端方法： 
+
+<％   
+	response.setHeader("Pragma","No-cache");    
+	response.setHeader("Cache-Control","no-cache");    
+	response.setDateHeader("Expires", -10);   
+％>  
+2.客户端方法： 
+
+<meta http-equiv="pragma" content="no-cache"> 
+<meta http-equiv="cache-control" content="no-cache"> 
+<meta http-equiv="expires" content="0">   
+
+http-equiv属性 
+1、＜meta http-equiv="Content-Type" contect="text/html";charset=gb_2312-80"＞ 和 ＜meta http-equiv="Content-Language" contect="zh-CN"＞
+用以说明主页制作所使用的文字以及语言；又如英文是ISO-8859-1字符集，还有BIG5、utf-8、shift-Jis、Euc、Koi8-2等字符集； 
+2、＜meta http-equiv="Refresh" contect="n;url=http://yourlink"＞
+定时让网页在指定的时间n内，跳转到页面http;//yourlink； 
+3、＜meta http-equiv="Expires" contect="Mon,12 May 2001 00:20:00 GMT"＞
+可以用于设定网页的到期时间，一旦过期则必须到服务器上重新调用。需要注意的是必须使用GMT时间格式； 
+4、＜meta http-equiv="Pragma" contect="no-cache"＞
+是用于设定禁止浏览器从本地机的缓存中调阅页面内容，设定后一旦离开网页就无法从Cache中再调出； 
+5、＜meta http-equiv="set-cookie" contect="Mon,12 May 2001 00:20:00 GMT"＞
+cookie设定，如果网页过期，存盘的cookie将被删除。需要注意的也是必须使用GMT时间格式；  
+
+  三.设置有限时间的缓存 
+int minutes = 10; 
+Date d = new Date(); 
+String modDate = d.toGMTString(); 
+String expDate = null; 
+expDate = (new Date(d.getTime() + minutes * 60000)).toGMTString(); 
+response.setHeader("Last-Modified", modDate); 
+response.setHeader("Expires", expDate); 
+response.setHeader("Cache-Control", "public"); //   HTTP/1.1 
+response.setHeader("Pragma", "Pragma"); //   HTTP/1.0  

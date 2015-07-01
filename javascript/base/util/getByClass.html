@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>getByClass</title>
+		<script type="text/javascript">
+			function getByClass(oParent, sClass) {
+				var aEle = oParent.getElementsByTagName('*');
+				var aResult = [];
+				var re = new RegExp('\\b' + sClass + '\\b', 'i');
+				for ( var i = 0; i < aEle.length; i++) {
+					if (re.test(aEle[i].className)) {
+						aResult.push(aEle[i]);
+					}
+				}
+				return aResult;
+			}
+		</script>
+	</head>
+<body>
+
+</body>
+</html>

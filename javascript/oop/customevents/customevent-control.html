@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>customevent-control</title>
+		<script type="text/javascript">
+		
+			window.onload=function(){
+				var test=document.getElementById("test");
+				
+				bindEvents(test,"show",function(){alert(1)});
+				bindEvents(test,"show",function(){alert(2)});
+				bindEvents(test,"show",function(){alert(3)});
+				
+				
+				var control=new Control();
+				control.bindEvent("show",function(ev){
+					alert("own-show-event");
+				})
+			}
+		
+			function bindEvents(obj,event,fn){
+				obj.listeners=obj.listeners||{};
+				obj.listeners[event]=obj.listeners[event]||[];
+				obj.listeners[event].push(fn);
+				if(obj.nodeType){
+					if(obj.addEventListeners){
+						obj.addEventListeners(event,fn,false);
+					}else{
+						obj.attachEvent("on"+event,fn);
+					}
+				}
+			}
+			
+			function actionAction(obj,event){
+				for(var i=0;i<obj.listeners[event].length;i++){
+					obj.listeners[event][i]();				
+				}
+			}
+			
+			function Control(){
+				//打印出每个自定义事件
+				actionAction(test,"show");
+			}
+			
+			Control.prototype.bindEvent=function(event,fn){
+				if(event=="show"){
+					fn();
+				}
+			} 
+		
+		</script>
+	</head>
+	<body>
+		<input id="test"/>
+	</body>
+</html>

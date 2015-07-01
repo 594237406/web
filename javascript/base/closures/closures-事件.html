@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>closures-事件.html</title>
+		<script type="text/javascript">
+			//每次弹出结果都是3
+// 			window.onload=function(){
+// 				var lis=document.getElementsByTagName("li");
+// 				for(var i=0;i<lis.length;i++){
+// 					var li=lis[i];
+// 					li.onclick=function(){
+// 						alert(i);
+// 					}
+// 				}
+// 			}
+			
+			window.onload=function(){
+				var lis=document.getElementsByTagName("li");
+				for(var i=0;i<lis.length;i++){
+					var li=lis[i];
+					(function(i){
+						li.onclick=function(){
+							alert(i);
+						}
+					})(i)
+				}
+			}
+		</script>
+	</head>
+	<body>
+		
+		<ul>
+			<li>1111</li>
+			<li>1111</li>
+			<li>1111</li>
+		</ul>
+	</body>
+</html>

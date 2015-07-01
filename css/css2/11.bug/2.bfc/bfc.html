@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=utf-8/>
+    <title>BFC内相邻的块级盒子边距叠加</title>
+    <style>
+        body {
+            overflow: hidden;
+            margin: 0px;
+        }
+
+        .p {
+            float: left;
+        }
+
+        .r {
+            width: 50px;
+            height: 50px;
+            background: #ddd;
+            margin: 10px;
+            /*如果内部元素也是bfc,外边距叠加*/
+            /*  			float: left;	 */
+        }
+
+        /*外边距不会叠加,取最大值*/
+        .a {
+            margin-bottom: 50px;
+        }
+
+        .b {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="p">
+    <div class="r a"></div>
+    <div class="r b"></div>
+    <div class="r"></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,187 @@
+<?xml version="1.0" standalone="yes"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" id="svg" version="1.1" onload="init(evt)"
+	xmlns="http://www.w3.org/2000/svg"
+	xmlns:xlink="http://www.w3.org/1999/xlink">
+	<defs>
+		 <marker id="markerArrow" markerWidth="13" markerHeight="13" refx="10" refy="6" orient="auto">
+			 <path d="M2,2 L2,11 L10,6 L2,2" style="fill: #000000;" />
+		 </marker>
+	<defs>
+	 
+</svg>
+<script>
+	var svgdoc = null;
+
+	function init(evt) {
+		var ev = evt.target || event;
+		svgdoc = ev.ownerDocument;
+		var test1 = DrawNode({x:0,y:0,width:50,height:50,id:"test1",label:'test1'});
+		var test2 = DrawNode({x:300,y:0,width:50,height:50,id:"test2",label:'test2'});
+		var test3 = DrawNode({x:300,y:100,width:50,height:50,id:"test3",label:'test3'});
+		Drag(test1);
+		Drag(test2);
+		Drag(test3);
+		DrawLine(test1, test2);
+		DrawLine(test2, test3);
+	}
+
+	function DrawNode(node){
+		var rect = svgdoc.createElementNS('http://www.w3.org/2000/svg', 'rect');
+		
+		for(var i in node){
+			rect.setAttribute(i,node[i]);
+			
+		
+		}
+		var text = svgdoc.createElementNS('http://www.w3.org/2000/svg', 'text');
+		text.innerHTML=node.label;
+		text.setAttribute("id","text"+node.id);
+		text.setAttribute("x",parseInt(rect.getAttribute("x"))+5);
+		text.setAttribute("y",parseInt(rect.getAttribute("y"))+30);
+		text.setAttribute("textDecoration","none");
+		text.style.pointerEvents="all";
+		svgdoc.getElementById("svg").appendChild(text);
+
+		rect.style.cssText="fill:red;stroke:black;stroke-width:1;opacity:0.3";
+		svgdoc.getElementById("svg").appendChild(rect);
+		return rect;
+	}
+
+	function Drag(obj) {
+		obj.onmousedown = function(ev) {
+			var ev = ev || event;
+
+			var dixX = ev.clientX - 8 - obj.getAttribute("x");
+			var dixY = ev.clientY - 8 - obj.getAttribute("y");
+
+			document.onmousemove = function(ev) {
+				var ev = ev || event;
+
+				var x = ev.clientX - 8 - dixX;
+				var y = ev.clientY - 8 - dixY;
+				obj.setAttribute("x", x);
+				obj.setAttribute("y", ev.clientY - 8 - dixY);
+				
+				var label=svgdoc.getElementById("text"+obj.getAttribute("id"));
+				label.setAttribute("x", x+5);
+				label.setAttribute("y", ev.clientY - 8 - dixY+30);
+
+				if (obj.target) {
+					
+					var targetLine=obj.target;
+					var targetNode=targetLine.target;
+					
+					var a=parseInt(obj.getAttribute("width"));
+					var b=parseInt(obj.getAttribute("height"));
+					var c=parseInt(targetNode.getAttribute("width"));
+					var d=parseInt(targetNode.getAttribute("height"));
+					var s_x=parseInt(obj.getAttribute("x"))+a/2;
+					var s_y=parseInt(obj.getAttribute("y"))+b/2;
+					var t_x=parseInt(targetNode.getAttribute("x"))+c/2;
+					var t_y=parseInt(targetNode.getAttribute("y"))+d/2;
+					
+					var pos=getRoutePoint(s_x,s_y,t_x,t_y,a,b,c,d);
+					
+					obj.target.setAttribute("x1", pos.from.x);
+					obj.target.setAttribute("y1", pos.from.y);
+					obj.target.setAttribute("x2", pos.to.x);
+					obj.target.setAttribute("y2", pos.to.y);
+				}
+
+				if (obj.source) {
+					
+					var sourceLine=obj.source;
+					var sourceNode=sourceLine.source;
+					
+					var a=parseInt(sourceNode.getAttribute("width"));
+					var b=parseInt(sourceNode.getAttribute("height"));
+					var c=parseInt(obj.getAttribute("width"));
+					var d=parseInt(obj.getAttribute("height"));
+					var s_x=parseInt(sourceNode.getAttribute("x"))+a/2;
+					var s_y=parseInt(sourceNode.getAttribute("y"))+b/2;
+					var t_x=parseInt(obj.getAttribute("x"))+c/2;
+					var t_y=parseInt(obj.getAttribute("y"))+d/2;
+					var pos=getRoutePoint(s_x,s_y,t_x,t_y,a,b,c,d);
+					
+					obj.source.setAttribute("x1", pos.from.x);
+					obj.source.setAttribute("y1", pos.from.y);
+					obj.source.setAttribute("x2", pos.to.x);
+					obj.source.setAttribute("y2", pos.to.y);
+				}
+
+			}
+
+			document.onmouseup = function(ev) {
+				document.onmousemove = null;
+			}
+		}
+	}
+
+	function DrawLine(source, target) {
+
+		var s_centerX = parseInt(source.getAttribute("x"))+ parseInt(source.getAttribute("width")) / 2;
+		var s_centerY = parseInt(source.getAttribute("y"))+ parseInt(source.getAttribute("height")) / 2;
+		var t_centerX = parseInt(target.getAttribute("x"))+ parseInt(source.getAttribute("width")) / 2;
+		var t_centerY = parseInt(target.getAttribute("y"))+ parseInt(source.getAttribute("height")) / 2;
+		
+		var a=parseInt(source.getAttribute("width"));
+		var b=parseInt(source.getAttribute("height"));
+		var c=parseInt(target.getAttribute("width"));
+		var d=parseInt(target.getAttribute("height"));
+		var pos=getRoutePoint(s_centerX,s_centerY,t_centerX,t_centerY,a,b,c,d);
+		
+		var line = svgdoc.createElementNS('http://www.w3.org/2000/svg', 'line');
+		line.setAttribute("x1", pos.from.x);
+		line.setAttribute("y1", pos.from.y);
+		line.setAttribute("x2", pos.to.x);
+		line.setAttribute("y2", pos.to.y);
+		line.setAttribute("marker-end", "url(#markerArrow)")
+		line.setAttribute("style", "stroke:rgb(99,99,99);stroke-width:2");
+		
+		line.source=source;
+		line.target=target;
+
+		source.target = line;
+		target.source = line;
+
+		svgdoc.getElementById("svg").appendChild(line);
+	}
+
+	function getRoutePoint(src_x,src_y,tgt_x,tgt_y,src_w,src_h,tgt_w,tgt_h){
+		var linePoint = new Object();
+    	var from_x;
+    	var from_y;
+    	var to_x;
+    	var to_y;
+        
+        var anglePI = Math.atan2(src_y - tgt_y,tgt_x - src_x);	//计算直线倾斜度
+        var angle = anglePI/Math.PI;
+    	if(-0.25 <= angle && angle <= 0.25){
+    		from_x = src_x + src_w/2;
+    		from_y = src_y - (src_w/2)*(src_y - tgt_y)/(tgt_x - src_x);
+    		to_x = tgt_x - tgt_w/2;
+    		to_y = tgt_y + (tgt_w/2)*(src_y - tgt_y)/(tgt_x - src_x);
+    	}else if(0.25 < angle && angle < 0.75){
+    		from_x = src_x + (src_h/2)*(tgt_x - src_x)/(src_y - tgt_y);
+    		from_y = src_y - src_h/2;
+    		to_x = tgt_x - (tgt_h/2)*(tgt_x - src_x)/(src_y - tgt_y);
+    		to_y = tgt_y + tgt_h/2;
+    	}else if(0.75 <= angle || angle <= -0.75){
+    		from_x = src_x - src_w/2;
+    		from_y = src_y + (src_w/2)*(src_y - tgt_y)/(tgt_x - src_x);
+    		to_x = tgt_x + tgt_w/2;
+    		to_y = tgt_y - (tgt_w/2)*(src_y - tgt_y)/(tgt_x - src_x);
+    	}else if(-0.75 < angle && angle < -0.25){
+    		from_x = src_x - (src_h/2)*(tgt_x - src_x)/(src_y - tgt_y);
+    		from_y = src_y + src_h/2;
+    		to_x = tgt_x + (tgt_h/2)*(tgt_x - src_x)/(src_y - tgt_y);
+    		to_y = tgt_y - tgt_h/2;
+    	}
+    	linePoint.from= {x:from_x,y:from_y};
+    	linePoint.to = {x:to_x,y:to_y};
+    	return linePoint;
+	}
+
+</script>

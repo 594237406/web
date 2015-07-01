@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<title>reduce</title>
+<script src="underscore.js"></script>
+</head>
+<body>
+<div id="div1" name="div1"></div>
+</body>
+<script>
+	/*
+		_.reduce(list, iterator, memo, [context]) 别名: inject, foldl 
+		也被称为 inject 和 foldl, reduce 将一个 list 里的所有值归结到一个单独的数值. Memo 是归结的初始值, 而且每一步都由 iterator返回. 
+		迭代器 iterator 会传入四个参数: memo, value 和迭代的索引index (或 key), 最后还有对整个 list 的一个引用.
+	*/
+	/*iterator 参数说明：第一次迭代a：array[0],b:array[1],第一次迭代：array[1],b:array[2]以此类推，如果有默认值，a:默认值，b：array[0]*/
+	var sum = _.reduce([1, 2, 3], function(memo, num){ return memo + num; }, 50);
+	console.log(sum);
+
+	sum = _.reduce({a:1,b:2,c:3}, function(memo, num,key){ 
+			console.log(key);
+			return memo + num; 
+		},
+	50);
+	console.log(sum);
+
+	concat = _.reduce(["a","b","c"], function(a, b){ 
+		return a.concat(b); 
+	});
+	console.log(concat);
+
+	concat = _.reduce([["a","b","c"],["d","e"],["f"]], function(a, b){ 
+		console.log("a:"+a);
+		console.log("b:"+b);
+		return a.concat(b); 
+	},"50");
+	console.log(concat);
+</script>
+
+</html>

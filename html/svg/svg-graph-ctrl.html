@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>svg-graph-ctrl</title>
+	<style>
+		#div1{ width:400px; height:400px; background:white;}
+		body{ background:black;}
+	</style>
+	</head>
+	
+	<body>
+		<div id="div1">
+			<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+				<!-- 整体标签，不支持x,y,cx,cy，因为这些不是共有属性，支持共有属性，如 -->
+				<g transform="translate(100,100)" stroke-width="5" stroke="red">
+					<circle  r="40" style="fill:transparent;"></circle>
+					<circle  r="30" style="fill:transparent;"></circle>
+					<circle  r="20" style="fill:transparent;"></circle>
+					<circle  r="10" style="fill:transparent;"></circle>
+				</g>
+		    </svg>
+		</div>
+	</body>
+</html>

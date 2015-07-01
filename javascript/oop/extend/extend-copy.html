@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>extend-copy</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<script>
+		window.onload=function(){
+			
+		}
+		
+		function Person(name,sex){
+			this.name=name;
+			this.sex=sex;
+		}
+		
+		Person.prototype.showName=function(){
+			alert("Person:"+this.name);
+		}
+		
+		function Worker(name,sex,job){
+			//没有调用对象，默认window,在window添加 name和sex
+			//Person(name,sex);
+			//伪装构造函数
+			Person.call(this,name,sex);		//为了赋值当前对象:Worker
+			this.job=job;
+		}
+		
+		//原型链继承,父类会出现子类方法,子类修改父类方法，父类方法也会改变，因为子类引用父类原型链，子类原型指向父类原型,并且会改变对象.constructor指向，会指向父类
+		//Worker.prototype=Person.prototype;	
+		
+		//原型链分步继承，父类不会出现子类方法，因为子类与父类原型是单独的，函数不能被修改（见最后注释），只能重新赋值，所以子类修改方法，父类方法没有改变,constructor指向，会指向子类
+		for(var i in Person.prototype){
+			Worker.prototype[i]=Person.prototype[i];	
+		}
+		
+		Worker.prototype.showName=function(){
+			alert("worker:"+this.name)
+		}
+		
+		Worker.prototype.showJob=function(){
+			alert(this.job)
+		}
+		
+		var person=new Person("Person");
+		person.showName();
+		
+		var worker=new Worker('lhj','man','work');
+		//alert(worker.constructor);		//构造器没有改变，原型链指向Worker.prototype
+		worker.showName();
+		worker.showJob();
+		
+		//方法不能被修改
+		var a = [1,2,3];
+		var b = a;
+		//b.push(4);		//修改
+		b = [1,2,3,4];		//重新赋值，函数采用这种方式
+		alert(a);
+	</script>
+  </head>
+  
+  <body >
+   	<div id="drag1"></div>
+   	<div id="drag2"></div>
+  </body>
+</html>

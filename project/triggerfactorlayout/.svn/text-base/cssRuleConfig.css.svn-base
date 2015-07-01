@@ -1,0 +1,327 @@
+.ruleConfig_area {
+	width: 1004px;
+	height: 600px;
+	border: 0px solid #D3D3D3;
+	background-repeat: repeat-y;
+}
+
+.ruleConfig_ruleTitle {
+	width: 1000px;
+	height: 30px;
+	border: 1px solid #D3D3D3;
+	border-bottom: 0px solid #D3D3D3;
+	color: black;
+	vertical-align: middle;
+	line-height: 30px;
+	font-size: 20px;
+}
+
+.ruleConfig_ruleTitleText{
+	float: left;
+	width: 400px;
+	height: 30px;
+}
+
+.ruleConfig_controlPanel {
+	float: left;
+	width: 200px;
+	height: 30px;
+	font-size: 16px;
+}
+
+.ruleConfig_hint {
+	float: left;
+	width: 400px;
+	height: 30px;
+	font-size: 16px;
+	color:red;
+}
+
+
+.ruleConfig_secondGroupPanel {
+	border: 0px solid #CC9933;
+	float: left;
+	vertical-align: middle;
+}
+
+.ruleConfig_groupPanel{
+	border: 1px solid #D3D3D3;
+	border-right: 0px solid #D3D3D3;
+	width: 400px;
+	float: left;
+}
+
+.ruleConfig_groupConnectImg {
+	width: 20px;
+	height: 2px;
+	float: left;
+}
+
+.ruleConfig_eachGroupSingle {
+	font-family: Helvetica;
+	font-weight: bold;
+	color: #559EE1;
+	overflow: hidden;
+	background: #F2F2F2;
+	color: #1D7DD7;
+	text-align: center;
+}
+
+.ruleConfig_eachGroupDouble {
+	font-family: Helvetica;
+	font-weight: bold;
+	color: #559EE1;
+	overflow: hidden;
+	background: #FCFCFC;
+	color: #1D7DD7;
+	text-align: center;
+}
+
+.ruleConfig_eachGroupText {
+	color: #1D7DD7;
+	text-align: center;
+	float: left;
+}
+
+.ruleConfig_eachGroupLabel{
+	background: white;
+	border:1px dotted black;
+	margin-top: 37px;
+	width:100px;
+	height:25px;
+	line-height:25px;
+	text-align: center;
+}
+
+.ruleConfig_groupRelationImg {
+	width: 44px;
+	float: left;
+}
+
+.ruleConfig_divClear{
+	clear: both;
+}
+ 
+.ruleConfig_ruleGround {
+	width: 600px;
+	border-right: 1px solid  #C1C0C5;
+	border-bottom: 1px solid  #C1C0C5;
+	border-top: 1px solid  #C1C0C5;
+	height: 500px;
+	float: left;
+	overflow-x:auto;
+	overflow-y:hidden;
+	background-repeat: repeat-y;
+}
+
+.ruleConfig_rulesGroup {
+	width: 1000px;
+	overflow-y:auto;
+	text-align: left;
+	border-bottom: 1px dotted  #C1C0C5;
+}
+
+.ruleConfig_tip {
+	position: absolute;
+	width: auto;
+	height: 20px;
+	background-color: #49AEDC;
+	border: 1px inset #CC9933;
+	color: white;
+	font-size:16px;
+	padding-left:5px;
+	padding-right:5px;
+	z-index: 20;
+}
+
+.ruleConfig_rulesEdit{
+	width:56px;
+	height:23px;
+	margin-top: 2px;
+	border:0px solid black;
+	background: url("bg_rule_edit.png");
+	margin-left: 500px;
+}
+
+.ruleConfig_rulePanel {
+	border: 0px solid black;
+	height: 25px;
+	margin-left: 10px;
+	display:block;
+	margin-bottom: 3px;
+	width: auto;
+}
+
+.ruleConfig_rule {
+	width: 120px;
+	height: 25px;
+	border: 0px solid black;
+	text-align: left;
+	color: white;
+	font-weight: bold;
+	padding-left:20px;
+	padding-top:3px;
+	float:left;
+	background:#1d7dd7 url("btn_rule.png");
+	background-repeat: no-repeat;
+}
+
+.ruleConfig_ruleLabel{
+	width: 120px;
+	height: 25px;
+	overflow:hidden; 
+	white-space:nowrap; 
+	text-overflow:ellipsis;
+}
+
+.ruleConfig_ruleValuePanel{
+	height: 22px;
+	width: auto;
+	border: 0px solid black;
+	float:left;
+	margin-top: 2px;
+	margin-right: 2px;
+}
+
+.ruleConfig_ruleValue_select{
+	height: 22px;
+	width: 130px;
+	float:left;
+}
+
+.ruleConfig_ruleValue_text{
+	height: 16px;
+	width: 126px;
+	float:left;
+}
+
+.ruleConfig_ruleValueDelete{
+	background: url("delete.png");
+	height: 15px;
+	width: 15px;
+	margin-top:2px;
+	float:left;
+	border: 0px solid #95d1fc;
+}
+
+.ruleConfig_saveBtn{
+	width:66px;
+	height:24px;
+	margin-top:2px;
+	line-height:24px;
+	background: url("save.png");
+	padding: 0;
+	color:#FFFFFF;
+	border:none;
+}
+
+.ruleConfig_shadePopUp{
+	z-index:10;
+	position:absolute;
+	filter:alpha(opacity=30);
+	-moz-opacity:0.3;
+	-khtml-opacity: 0.3;
+	opacity: 0.4;
+	background: #777777;  
+	left:0px;
+	top:0px;
+}
+
+.ruleConfig_hintSuccess{
+	float: left;
+	width: 400px;
+	height: 30px;
+	font-size: 16px;
+	color:green;
+}
+
+.ruleConfig_ruleGroupPopUp{
+	z-index:11;
+	width:500px;
+	height:auto;
+	position:relative;
+	overflow:auto;
+	color:black;
+	font-size: 18px;
+	overflow-x:hidden;
+	background:white;
+	border-style: ridge;
+	border-width: 3px;
+	border-color: #EEEEEE;	
+	overflow: hidden;
+	padding: 5px;
+}
+
+.ruleConfig_popUpControl{
+	float: left;
+	width:450px;
+	height: 24px;
+	padding-left:200px;
+	border:0px solid #2b80be;
+}
+
+.ruleConfig_popUpOkBtn{
+	width:66px;
+	height:24px;
+	margin-top:2px;
+	line-height:24px;
+	background: url("save.png");
+	padding: 0;
+	color:#FFFFFF;
+	border:none;
+}
+
+.ruleConfig_popUpCancelBtn{
+	width:66px;
+	height:24px;
+	margin-top:2px;
+	line-height:24px;
+	background: url("save.png");
+	padding: 0;
+	color:#FFFFFF;
+	border:none;
+}
+
+.ruleConfig_ruleRow{
+	position:relative;
+	list-style: none;
+	margin: 0;
+	margin-top:10px;
+	padding: 0;
+}
+
+.ruleConfig_ruleLine{
+	position:relative;
+	float: left;
+	margin: 5px;
+	border-bottom:1px solid #2b80be;
+	padding: 1px;
+}
+
+.ruleConfig_ruleSelect{
+	float: left;
+}
+
+.ruleConfig_ruleLabel{
+	float: left;
+}
+
+.ruleConfig_ruleValueSelect{
+	width: 131px;
+	display: none; 
+	float: left;
+}
+
+.ruleConfig_ruleValueText{
+	height: 16px;
+	width: 126px;
+	border:1px solid black;
+	float: left;
+}
+
+.ruleConfig_ruleValueDiv{
+	display:inline;
+	float: left;
+	height: 50px;
+	width:auto;
+}

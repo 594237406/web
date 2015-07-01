@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>webQQ</title>
+<link rel="shortcut icon" href="images/favicon.ico" />
+<link rel="stylesheet" type="text/css" href="css/indexcss.css">
+<script type="text/javascript" src="js/move.js"></script>
+<script type="text/javascript" src="js/citymap.js" ></script>
+<script type="text/javascript" src="js/mark.js" charset="gbk"></script>
+</head>
+<body>
+<!--天气预报-->
+<div class="weather" id="weather">
+	<div class="weather_close" id="weatherc_close"></div>
+	<div class="weather_su" id="weather_s"><strong>今天：</strong>多云 17℃~31℃</div>
+	<div class="weather_tom" id="weather_t"><strong>明天：</strong>多云转阴 17℃~29℃ </div>
+	<a href="javascript:;" class="region" id="region_but">北京</a>
+	<div class="weather_time" id="weather_time">当前时间为05:24</div>
+	<div class="weather_menu">
+		<select id="city1">
+			<option>请选择地区</option>
+		</select>
+		<select id="city2">
+			<option>请选择地区</option>
+		</select>
+		<input type="button" value="确定" class="we_but1">
+		<input type="button" value="取消">
+	</div>
+</div>
+<!-- 桌面导航 -->
+<div class="fast_nav_bg" id="fast_bg"><img src="images/login_layerBg.png" alt="" /></div>
+<div id="shadow_bg1" class="shadow">
+	<span class="shadow_close"></span>
+	<img src="images/fast_nav.png" alt="" / class="shadow_img" id="shadow">
+	<div class="fastNavBox_tran_01">
+		<p class="hr"></p>
+		<h3 class="shadow_title1">王诗扬</h3>
+		<ul>
+			<li>男 |  24岁（1990年8月13日）</li>
+			<li>居住地：北京</li>
+			<li>电　话：18311010833（手机）</li>
+			<li>E-mail:wangshiyang3035884@vip.qq.com</li>
+		</ul>
+	</div>
+	<div class="fastNavBox_tran_02">
+		<p class="hr"></p>
+		<h3 class="shadow_title2">工作经历</h3>
+		<ul>
+			<li>最近工作</li>
+			<li>公　司： 北京惠泽八方文化发展有限公司</li>
+			<li>职　位： 前端制作/设计</li>
+			<li>最高学历： 大专</li>
+		</ul>
+	</div>
+	<div class="fastNavBox_tran_03">
+		<ul>
+			<li>2012.3--2013.3  昊米（北京）科技有限公司</li>
+			<li>北京市法学会：&nbsp;<a href="http://www.bjfxqyh.com/" target="_blank">http://www.bjfxqyh.com/</a></li>
+			<li>北京昊米科技：</li>
+			<li><a href="http://www.haomikeji.com/index.html" target="_blank">　　http://www.haomikeji.com/index.html</a></li>
+		</ul>
+		<p class="hr"></p>
+		<h3 class="shadow_title4">工作经验</h3>
+	</div>
+	<div class="fastNavBox_tran_04">
+		<ul>
+			<li>1.精通CSS+DIV,手写代码,对代码优化有一定了解</li>
+			<li>2.熟练书写原生javascript脚本,实现JS效果研发需求</li>
+			<li>3.熟悉常见浏览器不同版本兼容性解决方法</li>
+			<li>4.能熟练使用Photoshop进行图像处理和切图</li>
+		</ul>
+		<p class="hr"></p>
+		<h3 class="shadow_title3">专业技能</h3>
+	</div>
+</div>
+<!-- 时钟 -->
+<div class="web_titles_main" id="web_titles">
+		<div class="web_title_box" id="title_box">
+			<div id="box">
+				<div id="dial"></div>
+				 <div id="hand">
+					<div id="hour"></div>
+					<div id="min"></div>
+					<div id="sec"></div>
+					<div id="centre"></div>
+				</div>
+			</div>
+		</div>
+</div>
+<!-- 右键菜单 -->
+<div class="text_menu" id="text_menu">
+	<ul id="text_menu_ul">
+		<li><a href="javascript:;">显示桌面</a></li>
+		<li class="menu_bottom" id="menu_bottom"><a href="javascript:;">刷新</a></li>
+		<li>
+			<a href="javascript:;">排列方式<span></span></a>
+			<ul id="client_but">
+				<li><a href="javascript:;">横向</a></li>
+				<li class="active"><a href="javascript:;">纵向</a></li>
+				<li><a href="javascript:;">自由排列</a></li>
+			</ul>
+		</li>
+		<li class="menu_bottom"><a href="javascript:;">上传文件</a></li>
+		<li id="Theme" class="menu_bottom"><a href="javascript:;">主题设置</a></li>
+		<li><a href="javascript:;">系统设置</a></li>
+		<li class="menu_bottom">
+			<a href="javascript:;">图标设置<span></span></a>
+			<ul id="icon_but">
+				<li><a href="javascript:;">小图标</a></li>
+				<li class="active"><a href="javascript:;">大图标</a></li>
+				<li><a href="javascript:;">超大图标</a></li>
+			</ul>
+		</li>
+		<li><a href="javascript:;">反馈</a></li>
+		<li><a href="javascript:;">注销</a></li>
+	</ul>
+</div>
+<!-- 窗口 -->
+<div class="web_box" id="box1">
+	<div class="web_box_top" id="web_top_c">
+		<p></p>
+		<div class="web_box_wiw" id="web_box_wiw">
+			<a href="javascript:;" class="reduce"></a>
+			<a href="javascript:;" class="magnify"></a>
+			<a href="javascript:;" class="close"></a>
+		</div>
+	</div>
+	<div class="web_box_content" id="box_content">
+		<iframe src="">
+		</iframe>
+	</div>
+</div>
+<div class="web_box1" id="box2">
+	<div class="web_box_top">
+		<p></p>
+		<div class="web_box_wiw" id="web_box_wiw1">
+			<a href="javascript:;" class="close1"></a>
+		</div>
+	</div>
+	<div class="web_box_content" id="box_content">
+		<ul class="skin_ul clear" id="skin_img">
+		<li>
+			<img src="images/bg1.jpg" alt="" />
+			<p>茫茫野草</p>
+		</li>
+		<li>
+			<img src="images/bg2.jpg" alt="" />
+			<p>蒲英之梦</p>
+		</li>
+		<li>
+			<img src="images/bg3.jpg" alt="" />
+			<p>梦翔天际</p>
+		</li>
+		<li>
+			<img src="images/bg4.jpg" alt="" />
+			<p>仰望苍穹</p>
+		</li>
+		<li>
+			<img src="images/bg5.jpg" alt="" />
+			<p>水梦年华</p>
+		</li>
+		<li>
+			<img src="images/bg6.jpg" alt="" />
+			<p>空灵蓝调</p>
+		</li>
+	</ul>
+	</div>
+</div>
+<!--换肤-->
+
+<div class="web_main">
+	<div class="web_main abs">
+		<img src="images/bg6.jpg" alt="" class="bg abs"/ id="web_bg">
+	</div>
+</div>
+<div class="web_top abs">
+	<div class="web_top_cn">
+		<div class="web_top_icon" id="web_top">
+			<a href="javascript:;"><img src="images/avatar.png" alt="" width="24" height="24" /></a>
+		</div>
+		<ul class="web_top_focus clear" id="foucs1">
+			<li class="active"><a href="javascript:;">1</a></li>
+			<li><a href="javascript:;">2</a></li>
+			<li><a href="javascript:;">3</a></li>
+			<li><a href="javascript:;">4</a></li>
+			<li><a href="javascript:;">5</a></li>
+		</ul>
+		<div class="web_top_fl">
+			<a href="javascript:;" class="c_fa"></a><a href="javascript:;" class="c_ss"></a>
+		</div>
+	</div>
+</div>
+<div class="web_content abs">
+	<div class="task" id="task_main">
+		<div class="task_menu_cn" id="task_x">
+			<div class="task_menu" id="task_menu">
+				<h4 class="task_title" id="task_title1">起点中文</h4>
+				<a class="task_max"></a>
+				<a class="task_close"></a>
+			</div>
+		</div>
+	</div>
+	<div class="web_content_cn abs" id="web_content_cn">
+		<ul style="display:block">
+			<li title="欢乐斗地主">
+				<a href="javascript:;">
+					<span><img src="images/d_big_11.png"></span>
+					<b>
+						<i>
+							<em>欢乐斗地主</em>
+						</i>
+					</b>
+				</a>
+			</li>
+			<li title="3366">
+				<a href="javascript:;">
+					<span><img src="images/d_big_12.png"></span>
+					<b>
+						<i>
+							<em>3366</em>
+						</i>
+					</b>
+				</a>
+			</li>
+			<li title="QQ宝贝">
+				<a href="javascript:;">
+					<span><img src="images/d_big_13.png"></span>
+					<b>
+						<i>
+							<em>QQ宝贝</em>
+						</i>
+					</b>
+				</a>
+			</li>
+			<li title="css作品1">
+				<a href="javascript:;">
+					<span><img src="images/zx.png"></span>
+					<b>
+						<i>
+							<em>css作品1</em>
+						</i>
+					</b>
+				</a>
+			</li>
+			<li title="css作品2">
+				<a href="javascript:;">
+					<span><img src="images/zx.png"></span>
+					<b>
+						<i>
+							<em>css作品2</em>
+						</i>
+					</b>
+				</a>
+			</li>
+			<li title="说明文档">
+				<a href="javascript:;">
+					<span><img src="images/zx.png"></span>
+					<b>
+						<i>
+							<em>说明文档</em>
+						</i>
+					</b>
+				</a>
+			</li>
+		</ul>
+		<ul>
+			<li title="芒果旅游">
+				<a href="javascript:;">
+					<span><img src="images/d_big_21.png"></span>
+					<b>
+						<i>
+							<em>芒果旅游</em>
+						</i>
+					</b>
+				</a>
+			</li>
+			<li title="团购地图">
+				<a href="javascript:;">
+					<span><img src="images/d_big_22.png"></span>
+					<b>
+						<i>
+							<em>团购地图</em>
+						</i>
+					</b>
+				</a>
+			</li>
+			<li title="快递查询">
+				<a href="javascript:;">
+					<span><img src="images/d_big_23.png"></span>
+					<b>
+						<i>
+							<em>快递查询</em>
+						</i>
+					</b>
+				</a>
+			</li>
+			<li title="便签">
+				<a href="javascript:;">
+					<span><img src="images/d_big_24.png"></span>
+					<b>
+						<i>
+							<em>便签</em>
+						</i>
+					</b>
+				</a>
+			</li>
+			<li title="网络硬盘">
+				<a href="javascript:;">
+					<span><img src="images/d_big_25.png"></span>
+					<b>
+						<i>
+							<em>网络硬盘</em>
+						</i>
+					</b>
+				</a>
+			</li>
+		</ul>
+		<ul>
+			<li title="金山快盘">
+				<a href="javascript:;">
+					<span><img src="images/big01.png"></span>
+					<b>
+						<i>
+							<em>金山快盘</em>
+						</i>
+					</b>
+				</a>
+			</li>
+			<li title="浏览网页">
+				<a href="javascript:;">
+					<span><img src="images/big02.png"></span>
+					<b>
+						<i>
+							<em>浏览网页</em>
+						</i>
+					</b>
+				</a>
+			</li>
+			<li title="哈哈">
+				<a href="javascript:;">
+					<span><img src="images/big03.png"></span>
+					<b>
+						<i>
+							<em>哈哈</em>
+						</i>
+					</b>
+				</a>
+			</li>
+			<li title="哈">
+				<a href="javascript:;">
+					<span><img src="images/big04.png"></span>
+					<b>
+						<i>
+							<em>哈</em>
+						</i>
+					</b>
+				</a>
+			</li>
+			<li title="hello">
+				<a href="javascript:;">
+					<span><img src="images/big05.png"></span>
+					<b>
+						<i>
+							<em>hello</em>
+						</i>
+					</b>
+				</a>
+			</li>
+			<li title="555">
+				<a href="javascript:;">
+					<span><img src="images/big06.png"></span>
+					<b>
+						<i>
+							<em>555</em>
+						</i>
+					</b>
+				</a>
+			</li>
+		</ul>
+		<ul>
+			<li title="起点中文">
+				<a href="javascript:;">
+					<span><img src="images/d_big_41.png"></span>
+					<b>
+						<i>
+							<em>起点中文</em>
+						</i>
+					</b>
+				</a>
+			</li>
+			<li title="QQ阅读">
+				<a href="javascript:;">
+					<span><img src="images/d_big_42.png"></span>
+					<b>
+						<i>
+							<em>QQ阅读</em>
+						</i>
+					</b>
+				</a>
+			</li>
+			<li title="音乐盒子">
+				<a href="javascript:;">
+					<span><img src="images/d_big_43.png"></span>
+					<b>
+						<i>
+							<em>音乐盒子</em>
+						</i>
+					</b>
+				</a>
+			</li>
+			<li title="腾讯视频">
+				<a href="javascript:;">
+					<span><img src="images/d_big_44.png"></span>
+					<b>
+						<i>
+							<em>腾讯视频</em>
+						</i>
+					</b>
+				</a>
+			</li>
+			<li title="乐视网">
+				<a href="javascript:;">
+					<span><img src="images/d_big_45.png"></span>
+					<b>
+						<i>
+							<em>乐视网</em>
+						</i>
+					</b>
+				</a>
+			</li>
+		</ul>
+		<ul>
+			<li title="朋友网">
+				<a href="javascript:;">
+					<span><img src="images/d_big_51.png"></span>
+					<b>
+						<i>
+							<em>朋友网</em>
+						</i>
+					</b>
+				</a>
+			</li>
+			<li title="QQ阅读">
+				<a href="javascript:;">
+					<span><img src="images/d_big_52.png"></span>
+					<b>
+						<i>
+							<em>QQ阅读</em>
+						</i>
+					</b>
+				</a>
+			</li>
+			<li title="好友管理">
+				<a href="javascript:;">
+					<span><img src="images/d_big_53.png"></span>
+					<b>
+						<i>
+							<em>好友管理</em>
+						</i>
+					</b>
+				</a>
+			</li>
+			<li title="开开">
+				<a href="javascript:;">
+					<span><img src="images/d_big_54.png"></span>
+					<b>
+						<i>
+							<em>开开</em>
+						</i>
+					</b>
+				</a>
+			</li>
+			<li title="开心交友">
+				<a href="javascript:;">
+					<span><img src="images/d_big_55.png"></span>
+					<b>
+						<i>
+							<em>开心交友</em>
+						</i>
+					</b>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>
+<div class="web_main_menu abs">
+	<div class="web_main_menu_cn">
+		<ul class="clear" id="web_menu">
+			<li title="应用市场">
+				<a href="javascript:;"><img src="images/big0.png"  width="35" height="35" alt=""></a>
+			</li>
+			<li title="我的网盘">
+				<a href="javascript:;"><img src="images/big1.png"  width="35" height="35"  alt=""></a>
+			</li>
+			<li title="QQ">
+				<a href="javascript:;"><img src="images/big2.png"  width="35" height="35" alt=""></a>
+			</li>
+			<li title="QQ空间">
+				<a href="javascript:;"><img src="images/big3.png"  width="35" height="35" alt=""></a>
+			</li>
+			<li title="QQ邮箱">
+				<a href="javascript:;"><img src="images/big4.png"  width="35" height="35" alt=""></a>
+			</li>
+			<li title="腾讯微博">
+				<a href="javascript:;"><img src="images/big5.png"  width="35" height="35" alt=""></a>
+			</li>
+		</ul>
+	</div>
+	<div class="web_main_menu_foucs  abs">
+		<ul class="clear">
+			<li><a href="javascript:;" class="menu_focus1"></a></li>
+			<li><a href="javascript:;" class="menu_focus2"></a></li>
+			<li><a href="javascript:;" class="menu_focus3"></a></li>
+			<li><a href="javascript:;" class="menu_focus4" id="menu_focus4"></a></li>
+			<li class="menu_focus_cn"><a href="javascript:;" class="menu_focus5"></a></li>
+		</ul>
+	</div>
+</div>
+</body>
+</html>

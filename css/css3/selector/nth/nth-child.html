@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en" xml:lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>nth-child</title>
+		<style type="text/css">
+			p{height:30px;border:1px solid black;}
+			/*第一行:返回父级的第1个节点，并且节点是p标签，序列从1开始*/
+			p:nth-child(1){background: red;}
+			p:nth-child(2n-1){background: yellow;}
+			p:nth-child(2n){background: green;}
+			
+		</style>
+	</head>
+	
+	<body>
+		<p>p1</p>
+		<p>p1</p>
+		<p>p1</p>
+		<p>p1</p>
+		<p>p1</p>
+		<p>p1</p>
+		<p>p1</p>
+		<p>p1</p>
+		<p>p1</p>
+		<p>p1</p>
+	</body>
+</html>

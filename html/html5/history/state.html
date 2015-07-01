@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>state history</title>
+		<script>
+			window.onload = function(){
+				var oInput = document.getElementById('input1');
+				var oDiv = document.getElementById('div1');
+				
+				oInput.onclick = function(){
+					var arr = randomNum(35,7);
+					history.pushState(arr,'');
+					oDiv.innerHTML = arr;
+				};
+				
+				window.onpopstate = function(ev){
+					oDiv.innerHTML = ev.state;
+				};
+				
+				
+				function randomNum(iAll, iNow) {
+					var attr = [];
+					for ( var i = 0; i < iNow; i++) {
+						attr.push(Math.floor(Math.random() * iAll));
+					}
+					return attr;
+				}
+				
+			};
+		</script>
+	</head>
+	
+	<body>
+	<input type="button" value="随机选择" id="input1">
+	<div id="div1"></div>
+	</body>
+</html>

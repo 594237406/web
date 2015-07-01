@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>reflection</title>
+		<style>
+			 /*
+				box-reflect：none | <direction> <offset>? <mask-box-image>?
+				<direction> = above | below | left | right
+				<offset> = <length> | <percentage>
+				<mask-box-image> = none | <url> | <linear-gradient> | <radial-gradient> | <repeating-linear-gradient> | <repeating-radial-gradient>
+			*/
+			/*
+				-webkit-gradient 是 webkit 引擎对渐变的实现参数，一共有五个。第一个参数表示渐变类型（type），
+				可以是linear（线性渐变）或者radial（径向渐变）。第二个参数和第三个参数，都是一对值，分别表示渐变起点和终点。这对值可以用坐标形式表示，
+				也可以用关键值表示，比如 left top（左上角）和left bottom（左下角）。第四个和第五个参数，分别是两个color-stop函数。
+				color-stop 函数接受两个参数，第一个表示渐变的位置，0为起点，0.5为中点，1为结束点；第二个表示该点的颜色。如图所示：
+			*/
+			img{ display:block;-webkit-box-reflect:right 50px -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,1)),to(rgba(0,0,0,0)))}
+		</style>
+	</head>
+	<body>
+		<img src="miaov.jpg" />
+	</body>
+</html>

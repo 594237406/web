@@ -1,0 +1,211 @@
+1.变量声明
+@border-color : #b5bcc7; 
+
+.mythemes tableBorder{ 
+	border : 1px solid @border-color; 
+}
+编译后：
+.mythemes tableBorder { 
+	border: 1px solid #b5bcc7; 
+}
+2.就近原则
+@width : 20px; 
+#homeDiv { 
+	@width : 30px; 
+	#centerDiv{ 
+		width : @width;// 此处应该取最近定义的变量 width 的值 30px 
+	} 
+} 
+#leftDiv { 
+	width : @width; // 此处应该取最上面定义的变量 width 的值 20px 
+}
+编译后：
+#homeDiv #centerDiv { 
+	width: 30px; 
+} 
+#leftDiv { 
+	width: 20px; 
+}
+
+3.Mixins（混入）
+//定义类样式
+.roundedCorners(@radius:5px) { 
+	-moz-border-radius: @radius; 
+	-webkit-border-radius: @radius; 
+	border-radius: @radius; 
+} 
+// 在另外的样式选择器中使用
+#header { 
+	.roundedCorners; 
+} 
+#footer { 
+	.roundedCorners(10px); 
+}
+编译后：
+#header { 
+	-moz-border-radius:5px; 
+	-webkit-border-radius:5px; 
+	border-radius:5px; 
+} 
+#footer { 
+	-moz-border-radius:10px; 
+	-webkit-border-radius:10px; 
+	border-radius:10px; 
+}
+
+4.无默认值定义类：
+//定义类样式
+.borderRadius(@radius){ 
+	-moz-border-radius: @radius; 
+	-webkit-border-radius: @radius; 
+	border-radius: @radius; 
+} 
+
+#header { 
+	.borderRadius(10px); // 把 10px 作为参数传递给样式选择器
+} 
+.btn { 
+	.borderRadius(3px);  // 把 3px 作为参数传递给样式选择器
+}
+
+编译后：
+#header { 
+	.boxShadow(2px,2px,3px,#f36); 
+}
+.btn { 
+	-moz-border-radius: 3px; 
+	-webkit-border-radius: 3px; 
+	border-radius: 3px; 
+}
+
+5.多参数定义类：
+.boxShadow(@x:0,@y:0,@blur:1px,@color:#000){ 
+	-moz-box-shadow: @arguments; 
+	-webkit-box-shadow: @arguments; 
+	box-shadow: @arguments; 
+} 
+#header { 
+	.boxShadow(2px,2px,3px,#f36); 
+}
+
+
+编译后：
+#header { 
+	-moz-box-shadow: 2px 2px 3px #FF36; 
+	-webkit-box-shadow: 2px 2px 3px #FF36; 
+	box-shadow: 2px 2px 3px #FF36; 
+}
+
+
+6.命名空间
+#mynamespace { 
+	.home {...} 
+	.user {...} 
+}
+
+使用
+#mynamespace > .user
+
+7.嵌套
+<div id="home"> 
+	<div id="top">top</div> 
+	<div id="center"> 
+		<div id="left">left</div> 
+		<div id="right">right</div> 
+	</div> 
+</div>
+
+#home{ 
+	color : blue; 
+	width : 600px; 
+	height : 500px; 
+	border:outset; 
+	#top{ 
+		border:outset; 
+		width : 90%; 
+	} 
+	#center{ 
+		border:outset; 
+		height : 300px; 
+		width : 90%; 
+		#left{ 
+			border:outset; 
+			float : left; 
+			width : 40%; 
+		} 
+		#right{ 
+			border:outset; 
+			float : left; 
+			width : 40%; 
+		} 
+	} 
+}
+
+
+
+
+
+8.伪类
+a { 
+	color: red; 
+	text-decoration: none; 
+	&:hover {	// 有 & 时解析的是同一个元素或此元素的伪类，没有 & 解析是后代元素
+		color: black; 
+		text-decoration: underline; 
+	} 
+}
+
+a { 
+	color: red; 
+	text-decoration: none; 
+} 
+a:hover { 
+	color: black; 
+	text-decoration: underline; 
+}
+
+9.运算
+@init: #111111; 
+@transition: @init*2; 
+.switchColor { 
+	color: @transition; 
+}
+经过编译生成的 CSS 文件如下：
+清单 22. CSS 文件
+.switchColor { 
+	color: #222222; 
+}
+
+
+10.函数:参见http://www.cnblogs.com/zfc2201/p/3493335.html
+
+上面的例子中使用 LESS 的 operation 是 特性，其实简单的讲，就是对数值型的 value（数字、颜色、变量等）
+进行加减乘除四则运算。同时 LESS 还有一个专门针对 color 的操作提供一组函数。下面是 LESS 提供的针对颜色操作的函数：
+
+lighten(@color, 10%); // 亮度增加 10%
+darken(@color, 10%); // 亮度降低 10%
+saturate(@color, 10%); // 饱和度增加 10%
+desaturate(@color, 10%);// 饱和度降低 10%
+fadein(@color, 10%); //透明度增加 10%
+fadeout(@color, 10%); //透明度降低 10%
+spin(@color, 10); //  色相值增加 10
+spin(@color, -10); //  色相值降低 10
+
+
+init: #f04615; 
+#body { 
+	background-color: fadein(@init, 10%); 
+}
+编译后：
+#body { 
+	background-color: #f04615; 
+}
+
+
+11.批量
+.transition(@time:1s){
+	-webkit-transition:all @time;
+	-moz-transition:all @time;
+	-ms-transition:all @time;
+	-o-transition:all @time;
+}

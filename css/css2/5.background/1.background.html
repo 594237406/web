@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>background</title>
+    <style>
+        #box {
+            width: 300px;
+            height: 200px;
+            background: blue url(icon.gif) no-repeat 50px 10px;
+        }
+
+        #bg {
+            height: 800px;
+            /*URL position repeat color attachment*/
+            background: url(bg.jpg) center center no-repeat gray fixed;
+            /*
+                background-image: url(bg.jpg);  背景图
+                background-repeat: no-repeat; 背景图是否重复
+                background-position: center 0px; 背景图位置
+                background-color: gray; 背景颜色
+                background-attachment: fixed; 背景是否随滚动条滚动而滚动
+            */
+        }
+    </style>
+</head>
+<body id="bg">
+<div id="box"></div>
+</body>
+</html>

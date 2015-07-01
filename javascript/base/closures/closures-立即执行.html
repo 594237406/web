@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>closures-立即执行</title>
+		<script type="text/javascript">
+			//模块化代码，避免私有变量污染全局
+// 			var fn=(function(){
+// 				var a=1;
+// 				return function(){
+// 					a++;
+// 					alert(a);
+// 				}
+// 			})();
+// 			fn();
+// 			fn();
+			
+			//模块化代码，定义私有方法
+			var fn=(function(){
+				var a=1;
+				function aaa(){
+					a++;
+					alert(a);
+				}
+				
+				function bbb(){
+					a++;
+					a++;
+					alert(a);
+				}
+				
+				return {a:aaa,b:bbb}
+			})();
+			
+			fn.a();
+			fn.b();
+			
+		</script>
+	</head>
+	<body>
+	
+	</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>myria</title>
+	</head>
+	<body>
+		<input type="button" onclick="bold()" value="加粗">
+		<input type="button" onclick="italic()" value="斜体">
+		<select title="fontname" onchange="fontname(this)">
+			<option value="SimSun">宋体</option>
+			<option value="LiSu">隶书</option>
+			<option value="KaiTi_GB2312">楷体</option>
+			<option value="YouYuan">幼圆</option>
+			<option value="SimHei">黑体</option>
+			<option value="Microsoft YaHei">雅黑</option>
+			<option value="Comic Sans MS">Comic Sans MS</option>
+		</select>
+		<br>
+		<iframe name="richedit" style="width: 500px; height: 300px;"
+			src="blank.html"></iframe>
+	</body>
+	<script type="text/javascript" defer>
+		window.onload = function() {
+			window.frames[0].document.designMode = "on";
+		}
+	
+		function bold() {
+			window.frames[0].document.execCommand("bold", false, null);
+		}
+		
+		function italic() {
+			window.frames[0].document.execCommand("italic", false, null);
+		}
+		
+		function fontname(obj){
+			var value = obj.options[obj.selectedIndex].value;
+			window.frames[0].document.execCommand("fontname", false, value);
+		}
+	</script>
+</html>

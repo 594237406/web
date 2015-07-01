@@ -1,0 +1,41 @@
+<!DOCTYPE html>  
+	<head>  
+	<meta charset="gb2312">  
+	<title>拖放</title>  
+	<script type="text/javascript">  
+	function init(){   
+	  var source = document.getElementById("dragMe");   
+	  var dest = document.getElementById("text");   
+	  source.addEventListener("dragstart", function(ev) {   
+	    var dt = ev.dataTransfer; //把拖放的数据存到dataTransfer对象中   
+	    dt.effectAllowed = 'all';   
+	    dt.setData("text/plain", "Hello");//this.id = "Hello"  
+	},false);  
+	//拖放结束   
+	dest.addEventListener("dragend", function(ev) {   
+    ev.preventDefault();},false);   
+  	dest.addEventListener("drop", function(ev) {   
+    var dt = ev.dataTransfer;   
+    var text = dt.getData("text/plain");   
+    dest.textContent += text;   
+    ev.preventDefault(); //不执行默认处理  
+    ev.stopPropagation(); //停止事件传播   
+   },false);  
+}  
+document.ondragover = function(e){  
+   e.preventDefault();  
+};  
+false;  
+//必须设定整个页面不执行默认处理，否则拖放处理也不能被实现  
+document.ondrop = function(e) {  
+   e.preventDefault();  
+};  
+false;  
+</script>  
+</head>  
+<body onload="init()">  
+<h1>拖放示例1</h1>  
+<!-- draggable属性设为true -->  
+<div id="dragMe" draggable="true" style="width: 200px; border: 1px solid gray;"> 拖放试试</div>  
+<div id="text" style="width: 200px; height: 200px; border: 1px solid gray;"></div>  
+</body> 

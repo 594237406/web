@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>vQuery</title>
+<script type="text/javascript" src="vQuery.js"></script>
+<style type="text/css">
+	#div1{
+		width:100px;
+		height:100px;
+		background: #ccc;
+	}
+</style>
+<script type="text/javascript">
+	$(function(){
+		$("#a").click(function(ev){
+			$("#div1").show();
+		})
+		
+		$("#b").click(function(ev){
+			$("#div1").hide();
+		})
+		
+		$("#div1").hover(function(){
+			$(this).css("width","200px");
+		},function(){
+			$(this).css("width","100px");
+		})
+	})
+	
+</script>
+</head>
+<body>
+
+	<button id="a">显示</button>
+	<button id="b">隐藏</button>
+	<div id="div1"></div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html>
+	<script type="text/javascript">
+		var elements=["header","article","aside","section","footer"]
+		
+		for(var i=0;i<elements.length;i++){
+			document.createElement(elements[i]);
+		}
+	</script>
+	<style>
+	body{
+		margin: 0px;
+	}
+	
+	header{
+		height:100px;
+		background: #9F3;  
+		display: block;
+	}
+	
+	article{
+		padding: 10px;
+		background: #CF6;
+		overflow: hidden;
+		zoom:1;
+		display: block;
+	}
+	
+	aside{
+		width:200px;
+		height: 300px;
+		background: #F06;
+		float: left;
+		display: block;
+	}
+	
+	section{
+		margin-left: 210px;
+		background: #F90; 
+		height: 300px;
+		display: block;
+	}
+	
+	footer{
+		height:100px;
+		background: #C6C;
+		display: block;
+	}
+	</style>
+	<title>index</title>
+	<body>
+		<header>header</header>
+		<article>
+			<aside>
+				leftmenu
+			</aside>
+			<section>
+				content
+			</section>
+		</article>
+		<footer>footer</footer>
+	</body>
+</html>

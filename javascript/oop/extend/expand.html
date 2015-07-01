@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>expand</title>
+		<script>
+			var Class = function() {
+				var klass = function() {
+					this.id=1;
+					this.init.apply(this, arguments);
+				};
+				klass.prototype.init = function() {};
+				// 定义 prototype 的别名
+				klass.fn = klass.prototype;
+				// 定义类的别名
+				klass.fn.parent = klass;
+				// 给类添加属性
+				klass.extend = function(obj) {
+					var extended = obj.extended;
+					for ( var i in obj) {
+						klass[i] = obj[i];
+					}
+					if (extended)
+						extended(klass)
+				};
+				// 给实例添加属性
+				klass.include = function(obj) {
+					var included = obj.included;
+					for ( var i in obj) {
+						klass.fn[i] = obj[i];
+					}
+					if (included)
+						included(klass)
+				};
+				return klass;
+			};
+			
+			var Person = new Class;
+			Person.prototype.init=function(){
+				
+			}
+			Person.extend({
+				find: function(id) {
+					alert("find:"+id);
+					alert(this);
+				},
+				exists: function(id) {
+		
+				}
+			});
+			var p=new Person;
+			
+			var person = Person.find(1);
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

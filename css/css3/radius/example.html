@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>example</title>
+		<style>
+			.boxs{width:400px;height:400px;margin:50px auto; transition:5s linear;}
+			.box{
+				width:180px;
+				height:180px;
+				margin: 10px;
+				border: 1px solid black;
+				box-sizing:border-box;
+				float: left;
+				background: url(new_bg.png) no-repeat;
+ 			}
+			
+			.box:nth-child(1),.box:nth-child(4){
+				border-radius:0 60%;
+			}
+			
+			.box:nth-child(2),.box:nth-child(3){
+				border-radius:60% 0;
+			}
+			
+			.boxs:hover{ -webkit-transform:rotate(720deg);}
+		</style>
+	</head>
+	<body>
+		<div class="boxs">
+			<div class="box"></div>
+			<div class="box"></div>
+			<div class="box"></div>
+			<div class="box"></div>
+		</div>
+	</body>
+</html>
+

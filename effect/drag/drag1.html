@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+	<html>
+		<head>
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+			<title>drag</title>
+			<script type="text/javascript">
+				/*布局转换+拖拽*/
+				var dragIndex=0;
+			
+				window.onload=function(){
+					var photo=document.getElementById("photo");
+					var lis=photo.getElementsByTagName("li");
+					//添加图片
+					for(var i=0;i<lis.length;i++){
+						var img=document.createElement("img");
+						img.src="images/"+(i%5+1)+".jpg";
+						img.setAttribute("draggable",false);
+						lis[i].appendChild(img);
+					}
+					
+					//布局转换
+					var lidises=[];
+					for(var i=0;i<lis.length;i++){
+						var li=lis[i];
+						var liData={x:li.offsetLeft,y:li.offsetTop};
+						lidises.push(liData);
+					}
+					
+					for(var i=0;i<lis.length;i++){
+						var lidis=lidises[i];
+						var li=lis[i];
+						li.style.left=lidis.x+"px";
+						li.style.top=lidis.y+"px";
+						li.style.position="absolute";
+						li.style.margin="0";
+						
+						//添加拖拽事件
+						var drag=new Drag(li);
+						drag.setDrag();
+					}
+					
+					
+				}
+				
+				function Drag(obj){
+					this.disX=0;
+					this.dixY=0;
+					this.dragSrc=obj;
+					this.dragElement=obj.parentNode;
+				}
+				
+				Drag.prototype.setDrag=function(){
+					var _this=this;
+					this.dragSrc.onmousedown=function(ev){
+						var ev=ev||event;
+						_this.zIndex=++dragIndex;
+						_this.mousedown(ev);
+					}
+				}
+				
+				Drag.prototype.mousedown=function(ev){
+					var _this=this;
+					this.dragSrc.style.zIndex=this.zIndex;
+					this.disX=ev.clientX-this.dragSrc.offsetLeft+this.dragElement.offsetLeft;
+					this.disY=ev.clientY-this.dragSrc.offsetTop+this.dragElement.offsetTop;
+					
+					document.onmousemove=function(ev){
+						var ev=ev||event;
+						_this.mousemove(ev);
+					}
+					
+					document.onmouseup=function(ev){
+						document.onmousemove=null;					
+					}
+					
+					return false;
+				}
+				
+				Drag.prototype.mousemove=function(ev){
+					this.dragSrc.style.left=ev.clientX-this.disX+this.dragElement.offsetLeft+"px";
+					this.dragSrc.style.top=ev.clientY-this.disY+this.dragElement.offsetTop+"px";
+				}
+				
+				
+			</script>
+			<style type="text/css">
+				ul{margin: 0 auto;width: 520px;}
+				ul li{margin:0;padding: 0;list-style: none;float: left;margin: 10px;}
+				ul li img{width:150px;height:100px;}				
+				
+			</style>
+		</head>
+	<body>
+		<ul id="photo">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</body>
+</html>

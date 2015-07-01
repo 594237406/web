@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>level</title>
+    <style>
+        li {
+            height: 40px;
+        }
+
+        ol li {
+            /*两个类型选择器：1*/
+            background: blue;
+        }
+
+        li {
+            /*一个类型选择器：1*/
+            background: green;
+        }
+
+        .list {
+            background: red;
+        }
+
+        .list1 {
+            background: yellow;
+        }
+
+        /*同级：后者覆盖前者
+            标签(1)<class(10)<id(100)<style(1000)<js(10000)
+            list=list1
+        */
+    </style>
+</head>
+<body>
+<ol>
+    <li class="list list1" id="box"></li>
+    <li class="list1 list"></li>
+    <li class="list"></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ol>
+</body>
+</html>

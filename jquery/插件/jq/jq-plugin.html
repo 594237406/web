@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>jq-plugin</title>
+		<script type="text/javascript" src="jquery-2.0.3.js"></script>
+		<script type="text/javascript">
+			(function($){
+				$.fn.myPlugin = function(data) { 
+					var defaultValue={};			//默认值
+					$.extend(defaultValue,data);	//继承参数
+					
+					return this.each(function(){	//链式操作
+						$(this).html(defaultValue.text); 
+					})
+				}; 
+			})( jQuery ); 
+			
+			$(function(){
+				$("#test").bind("click",function(ev){
+					$(this).myPlugin({text:"test"});
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div id="test">1</div>
+	</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>xhtml</title>
+		<!-- 在不支持js的浏览器中，script标签内代码会被显示到页面上，所以加上注释 -->
+		<script type="text/javascript"><!--
+		//<![CDATA[
+			function compare(a,b){
+				if(a>b){	
+					alert("A>B")
+				}else if(a < b){	//不支持，xhtml认为<是标签开始，标签开始后不能带有空格，解析错误
+					alert("A<B")
+				}
+
+				//方法1，else if(a &li; b),但是代码不好理解
+				//方法2,使用<![CDATA[ 包含代码，但是有些浏览器不支持xhtml写法， 
+				//]]>
+				//方法3，//<![CDATA[	注释CDATA片段，不支持xhtml的浏览器也得到支持
+				////]]>
+			}
+			compare(3,4);
+		//]]>
+		//--></script>
+	</head>
+	<body>
+		<h1>a
+	</body>
+</html>

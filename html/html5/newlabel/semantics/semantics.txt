@@ -1,0 +1,16 @@
+address:author information
+article:article,like Forum posts, magazine or news, blog entries, comments submitted by users
+aside:affiliated information
+contenteditable:canedit
+details:details with expend/Contraction
+dialog:dialog
+figure:media
+footer:footer
+header:header
+hgroup:title group
+keygen:public key,Encryption
+mark:mark with background
+nav:navigation
+progress:progress bar
+section:partition
+time:time

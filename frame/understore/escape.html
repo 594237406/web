@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<title>escape</title>
+<script src="underscore.js"></script>
+</head>
+<body>
+	<div id="div1" name="div1"></div>
+</body>
+<script>
+	/*
+		Escapes a string for insertion into HTML, replacing &, <, >, ", `, and 'characters
+	*/
+
+	var escape=_.escape('Curly, Larry >< "  &Moe');
+	console.log(escape);
+</script>
+
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>example</title>
+		<style>
+			*,*:after,*:before {
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+			}
+			
+			body {
+				background: #2c3e50;
+				line-height: 1.5;
+				padding: 3em;
+				text-align: center;
+			}
+			
+			.media {
+				display: inline-block;
+				position: relative;
+				vertical-align: top;
+			}
+			
+			.media__image {
+				display: block;
+			}
+			
+			.media__body {
+				background: rgba(41, 128, 185, 0.7);
+				bottom: 0;
+				color: white;
+				font-size: 1em;
+				left: 0;
+				opacity: 0;
+				overflow: hidden;
+				padding: 3.75em 3em;
+				position: absolute;
+				text-align: center;
+				top: 0;
+				right: 0;
+				-webkit-transition: 0.6s;
+				transition: 0.6s;
+			}
+			
+			.media__body:hover {
+				opacity: 1;
+			}
+			.media__body:after, .media__body:before {
+				border: 1px solid rgba(255, 255, 255, 0.7);
+				bottom: 1em;
+				content: '';
+				left: 1em;
+				opacity: 0;
+				position: absolute;
+				right: 1em;
+				top: 1em;
+				-webkit-transform: scale(1.5);
+				-ms-transform: scale(1.5);
+				transform: scale(1.5);
+				-webkit-transition: 0.6s 0.2s;
+				transition: 0.6s 0.2s;
+			}
+			.media__body:before {
+				border-bottom: none;
+				border-top: none;
+				left: 2em;
+				right: 2em;
+			}
+			.media__body:after {
+				border-left: none;
+				border-right: none;
+				bottom: 2em;
+				top: 2em;
+			}
+			.media__body:hover:after, .media__body:hover:before {
+				-webkit-transform: scale(1);
+				-ms-transform: scale(1);
+				transform: scale(1);
+				opacity: 1;
+			}
+			
+			.media__body h2 {
+				margin-top: 0;
+			}
+			
+			.media__body p {
+				margin-bottom: 1.5em;
+			}
+			
+			.media:nth-child(2) .media__body {
+				background: rgba(146, 41, 185, 0.7);
+			}
+			
+			.media:nth-child(3) .media__body {
+				background: rgba(185, 41, 128, 0.7);
+			}
+			
+			.media:nth-child(4) .media__body {
+				background: rgba(185, 50, 41, 0.7);
+			}
+			
+			.media:nth-child(5) .media__body {
+				background: rgba(185, 146, 41, 0.7);
+			}
+			
+			.media:nth-child(6) .media__body {
+				background: rgba(128, 185, 41, 0.7);
+			}
+		</style>
+		
+		<script>
+			window.open = function() {
+			};
+			window.print = function() {
+			};
+			// Support hover state for mobile.
+			if (false) {
+				window.ontouchstart = function() {
+				};
+			}
+		</script>
+		</head>
+	<body>
+		<div class="media">
+			<img class="media__image" src="http://www.zaole.net/1.jpg" width="400"
+				alt="" />
+			<div class="media__body">
+				<h2>Cool Title</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+					Nesciunt laboriosam voluptatem necessitatibus cum, tenetur repellat,
+					eaque eos debitis! Quaerat.
+				</p>
+			</div>
+		</div>
+		<script>
+			RememberScroll.init();
+		</script>
+		<script>
+			if (document.location.search.match(/type=embed/gi)) {
+				window.parent.postMessage('resize', "*");
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>get-position</title>
+		<script>
+			//LBS : 基于地图信息的应用
+			window.onload = function(){
+				var oInput = document.getElementById('input1');
+				var oT = document.getElementById('t1');
+				oInput.onclick = function(){
+					//请求成功函数、失败函数、参数
+					navigator.geolocation.getCurrentPosition(function(position){
+						oT.value="";
+						oT.value += '经度:' + position.coords.longitude+'\n';
+						oT.value += '纬度 :' + position.coords.latitude+'\n';
+						oT.value += '准确度 :' + position.coords.accuracy+'\n';
+						oT.value += '海拔 :' + position.coords.altitude+'\n';
+						oT.value += '海拔准确度 :' + position.coords.altitudeAcuracy+'\n';
+						oT.value += '行进方向 :' + position.coords.heading+'\n';
+						oT.value += '地面速度 :' + position.coords.speed+'\n';
+						oT.value += '时间戳:' + new Date(position.timestamp)+'\n';
+					},function(err){
+						//err.code // 失败所对应的编号
+						//失败编号  ：code
+// 						0  :  不包括其他错误编号中的错误
+// 						1  :  用户拒绝浏览器获取位置信息
+// 						2  :  尝试获取用户信息，但失败了
+// 						3  :   设置了timeout值，获取位置超时了
+						oT.value="请求失败："+err.code ;
+					},{
+						enableHighAcuracy : true,
+						timeout : 5000,			//请求超时时间
+						maximumAge : 5000		//最大缓存时间，取缓存数据而不重复请求
+					});
+				};
+			};
+		</script>
+	</head>
+	<body>
+		<input type="button" value="请求" id="input1" /><br />
+		<textarea id="t1" style="width:400px; height:400px; border:1px #000 solid;">
+		</textarea>
+	</body>
+</html>

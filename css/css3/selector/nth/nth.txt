@@ -1,0 +1,8 @@
+1.selector:nth-child(n):找到标签父级下面的第n个节点，并且节点满足selector
+
+2.selector:nth-of-type(n):找到标签父级下面的第n个selector节点
+
+
+
+
+

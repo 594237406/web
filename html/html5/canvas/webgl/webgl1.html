@@ -1,0 +1,29 @@
+<!DOCTYPE>
+	<html>
+		<head>
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+			<title>example</title>
+			<script>
+				window.onload=function(){
+					var canvas=document.getElementById("canvas");
+					//获得绘图环境,目前没有3D，使用webgl制作3D绘图
+					var ce=canvas.getContext("2d");
+					
+				} 
+			</script>
+			<style type="text/css">
+				body{background: black;	}
+				
+				/*默认300*150*/
+				canvas{background: white;}
+				
+				span{background: white;}
+			</style>
+		</head>
+	<body>
+		<!-- 标签上写宽高，style设置会等比例缩放，比如设置成300*300，则画布元素纵向会被缩放2倍 -->
+		<canvas width="400" height="400" id="canvas">
+			<span>浏览器不支持canvas</span>
+		</canvas>
+	</body>
+</html>

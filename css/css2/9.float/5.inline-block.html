@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>inline-block</title>
+    <style type="text/css">
+        /*参考：http://www.jb51.net/css/76707.html*/
+        .wrap {
+            font-size: 0px; /*解決间距问题*/
+        }
+
+        /*换行被解析，IE6不支持*/
+        .wrap div, span {
+            height: 100px;
+            width: 100px;
+            background: red;
+            display: inline-block;
+            MARGIN: 0;
+            font-size: 16px;
+            border: 1px solid #000000;
+        }
+    </style>
+</head>
+<body>
+<!--回车会产生回车符，回车符相当于空白符，通常情况下，多个连续的空白符会合并成一个空白符，-->
+<!--而产生“空白间隙”的真正原因就是这个让我们并不怎么注意的空白符。-->
+<div class="wrap">
+    <div class="div1">div1</div>
+    <div class="div2">div2</div>
+    <span class="span1">span1</span>
+    <span class="span2">span2</span>
+</div>
+</body>
+</html>

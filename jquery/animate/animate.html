@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>animate</title>
+		<script type="text/javascript" src="jquery-1.8.0.min.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				$("div").click(function(){
+					$(this).animate({
+					    left:'250px',
+					    opacity:'0.5',
+					    height:'150px',
+					    width:'150px'
+					},2000);
+				}); 
+			});
+		</script>
+		<style type="text/css">
+			div{position: absolute;width:100px;height:100px;background: red;}
+		</style>
+	</head>
+	<body>
+		<div>test</div>
+	</body>
+</html>

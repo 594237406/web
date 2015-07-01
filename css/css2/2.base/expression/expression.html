@@ -1,0 +1,24 @@
+<!DOCTYPEhtmlPUBLIC"-//W3C//DTDXHTML1.0Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <meta content="text/html;charset=utf-8"/>
+    <title>expression</title>
+    <style typestyletype="text/css">
+        /*低版本的IE浏览器才识别*/
+        #myDiv {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: #c00;
+            left: expression(document.body.offsetWidth-100+"px");
+            top: expression(document.body.offsetHeight+"px");
+            text-align: center;
+            line-height: 90px;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+<div id="myDiv">expression</div>
+</body>
+</html> 

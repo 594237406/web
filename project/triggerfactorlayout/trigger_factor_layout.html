@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" type="text/css" href="cssRuleConfig.css"  media="screen" >
+	<script src="ruleConfigUtils.js"></script>
+	<script src="ruleConfig.js"></script>
+</head>
+<body>
+		<div id="detail"></div>
+</body>
+</html>
+
+<script type="text/javascript" language="JavaScript">
+	//把Json字符串转成Json返回
+	function str2Json(s) {
+		return eval('(' + s + ')');
+	}
+
+	window.onload=function() {
+		initPage();
+		loadState=true;
+	};
+	
+	var loadState=false;
+	
+	function initPage(){
+		var atomEventId=1;
+		var atomState="10A";
+		var isView=false;
+		
+		if(atomState=="10U"){
+			isView=true;			
+		}
+		
+		if(!atomEventId){
+			return ;
+		}
+		
+		//事件源Id
+		var eventSourceId;
+		//事件源名称
+		var eventSourceName;
+		
+		//是否因为没有数据退出
+		var flag=false;
+		
+		//清空原子事件规则配置区
+		g_RuleConfig.resetRuleConfig();
+
+		eventSourceId=1
+		eventSourceName="C3";
+
+		
+		//groupsLength:纵向,highLevel:横向
+		//规则分组数据-查询条件：事件源ID
+		var groupData={"name":"ROOT","relation":"and","layer":"l0","groupsLength":"1","groups":[{"name":"When",
+		"relation":"or","layer":"l1","groupsLength":"0","id":"11"},{"name":"Where","relation":"or","layer":"l1","groupsLength":"0"},{"name":"Device","relation":"and","layer":"l1","groupsLength":"0"},{"name":"Visiting","relation":"or","layer":"l1","groupsLength":"0"},{"name":"Access","relation":"or","layer":"l1","groupsLength":"0"},{"name":"Who","relation":"and","layer":"l1","groupsLength":"0"}]}
+		
+		//规则数据-查询条件：事件源ID
+		var ruleData={"name":"ROOT","relation":"and","layer":"l0","groupsLength":"1","groups":[{"name":"When","relation":"or","layer":"l1","groupsLength":"0",id:"1"},{"name":"Where","relation":"or","layer":"l1","groupsLength":"0",id:"2"},{"name":"Device","relation":"and","layer":"l1","groupsLength":"0",id:"3"},{"name":"Visiting","relation":"or","layer":"l1","groupsLength":"0",id:"4"},{"name":"Access","relation":"or","layer":"l1","groupsLength":"0",id:"5"},{"name":"Who","relation":"and","layer":"l1","groupsLength":"0",id:"6"}]};
+		
+		//用户数据
+		var userData=[{"id":"29","groupId":"5","regex":"","name":"DeviceType","mark":"0","code":"DEVICE_TYPE","type":"1","userData":"3","msg":"","groups":[{"id":"701326","name":"Feature Phone","mark":"1","code":"2"},{"id":"701321","name":"Smart Phone","mark":"1","code":"1"},{"id":"701331","name":"Tablet","mark":"1","code":"3"},{"id":"701316","name":"USB Dongle","mark":"1","code":"4"}]},{"id":"30","groupId":"5","regex":"","name":"DeviceBrand","mark":"0","code":"DEVICE_BRAND","type":"1","userData":"1","msg":"","groups":[{"id":"701318","name":"Samsung","mark":"1","code":"1"},{"id":"701519","name":"WWW","mark":"1","code":"3"},{"id":"701515","name":"TCT","mark":"1","code":"7"}]}];
+		
+		var settings = {
+			source : eventSourceName,
+			atomEventId:atomEventId,
+			detailArea : "detail",
+			isView : isView
+		}
+		
+		g_RuleConfig.userData = userData;
+		g_RuleConfig.groupData = groupData;
+		g_RuleConfig.ruleData = ruleData;
+		g_RuleConfig.settings = settings;
+		g_RuleConfig.createRules();
+	}	
+</script>
+
+

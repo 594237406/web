@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<style>
+#div1 {width:200px; height:200px; background:red; filter:alpha(opacity:30); opacity:0.3;}
+
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>小数</title>
+<script type="text/javascript">
+window.onload=function ()
+{
+	var oDiv=document.getElementById('div1');
+	
+	oDiv.onmouseover=function ()
+	{
+		startMove(oDiv, 'opacity', 100);
+	}
+	
+	oDiv.onmouseout=function ()
+	{
+		startMove(oDiv, 'opacity', 30);
+	}
+}
+
+function getStyle(obj, attr)
+{
+	if(obj.currentStyle)
+	{
+		return obj.currentStyle[attr];
+	}
+	else
+	{
+		return getComputedStyle(obj, false)[attr];
+	}
+}
+
+function startMove(obj, attr, iTarget)
+{
+	clearInterval(obj.timer);
+	obj.timer=setInterval(function (){
+		var iCur=0;
+		
+		if(attr=='opacity')
+		{
+			iCur=parseInt(parseFloat(getStyle(obj, attr))*100);
+		}
+		else
+		{
+			iCur=parseInt(getStyle(obj, attr));
+		}
+		
+		var iSpeed=(iTarget-iCur)/8;
+		iSpeed=iSpeed>0?Math.ceil(iSpeed):Math.floor(iSpeed);
+		
+		if(iCur==iTarget)
+		{
+			clearInterval(obj.timer);
+		}
+		else
+		{
+			if(attr=='opacity')
+			{
+				obj.style.filter='alpha(opacity:'+(iCur+iSpeed)+')';
+				obj.style.opacity=(iCur+iSpeed)/100;
+				
+				document.getElementById('txt1').value=obj.style.opacity;
+			}
+			else
+			{
+				obj.style[attr]=iCur+iSpeed+'px';
+			}
+		}
+	}, 30)
+}
+</script>
+</head>
+
+<body>
+<input id="txt1" type="text"/>
+<div id="div1"></div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>object-add-common</title>
+<script type="text/javascript">
+	function createPerson(name,sex){
+		//系统自动完成
+		//var this=new Object();
+		
+		this.name=name;
+		this.sex=sex;
+		
+		
+		this.show=function(){
+			alert(this.name+this.sex);
+		}
+		
+		//系统自动完成
+		//return this;
+	}
+	createPerson.prototype.hide=function(){
+		
+	}
+	
+	
+	
+	var p1=new createPerson('lhj','1');
+	var p2=new createPerson('zy','0');
+	p1.show();
+	p2.show();
+	//不同实例对象的同名函数是不相等的，因为每次实例对象都会调用this.show=new Function(alert(this.name+this.sex);)
+	alert(p1.show==p2.show);
+	//加载原型链上的同名函数是相等的，都指向原型链上的方法
+	alert(p1.hide==p2.hide);
+</script>
+</head>
+<body>
+
+</body>
+</html>

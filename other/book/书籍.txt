@@ -1,0 +1,35 @@
+1.锋利的jquery
+
+2.javascript开发王
+
+3.css开发王
+
+4.html5与css3权威指南
+
+5.html5揭秘
+
+6.javascript框架设计
+
+7.javascipt面向对象编程指南
+
+8.html5游戏编程核心技术与实践
+
+9.html5触摸界面设计与开发
+
+10.html5实验室-canvas世界
+
+11.web前端开发修炼之道
+
+12.基于mvc的javascript web富应用开发
+
+13.javascipt dom编程艺术
+
+14.HTML5 Canvas核心技术 图形、动画与游戏开发
+
+15.javascript高级程序设计
+
+16.DOM性能瓶颈与Javascript性能优化
+
+17.javascript精粹
+
+18.javascript设计模式

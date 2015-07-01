@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>radius</title>
+		<style>
+			.box1 {
+				background: #F00;
+				color: #FFF;
+				width: 100px;
+				height: 100px;
+				/*
+					左上1、右上2、右下3、左下4
+					1参数：1234
+					2参数：13、24
+					3参数：1、24、3
+				*/
+				border-radius: 50px 20px;
+			}
+			
+			.box2 {
+				background: #F00;
+				color: #FFF;
+				width: 100px;
+				height: 100px;
+				/*
+					x半径、y半径
+				*/
+/* 				border-radius: 50px/20px; */
+				border-radius: 50px 40px 30px 20px/20px 30px 40px 50px;
+			}
+			
+			.box3 {
+				background: #F00;
+				color: #FFF;
+				width: 100px;
+				height: 100px;
+				/*
+					x半径、y半径
+				*/
+				border-radius: 50%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box1"></div>
+		<div class="box2"></div>
+		<div class="box3"></div>
+	</body>
+</html>

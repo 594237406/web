@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>event-cancel</title>
+		<script>
+			
+			function fn1(ev) {
+				alert(1);
+			}
+			
+			function fn2(ev) {
+				alert(2);
+			}
+			
+// 			document.onclick = fn1;	
+// 			/*普通事件绑定取消*/
+// 			document.onclick = null;
+			
+			/*
+				IE事件绑定取消
+			*/
+// 			document.attachEvent("onclick",fn1);
+// 			document.attachEvent("onclick",fn2);
+			
+// 			document.detachEvent("onclick",fn2);
+			
+			/*
+				标准事件绑定取消
+			*/
+			
+			document.addEventListener("click",fn1,false);
+			document.addEventListener("click",fn1,true);
+			document.addEventListener("click",fn2,false);
+			
+			document.removeEventListener("click",fn1,false);
+		</script>
+	</head>
+	
+	<body>
+	</body>
+</html>

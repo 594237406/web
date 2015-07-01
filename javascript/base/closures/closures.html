@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>closures</title>
+		<script type="text/javascript">
+			//什么是闭包:函数包含函数，外部函数可以访问内部函数的私有变量，变量不会被垃圾回收机制收回
+			
+			function outFn(a){
+				var b=5;
+				function inFn(){
+					alert(b);
+				}
+				return inFn;
+			}
+		
+			var c=outFn("5");
+			
+			//window.c=window.out
+			//c();
+			
+			//闭包的好处
+			//1.希望变量长期驻扎在内存之中
+			//2.避免全局变量污染
+			
+			function a(){
+				var a=1;
+				return function(){
+					a++;
+					alert(a);
+				}
+			}
+			
+			var b=a();
+			b();
+			b();
+			
+			//注意的地方
+			
+			//IE内存泄露
+		</script>
+	</head>
+	<body>
+	
+	</body>
+</html>

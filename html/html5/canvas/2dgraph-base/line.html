@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+	<head>
+		<title>line</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	</head>
+	<script>
+		window.onload=function(){
+			var elem = document.getElementById('myCanvas');    
+			if (elem && elem.getContext) {    
+				var ctx = elem.getContext('2d');    
+				
+				ctx.beginPath();			//创建路径
+				ctx.moveTo(10,10);			//路径移动到目标点
+				ctx.lineTo(150,50);			//创建到达位置 150,50 的一条线
+				ctx.lineTo(10,50);
+				ctx.closePath();			//闭合路径，起点与终止点闭合
+				
+				
+				//stroke 					//画线，默认黑色
+				//fill 						//填充，默认黑色
+				ctx.strokeStyle="red";			
+				ctx.stroke();				//空心填充
+				
+				
+				ctx.beginPath();			//创建路径
+				ctx.moveTo(10,110);			//路径移动到目标点
+				ctx.lineTo(150,150);		//创建到达位置 150,50 的一条线
+				ctx.lineTo(10,150);
+				ctx.closePath();		
+				
+				ctx.fillStyle = "blue";	 
+				ctx.fill();			
+				
+			}  
+		}
+	</script>
+	<style>
+		canvas{
+			border: 1px solid black;	
+		}
+	</style>
+	<body>
+		<canvas id="myCanvas" width="400" height="400">    
+			Fallback content, in case the browser does not support Canvas.    
+		</canvas>  
+	</body>
+</html>
+

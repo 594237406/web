@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>relative</title>
+    <style>
+        .parent {
+            width: 300px;
+            height: 300px;
+            margin: 90px auto;
+            border: 1px solid black;
+            position: relative;
+        }
+
+        .box1 {
+            width: 100px;
+            height: 100px;
+            background: red;
+            float: left;
+        }
+
+        .box2 {
+            width: 100px;
+            height: 100px;
+            background: red;
+            float: left;
+            margin-left: 100px;
+        }
+
+        .box3 {
+            width: 100px;
+            height: 100px;
+            background: red;
+            float: left;
+            margin-left: 100px;
+        }
+
+        /*左侧不能有浮动元素*/
+        .box4 {
+            width: 100px;
+            height: 100px;
+            background: red;
+            float: left;
+            clear: left;
+        }
+
+        .box5 {
+            width: 100px;
+            height: 100px;
+            background: red;
+            float: left;
+            margin-left: 100px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="parent">
+    <div class="box1">div1</div>
+    <div class="box2">div2</div>
+    <div class="box3">div3</div>
+    <div class="box4">div4</div>
+    <div class="box5">div5</div>
+</div>
+</body>
+</html>

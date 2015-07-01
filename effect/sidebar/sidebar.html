@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>手风琴菜单</title>
+		<link rel=stylesheet type=text/css href="css/accordion.css">
+		<script type=text/javascript src="js/jquery.min.js"></script>
+		<script type=text/javascript src="js/accordion.js"></script>
+	</head>
+	<body>
+		<!-- 代码 开始 -->
+		 <div id="accordion" class="accordion">
+		    <p class="menu_head current">日志规则</p>
+		    <div style="display:block" class="menu_body">
+		      <a href="#">建立规则</a>
+		      <a href="#">修改规则</a>
+		      <a href="#">删除规则</a>
+		      <a href="#">查询规则</a>
+		    </div>
+		    <p class="menu_head">日志检测</p>
+		    <div style="display:none" class="menu_body">
+		      <a href="#">建立检测</a>
+		      <a href="#">修改检测</a>
+		      <a href="#">删除检测</a>
+		      <a href="#">查询检测</a>
+		    </div>    
+		</div>
+	</body>
+	<script type=text/javascript>
+		$(document).ready(function(){
+			init();
+		});
+	</script>
+</html>

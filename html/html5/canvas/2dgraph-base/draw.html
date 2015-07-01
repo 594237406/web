@@ -1,0 +1,54 @@
+<!DOCTYPE>
+	<html>
+		<head>
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+			<title>draw</title>
+			<script>
+				window.onload=function(){
+					var canvas=document.getElementById("canvas");
+					var ce = canvas.getContext('2d');
+					canvas.onmousedown=function(ev){
+						
+						var mouseDis=getMouseDis(ev);
+						//移动到起笔位
+						ce.moveTo(mouseDis.x,mouseDis.y);
+						
+						//画点
+						document.onmousemove=function(ev){
+							var mouseDis=getMouseDis(ev);
+							ce.lineTo(mouseDis.x,mouseDis.y);
+							ce.stroke();
+						}
+						
+						document.onmouseup=function(ev){
+							document.onmousemove=null;
+						}
+					}
+				}
+				
+				function getMouseDis(ev){
+					var canvas=document.getElementById("canvas");
+					
+					//获得屏幕滚动距离
+					var body=document.body||document.documentElement;
+					var x=ev.clientX-canvas.offsetLeft+body.scrollLeft;
+					var y=ev.clientY-canvas.offsetTop+body.scrollTop;
+					return {x:x,y:y};
+				}
+			</script>
+			<style type="text/css">
+				body{background: black;	}
+				
+				/*默认300*150*/
+				canvas{background: white;margin: 100px;}
+				
+				span{background: white;}
+			</style>
+		</head>
+	<body>
+		<!-- 标签上写宽高，style设置有bug-->
+		<canvas width="600" height="600" id="canvas">
+			<span>浏览器不支持canvas</span>
+		</canvas>
+	</body>
+</html>

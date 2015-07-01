@@ -1,0 +1,45 @@
+<script>
+	var loginStr=
+	'public final static String S_QNR_ID = "QNR_ID";'+
+	'public final static String S_QNR_NAME = "QNR_NAME";'+
+	'public final static String S_QNR_TYPE_ID = "QNR_TYPE_ID";'+
+	'public final static String S_QNR_HEADER = "QNR_HEADER";'+
+	'public final static String S_DESCRIPTION = "DESCRIPTION";'+
+	'public final static String S_STATE = "STATE";'+
+	'public final static String S_OP_ID = "OP_ID";'+
+	'public final static String S_ORG_ID = "ORG_ID";'+
+	'public final static String S_DONE_CODE = "DONE_CODE";'+
+	'public final static String S_CREATE_DATE = "CREATE_DATE";'+
+	'public final static String S_DONE_DATE = "DONE_DATE";'+
+	'public final static String S_EFFECTIVE_DATE = "EFFECTIVE_DATE";'+
+	'public final static String S_EXPIRE_DATE = "EXPIRE_DATE";'+
+	'public final static String S_CHANNEL_ID = "CHANNEL_ID";'+
+	'public final static String S_CHANNEL_CODE = "CHANNEL_CODE";'+
+	'public final static String S_UP_CHANNEL_ID = "UP_CHANNEL_ID";'+
+	'public final static String S_CHANNEL_TYPE_ID = "CHANNEL_TYPE_ID";'+
+	'public final static String S_LEVEL_ID = "LEVEL_ID";'+
+	'public final static String S_CHANNEL_NAME = "CHANNEL_NAME";'+
+	'public final static String S_DESCRIPTION = "DESCRIPTION";'+
+	'public final static String S_ORIENTATION_TYPE = "ORIENTATION_TYPE";'+
+	'public final static String S_OWNERSHIP_TYPE = "OWNERSHIP_TYPE";'+
+	'public final static String S_CREATE_OP_ID = "CREATE_OP_ID";'+
+	'public final static String S_CREATE_ORG_ID = "CREATE_ORG_ID";'+
+	'public final static String S_CREATE_DATE = "CREATE_DATE";'+
+	'public final static String S_STATE = "STATE";'+
+	'public final static String S_STATE_DATE = "STATE_DATE";'+
+	'public final static String S_OP_ID = "OP_ID";'+
+	'public final static String S_ORG_ID = "ORG_ID";'
+	var myStr;
+	var newStr;
+	var str=/_[A-Za-z]+/g;			//È«¾ÖÆ¥Åä
+	while((myStr=str.exec(loginStr))!=null){
+		var myString=myStr.toString();
+		console.log(myString);
+		newStr="_"+myString.substring(1,2)+myString.substring(2).toLowerCase();
+		loginStr=loginStr.replace(myStr,newStr);
+	}
+	loginStr=loginStr.replace(/public/g,"<br/>public");
+	loginStr=loginStr.replace(/String/g,"string");
+	loginStr=loginStr.replace(/_/g,"");
+	document.write(loginStr);
+</script>

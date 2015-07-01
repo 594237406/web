@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<title>each</title>
+<script src="underscore.js"></script>
+</head>
+<body>
+	<div id="div1" name="div1"></div>
+</body>
+<script>
+	/*
+		_.each(list, iterator, [context]) 别名: forEach 
+		对一个 list 的所有元素进行迭代, 对每一个元素执行 iterator 函数. iterator 和 context 对象绑定, 如果传了这个参数. 每次 iterator 的调用将会带有三个参数:
+		(element, index, list). 如果 list 是一个 JavaScript 对象, iterator 的参数将会是 (value, key, list). 如果有原生的 forEach 函数 就会用原生的代替.
+	*/
+
+	//list是你要循环迭代的集合，iterator是迭代器，context是迭代器的上下文，也就是迭代器中this的指向，例如： 
+	var obj = {name: "hello"};  
+	_.each([1, 2, 3], function (i) { 
+	  console.log(this.name + ":" + i); 
+	}, obj); 
+	
+	_.each( [ 'a', 'b', 'c' ], arrayEach);
+
+	function arrayEach(element, index, list) {
+		console.log('元素:' + element + ',索引:' + index + ',集合:' + list);
+	}
+
+	_.each({one: 1, two: 2, three: 3}, jsonEach);
+
+	function jsonEach(value, key, list) {
+		console.log('value:' + value + ',key:' + key + ',集合:' + list);
+	}
+
+	var div1=document.getElementById("div1");
+	
+	_.each(div1, domEach);
+
+	function domEach(value, key, list) {
+		//console.log('value:' + value + ',key:' + key + ',集合:' + list);
+	}
+</script>
+
+</html>

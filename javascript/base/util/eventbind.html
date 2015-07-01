@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>eventbind</title>
+		<script>
+			//给一个对象绑定一个事件处理函数的第一种形式
+			//obj.onclick = fn;
+			function fn1() {
+				alert(this);
+			}
+			function fn2() {
+				alert(2);
+			}
+			
+			
+			/*
+			ie：obj.attachEvent(事件名称，事件函数);
+				1.没有捕获
+				2.事件名称有on
+				3.事件函数执行的顺序：标准ie(IE9以及以上版本)-》正序   非标准ie-》倒序
+				4.this指向window
+			标准：obj.addEventListener(事件名称，事件函数，是否捕获);
+				1.有捕获
+				2.事件名称没有on
+				3.事件执行的顺序是正序
+				4.this触发该事件的对象
+			*/
+			
+			function bind(obj, evname, fn) {
+				if (obj.addEventListener) {
+					obj.addEventListener(evname, fn, false);
+				} else {
+					obj.attachEvent('on' + evname, function() {
+						fn.call(obj);		//如果不修改指向，IE下this指向为window
+					});
+				}
+			}
+			
+			bind(document, 'click', fn1);
+			bind(document, 'click', fn2);
+		</script>
+	</head>
+	
+	<body>
+	</body>
+</html>

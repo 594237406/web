@@ -1,0 +1,39 @@
+框架 iframe
+父页寻找子页
+window.frames["test"].document.getElementById("myH1").innerText="hello,my dear";
+window.frames[0].document.getElementById("myH1").innerText
+子页寻找父页
+window.parent.document.getElementById("user").value="1111";
+寻找打开页
+window.opener.document.getElementById("user").value="1111";
+寻找最顶层框架
+window.top.location.href="";
+window.top.location.reload();
+
+window对象常用方法
+closed 返回窗口是否已被关闭。 4 1 9 
+defaultStatus 设置或返回窗口状态栏中的默认文本。 4 No 9 
+document 对 Document 对象的只读引用。请参阅 Document 对象。 4 1 9 
+history 对 History 对象的只读引用。请参数 History 对象。 4 1 9 
+innerheight 返回窗口的文档显示区的高度。 No No No 
+innerwidth 返回窗口的文档显示区的宽度。 No No No 
+length 设置或返回窗口中的框架数量。 4 1 9 
+location 用于窗口或框架的 Location 对象。请参阅 Location 对象。 4 1 9 
+name 设置或返回窗口的名称。 4 1 9 
+Navigator 对 Navigator 对象的只读引用。请参数 Navigator 对象。 4 1 9 
+opener 返回对创建此窗口的窗口的引用。 4 1 9 
+outerheight 返回窗口的外部高度。 No No No 
+outerwidth 返回窗口的外部宽度。 No No No 
+pageXOffset 设置或返回当前页面相对于窗口显示区左上角的 X 位置。 No No No 
+pageYOffset 设置或返回当前页面相对于窗口显示区左上角的 Y 位置。 No No No 
+parent 返回父窗口。 4 1 9 
+Screen 对 Screen 对象的只读引用。请参数 Screen 对象。 4 1 9 
+self 返回对当前窗口的引用。等价于 Window 属性。 4 1 9 
+status 设置窗口状态栏的文本。 4 No 9 
+top 返回最顶层的先辈窗口。 4 1 9 
+window window 属性等价于 self 属性，它包含了对窗口自身的引用。 4 1 9 
+screenLeft
+screenTop
+screenX
+screenY
+ 只读整数。声明了窗口的左上角在屏幕上的的 x 坐标和 y 坐标。IE、Safari 和 Opera 支持 screenLeft 和 screenTop，而 Firefox 和 Safari 支持 screenX 和 screenY。 

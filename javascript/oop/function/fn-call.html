@@ -1,0 +1,34 @@
+<script>
+	function Person(obj){
+		this.name=obj.name;
+		this.age=obj.age;
+		this.say=function(o){
+			//console.log(o);
+			console.log(arguments[0]);
+			console.log(arguments[1]);
+			console.log(arguments[2]);
+			console.log(this.name);
+			console.log(this.age);
+		}
+	}
+	
+	var p1=new Person({name:"lhj",age:"25"});
+	var p2=new Person({name:"lm",age:"21"});
+	
+	//调用p1的方法say,其中的对象是p2,也就是说，this调用p2对象
+	p1.say.call(p2,"introduce");
+	p1.say.apply(p2,["introduce","name","age"]);
+	
+	window.color="red";
+	
+	var o={color:'blue'};
+	
+	function sayColor(){
+		console.log(this.color);
+	}
+	
+	// this指window
+	sayColor.call(this);
+	sayColor.call(window);
+	sayColor.call(o);
+</script>

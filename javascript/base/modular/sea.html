@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>sea</title>
+		<script type="text/javascript" src="sea/sea.js"></script>
+		
+		<script type="text/javascript">
+			//use:引用模块文件，参数1：url：默认根目录是 sea.js文件,./是相对路径，相对于当前页面
+			seajs.use("./js/show.js",function(ex){
+				show();
+				ex.show();
+			});
+			
+			function show(){
+				alert("show_before");
+			}
+			
+			
+		</script>
+	</head>
+	<body>
+	
+	</body>
+</html>

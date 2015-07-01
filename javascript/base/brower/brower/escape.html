@@ -1,0 +1,11 @@
+<script>
+	var a="Hello{[&world&]}"
+	var b=escape(a);
+	console.log(b+"<br/>");
+	var c=unescape(b);
+	console.log(c+"<br/>");
+	console.log(encodeURI(a)+"<br/>");
+	console.log(decodeURI(encodeURI(a))+"<br/>");
+	console.log(encodeURIComponent(a)+"<br/>");
+	console.log(decodeURIComponent(encodeURIComponent(a))+"<br/>");
+</script>

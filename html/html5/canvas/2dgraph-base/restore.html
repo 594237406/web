@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>restore</title>
+		<script type="text/javascript">
+			window.onload = function(){
+				var canvas = document.getElementById('myCanvas');
+				var context = canvas.getContext('2d');
+				context.translate(50, 50);
+				context.save();					//坐标原点移到画布中心，并保存这个状态
+				context.rotate(Math.PI/2);		//旋转90度
+				context.beginPath();
+				context.moveTo(0, -50);
+				context.lineTo(-50, 0);
+				context.moveTo(0, -50);
+				context.lineTo(50, 0);
+				context.moveTo(0, -50);
+				context.lineTo(0, 50);
+				context.closePath();			//画一个向右的箭头
+				//context.restore();			//打开注释，注意方块位置
+				context.fillRect(40, 40, 10, 10);  //画一点，restore后点在右下角，没有restore刚点在左下角
+				context.stroke();
+			}
+		</script>
+	</head>
+	<body>
+			<canvas id="myCanvas" width="400" height="400">    
+				Fallback content, in case the browser does not support Canvas.    
+			</canvas>  
+	</body>
+</html>

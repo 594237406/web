@@ -1,0 +1,17 @@
+<script>
+	var a="Hello{[&world&]}"
+	var b=escape(a);
+	document.write(b+"<br/>");
+	var c=unescape(b);
+	document.write(c+"<br/>");
+	document.write(encodeURI(a)+"<br/>");
+	document.write(decodeURI(encodeURI(a))+"<br/>");
+	document.write(encodeURIComponent(a)+"<br/>");
+	document.write(decodeURIComponent(encodeURIComponent(a))+"<br/>");
+</script>
+JS端：
+login_name = encodeURI(encodeURI(login_name)); 
+
+服务器端：
+String loginName = ParamUtil.getString(request, "login_name"); 
+loginName = java.net.URLDecoder.decode(loginName,"UTF-8"); 

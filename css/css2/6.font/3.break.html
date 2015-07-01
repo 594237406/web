@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<style>
+			div{
+				width:200px;
+				/*超长单词同行展示
+				
+					word-break:
+						keep-all:只能在半角空格或连字符处换行，不允许长单词单词间换行，超长单词会在一行显示==word-wrap.normal(默认)
+						break-all:允许在单词内换行。
+						
+					word-wrap:
+						break-word:允许长单词在单词间换行，忽略任何符号。
+						normal:只能在半角空格或连字符处换行，不允许长单词单词间换行，超长单词会在一行显示==word-break.keey-all(默认)
+				
+					white-space 属性设置如何处理元素内的空白
+						normal：默认。空白会被浏览器忽略。(默认)						
+						nowrap：禁止文本换行，文本会在在同一行上继续，直到遇到 <br> 标签为止。
+						
+						pre：空白会被浏览器保留。其行为方式类似 HTML 中的 <pre> 标签。
+						pre-wrap：保留空白符序列，但是正常地进行换行。
+						pre-line：合并空白符序列，但是保留换行符。
+						inherit：规定应该从父元素继承 white-space 属性的值。
+				
+				*/
+				/*word-break:break-all;*/
+				font-size: 30px;
+				border:1px solid black;
+			}
+			
+			div:nth-child(1){word-break:keep-all;}
+			div:nth-child(2){word-break:break-all;}
+			div:nth-child(3){word-wrap:break-word;}
+			div:nth-child(4){word-wrap:normal;}
+			div:nth-child(5){white-space:normal;}
+			div:nth-child(6){white-space:nowrap;}
+			
+			div:nth-child(7){white-space:pre;}
+			div:nth-child(8){white-space:pre-wrap;}
+			div:nth-child(9){white-space:pre-line;}
+		</style>
+	</head>
+	
+	<body>
+		<div>word-break:keep-all:This is a veryveryveryveryveryveryveryveryveryveryvery long word.</div>
+		<div>word-break:break-all:This is a veryveryveryveryveryveryveryveryveryveryvery long word.</div>
+		<div>word-wrap:break-word:This is a veryveryveryveryveryveryveryveryveryveryvery long word.</div>
+		<div>word-wrap:normal:This is a veryveryveryveryveryveryveryveryveryveryvery long word.</div>
+		<div>white-space:normal:This is a veryveryveryveryveryveryveryveryveryveryvery long word.</div>
+		<div>white-space:nowrap:This is a veryveryveryveryveryveryveryveryveryveryvery long word.</div>
+		<div>white-space:pre:This is a veryveryveryveryveryveryveryveryveryveryvery long word.</div>
+		<div>white-space:pre-wrap:This is a veryveryveryveryveryveryveryveryveryveryvery long word.</div>
+		<div>white-space:pre-line:This is a veryveryveryveryveryveryveryveryveryveryvery long word.</div>
+	</body>
+</html>
+

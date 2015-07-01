@@ -1,0 +1,21 @@
+<script>
+	var str=new String("hello");
+	
+	alert(typeof str);		//包装对象object
+	
+	str="hello";
+	
+	alert(typeof str);		//基本对象
+	
+	str.charAt(0);			//基本对象会找到相应的包装对象，包装对象把属性和方法给了基本类型，然后包装对象消失
+	
+	String.prototype.lastValue=function(){
+		return this.charAt(this.length-1);
+	}
+	
+	alert(str.lastValue());
+	
+	str.number=10;			//调用属性或者方法时会创建包装对象，然后包装对象消失
+	
+	alert(str.number);		//又会创建包装对象，包装对象没有number属性
+</script>

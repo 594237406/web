@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>magnifier</title>
+		<style type="text/css">
+			.small_div{width:200px;height:200px;float: left;border: 1px solid #ccc;padding: 5px;position: relative;}
+			.big_div{float: left;width:200px;height:200px;overflow: hidden;visibility:hidden;position: relative;
+				border: 1px solid #ccc; margin-left: 30px;}
+			.small_div .mark{width:200px;height:200px;position: absolute; z-index:2; left:5px; top:5px;
+				filter: alpha(opacity: 0); opacity: 0; background: #EEE;}
+			.small_div .layer{width:100px;height:100px;background: #000;position: absolute;visibility: hidden;
+				filter: alpha(opacity: 50); opacity: 0.5; background: #EEE;}
+				
+			.small_div .mark:hover{cursor: crosshair;}
+			.big_div img{position: absolute;}
+			.picture{position: relative;}
+		</style>
+		
+		<script type="text/javascript">
+			function getElementsByClass(parent,className){
+				var elements=parent.getElementsByTagName("*");
+				var retElements=[];
+				for(var i=0;i<elements.length;i++){
+					var element=elements[i];
+					if(element.className==className){
+						retElements.push(element);
+					}
+				}
+				return retElements;
+			}
+			
+			function getPos(obj) {
+				var pos = {left:0, top:0};
+				while (obj) {
+					pos.left += obj.offsetLeft;
+					pos.top += obj.offsetTop;
+					obj = obj.offsetParent;
+				}
+				return pos;
+			}
+			
+			window.onload=function(){
+				var smallDiv=getElementsByClass(document, "small_div")[0];
+				var mark=getElementsByClass(document, "mark")[0];
+				var layer=getElementsByClass(document, "layer")[0];
+				var bigDiv=getElementsByClass(document, "big_div")[0];
+				var smallImg=smallDiv.getElementsByTagName("img")[0];
+				var bigImg=bigDiv.getElementsByTagName("img")[0];
+				
+				
+				mark.onmouseover=function(){
+					layer.style.visibility="visible";
+					bigDiv.style.visibility="visible";
+				};
+				
+				mark.onmouseout=function(ev){
+					layer.style.visibility="hidden";
+					bigDiv.style.visibility="hidden";
+				};
+				
+				mark.onmousemove=function(ev){
+					var ev=ev||event;
+					
+					var imgDisX=getPos(mark).left;
+					var imgDisY=getPos(mark).top;
+// 					console.log("x"+layer.clientWidth/2);
+					document.title="x"+layer.clientWidth/2;
+					
+					var left=ev.clientX-imgDisX-layer.offsetWidth/2;
+					var top=ev.clientY-imgDisY-layer.offsetHeight/2;
+					
+					if(left<0){
+						left=0;
+					}else if(left>mark.offsetWidth-layer.offsetWidth){
+						left=mark.offsetWidth-layer.offsetWidth;
+					}
+					
+					if(top<0){
+						top=0;
+					}else if(top>mark.offsetHeight-layer.offsetHeight){
+						top=mark.offsetHeight-layer.offsetHeight;
+					}
+					
+					layer.style.left=left+"px";
+					layer.style.top=top+"px";
+					
+					//layer据左侧的距离占(mark-layer)宽度比例 
+					var percentX=left/(mark.offsetWidth-layer.offsetWidth);
+					var percentY=top/(mark.offsetHeight-layer.offsetHeight);
+					
+					//console.log("y"+percentY);
+					bigImg.style.left=-percentX*(bigImg.offsetWidth-bigDiv.offsetWidth)+'px';
+					bigImg.style.top=-percentY*(bigImg.offsetHeight-bigDiv.offsetHeight)+'px';
+				};
+				
+			}
+			
+			
+		</script>
+	</head>
+<body>
+	
+	<div class="small_div">
+		<div class="picture">
+			<div class="mark" > </div> 
+			<div class="layer"></div>
+			<img src="images/small.png"/>
+		</div>
+	</div>
+	
+	<div class="big_div">
+		<img src="images/big.png" /> 
+	</div>
+</body>
+</html>

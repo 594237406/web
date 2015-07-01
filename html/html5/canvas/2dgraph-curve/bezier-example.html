@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+	<script>
+		window.onload=function(){
+			var elem = document.getElementById('myCanvas');    
+			var ctx = elem.getContext('2d');    
+			ctx.beginPath();
+			//»æÖÆ±´Èû¶ûÇúÏß
+			ctx.beginPath();
+			ctx.moveTo(75,40);
+			ctx.bezierCurveTo(75,37,70,25,50,25);
+			ctx.bezierCurveTo(20,25,20,62.5,20,62.5);
+			ctx.bezierCurveTo(20,80,40,102,75,120);
+			ctx.bezierCurveTo(110,102,130,80,130,62.5);
+			ctx.bezierCurveTo(130,62.5,130,25,100,25);
+			ctx.bezierCurveTo(85,25,75,37,75,40);
+			ctx.fill();
+			//»æÖÆ±´Èû¶ûÇúÏß
+			ctx.beginPath();
+			ctx.moveTo(275,25);
+			ctx.quadraticCurveTo(225,25,225,62.5);
+			ctx.quadraticCurveTo(225,100,250,100);
+			ctx.quadraticCurveTo(250,120,230,125);
+			ctx.quadraticCurveTo(260,120,265,100);
+			ctx.quadraticCurveTo(325,100,325,62.5);
+			ctx.quadraticCurveTo(325,25,275,25);
+			ctx.stroke();
+	      
+		}
+	</script>
+	<style>
+		canvas{
+			border: 1px solid black;	
+		}
+	</style>
+	<body>
+		<canvas id="myCanvas" width="500" height="500">    
+			Fallback content, in case the browser does not support Canvas.    
+		</canvas>  
+	</body>
+</html>
+

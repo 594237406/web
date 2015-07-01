@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<script>
+			window.onload=function(){
+				var leftBtn=document.all.left;
+				var img=new Image();
+				img.src='miaov.png';
+ 				var iNow=0;
+ 				var cv = document.getElementById('myCanvas');  
+				var ct;
+				if (cv && cv.getContext) {    
+					ct = cv.getContext('2d');
+				}
+				
+ 				leftBtn.onclick=function(){
+					draw(img);		
+ 				}
+ 				
+ 				cv.width=img.width;
+ 				cv.height=img.height;
+				ct.drawImage(img,0,0);
+				
+				function draw(obj){
+					iNow++;
+					switch(iNow%4){
+						case 0:
+							cv.width=obj.width;
+							cv.height=obj.height;
+							ct.rotate(0);
+							ct.drawImage(obj,0,0);
+							break;
+					
+						case 1:
+							cv.height=obj.width;
+ 							cv.width=obj.height;
+							ct.rotate(Math.PI/2);
+							ct.drawImage(obj,0,-obj.height);
+							break;
+							
+						case 2:
+							cv.width=obj.width;
+							cv.height=obj.height;
+							ct.rotate(Math.PI);
+							ct.drawImage(obj,-obj.width,-obj.height);
+							break;
+							
+						case 3:
+							cv.height=obj.width;
+ 							cv.width=obj.height;
+							ct.rotate(Math.PI*3/2);
+							ct.drawImage(obj,-obj.width,0);
+							break;
+					}
+				}
+			}
+		</script>
+		
+				<style>
+			canvas{
+				border: 1px solid black;	
+			}
+		</style>
+	</head>
+
+	<body>
+		<button id='left'>←</button>
+		<br/>
+		<canvas id="myCanvas">    
+			Fallback content, in case the browser does not support Canvas.    
+		</canvas>  
+	</body>
+</html>
+
+
+
+
+

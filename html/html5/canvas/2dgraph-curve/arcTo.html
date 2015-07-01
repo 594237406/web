@@ -1,0 +1,35 @@
+<!DOCTYPE>
+	<html>
+		<head>
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+			<title>arcTo</title>
+			<script>
+				window.onload=function(){
+					/*内切弧*/
+					var canvas=document.getElementById("canvas");
+					//获得绘图环境,目前没有3D，使用webgl制作3D绘图
+					var ce=canvas.getContext("2d");
+					ce.moveTo(100,100);
+					//以100,100、100,200、200,200为起始点画两条直线，以50为半径的圆与直线内切，图形为100,100到第一个内切点
+					//画直线，从第一个内切点到第二个内切点画曲线
+					//切点起点x,y,切点结束x,y，半径					
+					ce.arcTo(100,200,200,200,50);
+					ce.stroke();
+				}
+			</script>
+			<style type="text/css">
+				body{background: black;	}
+				
+				/*默认300*150*/
+				canvas{background: white;}
+				
+				span{background: white;}
+			</style>
+		</head>
+	<body>
+		<!-- 标签上写宽高，style设置会等比例缩放，比如设置成300*300，则画布元素纵向会被缩放2倍 -->
+		<canvas width="400" height="400" id="canvas">
+			<span>浏览器不支持canvas</span>
+		</canvas>
+	</body>
+</html>

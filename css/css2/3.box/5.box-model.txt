@@ -1,0 +1,91 @@
+1.怪异模式特点
+
+在 quirks 模式和标准模式之间一个突出的不同是对 CSS IE盒模型缺陷的处理。在第 6 版之前，Internet Explorer 曾经
+使用一种决定一个元素的盒模型的宽度和高度的，与 CSS 规范所指定相冲突的算法，而且由于 Internet Explorer 的流行，
+很多依赖于这种不正确的算法的网页被创建。而在版本 6, Internet Explorer 在标准模式下渲染时使用了 CSS 规范的算法，
+而在 quirks 模式下使用先前的，不规范的算法。
+
+另一个值得一提的不同点是某些行内 (inline) 元素的垂直对齐；很多早期的浏览器对齐图片至包含它们的盒子的下边框，虽然
+CSS 的规范要求它们被对齐至盒内文本的基线。标准模式下，基于 Gecko 的浏览器将会对齐至基线，而在 quirks 模式下它们
+会对齐至底部。
+
+此外，很多早期的浏览器对表格内部的字体样式不实施继承；结果是，字体样式必须为整个文档作为一个整体指定一次，并且为表
+格再次指定一次，尽管 CSS 规范要求字体样式被继承进表格。如果字号使用相对单位指定，一个标准兼容的浏览器会继承基准字
+号，然后应用于表格内的相对字号：比如，一个声明了基准字号为 80% 的页面内声明表格为 80% （以保证在不正确继承字号的
+浏览器中有 80% 的字号）的字号将会，在一个标准兼容的浏览器里，显示具有 64% 字号的表格。结果是，浏览器在怪异模式典
+型的不对表格继承字号。
+
+
+2.怪异模式触发
+
+触发标准模式
+
+1、加DOCTYPE声明,比如：
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+ <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+ <!DOCTYPE html>
+2、设置X-UA-Compatible触发。
+
+触发怪异模式
+
+1、无doctype声明、定义旧的HTML版本（HTML4以下,例如3.2）
+2、加XML声明，可在ie6下触发
+ <?xml version="1.0" encoding="utf-8"?>
+ <!DOCTYPE ...>
+ 3、在XML声明和XHTML的DOCTYPE之间加入HTML注释，可在ie7下触发 <?xml version="1.0" encoding="utf-8"?>
+ <!-- keep IE7 in quirks mode -->
+ <!DOCTYPE ...>
+ 5、<!--->放在<!DOCTYPE前面
+
+
+IE8有4种模式：IE5.5怪异模式、IE7标准模式、IE8几乎标准模式、IE8标准模式
+
+X-UA-Compatible设置对IE8模式的影响：
+ 1、设置X-UA-Compatible meta
+IE=5、IE=6(介于5、6之间的任意数字，比如5.987654321)：触发IE5怪异模式(无论页面是否有DOCTYPE)
+IE=7(7<= 值 <8)：强制IE7标准(无论页面是否有DOCTYPE)
+IE=EmulateIE7：遵循DOCTYPE(有DOCTYPE-IE7标准；无DOCTYPE-IE5怪异模式)
+IE=EmulateIE8：遵循DOCTYPE(DOCTYPE-IE8几乎标准模式(或IE8标准模式)；无DOCTYPE-IE5怪异模式)
+IE=8、IE=Edge、IE=99、IE=9.9(大于等于8的)：有doctype-使用几乎标准模式，或IE8标准；无doctype-IE8标准。
+
+注1：把X-UA-Compatible写在<link>或<script>标签下面，X-UA-Compatible的设置无效。
+注2：页面、服务器HTTP Header都设置了X-UA-Compatible的情况，使用页面的X-UA-Compatible设置。页面无X-UA-Compatible，才使用HTTP Header设置的值。
+注3：几乎标准模式的意思和触发，下面的"Almost Standards Mode"有说明。
+注4：IE=xx的值，ie会尝试xx转换为最接近的值。比如：IE=7.789 -> IE=7；介于5、6之间的->IE=5；大于等于8的->IE=8。
+注5：IE=4、IE=3、IE=0.1、IE=-7 这些小于5的，包括类似IE=IE8、IE=IE7、IE=IE6、IE=a、IE=b、IE=bcd，和无X-UA-Compatible一样一样滴。 可以理解为X-UA-Compatible设置了无效的值，所以跳过这里了。
+
+
+2、设置X-UA-Compatible HTTP Header
+
+IE=5、IE=6: 触发IE5怪异模式(无论页面是否有DOCTYPE)
+IE=7(7<= 值 <8): 强制IE7标准(无论页面是否有DOCTYPE)
+IE=EmulateIE7: 遵循DOCTYPE(有DOCTYPE-IE7标准；无DOCTYPE-IE5怪异模式)
+IE=EmulateIE8：遵循DOCTYPE(DOCTYPE-IE8几乎标准，或IE8标准；无DOCTYPE-IE5怪异模式)
+IE=8、IE=Edge、IE=99、IE=9.9(大于等于8的)：有doctype-使用几乎标准模式(或IE8标准)；无doctype-IE8标准。
+注：设置了X-UA-Compatible(meta或http header)后，会覆盖客户端的兼容性视图设置。会强迫(优先)使用X-UA-Compatible设置的模式
+
+IE9有7种模式: IE5.5怪异模式、IE7标准模式、IE8几乎标准模式、IE8标准模式、IE9几乎标准模式、IE9标准模式、XML模式
+
+
+X-UA-Compatible的特殊写法
+
+msdn上面提到了X-UA-Compatible值设置成"IE=9; IE=8; IE=5"这样的，意思就是优先最前面的IE9，没IE9就用IE8，没IE8就IE5，并且并不推荐在生产环境下使用。
+触发Google Chrome Frame：<meta http-equiv="X-UA-Compatible" content="chrome=1">
+可以和IE的X-UA-Compatible混搭：比如：
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">。这样写的好处：可以让ie在最好的渲染方式下渲染页面。
+"IE=edge,chrome=1"，可以写成"chrome=1,IE=edge"、"chrome=1; IE=edge"。
+
+
+X-UA-Compatible只有IE>=8才识别，所以他们可以用doctype声明、X-UA-Compatible、兼容性视图设置来改变模式。
+IE6/7却依靠DOCTYPE来改变标准或怪异模式，类似这些低版本的浏览器下的标准模式，接近与“先进”浏览器下的几乎标准模式，因为它们都没有严格遵循CSS2规范。并且他们同样在标准模式下，各自的渲染还是是有差别的。没差别就不会有css hack的诞生。
+IE6-IE9下，怪异模式都在IE5.5下。
+不需要写X-UA-Compatible，用css也完全可以搞定各个版本IE的解析不同。
+
+模式、版本不同，不仅仅css解析不同，js的解析也有不同。
+了解浏览器解析模式的不同，可以避免我们辛苦写出的标准代码被怪异所残害。
+让开发者更注重遵循标准，无论在生产效率还是在协作、沟通上都有好处滴。
+现在几乎人人都用标准的doctype来声明文档，所以纠结标准、怪异模式对工作的影响不太大。
+
+
+参考文章：
+http://www.cnblogs.com/yuzhongwusan/archive/2012/02/17/2355695.html

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>radius</title>
+		<style>
+			#boxes div { margin-bottom: 20px; height: 50px; padding-left: 20px }
+			#boxShortcode {
+				background: cyan;
+				border-radius: 40px;
+			}
+			#box1 {
+				background: red;
+				border-top-right-radius: 40px;
+			}
+			#box2  {
+				background: yellow;
+				/*横向、纵向圆角*/
+				border-top-right-radius: 20px 40px;
+			}
+			#box3 {
+				background: lime;
+				border-top-right-radius: 40px 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="boxes">
+			<div id="boxShortcode">border-radius: 40px (shortcode)</div>
+			<div id="box1">border-top-right-radius: 40px (same on both axis)</div>
+			<div id="box2">border-top-right-radius: 20px 40px (x < y) </div>
+			<div id="box3">border-top-right-radius: 40px 20px (x > y) </div>
+		</div>
+	</body>
+</html>
+

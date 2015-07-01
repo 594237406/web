@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>nowrap</title>
+		<style>
+		#box {
+		    text-overflow:ellipsis;
+		    -o-text-overflow: ellipsis;
+		    overflow:hidden;
+			/*文本不自动换行 */
+		    white-space:nowrap;
+		    border: 1px solid black;
+		    
+		    width: 400px;
+		    padding: 20px;
+		    -webkit-transition: all 0.5s;
+		    cursor: pointer;
+		}
+		#box:hover {
+			/*文本自动换行 */
+		    white-space: normal;
+		    background: #eee;
+		}
+		</style>
+	</head>
+	<body>
+		<div id="box"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+		 ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+		  ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+		   ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi 
+		    ut aliquip ex ea commodo consequat.  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+		     ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+	</body>
+</html>

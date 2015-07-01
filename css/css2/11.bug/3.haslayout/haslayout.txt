@@ -1,0 +1,69 @@
+haslayout的重要性：
+
+先不说这个haslayout是什么，我想让你知道haslayout的重要性。
+
+我们经常遇到的一些IE渲染错误，都可以通过haslayout来解决。例如著名的双倍边距，3像素偏移等等。
+
+haslayout是什么：
+
+haslayout是IE的特有属性，就是has(有)layout(布局样式)！
+
+在IE浏览器中，有的元素是默认“has” layout(有布局样式的)，而有的元素是没有layout，需要后期激发layout的。微软给出的主要原因是“性能和简洁”。如果
+所有的元素都默认有布局，会对性能和内存使用上产生有害的影响。
+
+他们还认为元素都应该可以拥有一个“属性(property)”(这是面向对象编程中的一个概念)，于是他们便使用了 hasLayout，这种渲染特性生效时也就是将 
+hasLayout 设成了 true 之时。
+
+“无layout”元素，是指 hasLayout 未被触发的元素，如一个未设定宽高尺寸的干净 div 元素就可以做为一个“无layout祖先”。
+
+默认haslayout的元素：
+
+<html>, <body> <table>, <tr>, <th>, <td> <img> <hr> <input>, <select>, <textarea>, <button>
+<iframe>, <embed>, <object>, <applet> <marquee>
+
+CSS赋予元素layout的方式：
+
+position: absolute
+
+float: left/right
+
+display: inline-block  内联元素使用
+
+width/height:除auto以外任意值，height: 1% 就在 Holly Hack 中用到
+
+zoom:除normal以外任意值
+
+在IE6+中，overflow: hidden/scroll/auto和min/max 和 width/height等也可以触发haslayout
+
+CSS hacks
+
+1.Holly hacks
+
+/* \*/  * html .gainlayout { height: 1%; }  /* */
+
+支持 IE5+ ，除标准兼容模式 IE6 中的内联元素。 和 overflow: hidden 不相容，除非在 IE6 的标注兼容模式下(因为这时如果父元素没有定高，
+那么height: 1% 会被变回 height: auto)。
+
+2.underscore hack
+
+.gainlayout { _height: 0; }
+
+3.条件注释方式
+
+<!–[if lte IE 6]>
+<style>
+.gainlayout { height: 1px; }
+</style>
+<![endif]–>
+
+4.外链CSS方式
+
+<link rel=”stylesheet” href=”allbrowsers.css” type=”text/css” />
+<!–[if lte IE 6]>
+<link rel=”stylesheet” href=”iefix.css” type=”text/css” />
+<![endif]–>
+
+haslayout小结：
+
+当遇到IE渲染错误时可以首页试着激活haslayout来看看是不是此原因。推荐方式是设定元素zoom:1;这是IE的特有属性，
+而且不会影响效果。Holly hack用在IE6-版本，IE6+更适合用min-height:0;

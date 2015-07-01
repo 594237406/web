@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<title>ctrlKey</title>
+		<meta http-equiv="keywords" content="enter,your,keywords,here" />
+		<meta http-equiv="description"
+			content="A short description of this page." />
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+		<!--<link rel="stylesheet" type="text/css" href="styles.css">-->
+		<style>
+		</style>
+		<script>
+			window.onload=function(){
+				var ta =document.getElementById("ta");
+				var txt =document.getElementById("txt");
+				var btn =document.getElementById("btn");
+				
+				btn.onclick=function(){
+					ta.value+=txt.value+"\n";
+					txt.value="";
+					txt.focus();
+				}
+				
+				// 键盘按下onkeydown,键盘松开onkeyup,onkeydown时txt.value为txt之前的值
+				txt.onkeydown=function(ev){
+					var e=ev||event;
+					var code=e.keyCode;
+					if(!(code==13||code==17)&&(code<48||code>57)){
+						alert("只能输入数字");
+						return false;
+					}
+					
+					//ctrlKey,altKey,shiftKey:按住这些按钮并且点别的键
+					if(e.ctrlKey&&code==13){
+						ta.value+=txt.value+"\n";
+						txt.value="";
+					}
+				}
+			}
+		</script>
+	</head>
+	<body >
+		<textarea id="ta" rows="10" cols="30"></textarea><br/>
+		<input id="txt" /> <input type="button" id="btn" value="留言"></input> 
+	</body>
+</html>

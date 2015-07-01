@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>waterfall</title>
+
+    <script type="text/javascript">
+        Array.min = function (array) {
+            var min = Math.min.apply(Math, array);
+            for (var i in array) {
+                if (array[i] == min) {
+                    return i;
+                }
+            }
+        }
+
+        function randomString(len) {
+            len = len || 32;
+            var $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678';
+            /****默认去掉了容易混淆的字符oOLl,9gq,Vv,Uu,I1****/
+            var maxPos = $chars.length;
+            var pwd = '';
+            for (i = 0; i < len; i++) {
+                pwd += $chars.charAt(Math.floor(Math.random() * maxPos));
+            }
+            return pwd;
+        }
+
+        window.onload = function () {
+            var index = 0;
+            var container = document.all.container;
+            var sections = container.children;
+            var secWth = [];
+
+            var timer = setInterval(function () {
+                secWth = [];
+                index++;
+                for (var i = 0; i < sections.length; i++) {
+                    var section = sections[i];
+                    secWth.push(section.offsetHeight);
+                }
+
+                var div = document.createElement("div");
+                var ranR = Math.floor(Math.random() * 255);
+                var ranG = Math.floor(Math.random() * 255);
+                var ranB = Math.floor(Math.random() * 255);
+                var ranHeight = Math.floor(30 + Math.random() * 70);
+
+                div.style.background = "rgb(" + ranR + "," + ranG + "," + ranB + ")";
+                div.style.height = ranHeight + "px";
+                sections[Array.min(secWth)].appendChild(div);
+
+                if (index == 26) {
+                    clearInterval(timer);
+                }
+            }, 100);
+        }
+
+    </script>
+    <style type="text/css">
+        .container {
+            margin: 0 auto;
+            width: 750px;
+            border: 1px solid red;
+            overflow: hidden;
+        }
+
+        .section {
+            float: left;
+            width: 250px;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+<div class="container" id="container">
+    <div class="section"></div>
+    <div class="section"></div>
+    <div class="section"></div>
+</div>
+</body>
+</html>

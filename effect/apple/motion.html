@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>motion</title>
+		<script type="text/javascript" src="motion.js"></script>
+		<script type="text/javascript">
+			function buffer(){
+				motion(document.getElementById("test"),{left:300},MOVE_TYPE.BUFFER)
+			}
+			
+			function flex(){
+				motion(document.getElementById("test"),{left:300},MOVE_TYPE.FLEX)
+			}
+		</script>
+		<style type="text/css">
+			#test{width: 100px;height:100px;background: red;position: absolute;left:0;top:50px;}
+		</style>
+	</head>
+	<body>	
+		<button onclick="buffer()">buffer</button>
+		<button onclick="flex()">flex</button>
+		<div id="test"></div>
+	
+	</body>
+</html>

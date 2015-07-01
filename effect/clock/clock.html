@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html" charset="utf-8"/>
+<title> 系统时间 </title>
+<script src="base.js" type="text/javascript"></script>
+<script src="motion.js" type="text/javascript"></script>
+<style>
+body,ul{margin:0;padding:0;}
+li{list-style:none;}
+#wrap{width:370px;height:94px;padding-top:16px;margin:30px auto;background:url(img/bg.png) no-repeat;}
+#time_bord{height:60px;margin:0 auto;width:280px;padding:0 9px;overflow:hidden;}
+#time_bord li{width:33%;height:100%;float:left;position:relative;}
+#time_bord li img{margin:0;float:left;top:0;}
+</style>
+<script >
+$(function (){
+	var timer=setInterval(fnTime,1000);
+    var tUl=document.getElementById("time_bord");
+	var tLis=tUl.children;
+	var oldTimeNums=[];
+	var imgs=document.getElementsByTagName("img");
+	//布局转换
+
+	var imgPos=[];
+
+	for(var i=0;i<imgs.length;i++){
+		var img=imgs[i];
+		imgPos.push(img.offsetLeft);
+	}
+
+	for(var i=0;i<imgs.length;i++){
+		var img=imgs[i];
+		img.style.left=imgPos[i]+"px";
+		img.style.position="absolute";
+	}
+	
+
+    fnTime();
+    
+    function fnTime(){
+        var myTime=new Date();
+		/*获得时分秒*/
+        var iHour=myTime.getHours().toString();
+        var iMin =myTime.getMinutes().toString();
+        var iSec =myTime.getSeconds().toString();
+        
+		/*获得时\分\秒的两位数字*/
+		var hNum=getDoubleNum(iHour);
+		var mNum=getDoubleNum(iMin);
+		var sNum=getDoubleNum(iSec);
+
+		
+		/*移动数字*/
+		moveNum(hNum.firNum,oldTimeNums[0],tLis[0].children[0]);
+		moveNum(hNum.secNum,oldTimeNums[1],tLis[0].children[1]);
+		moveNum(mNum.firNum,oldTimeNums[2],tLis[1].children[0]);
+		moveNum(mNum.secNum,oldTimeNums[3],tLis[1].children[1]);
+		moveNum(sNum.firNum,oldTimeNums[4],tLis[2].children[0]);
+		moveNum(sNum.secNum,oldTimeNums[5],tLis[2].children[1]);
+
+
+		oldTimeNums=[hNum.firNum,hNum.secNum,mNum.firNum,mNum.secNum,sNum.firNum,sNum.secNum];
+		
+    }  
+
+	//当前数字、旧数字、移动对象
+	function moveNum(num1,num2,obj){
+		if(num1!=num2){
+			motion(obj,{top:-60},MOVE_TYPE.BUFFER,function(){
+				obj.style.top="60px";
+				obj.src="img/"+num1+".png";
+				motion(obj,{top:0},MOVE_TYPE.BUFFER);
+			});			
+		}
+	}
+
+	//获得时\分\秒的两位数字
+	function getDoubleNum(num){
+		var firNum=0,secNum=0;		//第一位、第二位数字
+		var firReg=/^\d/;		//第一位正则
+		var secReg=/\d$/;		//第二位正则
+		
+		//获得小时数字
+		secNum=num.toString().match(secReg)[0];
+		if(num.length>1){		//如果有第一位
+			firNum=	num.toString().match(firReg)[0];
+		}
+		return {firNum:firNum,secNum:secNum};
+	}
+})
+</script>
+</head>
+
+<body>
+<div id="wrap">
+    <ul id="time_bord">
+        <li>
+            <img class="fir" src="img/0.png"     />
+			<img class="sec" src="img/0.png"     />
+			<img  src="img/dot.png"   />
+        </li> 
+		<li>
+            <img class="fir" src="img/0.png"     />
+			<img class="sec" src="img/0.png"     />
+			<img  src="img/dot.png"   />
+        </li> 
+		<li>
+            <img class="fir" src="img/0.png"     />
+			<img class="sec" src="img/0.png"     />
+        </li> 
+    </ul>
+
+</body>
+</HTML>

@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<script type="text/javascript" src="circle.js"></script>
+	<script>
+		window.onload=function(){
+			var g = new html5jp.graph.circle("myCanvas");
+			if(!g){
+				return;
+			}
+			var items=[["1:500",500],["2:120",120],["3:80",80],
+			           ["4:150",150],["5:100",100],["6:50",50],
+			           ["7:30",30],["8:130",130],["9:70",70]];
+			g.draw(items);
+		}
+	</script>
+	<style>
+		canvas{
+			border: 1px solid black;	
+		}
+	</style>
+	<body>
+		<div>
+			<canvas id="myCanvas" width="500" height="500">    
+				Fallback content, in case the browser does not support Canvas.    
+			</canvas>  
+		</div>
+	</body>
+</html>
+

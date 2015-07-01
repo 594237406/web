@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<script>
+			window.onload=function(){
+				var c=getCanvas();
+				//方式1
+// 				var img=document.getElementById("img");
+				//方式2
+				var img=new Image();
+				img.src='cat.png';
+				img.onload=function(){
+					for(var x=10,y=10;x<=300&&y<=300;x+=50,y+=40){
+						//img,x,y,width,height
+						c.drawImage(this,x+5,y+5,30,20);
+					}
+				}
+			}
+		</script>
+		
+		<style>
+			canvas{
+				border: 1px solid black;	
+			}
+		</style>
+		<script>
+			function getCanvas(){
+				var elem = document.getElementById('myCanvas');    
+				if (elem && elem.getContext) {    
+					var context = elem.getContext('2d');
+					return context;
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<canvas id="myCanvas" width="500" height="500">    
+			Fallback content, in case the browser does not support Canvas.    
+		</canvas>  
+<!-- 		<img src="cat.png" id="img" style="display: none;"/> -->
+	</body>
+</html>
+
+
+
+
+

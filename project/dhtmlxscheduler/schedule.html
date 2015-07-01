@@ -1,0 +1,218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> 
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Campaign Schedule</title>
+	<!--框架js-->
+	<script src="dhtmlxScheduler_v4/sources/dhtmlxscheduler.js"></script>
+	<script src="dhtmlxScheduler_v4/sources/ext/dhtmlxscheduler_year_view.js"></script>
+	
+	<!--框架css-->
+	<link rel="stylesheet" type="text/css" href="dhtmlxScheduler_v4/sources/dhtmlxscheduler.css">
+	<link rel="stylesheet" type="text/css" href="dhtmlxScheduler_v4/sources/CampaignSchedule_gray.css">
+	
+	<!--序列化，提供json,xml数据格式-->
+	<script src="dhtmlxScheduler_v4/sources/ext/dhtmlxscheduler_serialize.js"></script>
+	<script src="dhtmlxScheduler_v4/sources/ext/dhtmlxscheduler_minical.js"></script>
+
+<script>
+	var dateFormatFunc = scheduler.date.date_to_str("%Y-%m-%d %H:%i:%s");
+	var calendar = null;
+	//页面加载
+	window.onload=function() {
+		
+		init();
+	}	
+	
+	//初始化
+	function init(){
+		setConfigMessage();			//设置配置信息
+		scheduler.init('scheduler_here',new Date(2010,0,1),"month");	//初始化信息
+		displayMiniCalendar();		//设置小日历
+		loadUserData();				//加载数据
+		configIconDesc();			//提示
+		
+		scheduler.attachEvent("onclick", function (event_id, native_event_object){	//添加双击事件
+			var target = native_event_object.srcElement || native_event_object.target;
+			detailCampaignInfo(event_id,target);
+		});
+	}
+	
+	
+	//显示小日历
+	function displayMiniCalendar(){
+		calendar = scheduler.renderCalendar({
+			container:"cal_here", 
+			navigation:true,
+			handler:function(date){
+				//设置小日历视图
+				scheduler.setCurrentView(date, scheduler._mode);
+			}
+		});
+		//设置左右侧日历同步
+		scheduler.linkCalendar(calendar);
+	}
+	
+	//设置配置信息
+	function setConfigMessage(){
+		scheduler.config.start_on_monday=false;
+		scheduler.config.multi_day = true;
+		scheduler.config.xml_date="%Y-%m-%d %H:%i";
+		scheduler.config.details_on_dblclick=false;
+		scheduler.config.drag_move=false;						//禁止拖动
+		scheduler.config.drag_resize=false;
+		scheduler.config.drag_create=false;						//禁止新增
+		scheduler.config.full_day = true;						//24小时时段
+		scheduler.config.max_month_events = 4;
+		
+		//层叠标签
+		scheduler.config.cascade_event_display = true; 
+   		scheduler.config.cascade_event_count = 4; 
+   		scheduler.config.cascade_event_margin = 30; 
+	}
+	
+	//读取用户数据
+	function loadUserData(){
+		var userData="[{'id': 1261150547,'start_date': '2010-01-01 12:00:00','end_date': '2010-01-05 18:00:00'"+
+			",'text': 'test1','details': 'test1detail',state:'10A'},"+
+		"{'id': 1261150548,'start_date': '2010-01-01 13:00:00','end_date': '2010-01-04 19:00:00'"+
+			",'text': 'test2','details': 'test2detail',state:'10C'},"+
+		"{'id': 1261150549,'start_date': '2010-01-01 14:00:00','end_date': '2010-01-03 20:00:00'"+
+			",'text': 'test3','details': 'test1detail',state:'10S'},"+
+		"{'id': 1261150550,'start_date': '2010-01-01 15:00:00','end_date': '2010-01-02 21:00:00'"+
+			",'text': 'test4','details': 'test1detail'},"+
+		"{'id': 1261150551,'start_date': '2010-01-01 16:00:00','end_date': '2010-01-01 22:00:00'"+
+			",'text': 'test5','details': 'test1detail'}]";
+		//scheduler.clearAll();
+		scheduler.parse(userData,"json");
+	}
+	
+	//编辑营销活动
+	function detailCampaignInfo(id,target){
+		var state=target.state;
+		var campName=target.innerHTML;
+		if(!id){
+			//新增，暂不支持
+			return;
+		}else{
+			//修改
+			if(state==CAMPAIGN_STATE.CREATE||state==CAMPAIGN_STATE.SUSPEND){
+				var retVal = window.showModalDialog(
+						"<%=request.getContextPath()%>"+
+						"/crm/msm/campaign/MKTCampaignSchedule.jsp?mtkCampId="+id,null,
+						"dialogWidth=1000px;dialogHeight=600px");
+			}else{
+				var url="/crm/msm/dashboard/SsmChnExeTaskNumKPIForSchedule.jsp?campName="+campName;
+				var retVal = window.showModalDialog(
+						"<%=request.getContextPath()%>"+
+						url,null,
+						"dialogWidth=1000px;dialogHeight=600px");
+			}
+		}
+	}
+	
+	//转JSON对象
+	function toJSON(jsonStr) {
+		return eval('('+jsonStr+')');			
+	}
+	
+	//营销状态枚举
+	var CAMPAIGN_STATE={
+			CREATE:"10A",
+			AUDIT:"10C",
+			END:"10E",
+			FAILED:"10F",
+			FAILED2PASS:"10N",
+			SUSPEND:"10P",
+			SUCCESS:"10S",
+			PUBLISH:"10U",
+			ABANDONED:"10X"
+	}
+	
+	
+	var iconDescDatas=[{id:1,desc:"Create"},{id:2,desc:"To Be Approved"},
+	                   {id:3,desc:"Published"},{id:4,desc:"Suspended\Failed"},
+	                   {id:5,desc:"Successful"}];
+	
+	function configIconDesc(){
+
+		var iconDesc=document.getElementById("icon_desc");
+		var text=document.createElement("div");
+		text.innerHTML="figure";
+		iconDesc.appendChild(text);
+		
+		for(var i=0;i<iconDescDatas.length;i++){
+			var iconDescData=iconDescDatas[i];
+			var icon=document.createElement("div");
+			icon.className="icon_desc_icon";
+			
+			switch(iconDescData.id){
+				case 1:
+					icon.style.background="#3399FF";
+					icon.innerHTML=iconDescData.desc;
+					iconDesc.appendChild(icon);
+					break;
+				case 2:
+					icon.style.background="#FDDA72";
+					icon.innerHTML=iconDescData.desc;
+					iconDesc.appendChild(icon);
+					break;
+				case 3:
+					icon.style.background="#7AC5A6";
+					icon.innerHTML=iconDescData.desc;
+					iconDesc.appendChild(icon);
+					break;
+				case 4:
+					icon.style.background="#DB5F61";
+					icon.innerHTML=iconDescData.desc;
+					iconDesc.appendChild(icon);
+					break;
+				case 5:
+					icon.style.width="100%";
+					icon.style.background="#AAAAAA";
+					icon.innerHTML=iconDescData.desc;
+					iconDesc.appendChild(icon);
+					break;
+				default:
+					icon.style.background="#3399FF";
+					icon.innerHTML=iconDescData.desc;
+					iconDesc.appendChild(icon);
+					break;
+			}
+		}
+	}
+</script>
+</head>
+
+
+<body>
+	<div id="campaign_scheduler" class="campaign_scheduler">
+		<!-- 左侧小日历 -->
+		<div id="left_menu" class="left_menu">
+			<div id="cal_here" class="cal_here"></div>
+			<div id="icon_desc" class="icon_desc"></div>
+		</div>
+		<!-- 右侧大日历 -->
+		<div id="scheduler_here" class="dhx_cal_container scheduler_here">
+			<!-- 操作按钮区 -->
+			<div class="dhx_cal_navline">
+				<div class="dhx_cal_prev_button">&nbsp;</div>
+				<div class="dhx_cal_next_button">&nbsp;</div>
+				<div class="dhx_cal_today_button"></div>
+				<div class="dhx_cal_date"></div>
+				<div class="dhx_cal_tab"  name="day_tab"></div>
+				<div class="dhx_cal_tab" name="month_tab"></div>
+				<div class="dhx_cal_tab" name="year_tab"></div> 
+			</div>
+			<!-- 标题区 -->
+			<div class="dhx_cal_header"></div>
+			<!-- 数据区 -->
+			<div class="dhx_cal_data"></div>
+		</div>
+	</div>
+	
+
+</body>
+</html>
+
+

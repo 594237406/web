@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>url-uri</title>
+    <style>
+        /*对部分和子部分进行编号（比如 "Section 1"、"1.1"、"1.2"）的方法：*/
+        body {
+            counter-reset: counter;
+        }
+
+        h4 {
+            counter-reset: subcounter;
+        }
+
+        h4:before {
+            content: "类别：" counter(counter);
+            counter-increment: counter;
+        }
+
+        h5:before {
+            counter-increment: subcounter;
+            content: "子类别：" counter(counter) "." counter(subcounter) " ";
+        }
+    </style>
+</head>
+<body>
+<h4></h4>
+<h5></h5>
+<h5></h5>
+<h4></h4>
+<h5></h5>
+<h5></h5>
+<h5></h5>
+</body>
+</html>

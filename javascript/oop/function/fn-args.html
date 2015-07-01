@@ -1,0 +1,42 @@
+<script>
+	function person(obj){
+		if(arguments.length==0){
+			console.log("no arguments");
+			return ;
+		}
+		
+		//paint arguments
+		for(var i=0;i<arguments.length;i++){
+			console.log(arguments[i]);
+		}
+		//get function body 	
+		console.log(arguments.callee);
+		
+		//get invoking function body
+		if(person.caller)
+		console.log(person.caller);
+	}
+	
+	function drive(){
+		person(["name","20"]);
+	}
+	
+	function factorial(n){
+		if(n<=0){
+			return 1;
+		}else{
+			return n*arguments.callee(n-1);
+		}
+	}
+	
+	person(["name","20"]);
+	drive();
+// 	alert(factorial(5));
+// 	theFunction();
+// 	function theFunction(){
+// 		otherFunction();
+// 	}
+// 	function otherFunction(){
+// 		otherFunction.caller();
+// 	}
+</script>

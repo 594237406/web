@@ -1,0 +1,51 @@
+<!DOCTYPE>
+	<html>
+		<head>
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+			<title>style</title>
+			<script>
+				window.onload=function(){
+					var canvas=document.getElementById("canvas");
+					
+					//获得绘图环境,目前没有3D，使用webgl制作3D绘图
+					var ce=canvas.getContext("2d");
+					
+					//用以下方式设置参数,参数必须写在绘图之前
+					//fillStyle			//填充颜色
+					//lineWidth			//线宽
+					//strokeStyle		//边框颜色
+					//lineJoin			//边角样式:miter:默认，round：圆角，bevel:斜角
+					ce.fillStyle="red";
+					
+					//绘制边框矩形，边框宽度为2，因为起点为50,50，所以画笔范围为在49.5~50.5，小数像素会被自动填充，
+					//宽度被填充为2像素，即49~51
+					//ce.strokeRect(50,50,150,50);
+					
+					//通常采用下面方式
+					ce.strokeStyle="blue";	//填充颜色
+					ce.lineWidth=10;
+					ce.lineJoin="bevel";
+					
+					//宽度为10，因为起点在50，50，所以边框起点应该在 50-10/2， 50-10/2，即45,45，长度应为150+10/2*2,即160
+					
+					//顺序不同会产生覆盖，此例中不会产生覆盖，因为没有重合点。
+					ce.fillRect(50,50,150,50);
+					ce.strokeRect(45,45,160,60);
+				}
+			</script>
+			<style type="text/css">
+				body{background: black;	}
+				
+				/*默认300*150*/
+				canvas{background: white;margin: 100px;}
+				
+				span{background: white;}
+			</style>
+		</head>
+	<body>
+		<!-- 标签上写宽高，style设置有bug-->
+		<canvas width="400" height="400" id="canvas">
+			<span>浏览器不支持canvas</span>
+		</canvas>
+	</body>
+</html>

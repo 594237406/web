@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+	<style>
+		/*box-ordinal-group:盒子顺序*/
+		div.contents{
+	/* 		border:1px solid blue; */
+			/*not set children element width and height,those attribute  self-adaption*/
+			display:-webkit-box;
+			/*arrange mode*/
+	/* 		-webkit-box-orient:vertical; */
+		}
+		
+		div.left{
+			width:300px;
+			/*order*/
+			-webkit-box-ordinal-group:3;
+		}
+		
+		div.main{
+			/*left width*/
+			-webkit-box-flex:1.0;
+			-webkit-box-ordinal-group:2;
+		}	
+		
+		div.right{
+			width:300px;
+			-webkit-box-ordinal-group:1;
+		}
+		
+		div:not(.contents){
+			border:1px solid black;
+			-webkit-box-pack:center;
+			-webkit-box-align:center;
+		}
+	</style>
+	<body>
+		<div class="contents">
+			<div class="left">
+				<h2>Left Menu</h2>
+				<ul>
+					<li>aaaa</li>
+					<li>aaaa</li>
+					<li>aaaa</li>
+					<li>aaaa</li>
+				</ul>
+			</div>
+			<div class="main">Baidu (Nasdaq: BIDU) is the world's largest Chinese search engine, <br/>
+			in January 2000 by li, xu two people founded in Beijing zhongguancun,  <br/>
+			dedicated to provide people with "simple, reliable way of access to  <br/>
+			information."Baidu" the word is the result of China's song dynasty  <br/>
+			poet xin qiji "sapphire case, yuan evening" words "he found thousands of  <br/>
+			baidu," symbolizes the baidu the single-minded pursuit of Chinese information  <br/>
+			retrieval technology.</div>
+			<div class="right">
+				<h2>Right Menu</h2>
+				<ul>
+					<li>aaaa</li>
+					<li>aaaa</li>
+					<li>aaaa</li>
+					<li>aaaa</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>
+

@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+	<head>
+		<title>frame</title>
+		
+		<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+		<meta http-equiv="description" content="this is my page">
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<script>
+			window.onload=function(){
+				var dom=document.createElement("div");
+				dom.innerHTML="1";
+				//如果页面中有frames，则每个frames都拥有自己的window对象，并且保存在frames对象中。
+				//可以用window.frames[0]或者window.frames[framesName]来引用框架
+				//需运行在服务器环境下
+				//document.getElementsByName("top")[0].contentWindow.document.getElementById("aaa").appendChild(dom)
+				
+			}
+		</script>
+		
+	
+	</head>
+  
+	<frameset rows="160,*">
+		<frame src="top.html" name="top"/>
+		<frameset cols="50%,50%">
+  			<frame src="left.html" name="left">
+  			<frame src="right.html" name="right">
+		</frameset>
+	</frameset>
+</html>

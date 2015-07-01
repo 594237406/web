@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>border-background-feature</title>
+		<style>
+/* 			border-image-sourceg 引入图片 */
+/* 			border-image-slice 切割图片 */
+/* 			border-image-width 边框宽度 */
+/* 			border-image-repeat 图片的排列方式 */
+/* 			round 平铺,repeat 重复,stretch拉伸  */
+		
+			.box{width:100px;height:100px; border-width:20px;background:#EEE; 
+				/*图片上下裁切27，缩放到20，左右裁切27，缩放到20,其他部分自动填充*/
+				border-image:url(border.png) 27 27 repeat;}
+			</style>
+	</head>
+	<body>
+	<div class="box"></div>
+	</body>
+</html>

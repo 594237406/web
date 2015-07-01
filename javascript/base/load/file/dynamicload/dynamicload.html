@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>MyHtml.html</title>
+    <meta http-equiv="content-type" content="text/html; charset=gbk"> 
+	<script type="text/javascript">
+		function sure(){
+			var radio=document.getElementsByName("radio");
+			var k;
+			for(var i=0;i<radio.length;i++){
+				if(radio[i].checked){
+					k=radio[i].value;
+				}
+			}
+			var js="js";
+			switch(k){
+				case "1":
+					js+=1;
+					importNoCache("a.js",js);
+					break;
+				case "2":
+					js+=1;
+					importNoCache("b.js",js);
+					break;
+			}
+			load();
+			alert(document.getElementsByTagName("head")[0].children.length);
+			removeScript(js);
+			alert(document.getElementsByTagName("head")[0].children.length);
+		}
+		
+		//按需加载文件
+		function $import(src,id){
+		  var scriptElem = document.createElement('script');
+		  scriptElem.setAttribute('src',src);
+		  scriptElem.setAttribute('type','text/javascript');
+		  scriptElem.setAttribute('id',id);
+		  document.getElementsByTagName('head')[0].appendChild(scriptElem);
+		}
+		
+		//按需加载文件，防缓存
+		function importNoCache(src,id){
+		  var ms = new Date().getTime().toString();
+		  var seed = "?" + ms; 
+		  $import(src + seed,id);
+		}
+		
+		//移除加载文件
+		function removeScript(id){
+		      var scriptId = document.getElementById(id);
+		      if(scriptId){
+		          scriptId.parentNode.removeChild(scriptId);
+		      }
+		}
+	</script>
+  </head>
+  
+  <body>
+    	请选择所要办理的业务：<br/>
+    	<input type="radio" value="1" name="radio">话费充值<br/>
+    	<input type="radio" value="2" name="radio">宽带充值<br/>
+    	<input type="button" value="确定" onclick="sure()">
+  </body>
+</html>

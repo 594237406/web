@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>mac</title>
+		
+		<script type="text/javascript">
+			document.onmousemove=function(ev){
+				var ev=ev||event;
+				var oDiv=document.getElementById("imgs");
+				var imgs=document.getElementsByTagName("img");
+				var inputs=document.getElementsByTagName("input");
+				for(var i=0;i<imgs.length;i++){
+					var x=imgs[i].offsetLeft+imgs[i].width/2;					//计算图片居左距离+图片宽度，即为图片中心点横坐标
+					var y=imgs[i].offsetTop+oDiv.offsetTop+imgs[i].height/2;	//计算图片居上距离+图片高度，即为图片中心点纵坐标
+					var a=x-ev.clientX;											//鼠标与图片中心点的水平距离
+					var b=y-ev.clientY;											//鼠标与图片中心点的垂直距离
+					var dis=Math.sqrt(Math.pow(a,2)+Math.pow(b,2));				//计算鼠标与图片中心点斜边距离
+					var scale=1-dis/300;										//距离除以300，为图片比例，但是离图片越远比例越大，所以取1的减数
+					if(scale<0.5){												//如果比例太小，恢复正常大小，即最大大小的一半
+						scale=0.5;
+					}
+					imgs[i].width=scale*128;									//设置图片的宽度，最大为图片两倍大小
+					inputs[i].value=scale.toFixed(2);
+				}
+			}
+		
+		</script>
+		
+		<style type="text/css">
+			body{margin: 0;}
+			#imgs{position: absolute;bottom: 0;width: 100%;text-align: center;}
+			input{display: none;}
+		</style>
+	</head>
+	<body>
+		<input /><input /><input /><input /><input />
+		<div id="imgs">
+			<img src="images/1.png" width="64px" />
+			<img src="images/2.png" width="64px" />
+			<img src="images/3.png" width="64px" />
+			<img src="images/4.png" width="64px" />
+			<img src="images/5.png" width="64px" />
+		</div>
+	</body>
+</html>

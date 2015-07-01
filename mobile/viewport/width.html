@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>width</title>
+		<!-- 宽度为指定宽度 -->
+		<meta name="viewport" content="width=600,height=650" />
+		<style>
+			.box {
+				width:600px;
+				height:600px;
+				background: Red;
+			}
+			
+			*{margin:0px;padding:0px;}
+			
+			body{background: #ddd;}
+		</style>
+	</head>
+	<body>
+		<div class="box"></div>
+		<script>
+			alert(document.documentElement.clientWidth);
+		</script>
+	</body>
+</html>

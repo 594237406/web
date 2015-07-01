@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>progress-bar</title>
+		<style>
+			.wrap{width:200px;height:30px;overflow:hidden;border:1px solid #000;}
+			.box{width:400px;height:30px;transition:1s;
+				background:-webkit-repeating-linear-gradient(15deg,green 0,green 10px,#fff 10px,#fff 20px); }
+			.wrap:hover .box{ 
+				/*任选其一*/
+				margin-left:-100px;
+				/*background-position:100px;*/
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="box"></div>
+		</div>
+	</body>
+</html>

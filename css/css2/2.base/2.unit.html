@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>unit</title>
+    <style type="text/css">
+        #div1 {
+            /*不区分大小写*/
+            Margin: 0 auto; /*水平居中*/
+            text-align: center; /*文字水平居中*/
+            vertical-align: middle;
+            /*15倍字体宽度，15*26宽度*/
+            width: 15em;
+            /*15倍小写字母x高度，15*26宽度*/
+            height: 15ex;
+            /*三个字母缩写，rgb相当于rrggbb也就是#EEEEEE*/
+            background: #EEE;
+            line-height: 15ex; /*文字垂直居中*/
+            font-size: 26px;
+        }
+
+        /*
+            绝对长度：
+            1.in:英寸，2.53cm,2cm:厘米,3mm：毫米,4pt:1/72英寸点,5pc:12点=1/6英寸
+        */
+    </style>
+    <script type="text/javascript">
+        window.onload = function () {
+            alert(document.all.div1.offsetHeight);		//小写字母x高度，12px
+        }
+    </script>
+</head>
+<body>
+<div id="div1">
+    Content
+</div>
+</body>
+</html>

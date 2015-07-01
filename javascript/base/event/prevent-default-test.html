@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>event-default</title>
+		<style type="text/css">
+			#div1{width:100px;height:100px;background: red;position: absolute;display: none;}
+		</style>
+		<script>
+			//oncontextmenu : 右键菜单事件，当右键菜单（环境菜单）显示出来的时候触发
+			document.oncontextmenu = function(ev) {
+				var div1=document.getElementById("div1");
+				var ev=ev||event;
+				var x=ev.clientX;
+				var y=ev.clientY;
+				var scrollTop=document.documentElement.scrollTop || document.body.scrollTop;
+				var scrollLeft=document.documentElement.scrollLeft || document.body.scrollLeft;
+				
+				div1.style.left=scrollLeft+x+"px";
+				div1.style.top=scrollTop+y+"px";
+				div1.style.display="block";
+				return false;
+			}
+		
+			/*如果在IE失效，禁用腾讯加载项*/
+			document.onclick=function(ev){
+				var div1=document.getElementById("div1");
+				div1.style.display="none";
+			}
+		</script>
+	</head>
+	
+	<body style="height:2000px;">
+		<div id="div1"></div>
+	</body>
+</html>

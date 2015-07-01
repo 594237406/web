@@ -1,0 +1,8 @@
+body{margin:0;padding:0;font:14px/1.6 "微软雅黑",Arial,Helvetica,sans-serif;}
+.accordion{height:500px;width:185px;border:1px solid #CFCFCF;overflow-y: auto;}
+.accordion .menu_head{width:185px;height:40px;line-height:40px;cursor:pointer;position:relative;font-weight:bold;}
+
+.accordion .menu_body{width:185px;line-height:35px;}
+.accordion .menu_body a{display:block;height:35px;line-height:35px;text-decoration:none;padding-left:25px;}
+.accordion .menu_body a:hover{background:#F5F5F5;}
+.active{background:#689EE9;position:absolute;color:#FFFFFF;text-decoration:none;padding-left:25px;line-height:35px;font-weight: bold;}

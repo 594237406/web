@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>globalCompositeOperation</title>
+		<style>
+			body{ background:black;}
+			#c1{ background:white;}
+		</style>
+		<script>
+			window.onload = function(){
+				var oC = document.getElementById('c1');
+				var oGC = oC.getContext('2d');
+				oGC.fillStyle = '#ddd';
+				oGC.fillRect(0,0,100,100);
+				
+				oGC.fillStyle = 'red';
+				
+				oGC.globalCompositeOperation = 'lighter';
+				
+				oGC.fillRect(50,50,100,100);
+				
+				//之前的是destination,后来的代码是source
+// 				source-over:source居上		
+// 				destination-over:destination居上
+// 				source-atop：source嵌入destination，source消失
+// 				destination-atop：destination嵌入source，destination消失
+// 				source-in：source嵌入destination，source，destination消失
+// 				destination-in：destination嵌入source，source，destination消失
+// 				source-out:只保留source剩余部分
+// 				destination-out：只保留destination剩余部分
+// 				lighter：在图形重叠的地方，其颜色由两种颜色值的加值来决定。
+//				darker：在图形重叠的地方，其颜色由两个颜色值相减后决定。
+// 				copy：只绘制新图形，删除其他所有内容。
+// 				xor:去掉公共部分
+			};
+		</script>
+	</head>
+	
+	<body>
+		<canvas id="c1" width="400" height="400"></canvas>
+	</body>
+</html>

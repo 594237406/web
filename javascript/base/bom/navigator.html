@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>navigator</title>
+<script type="text/javascript">
+	// name: 插件的名字
+	// description:插件的描述
+	// filename:插件的文件名
+	// length:插件所处理的MIME类型数量
+	
+	function isIE(){
+		try{
+			var tem=navigator.appName;
+			if(tem=="Microsoft Internet Explorer"){
+				return true;
+			}else{
+				return false;
+			}
+			return tem;
+		}catch(e){
+			alert(e.message);
+			return false;
+		}
+		return false;
+	}
+	
+	//检测插件(在ie中无效)
+	function hasPlugin(name){
+		if(isIE()){
+			try{
+				new ActiveXObject(name);
+				return true;
+			} catch(ex){
+				return false;
+			}
+		}else{
+			name = name.toLowerCase();
+			for(var i=0; i<navigator.plugins.length; i++){
+				if(navigator.plugins[i].name.toLowerCase().indexOf(name) > -1){
+					return true;
+				}
+			}
+			return false;
+		}
+	}
+	//检测FLASH
+	alert(hasPlugin('FLASH'));
+	
+	//检测FLASH
+	alert(hasPlugin('ShockwaveFlash.ShockwaveFlash'));
+</script>
+</head>
+<body>
+
+</body>
+</html>

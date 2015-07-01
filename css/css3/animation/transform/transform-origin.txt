@@ -1,0 +1,31 @@
+transform-origin(变形原点)的说明：
+1、改变元素基点transform-origin
+transform-origin: x-axis y-axis z-axis;
+
+枚举
+y-axis	
+定义视图被置于 Y 轴的何处。可能的值：
+left
+center
+right
+length
+%
+x-axis	
+定义视图被置于 X 轴的何处。可能的值：
+top
+center
+bottom
+length
+%
+z-axis	
+定义视图被置于 Z 轴的何处。可能的值：
+length
+
+ 
+2、transform
+transform属性可用于内联(inline)元素和块级(block)元素。它允许我们旋转、缩放和移动元素，他有几个属性值参数：
+rotate(旋转)允许你通过传递一个度数值来转动一个对象；
+scale是一个缩放功能，可以让任一元素变的更大。它使用一个或者两个正数和负数以及小数作为参数；当使用一个参数时表示X轴和Y轴的缩放相同；
+translate就是基于X和Y 坐标重新定位元素，当使用一个参数时表示X轴和Y轴的参数相同；
+skew倾斜（ps中的斜切），参数是度数，当使用一个参数时表示X轴和Y轴的参数相同；
+matrix矩阵变换，就是基于X和Y 坐标重新定位元素，它使用6个参数

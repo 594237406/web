@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>click</title>
+		<style>
+/* 			添加多个渐变项											 */
+/* 			transition: width 2s, height 2s, transform 2s; 		 */
+			.div{width:100px;height:100px;background: yellow;opacity:0.3;transition:width 1s, height 2s;transition-timing-function: linear;}
+			.divClick{width:200px;height:200px;background: yellow;opacity:0.3;transition:width 2s, height 1s;transition-timing-function: linear;}
+			
+			
+		</style>
+		<script>
+			window.onload=function(){
+				var div=document.getElementById("div");
+				div.onclick=function(){
+					this.className="divClick";
+				}
+				
+				div.onmouseout=function(){
+					this.className="div";
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id='div' class="div"></div>
+	</body>
+</html>

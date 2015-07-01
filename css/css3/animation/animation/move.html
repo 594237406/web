@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>move</title>
+<style> 
+	div{
+		width:100px;
+		height:100px;
+		background:red;
+		position:relative;
+		animation:myfirst 5s linear 0 2 alternate;
+		/* Safari and Chrome: */
+		-webkit-animation:myfirst 5s linear 0 2 alternate;
+	}
+	
+	@keyframes myfirst{
+		0%   {background:red; left:0px; top:0px;}
+		25%  {background:yellow; left:200px; top:0px;}
+		50%  {background:blue; left:200px; top:200px;}
+		75%  {background:green; left:0px; top:200px;}
+		100% {background:red; left:0px; top:0px;}
+	}
+	
+	/* Safari and Chrome */
+	/* 0% 50%鈥︹�︽椂闂村崰姣� */
+	@-webkit-keyframes myfirst{
+		0%   {background:red; left:0px; top:0px;}
+		50%  {background:yellow; left:200px; top:0px;}
+		60%  {background:blue; left:200px; top:200px;}
+		75%  {background:green; left:0px; top:200px;}
+		100% {background:red; left:0px; top:0px;}
+	}
+
+</style>
+</head>
+<body>
+
+<p><b>Note:</b> This example does not work in Internet Explorer 9 and earlier versions.</p>
+
+<div></div>
+
+</body>
+</html>
+
+			

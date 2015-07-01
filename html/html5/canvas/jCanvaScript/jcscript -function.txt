@@ -1,0 +1,155 @@
+1.制定像素点着色
+setPixel(float x, float y, string color)
+
+2.填充颜色数据，x,y偏移
+putData(float x, float y)
+
+3.绘制图片信息
+jc.imageData(float width, float height)
+imageData(object imageData)
+imageData(object parameters)
+
+4.获取像素信息
+getPixel(float x, float y) 
+return: array 'color'
+color[0]=red, color[1]=green, color[2]=blue, color[3]=alpha.
+
+5.从x,y取图像信息填充到imageDate中
+getData(float x, float y, float width, float height)
+
+6.清空
+jc.clear()
+jc.clear(string canvas_id)
+
+7.暂停
+jc.pause()
+jc.pause(string idCanvas)
+
+
+
+8.动画
+animate(parameters, [duration], [easing], [onstep], [fn])
+animate(object parameters)
+animate(object parameters, positive int duration)
+animate(object parameters, positive int duration, function fn)
+animate(object parameters, positive int duration, object easing)
+animate(object parameters, positive int duration, object easing, function fn)
+jc('#myCircle_6').animate({x:175},2000,{type:'in', fn:'linear'}, {fn:onstep});
+animate(object parameters, positive int duration, object easing, object onstep, function fn)
+
+
+9.动画队列
+jc('#myCircle_1').queue(
+    function(){
+	this.animate({radius:40},5000);
+    },
+    function(){
+	this.animate({x:150},5000,function(){
+	    this.color('#ff0000');
+	});
+	this.animate({y:150},10000,function(){
+	    this.color('#000000');
+	});
+	this.fadeTo(0.5,6500);
+    },
+    function(){
+	this.fadeIn(2000);
+    }
+);
+
+10.停止动画
+jc.stop()
+
+
+.getCenter()：获得圆心
+.getRect()：获得图形外接矩形
+.isPointIn()：jc('#myCircle_2').isPointIn(e.pageX,e.pageY,true)，节点是否包含节点,x,y
+.position():返回x,y坐标的object {x,y}
+
+
+.composite()：取两个对象交集部分，去掉非交集部分
+.opacity():透明度
+.shadow()：阴影
+.visible(true/false/null)：可见
+.down(n/null)：降低层级（1，n）
+.level(n/null)：设置获取层级
+.up(n)：提高层级
+
+
+.attr():类似于jq attr
+.buffer():获得链接到canvas元素（缓冲）
+.canvas(canvas id\null)：返回id，或者移动元素到canvas id指定id的canvas
+.clip():剪裁
+.clone()：克隆
+.del()：删除
+.instanceOf(className\null)：返回元素类型\是否是某种元素
+.lineStyle()
+
+.fadeIn():淡入
+.fadeOut():淡出
+.fadeTo(float opacity):淡入到透明度
+.fadeToggle():取反
+fadeToggle(positive int duration, object easing, object onstep, function fn)
+
+jc.addAnimateFunction()：添加方法到全局
+jc.addFunction()：添加方法到元素
+jc.addImageDataFilter()
+jc.addObject()：添加节点组，重要方法
+
+jc.layer().clone()：复制层
+jc.layer().objects()：选中层下的所有元素
+
+gradients .addColorStop()：增加颜色层
+gradients .colorStops()：增加颜色层
+gradients .delColorStop()：删除颜色层
+
+group .end()
+group .find()
+group .reverse()
+
+jc.canvas().clear()
+jc.canvas().del()
+jc.canvas().frame()
+jc.canvas().pause()
+jc.canvas().restart()
+jc.canvas().start()
+jc.canvas().toDataURL()
+
+jc.text().align()：对其
+jc.text().baseline()
+jc.text().font()：字体
+jc.text().string()
+
+lines .addPoint()：增加点线条
+lines .delPoint()：删除点线条
+lines .points()：获取点线条
+
+
+
+
+
+jc(string '#id')
+jc(string '.name')
+jc(object map)
+jc(string selector, object map)
+
+.color()
+.click()
+.dblclick()
+.mousedown()
+.mousemove()
+.mouseout()
+.mouseover()
+.mouseup()
+.blur()
+.focus()
+.keydown()
+.keypress()
+.keyup()
+.draggable()
+.droppable()
+.rotate()
+.scale()
+.transform()
+.translate()
+.translateTo()

@@ -1,0 +1,13 @@
+<script>
+	var text="this has been a short summer";
+	var pattern=/(.h)ort/g;
+	
+	if(pattern.test(text)){
+		alert(RegExp.input);		//匹配字符串
+		alert(RegExp.leftContext);	//匹配到的字符串之前内容
+		alert(RegExp.rightContext);	//匹配到的字符串之后内容
+		alert(RegExp.lastMatch);	//最后一次匹配字符串内容
+		alert(RegExp.lastParen);	//最后一次匹配的捕获组
+		alert(RegExp.multiline);	//是否采取多行模式
+	}
+</script>

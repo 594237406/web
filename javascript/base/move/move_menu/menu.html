@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Chain</title>
+<script type="text/javascript" src="move.js"></script>
+<script type="text/javascript">
+	window.onload=function(){
+		var menu=document.getElementById("menu");
+		
+		var lis=menu.getElementsByTagName("li");
+		
+		for(var i=0,j=lis.length;i<j;i++){
+			var li=lis[i];
+			
+			li.onmouseover=function(){
+				
+				var div=this.getElementsByTagName("div")[0];
+				div.style.height="auto";
+				var iHeight=div.offsetHeight;
+				div.style.height="0px";
+				MoveActionUtil.action(div,{height:iHeight,opacity:100});
+			
+			}
+			
+			li.onmouseout=function(){
+				var div=this.getElementsByTagName("div")[0];
+				MoveActionUtil.action(div,{height:0,opacity:0});
+			}
+		}
+		
+
+		
+	}
+</script>
+<style>
+	ul{
+		height:25px;
+		position: relative;
+	}
+
+	ul li{
+		list-style: none;
+		width:100px;
+		height:25px;
+		background: #CCC;
+		float: left;	
+		text-align: center;
+	}
+	
+	ul li div{
+		width:100px;
+		background: red;
+		overflow: hidden;
+		position: absolute;
+		top:25px;
+		height: 0px;
+		filter:alphy(opacity:0);
+		opacity:0;
+	}
+</style>
+</head>
+<body>
+	<ul id="menu">
+		<li>
+			首页
+			<div>
+				aaaa<br/>
+				aaaa<br/>
+				aaaa<br/>
+				aaaa<br/>
+			</div>			
+		</li>
+		<li>
+			产品
+			<div>
+				aaaa<br/>
+				aaaa<br/>
+				aaaa<br/>
+				aaaa<br/>
+				aaaa<br/>
+				aaaa<br/>
+			</div>			
+		</li>
+		<li>
+			关于
+			<div>
+				aaaa<br/>
+				aaaa<br/>
+				aaaa<br/>
+				aaaa<br/>
+			</div>			
+		</li>
+	
+	</ul>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>sessionStorage</title>
+		<script>
+			window.onload = function(){
+				var aInput = document.getElementsByTagName('input');
+				
+				aInput[0].onclick = function(){
+					//sessionStorage : 临时性存储
+					window.sessionStorage.setItem('name',aInput[2].value);
+				};
+				
+				aInput[1].onclick = function(){
+					alert(window.sessionStorage.getItem('name'));
+				};
+			};
+		</script>
+	</head>
+
+	<body>
+		<input type="button" value="设置" />
+		<input type="button" value="获取" />
+		<input type="text" />
+	</body>
+</html>

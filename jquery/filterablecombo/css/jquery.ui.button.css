@@ -1,0 +1,17 @@
+/*
+ * jQuery UI Button 1.8.18
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Button#theming
+ */
+.ui-button { display: inline-block; position: absolute;  margin-left: 0.1em; cursor: pointer;   margin-top:0px;} /* the overflow property removes extra width in IE */
+
+/*button text element */
+.ui-button .ui-button-text { display: block; line-height: 1.4; }
+
+/*button icon element(s) */
+.ui-button-icon-only .ui-icon, .ui-button-text-icon-primary .ui-icon, .ui-button-text-icon-secondary .ui-icon, .ui-button-text-icons .ui-icon, .ui-button-icons-only .ui-icon { position: absolute;  margin-left:-8px; margin-top: 0px;}
+

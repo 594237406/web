@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>mutlpoints</title>
+		<style>
+			form,.form{ border:1px solid #ddd;border-radius:4px;padding:5px;margin:5px;line-height: 25px;}
+			#map{ height:600px; border:1px #ddd solid;margin:5px;}
+		</style>
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=1.2"></script> 
+
+		<script>
+			window.onload = function(){
+				
+				
+				
+// 				var points=[
+// 							{px:13231165.842221,py:3738600.611526,timepoint:1423079669},
+// 							{px:13227341.810221,py:3729854.172258,timepoint:1423079669},
+// 							{px:13224458.046043,py:3722169.047020,timepoint:1423079669},
+// 							{px:13227333.261403,py:3729865.931996,timepoint:1423079669},
+// 							{px:13231165.391032,py:3738599.504886,timepoint:1423079669}
+// 						];
+				
+				
+				
+				
+				var map = null;
+				var data=[];
+				var coordtype="jingwei";
+				
+				var addCoordBtn=document.getElementById("addCoord");
+				var clearCoordBtn=document.getElementById("clearCoord");
+				var coordtypeRio=document.getElementsByName("coordtype");
+				var addCoordArrBtn=document.getElementById("addCoordArr");
+				var tipLabel=document.getElementById("tips");
+				
+				var xIpt=document.getElementById("x");
+				var yIpt=document.getElementById("y");
+				var xyIpt=document.getElementById("xy");
+				
+				
+				addCoordArrBtn.onclick=function(ev){
+					if(!xyIpt.value){
+						alert("请输入经纬度数组");
+						return ;
+					}
+					
+					try{
+						data=JSON.parse(xyIpt.value);
+						if(coordtypeRio[0].checked){
+							coordtype="jingwei";
+						}else{
+							coordtype="mokatuo";
+						}
+						tipLabel.innerHTML="您要查询的坐标组为："+xyIpt.value+",类型为:"+coordtype;
+					}catch(e){
+						alert("输入格式有误！");
+						return ;
+					}
+				}
+				
+				clearCoordBtn.onclick=function(ev){
+					data=[];
+					tipLabel.innerHTML="您要查询的坐标组为："+JSON.stringify(data)+",类型为:"+coordtype;
+				}
+				
+				addCoordBtn.onclick=function(ev){
+					
+					if(xIpt.value&&yIpt.value){
+						data.push({px:xIpt.value,py:yIpt.value})
+					}else{
+						alert("请输入经纬度");
+						return ;
+					}
+					
+					if(coordtypeRio[0].checked){
+						coordtype="jingwei";
+					}else{
+						coordtype="mokatuo";
+					}
+					tipLabel.innerHTML="您要查询的坐标组为："+JSON.stringify(data)+",类型为:"+coordtype;
+				}				
+				
+				var searchByCoordBtn=document.getElementById("searchByCoord");
+				
+				searchByCoordBtn.onclick=function(ev){
+					var ev=event||ev.target;
+					if(!data.length){
+						alert("请至少输入一个坐标。");
+						return;
+					}else{
+						map=new BMap.Map("map");	
+						if(coordtypeRio[0].checked){
+							coordtype="jingwei";
+						}else{
+							coordtype="mokatuo";
+						}
+						var o={data:data,map:map,coordtype:coordtype}
+						
+						drawMap(o);
+					}
+				}
+			};
+			
+			
+			function drawMap(o){
+				
+				var points=o.data;
+				var map=o.map;
+				var coordtype=o.coordtype;
+				
+				var pt = new BMap.Pixel();
+				var pts=[];
+				var icon =new BMap.Icon("tujing.png", new BMap.Size(25,35));
+				map.enableScrollWheelZoom();
+				
+				
+				for(var i=0;i<points.length;i++){
+					var userInfo=points[i];
+					
+					var point;
+					if(coordtype=="jingwei"){
+						point={x:userInfo.px,y:userInfo.py};
+					}else{
+						var Pixel={x:userInfo.px,y:userInfo.py};
+						point=getPoint(Pixel,map.getMapType());
+					}
+					
+					var x=point.x;
+					var y=point.y;
+					pt = new BMap.Point(x,y);
+					!i&&map.centerAndZoom(pt, 13);
+					pts.push(pt);
+					
+					if(i==0){
+						icon=new BMap.Icon("start.png", new BMap.Size(25,25));
+					}else if(i==points.length-1){
+						icon=new BMap.Icon("end.png", new BMap.Size(25,25));
+					}else{
+						icon=new BMap.Icon("tujing.png", new BMap.Size(25,35));
+					}
+					
+					var marker = new BMap.Marker(pt,{icon:icon});  // 创建标注
+ 					map.addOverlay(marker); 
+				}
+					
+				
+				var polyline = new BMap.Polyline(pts, {strokeColor:"red", strokeWeight:3, strokeOpacity:0.5});
+               	map.addOverlay(polyline);
+			}
+			
+			function getPoint(Pixel,mapType){
+				var mctXY = new BMap.Pixel(Pixel.x,Pixel.y);    
+				var projection = mapType.getProjection();  
+				var LngLat = projection.pointToLngLat(mctXY); 
+				var lng=LngLat.lng;
+				var lat=LngLat.lat;
+				return {x:lng,y:lat};
+			}
+		</script>
+	</head>
+	
+	<body>
+		<form action="" >
+			请输入查询条件：<br>
+			<label>请输入用户ID：</label><input name="userId"></input>(需要调后台接口，尚未实现)
+			<button id="searchByUserId">搜索</button>
+		</form>
+		<div class="form">
+			请输入坐标点：<label id="tips"></label><br>
+			<input name="coordtype" type="radio" checked="checked"></input><label>经纬度坐标：</label>
+			<input name="coordtype" type="radio"></input><label>默卡托坐标：</label>
+			<label>请输入经度：</label><input name="x" id="x"></input>
+			<label>请输入维度：</label><input name="y" id="y"></input><button id="addCoord">添加坐标</button><br>
+			<label>请输入维度数组：</label><button id="addCoordArr">添加经纬度数组</button><br>
+			<textarea name="xy" id="xy" cols="60" rows="3"></textarea>
+			<span style="color:red;" >
+				正确格式如下：[{"px":13231165.842221,"py":"3738600.611526","timepoint":"1423079669"}]
+			</<span>
+			<br>
+			<button id="clearCoord">清空坐标</button>
+			<button id="searchByCoord">搜索</button>
+		</div>
+		<div id="map"></div>
+	</body>
+</html>
+
+
+

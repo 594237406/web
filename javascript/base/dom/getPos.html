@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+	<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>getPos</title>
+		<style>
+			div {padding: 40px 50px;}
+			#div1 {background: red;position: relative;}
+			#div2 {background: green; position: relative;}
+			#div3 {background: orange; position: relative;}
+		</style>
+		<script>
+			window.onload = function() {
+				var oDiv3 = document.getElementById('div3');
+				//相对于外层定位元素的距离，这里相对于div2
+				//alert( oDiv3.offsetLeft );
+				
+				//每个元素的左偏移量
+/*  			var left = 0;
+				var obj = oDiv3;
+				while (obj) {
+					alert( obj.id + ' : ' + obj.offsetLeft );
+					left += obj.offsetLeft;
+					obj = obj.offsetParent;
+				}
+				alert( left );  */
+			
+				function getPos(obj) {
+					var pos = {left:0, top:0};
+					while (obj) {
+						pos.left += obj.offsetLeft;
+						pos.top += obj.offsetTop;
+						obj = obj.offsetParent;
+					}
+					return pos;
+				}
+				var p = getPos( oDiv3 );
+				alert("div3左偏移量："+ p.left );
+			}
+		</script>
+	</head>
+	
+	<body id="body1">
+		<div id="div1">
+	    	<div id="div2">
+	        	<div id="div3"></div>
+	        </div>
+	    </div>
+	</body>
+</html>

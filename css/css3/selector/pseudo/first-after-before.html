@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>selector</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<style type="text/css">
+		
+			/*first line*/
+			[name=p]:first-line{
+				background: red;
+				width:50px;
+				height:50px;
+			}
+			
+			/*first letter*/
+			[name=p]:first-letter{
+				color: white;
+			}
+			
+			li{ border:1px solid black;}
+			
+			/*content first*/
+			li:before{
+				content:"before";
+			}
+			
+			/*content last*/
+			li:after{
+				content:"after";
+			}
+			
+			/*父级元素下第一个元素*/
+			li:first-child{background: red;}
+			/*父级元素下第一个li元素*/
+			li:first-of-type{background: yellow;}
+			
+			#l1~li{background: black;}
+		</style>
+	</head>
+	<body>
+		<div name="p">
+			first line<br/>second line
+		</div>
+		<div name="p">
+			first line<br/>second line
+		</div>
+		<div name="p">
+			first line<br/>second line
+		</div>
+		
+		<ul>
+			<li id="l1">1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+		</ul>
+		
+	</body>
+</html>

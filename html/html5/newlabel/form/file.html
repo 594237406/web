@@ -1,0 +1,20 @@
+<!doctype html>
+
+<html>
+	<head>
+		<title>file</title>
+	</head>
+	<script>
+		function showFileName(){
+			for(var i=0;i<document.getElementById("file").files.length;i++){
+				file=document.getElementById("file").files[i];
+				alert(file.name);
+			}
+		}
+	</script>
+
+	<body>
+		<input type="file" id="file" multiple size="80" />
+		<input type="button" onclick="showFileName()" value="show file name"/>
+	</body>
+</html>

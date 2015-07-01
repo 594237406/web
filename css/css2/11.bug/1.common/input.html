@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>input</title>
+    <style type="text/css">
+        input {
+            width: 300px;
+            height: 25px;
+            background: url(sun.jpg) 0 center no-repeat #FFC;
+        }
+
+        .box {
+            width: 300px;
+            margin-top: 50px;
+            height: 40px;
+            border: 1px solid blue;
+            background: url(sun.jpg) 0 center no-repeat #FFC;
+        }
+
+        .box input {
+            width: 300px;
+            height: 40px;
+            border: none;
+            background: none;
+        }
+    </style>
+</head>
+<body>
+<input type="text"/>
+<!-- 解决IE6滚动bug -->
+<div class="box">
+    <input type="text" name=""/>
+</div>
+</body>
+</html>

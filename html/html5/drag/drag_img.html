@@ -1,0 +1,63 @@
+<!doctype html>
+
+<html>
+	<head>
+		<title>Drag</title>
+	</head>
+	<script>
+		function init(){
+			var drag=document.getElementById("drag");
+			var dragable=document.getElementById("main");
+			var dragunable1=document.getElementById("left");
+			var dragunable2=document.getElementById("content");
+			//A
+			drag.addEventListener("dragstart", function(ev){
+				var dt=ev.dataTransfer;
+				dt.effectAllowed="copy";
+			}, false);
+			
+			dragable.addEventListener("dragover", function(ev){
+				var dt=ev.dataTransfer;
+				dt.dropEffect="copy";
+			}, false);
+			
+			dragable.addEventListener("drop", function(ev){
+				var dt=ev.dataTransfer;
+				dt.dropEffect="copy";
+				var imgOld=document.getElementById("drag");
+				var img=imgOld.cloneNode(false);  
+				img.style.position="absolute";
+				img.style.left=event.clientX+"px";
+				img.style.top=event.clientY-50+"px";
+				document.getElementById("main").appendChild(img);
+			}, false);
+			
+			dragunable1.addEventListener("dragover", function(ev){
+				var dt=ev.dataTransfer;
+				dt.dropEffect="none";
+				ev.preventDefault();
+				ev.stopPropagation();
+			}, false);
+			
+			dragunable2.addEventListener("dragover", function(ev){
+				var dt=ev.dataTransfer;
+				dt.dropEffect="none";
+				ev.preventDefault();
+				ev.stopPropagation();
+			}, false);
+		}
+		
+		document.ondragover=function(e){
+			e.preventDefault();};
+		document.ondrop=function(e){
+			e.preventDefault();};
+	</script>
+
+	<body onload="init()">
+		<div id="left" style="border:solid 1px black; width:200px; height:500px;float: left;background-color: gray;text-align: center;">
+			<img id="drag" src="drag.jpg" style="height:50px;width:50px;margin-top:50px;"/>
+		</div>
+		<div id="main" style="height:300px;border:solid 1px gray;"></div>
+		<div id="content" style="height:200px;border:solid 1px gray;"></div>
+	</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>key-event</title>
+		<script type="text/javascript">
+			window.onload=function(){
+				var txt=document.getElementById("content");
+				var ul=document.getElementById("list");
+				var lis=ul.getElementsByTagName("li");
+				content.onkeyup=function(ev){
+					var ev=ev||event;
+					var keyCode=ev.keyCode;
+					if(ev.ctrlKey&&keyCode==13&&txt.value){
+						var li=document.createElement("li");
+						li.innerHTML=txt.value;
+						if(!lis.length){
+							ul.appendChild(li)
+						}else{
+							ul.insertBefore(li,ul.childNodes[0]);
+						}
+						txt.value="";
+					}
+				}
+			}	
+		</script>
+	</head>
+	<body>
+		<input id="content"/>	按ctrl+enter输入
+		<ul id="list">
+		</ul>
+	</body>
+</html>

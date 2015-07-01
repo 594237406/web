@@ -1,0 +1,13 @@
+1、CSS 文本：font-size:12px; font-weight:bold; font-family:Arial, Helvetica, sans-serif; 
+line-height:22px;即可简写缩写为font:12px/22px bold Arial, Helvetica, sans-serif;
+
+2、CSS 背景：background-color:#F00;background-image:url(图片地址);background-position:bottom;
+background-repeat:no-repeat; 即可将背景CSS属性缩写为：background:#F00 url(图片地址) no-repeat left bottom;
+
+3.CSS 里颜色值可以用#FFFFFF的方式表示, 对于rrggbb格式的颜色值可以用#rgb格式的简写表示.
+样式表会自动把不够6位的颜色值按 rgb=rrggbb的方式扩展成6位颜色值
+比如
+#FFFFFF = #FFF
+#00000 = #000
+#336699 = #369
+颜色的简写只适用于CSS,不适用于dom属性

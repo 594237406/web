@@ -1,0 +1,36 @@
+<script>
+	//例子1
+// 	var callFunction=function(fn){
+// 		return fn(arguments[1],arguments[2]);
+// 	}
+
+	
+// 	function add(num1,num2){
+// 		return num1+num2;
+// 	}
+	
+// 	var result=callFunction(add,1,2);
+// 	alert(result);
+	
+	
+	//例子2
+	var result=popup(5,1000,5);
+		
+	result('hello');
+	
+	function popup(count,time){
+		console.log(popup.length);		//打印命名参数的个数
+		return function(){
+			var i=0;
+			var content=arguments[0];
+			var timer=setInterval(function(){
+				i++;
+				console.log(content);
+				if(i==count){
+					clearInterval(timer);
+				}
+			},time);
+		}
+	}
+	
+</script>

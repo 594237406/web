@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<title></title>
+		<link rel="stylesheet" href="css/zTreeStyle/zTreeStyle.css" type="text/css">
+		<link rel="stylesheet" href="css/listnav.css" type="text/css" media="screen" charset="utf-8" />
+		<link rel="stylesheet" href="css/jquery.multiSelect.css" rel="stylesheet" type="text/css" />
+		
+		<link rel="stylesheet" type="text/css" id="rule_css" href="css/rule_gray.css"/>
+		
+		<script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
+		<script type="text/javascript" src="js/jquery.ztree.core-3.4.js"></script>
+		<script type="text/javascript" src="js/jquery.multiSelect.js"></script>
+		<script type="text/javascript" src="js/jquery.charfirst.pinyin.js" ></script>
+   		<script type="text/javascript" src="js/jquery.listnav.min-2.1.js"></script>
+   		
+		<script type="text/javascript" id="rule_util_js"  src="js/rule_util.js"></script>
+		<script type="text/javascript" id="rule_js" src="js/url.js"></script>
+		<script type="text/javascript" id="rule_js" src="js/rule.js"></script>	
+
+		<script>
+		
+			$(function(){
+				document.title=StringCon.TITLE;
+				
+				var treeData = [ {"id" : 3,"open" : "true",	"pId" : 0,"name" : "CRM",icon : "img/nodrag.png"}, 
+									{"id" : 1,"open" : "true","pId" : 3,"name" : "Campaign","chkDisabled":"true",icon : "img/candrag.png"}, 
+									{"id" :2,"open" : "true","pId" : 0,	"name" : "Billing",	icon : "img/nodrag.png"	},
+									{"id" : 4,"open" : "true","pId" : 3,"name" : "Order",icon : "img/candrag.png"} ,
+									{"id" : 5,"open" : "true","pId" : 3,"name" : "resources",icon : "img/candrag.png"} ,
+									{"id" : 6,"open" : "true","pId" : 3,"name" : "product",	icon : "img/candrag.png"} ,
+									{"id" : 7,"open" : "true","pId" : 3,"name" : "personal",	icon : "img/candrag.png"} ,
+									{"id" :8,"open" : "true","pId" : 3,"name" : "customer",icon : "img/candrag.png"} 
+								];
+					
+					
+					var ruleLayout=new RuleLayout();
+					ruleLayout.settings.data.treeData=treeData;
+					ruleLayout.objectId=1;
+					
+					$(ruleLayout).bind('queryAttribute',function(ev,attributeId){
+						var datas=[{attributeId:1,attributeName:"text",attributeType:"text",reg:"\\d+",regMsg:"只能输入数字只能输入数字只能输入数字只能输入数字只能输入数字",
+								operators:["=",">",">=","<"]},
+							{attributeId:2,attributeName:"select",attributeType:"select",
+								operators:["=",">="],attributeValues:
+							[{text:"a",value:"a1"},{text:"b",value:"b1"}]},
+							{attributeId:3,attributeName:"date",attributeType:"date",reg:"\\d+",regMsg:"只能输入数字",
+								operators:["between","="]},
+							{attributeId:4,attributeName:"number",attributeType:"number",reg:"\\d+",regMsg:"只能输入数字",
+								operators:["between","="]},
+							{attributeId:5,attributeName:"多选下拉",attributeType:"multiple",
+								operators:[">=","="],attributeValues:
+							[{text:"xxxxxx",value:"x1"},{text:"y",value:"y1"},{text:"z",value:"z1"},{text:"a",value:"a1"}
+							,{text:"b",value:"b1"},{text:"c",value:"c1"}]},
+							{attributeId:6,attributeName:"弹出框",attributeType:"url",
+								operators:["="],attributeValues:
+							[{text:"x11aaaaaaaaaf12222222",value:"x1"},{text:"qweqwaaasadfsaaaf12222222",value:"y1"},{text:"z",value:"z1"},{text:"a",value:"a1"}
+							,{text:"b",value:"b1"},{text:"c",value:"c1"}
+							]}];
+						
+						var random=Math.ceil(Math.random()*6)-1;
+						var returnValue=datas[5];
+						return returnValue;
+					});
+					
+					$(ruleLayout).bind('saveRule',function(ev,objectId,express,rules){
+						//alert(objectId);
+						//alert(rules);
+						var returnValue={msg:"保存成功!"};
+						return returnValue;
+					});
+					
+					$(ruleLayout).bind('loadRule',function(ev,objectId){
+	 					//alert(objectId);
+						var returnValue=[
+	{"leftBracket":"","id":1,"operator":"=","attributeValue":["x1","y1"],"attributeText":["x","y"],"rightBracket":"","relation":"and",
+		attributeType:"url",reg:"",regMsg:"只能输入数字"}
+						                ];
+						return returnValue;
+					});
+					ruleLayout.init({});
+			});
+		
+			/*
+				1>文本
+				2>下拉框（搜索）
+				3>日期
+				4>数字
+				5>（如果因子值很多，可以 A-C D-F … 这种方式分类）
+				6>多选下拉框
+			*/
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

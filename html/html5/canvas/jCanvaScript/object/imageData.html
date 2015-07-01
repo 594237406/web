@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<script type="text/javascript" src="../jCanvaScript.1.5.18.js"></script>
+		<script type="text/javascript">        
+			function simpleExample(){            
+			    jc.start("canvas_1");
+		        var imgData=jc.imageData(120,120);
+		        for(var i=0;i<120;i++){
+			        for(var j=0;j<120;j++){
+			        	imgData.setPixel(i,j,'rgb('+i+','+j+','+(i+j)+')');
+				       	imgData.putData(0,0);
+			        }
+		        }
+		           
+		        jc.start("canvas_1");    
+			}        
+			
+		</script>
+	<head>
+	<body onload="simpleExample()">
+		<canvas height="300px" width="500px" id="canvas_1"></canvas><br/>
+	</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+	<head>
+		<title>save</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	</head>
+	<script>
+		window.onload=function(){
+			var elem = document.getElementById('myCanvas');    
+			if (elem && elem.getContext) {    
+				var ctx = elem.getContext('2d');   
+				
+				ctx.save();					//保存
+				ctx.fillStyle="#CCC";
+				ctx.beginPath();			//创建路径
+				ctx.moveTo(10,10);			//路径移动到目标点
+				ctx.lineTo(150,50);			//创建到达位置 150,50 的一条线
+				ctx.lineTo(10,50);
+				ctx.closePath();			//闭合路径，起点与终止点闭合
+				ctx.fill();					//空心填充
+				ctx.restore();				//还原：保存的代码块内代码不会影响其他代码
+				
+				ctx.beginPath();			//取消创建新路径
+				ctx.moveTo(10,110);			//路径移动到目标点
+				ctx.lineTo(150,150);		//创建到达位置 150,50 的一条线
+				ctx.lineTo(10,150);
+				ctx.closePath();		
+				
+				ctx.fill();					//会对每个路径都起作用，所以第一个三角形也会被填充
+				
+			}  
+		}
+	</script>
+	<style>
+		canvas{
+			border: 1px solid black;	
+		}
+	</style>
+	<body>
+		<canvas id="myCanvas" width="400" height="400">    
+			Fallback content, in case the browser does not support Canvas.    
+		</canvas>  
+	</body>
+</html>
+

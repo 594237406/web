@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<script type="text/javascript" src="../jCanvaScript.1.5.18.js"></script>
+		<script type="text/javascript">
+		    function start_1(idCanvas){
+		        jc.layer('myLayer_1')
+		            .animate({translate:{x:100}},2000)
+		            .draggable()
+		            .clone('2')
+		            .animate({translate:{x:100,y:140}},1500);
+		    }
+		    
+		    function stop_1(idCanvas){
+		        jc.clear(idCanvas);
+		        onload_1(idCanvas);
+		    }
+		    
+		    function onload_1(idCanvas){   
+		        jc.start("canvas_1",true);
+		        jc.rect(10,10,110,120,1)
+		            .layer('myLayer_1');
+		        jc.circle(90,80,20,"#FF0000",1)
+		            .layer('myLayer_1');
+		    }
+		</script>
+	<head>
+	<body onload="onload_1('canvas_1')">
+		<canvas height="300px" width="500px" id='canvas_1' style="border:1px solid black;"></canvas>
+		<br />
+		<input onclick="start_1('canvas_1')" type="button" value="运动"/>
+		<input onclick="stop_1('canvas_1')" type="button" value="还原" />
+	</body>
+</html>

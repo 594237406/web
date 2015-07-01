@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>hash history</title>
+		<script>
+			window.onload = function() {
+				var oInput = document.getElementById('input1');
+				var oDiv = document.getElementById('div1');
+		
+				var json = {};
+		
+				oInput.onclick = function() {
+					var num = Math.random();
+					var arr = randomNum(35, 7);
+					json[num] = arr;
+					var jsonData=document.getElementById("jsonData");
+					jsonData.innerHTML=JSON.stringify(json);
+					oDiv.innerHTML = arr;
+					window.location.hash = num;
+				};
+		
+				window.onhashchange = function() {
+					oDiv.innerHTML = json[window.location.hash.substring(1)];
+				};
+		
+				function randomNum(iAll, iNow) {
+					var attr = [];
+					for ( var i = 0; i < iNow; i++) {
+						attr.push(Math.floor(Math.random() * iAll));
+					}
+					return attr;
+				}
+		
+			};
+		</script>
+	</head>
+	
+	<body>
+		<input type="button" value="随机选择" id="input1">
+		<div id="div1"></div>
+		<div id="jsonData"></div>
+	</body>
+</html>

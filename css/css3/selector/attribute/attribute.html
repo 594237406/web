@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>attribute</title>
+		<style>
+			p{height:30px;border:1px solid #000;}
+			p[miaov]{background:pink;}
+			p[miaov=bdp]{background:#ccc;}
+			/*值按空格分组，包含old*/
+			p[miaov~=old]{background:red;}
+			/*以b开头*/
+			p[miaov^=b]{color:white;}
+			/*以b结束*/
+			p[miaov$=b]{color:white;}
+			/*包含b*/
+			p[miaov*=b]{color:white;}
+		</style>
+	</head>
+	<body>
+		<p miaov="leo old">leo</p>
+	    <p miaov="dbdp">杜鹏</p>
+	    <p miaov="bzM">子鼠</p>
+	    <p miaov="bdx">大数据</p>
+	    <p miaov="gxmb">小美</p>
+	</body>
+</html>

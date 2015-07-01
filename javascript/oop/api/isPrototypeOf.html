@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>isPrototypeOf</title>
+		<script>
+			//isPrototypeOf是用来判断指定对象object1是否存在于另一个对象object2的原型链中，是则返回true，否则返回false。 
+			function nodeAdmin(nickName){
+				
+			}
+			
+			siteAdmin.prototype=nodeAdmin.prototype;
+			
+		
+			function siteAdmin(nickName,siteName){
+	            this.nickName=nickName;
+	            this.siteName=siteName;
+	        }
+	        var matou=new siteAdmin("愚人码头","WEB前端开发");
+	        var matou2=new siteAdmin("愚人码头","WEB前端开发");
+	        matou.age="30";
+	         	
+	        alert(nodeAdmin.prototype.isPrototypeOf(matou));			//true
+	        alert(siteAdmin.prototype.isPrototypeOf(matou2));			//true
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

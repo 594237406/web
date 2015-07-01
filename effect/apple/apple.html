@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>apple</title>
+				<style type="text/css">
+			.box{
+				width:850px;
+				overflow: hidden;
+				margin: 0 auto;
+			}
+			
+			ul {
+				position:relative; 
+				width:2000px;
+				height: 130px;
+			}
+			
+			li {
+				list-style: none;
+				float: left;
+			}
+			
+			.buttonbar{
+				margin: 30px auto;
+				width: 70px;
+			}
+		</style>
+		<script type="text/javascript" src="motion.js"></script>
+		<script type="text/javascript">
+			var box=null;
+			var lis=null;
+			var lisPos=[];
+		
+			window.onload = function() {
+				box=document.getElementById("box");
+				lis = box.getElementsByTagName("li");
+				//布局转换
+				for ( var i = 0; i < lis.length; i++) {
+					var li = lis[i];
+					lisPos.push(li.offsetLeft);
+				}
+		
+				for ( var i = 0; i < lis.length; i++) {
+					li.style.position = "absolute";
+					var li = lis[i];
+					li.style.left =lisPos[i]+"px"
+				}
+		
+			}
+			
+			function page2(){
+				var i = 0;
+				motion(lis[i], {
+					left : -300
+				}, MOVE_TYPE.FLEX);
+		
+				var timer = setInterval(function() {
+					i++;
+					motion(lis[i], {
+						left : -300
+					}, MOVE_TYPE.FLEX);
+					if (i >= lis.length/2 - 1) {
+						clearInterval(timer);
+						setTimeout(function(){
+							follow2();
+						},200)
+					}
+				}, 200);
+			}
+			
+			function follow2(){
+				var i = 5;
+				var timer = setInterval(function() {
+					i++;
+					motion(lis[i], {
+						left : lisPos[i-lis.length/2]
+					}, MOVE_TYPE.FLEX);
+					if (i >= lis.length - 1) {
+						clearInterval(timer);
+					}
+				}, 200);
+			}
+			
+			function page1(){
+				var i = 11;
+				motion(lis[i], {
+					left : lisPos[i]
+				}, MOVE_TYPE.FLEX);
+				var timer = setInterval(function() {
+					i--;
+					motion(lis[i], {
+						left : lisPos[i]
+					}, MOVE_TYPE.FLEX);
+					if (i <= lis.length/2) {
+						clearInterval(timer);
+						setTimeout(function(){
+							follow1();
+						},200)
+					}
+				}, 200);
+			}
+			
+			function follow1(){
+				var i = 6;
+				var timer = setInterval(function() {
+					i--;
+					motion(lis[i], {
+						left : lisPos[i]
+					}, MOVE_TYPE.FLEX);
+					if (i <=0) {
+						clearInterval(timer);
+					}
+				}, 200);
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box" class="box">
+			<ul>
+				<li><img src="images/1.jpg"></li>
+				<li><img src="images/2.jpg"></li>
+				<li><img src="images/3.jpg"></li>
+				<li><img src="images/4.jpg"></li>
+				<li><img src="images/5.jpg"></li>
+				<li><img src="images/6.jpg"></li>
+				<li><img src="images/7.jpg"></li>
+				<li><img src="images/8.jpg"></li>
+				<li><img src="images/9.jpg"></li>
+				<li><img src="images/10.jpg"></li>
+				<li><img src="images/11.jpg"></li>
+				<li><img src="images/12.jpg"></li>
+			</ul>
+		</div>
+		
+		
+		<div class="buttonbar">
+			<button onclick="page1()">1</button>
+			<button onclick="page2()">2</button>
+		</div>
+	</body>
+</html>

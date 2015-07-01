@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+	<html>
+		<head>
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+			<title>drag</title>
+			<script type="text/javascript" src="move.js"></script>
+			<script type="text/javascript">
+				/*松手回归*/
+				var dragIndex=0;
+			
+				window.onload=function(){
+					var photo=document.getElementById("photo");
+					var lis=photo.getElementsByTagName("li");
+					//添加图片
+					for(var i=0;i<lis.length;i++){
+						var img=document.createElement("img");
+						img.src="images/"+(i%5+1)+".jpg";
+						img.setAttribute("draggable",false);
+						lis[i].appendChild(img);
+					}
+					
+					//布局转换
+					var lidises=[];
+					for(var i=0;i<lis.length;i++){
+						var li=lis[i];
+						li.index=i;
+						var liData={x:li.offsetLeft,y:li.offsetTop};
+						lidises.push(liData);
+					}
+					
+					for(var i=0;i<lis.length;i++){
+						var lidis=lidises[i];
+						var li=lis[i];
+						li.style.left=lidis.x+"px";
+						li.style.top=lidis.y+"px";
+						li.style.position="absolute";
+						li.style.margin="0";
+						
+						//添加拖拽事件
+						var drag=new Drag(li,lis,lidises);
+						drag.setDrag();
+					}
+				}
+				
+				function Drag(obj,lis,lidises){
+					this.disX=0;
+					this.dixY=0;
+					this.dragSrc=obj;
+					this.dragElement=obj.parentNode;
+					this.lis=lis;
+					this.lidises=lidises;
+				}
+				
+				Drag.prototype.setDrag=function(){
+					var _this=this;
+					this.dragSrc.onmousedown=function(ev){
+						var ev=ev||event;
+						_this.zIndex=++dragIndex;
+						_this.mousedown(ev);
+					}
+				}
+				
+				Drag.prototype.mousedown=function(ev){
+					var _this=this;
+					this.dragSrc.style.zIndex=this.zIndex;
+					this.disX=ev.clientX-this.dragSrc.offsetLeft;
+					this.disY=ev.clientY-this.dragSrc.offsetTop;
+					
+					document.onmousemove=function(ev){
+						var ev=ev||event;
+						_this.mousemove(ev);
+					}
+					
+					document.onmouseup=function(ev){
+						var ev=ev||event;
+						_this.mouseup(ev);					
+					}
+					clearInterval(_this.dragSrc.timer);
+					return false;
+				}
+				
+				Drag.prototype.mousemove=function(ev){
+					this.dragSrc.style.left=ev.clientX-this.disX+"px";
+					this.dragSrc.style.top=ev.clientY-this.disY+"px";
+					
+					//碰撞检测
+					for(var i=0;i<this.lis.length;i++){
+						this.lis[i].className="";
+						if(this.dragSrc==this.lis[i]) continue;
+						if(this.dragenter(ev, this.lis[i])){
+							this.lis[i].className="active";
+						}
+					}
+				}
+				
+				//碰撞检测
+				Drag.prototype.dragenter=function(ev,obj){
+					var x=ev.clientX;
+					var y=ev.clientY;
+					
+					var l=obj.offsetLeft;
+					var t=obj.offsetTop;
+					var r=obj.offsetLeft+obj.offsetWidth;
+					var b=obj.offsetTop+obj.offsetHeight;
+					if(x<=r&&x>=l&&y>=t&&y<=b){
+						return obj;
+					}else{
+						return null;
+					}
+				}
+				
+				Drag.prototype.mouseup=function(ev){
+					document.onmousemove=null;	
+					var isCollision=false;
+					var target=null;				//碰撞目标
+					
+					for(var i=0;i<this.lis.length;i++){
+						if(this.dragSrc==this.lis[i]) continue;
+						
+						target=this.dragenter(ev, this.lis[i]);
+						if(target){
+							break;
+						}
+					}
+					
+					//如果碰撞
+					if(target){
+						//console.log(target.offsetLeft);
+					}else{				//无碰撞归位
+						move(this.dragSrc,{left:this.lidises[this.dragSrc.index].x,top:this.lidises[this.dragSrc.index].y})
+					}
+				}
+			</script>
+			<style type="text/css">
+				ul{margin: 0 auto;width: 520px;border:0;}
+				ul li{margin:0;padding: 0;list-style: none;float: left;margin: 10px;height:100px;}
+				ul li img{width:150px;height:100px;border: 0;clear: both;margin: 0px;}				
+				.active{border: 1px dashed #444;};
+			</style>
+		</head>
+	<body>
+		<ul id="photo">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</body>
+</html>

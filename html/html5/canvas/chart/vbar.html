@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>绘制矩形</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<script type="text/javascript" src="vbar.js"></script>
+		<script>
+			window.onload=function(){
+				var g = new html5jp.graph.vbar("myCanvas");
+				if(!g){
+					return;
+				}
+				var items=[["商品A",30,50,89,90,25,35,80],
+				           ["商品B",30,50,89,90,25,35,80]];
+				var params={x:["星期","星期一","星期二","星期三","星期四","星期五","星期六","星期日"],y:["销量"]}
+				g.draw(items,params);
+			}
+		</script>
+		<style>
+			canvas{
+				border: 1px solid black;	
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<canvas id="myCanvas" width="500" height="500">    
+				Fallback content, in case the browser does not support Canvas.    
+			</canvas>  
+		</div>
+	</body>
+</html>
+

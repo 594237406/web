@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>relative</title>
+    <style>
+        /*相对于元素应该处在的位置进行定位，经常配合absolute使用，也常常单独使用*/
+        .box1 {
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+
+        .box2 {
+            width: 100px;
+            height: 100px;
+            background: blue;
+            position: relative;
+            top: 50px;
+        }
+
+        .box3 {
+            width: 100px;
+            height: 100px;
+            background: green;
+        }
+    </style>
+</head>
+
+<body>
+<div class="box1">div1</div>
+<div class="box2">div2</div>
+<div class="box3">div3</div>
+</body>
+</html>

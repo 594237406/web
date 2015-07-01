@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>box-size</title>
+		<style>
+			div{
+				border:10px #ffaa00 solid;
+				background:#ffff00;
+				padding:0 50px;
+				width: 200px;
+				margin:5px;
+			}
+			
+			/*标准盒子模式：设置宽度+边框宽度+内边距=实际宽度*/
+			.a {
+				box-sizing: content-box;
+				
+			}
+			
+			/*怪异盒子模式：设置宽度=实际宽度*/
+			.b {
+				box-sizing: border-box;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<div class="a">a</div>
+		<div class="b">b</div>
+	</body>
+</html>
+

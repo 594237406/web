@@ -1,0 +1,84 @@
+<!doctype html>
+
+<html>
+	<head>
+		<title>Drag</title>
+		<style type="text/css">
+			li{list-style: none;margin: 0px;padding: 0px;width:100px;height:20px;background: blue;display: inline-block;}
+			
+			#div1{width:100px;height:100px;background: red;margin:200px;clear:both;}
+		</style>
+	</head>
+	<script>
+// 	事件的执行顺序 ：drop不触发的时候
+// 	dragstart  >  drag >  dragenter >  dragover >  dragleave > dragend 
+// 	事件的执行顺序 ：drop触发的时候(dragover的时候阻止默认事件)
+// 	dragstart  >  drag >  dragenter >  dragover >  drop > dragend
+//effectAllowed : 设置光标样式(none, copy, copyLink, copyMove, link, linkMove, move, all 和 uninitialized)
+
+
+	
+		function init(){
+// 			draggable ：
+// 			设置为true，元素就可以拖拽了
+// 			拖拽元素事件 :  事件对象为被拖拽元素
+// 			dragstart ,  拖拽前触发 
+// 			drag ,拖拽前、拖拽结束之间，连续触发
+// 			dragend  , 拖拽结束触发
+// 			目标元素事件 :  事件对象为目标元素
+// 			dragenter ,  进入目标元素触发，相当于mouseover
+// 			dragover  ,进入目标、离开目标之间，连续触发
+// 			dragleave ,  离开目标元素触发，相当于mouseout
+// 			drop  ,  在目标元素上释放鼠标触发
+
+			var i=0;
+			var ul1=document.getElementById("ul1");
+			var lis=ul1.getElementsByTagName("li");
+			var div1=document.getElementById("div1");
+			for(var i=0;i<lis.length;i++){
+				var li=lis[i];
+				li.id="li"+i;
+				li.ondragstart=function(ev){
+					var dt=ev.dataTransfer;
+					dt.effectAllowed="copy";
+					dt.setDragImage(div1,20,20);
+					dtsetData("name",this.id);
+					this.style.background="yellow";
+				}
+				
+				li.ondrag=function(){		//开始与结束之间，不同于move，move静止时不触发
+					document.title=i++;
+				}
+				
+				li.ondragend=function(){
+					this.style.background="red";
+				}
+			}
+			
+			div1.ondragenter=function(){
+				this.style.background="blue";				
+			}
+			
+			div1.ondragover=function(ev){
+				ev.preventDefault();
+				this.style.background="yellow";		
+			}
+			
+			div1.ondragleave=function(){
+				this.style.background="red";				
+			}
+			
+			div1.ondrop=function(ev){
+// 				alert(ul1.id);
+// 				alert(ev.dataTransfer.getData("name"));
+			}
+		}
+	</script>
+
+	<body onload="init()">
+		<ul id="ul1">
+			<li draggable="true">a</li><li draggable="true">b</li><li draggable="true">c</li>
+		</ul>
+		<div id="div1"></div>
+	</body>
+</html>

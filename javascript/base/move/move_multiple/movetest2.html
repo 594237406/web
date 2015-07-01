@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Uniform Speed Stop</title>
+<style>
+	div{
+		width:100px;
+		height:50px;
+		background: red;
+		border:1px solid black;
+		margin-top: 10px;
+		position:absolute;
+		
+	}
+	
+	#div1{
+		left:0px;
+		top:0px;
+	}
+	
+	#div2{
+		left:0px;
+		top:100px;
+	}
+		
+	#div3{
+		left:0px;
+		top:200px;
+	}
+</style> 
+<script type="text/javascript">
+	function getStyle(obj,attr){
+		if(obj.currentStyle){
+			return obj.currentStyle[attr]; 
+		}else{
+			return getComputedStyle(obj,false)[attr];  		
+		}
+	}
+
+	function move(obj,attr,target,rate){
+		clearInterval(obj.timer);
+		obj.timer=setInterval(function(){
+			var numAttr=parseInt(getStyle(obj,attr));
+			var speed=(target-numAttr)/20;
+			speed=speed>0?Math.ceil(speed):Math.floor(speed);
+			
+			if(numAttr==target){
+				clearInterval(obj.timer);
+			}else{
+				obj.style[attr]=numAttr+speed+"px";
+			}
+		},rate);
+	}
+
+	window.onload=function(){
+		var div=document.getElementsByTagName("div");
+		div[0].onmouseover=function(){
+			move(this,'width',300,50);
+		}
+		
+		div[1].onmouseover=function(){
+			move(this,'height',100,50);
+		}
+		
+		div[2].onmouseover=function(){
+			move(this,'left',300,50);
+		}
+	}
+</script>
+</head>
+<body>
+	<div id="div1"></div>  
+	<div id="div2"></div>  
+	<div id="div3"></div>  
+</body>
+</html>

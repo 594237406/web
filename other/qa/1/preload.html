@@ -1,0 +1,23 @@
+<html>
+	<head>
+		<script language="javascript">
+		
+			window.onload=function(){
+				loadjs( 'a.js');
+				
+				//需做异步加载
+				setTimeout(function(){alert(load1)},300);
+			}
+		
+			function loadjs(path) {
+				var head = document.getElementsByTagName('head')[0];
+				var script = document.createElement('script');
+				script.src = path;
+				script.type = 'text/javascript';
+				head.appendChild(script);
+			}
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

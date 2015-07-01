@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>__proto__test</title>
+		<script>
+			function shape(){
+				this.type=null;
+				//返回当前对象函数名
+				this.getType=function(){
+					return this.constructor.name;
+				}
+			}
+			
+			function Triangle(a,b,c){
+				this.a=a;
+				this.b=b;
+				this.c=c;
+			}
+			
+			Triangle.prototype=new shape();
+			Triangle.prototype.getPerimeter=function(){
+				return this.a+this.b+this.c;
+			}
+			Triangle.prototype.constructor=Triangle;	//修改指向，否则指向shape
+			//alert(Triangle.prototype.constructor);
+		
+			var t=new Triangle(1,2,3);
+			alert(t.constructor);
+			alert(shape.prototype.isPrototypeOf(t));	//t在shape的原型链中
+			alert(t.getPerimeter());					//返回6
+			alert(t.getType());							//返回当前对象函数名
+			
+			for(var i in t){
+				if(t.hasOwnProperty(i)){
+					console.log(i);						//列出当前对象的属性与方法
+				}
+			}
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

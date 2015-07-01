@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<script>
+
+	//设置cookies
+	function setCookie(name,value,iDay){
+		var nDate=new Date();
+		nDate.setDate(nDate.getDate()+iDay);
+		document.cookie=name+"="+value+";expires="+nDate;	//设置过期时间
+	}
+	
+	//获取cookies
+	function getCookie(name){
+		var eachCookie=document.cookie.split("; ");
+		
+		for(var i=0,j=eachCookie.length;i<j;i++){
+			var map=eachCookie[i].split("=");
+			var eachName=map[0];
+			var eachValue=map[1];
+			if(eachName==name){		//名称
+				return eachValue;	//值			
+			}
+		}
+		return "";
+	}
+	
+	//移除cookies
+	function removeCookie(name){
+		setCookie(name,"",-1);
+	}
+
+	window.onload=function(){
+		
+		var form=document.getElementById("form1");
+		var userName=document.getElementById("userName");
+		var userPass=document.getElementById("userPass");
+		var clearForm=document.getElementById("clearForm");
+		userName.value="";
+		userPass.value="";
+		userName.value=getCookie("userName");
+		userPass.value=getCookie("userPass");
+		
+		form.onsubmit=function(){
+			setCookie("userName",userName.value,30);
+			setCookie("userPass",userPass.value,30);
+		}
+		
+		clearForm.onclick=function(){
+			removeCookie("userName");
+			removeCookie("userPass");
+			userName.value="";
+			userPass.value="";
+		}
+	}
+</script>
+</head>
+<body>
+	<form action="" method="get" id="form1">
+		用户名：<input id="userName"><br>
+		密码：<input id="userPass"><br>
+		<input type="submit" value="提交"> 
+		<a href="#" id="clearForm">清除记录</a>
+	</form>
+</body>
+</html>

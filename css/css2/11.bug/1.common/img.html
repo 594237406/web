@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>img</title>
+    <style type="text/css">
+        /*
+            　　第一，给图片img标签display:block。
+
+            　　img{display:block}
+
+            　　第二，定义容器里的字体大小为0。
+
+            　　div {
+            　 　width:110px;
+            　 　border:1px solid #000000;
+            　 　font-size:0
+            　　}
+
+            　　第三，定义图片img标签vertical-align:bottom，vertical-align:middle，vertical-align:top
+            　　img{vertical-align:bottom}
+        */
+        .box {
+            border: 1px solid black;
+        }
+
+        img {
+            border: 0;
+            /* 		display: block;	 */
+            vertical-align: top;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <img src="pic.jpg"/><img src="pic.jpg"/><img src="pic.jpg"/>
+</div>
+</body>
+</html>

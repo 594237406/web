@@ -1,0 +1,27 @@
+<script>
+
+	//6-8位数字，字母，下划线，必须字母开头
+	var reg=/^[a-zA-z]\w{5,7}$/;
+	var str="lihongji";
+	document.write(reg.test(str));
+	document.write("<br/>");
+	//长度2-12中文
+	reg=""
+	//电子邮箱地址
+	str="hong@com.s";
+	reg=/^\w+@\w+[\.]\w+$/;
+	document.write(reg.test(str));
+	document.write("<br/>");
+	//电话号码
+	reg=/^0\d{3}-\d{8}|1\d{5}-\d{8}$/;
+	//日期格式
+	str="2012-01-01";
+	reg=/^(\d{2}|\d{4})[-.](\d{1}|\d{2})[-.](\d{1}|\d{2})$/
+	document.write(reg.test(str));
+	//IP地址
+	reg=/^((2[0-4]\d|25[0-5]|[01]?\d\d?)\.){3}(2[0-4]\d|25[0-5]|[01]?\d\d?)$/;
+	//身份证
+	reg=/^(\d{15}|\d{18})$/;
+	//美国邮编：ZIP45263
+	reg=/^ZIP\d{5}$/;
+</script>

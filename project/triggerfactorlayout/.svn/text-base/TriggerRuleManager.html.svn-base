@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:="appengine">
+<head jwcid="@Head" noneCss="noneCss" 
+includeJs="RuleLayout/ruleConfigUtils.js,RuleLayout/ruleConfig.js,RuleLayout/ruleConfigEvents.js">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" type="text/css" href="cssRuleConfig.css">
+<!-- 	<script src="RuleLayout/ruleConfigUtils.js"></script> -->
+<!-- 	<script src="RuleLayout/ruleConfig.js"></script> -->
+<!-- 	<script src="RuleLayout/ruleConfigEvents.js"></script> -->
+	<script>
+		function init() {
+			//groupsLength:纵向,highLevel:横向
+			
+			//规则分组数据-查询条件：事件源ID
+			var groupData={
+				name:"root",highLevel:"4",groupsLength:"1",layer:"l0",relation:"or",groups:[
+					 {name:"when",groupsLength:"1",layer:"l1",relation:"and",groups:[
+						{name:"when1sadfass",groupsLength:"1",layer:"l2",relation:"or",groups:[
+							{name:"when11",groupsLength:"0",layer:"l3",relation:"or",groups:[]} 	                                                  
+						]},
+						{name:"when2",groupsLength:"1",layer:"l2",groups:[
+							{name:"when21",groupsLength:"0",layer:"l3",groups:[]},
+							{name:"when22",groupsLength:"0",layer:"l3",groups:[]} 
+						]}
+					 ]},
+					 {name:"where",groupsLength:"1",layer:"l1",relation:"or",groups:[
+						 	{name:"where1",groupsLength:"1",layer:"l2",groups:[
+								{name:"where11",groupsLength:"0",layer:"l3",groups:[]} 	                                                  
+							 ]}
+					 ]}
+				]
+			};
+		
+			//规则数据-查询条件：事件源ID
+			var ruleData={
+				name:"root",groups:[
+					{id:"group1",groups:[
+						{id:"1",name:"frname1",code:"factorcode1",regex:"\\w*",msg:"errormsg",type:"1",mark:"0",
+							groups:[
+								{id:"first1",name:"factorvaluename1",code:"code1",mark:"1"},
+								{id:"first2",name:"factorvaluename2",code:"code2",mark:"1"}
+							]} ,
+						{id:"5",name:"fname5",code:"factorcode5",regex:"\\w*",msg:"errormsg",type:"2",mark:"0",
+							groups:[
+								{id:"3",name:"factorvaluename3",code:"factorvaluecode3",mark:"1"}
+							]}   
+					]},
+					{id:"group2",groups:[
+						{id:"2",name:"fname2",code:"factorcode1",regex:"\\w*",msg:"errormsg",type:"3",mark:"0",
+							groups:[
+								{id:"4",name:"factorvaluename4",code:"factorvaluecode4",mark:"1"}
+							]}                
+					]},
+					{id:"group3",groups:[
+						{id:"3",name:"factorname3",code:"factorcode1",regex:"\\w*",msg:"errormsg",type:"0",mark:"0",
+							groups:[
+								{id:"5",name:"factorvaluename5",code:"factorvaluecode5",mark:"1"}
+							]}                
+					]},
+					{id:"group4",groups:[
+						{id:"4",name:"factorname4",code:"factorcode1",regex:"\\w*",msg:"errormsg",type:"1",mark:"0",
+							groups:[
+								{id:"textcode1",name:"text1",code:"code3",mark:"1"},
+								{id:"textcode2",name:"text2",code:"code4",mark:"1"},
+								{id:"textcode3",name:"text3",code:"code2",mark:"1"}
+							]}                
+					]}
+				]
+			}
+			
+			//用户数据-查询条件：原子事件ID
+			var userData=[{id:"4",name:"factorname4",code:"factorcode1",regex:"\\w*",msg:"errormsg",type:"1",mark:"0",
+							userData:["first1","first2","first3"],groupId:"group4",
+							groups:[
+									{id:"textcode1",name:"text1",code:"first1",mark:"1"},
+									{id:"textcode2",name:"text2",code:"first2",mark:"1"},
+									{id:"textcode3",name:"text3",code:"first3",mark:"1"}
+						 ]},
+						  {id:"3",name:"factorname3",code:"factorcode1",regex:"\\w*",msg:"errormsg",type:"0",mark:"0",
+							userData:["1","2","3"],groupId:"group3",
+										groups:[
+								]},{id:"2",name:"fname2",code:"factorcode1",regex:"\\w*",msg:"errormsg",type:"3",mark:"0",
+									userData:["x","y"],groupId:"group2",
+									groups:[
+											{id:"4",name:"factorvaluename4",code:"factorvaluecode4",mark:"1"}
+										]},{id:"10",name:"10",code:"factorcode10",regex:"\\w*",msg:"errormsg",type:"1",mark:"0",
+											userData:["code1","code2"],groupId:"group1",
+											groups:[
+													{id:"first1",name:"factorvaluename1",code:"code1",mark:"1"},
+													{id:"first2",name:"factorvaluename2",code:"code2",mark:"1"}
+												]}];
+
+			var settings = {
+				source : "C3",
+				detailArea : "detail",
+				isView : false,
+				atomEventId:""
+			}
+
+			g_RuleConfig.userData = userData;
+			g_RuleConfig.groupData = groupData;
+			g_RuleConfig.ruleData = ruleData;
+			g_RuleConfig.settings = settings;
+			g_RuleConfig.createRules();
+
+		}
+	</script>
+</head>
+
+<body jwcid="@Body" onload="init()">
+		<div id="detail"></div>
+</body>
+</html>

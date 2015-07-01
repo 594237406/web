@@ -1,0 +1,13 @@
+节点编号：	节点名称：
+1	Element
+2	Attribute
+3	Text
+4	CDATA Section
+5	Entity Reference
+6	Entity
+7	Processing Instrucion
+8	Comment
+9	Document
+10	Document Type
+11	Document Fragment
+12	Notation

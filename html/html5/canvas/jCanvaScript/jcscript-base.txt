@@ -1,0 +1,79 @@
+http://jcscript.com/documentation
+
+1.circle
+circle(x, y, radius, [color], [fill])
+circle(float x, float y, float radius)
+circle(float x, float y, float radius, string color)
+circle(float x, float y, float radius, bool fill)
+circle(float x, float y, float radius, string color, bool fill)
+circle(object parameters)
+
+2.rect
+rect(x, y, width, height, [color], [fill])
+rect(float x, float y, float width, float height)
+rect(float x, float y, float width, float height, bool fill)
+rect(float x, float y, float width, float height, string color)
+rect(float x, float y, float width, float height, string color, bool fill)
+rect(object parameters)
+
+
+3.arc
+arc(x, y, radius, startAngle, endAngle, [anticlockwise], [color], [fill])
+arc(float x, float y, float radius, float startAngle, float endAngle)
+arc(float x, float y, float radius, float startAngle, float endAngle, string color)
+arc(float x, float y, float radius, float startAngle, float endAngle, bool anticlockwise, bool fill)
+arc(float x, float y, float radius, float startAngle, float endAngle, bool anticlockwise, string color)
+arc(float x, float y, float radius, float startAngle, float endAngle, bool anticlockwise, string color, bool fill)
+arc(object parameters)
+jc.arc(60,100,60,90,180,1,'rgb(25,99,253)',0);
+
+
+4.line
+line(points, [color], [fill])
+line(array points)
+line(array points, string color)
+line(array points, bool fill)
+line(array points, string color, bool fill)
+line(object parameters)
+jc.line([[10,20],[15,32],[180,60],[92,7]]);
+
+5.bCurve
+bCurve(points, [color], [fill])
+bCurve(array points) 
+bCurve(array points, string color) 
+bCurve(array points, bool fill) 
+bCurve(array points, string color, bool fill)
+bCurve(object parameters) 
+
+6.qCurve
+qCurve(points, [color], [fill])
+qCurve(array points) 
+qCurve(array points, string color) 
+qCurve(array points, bool fill) 
+qCurve(array points, string color, bool fill) 
+qCurve(object parameters) 
+
+image(img, x, y, width, height, sX, sY, sWidth, sHeight)
+image(image img, float x, float y)
+image(image img, float x, float y, float width, float height)
+
+图片、偏移x,y,宽，高，从x,y位置显示，把图片sWidth宽度的大小显示在width像素内，把图片sHeight高度的大小显示在height像素内
+image(image img, float x, float y, float width, float height, float sX, float sY, float sWidth, float sHeight)
+image(object parameters)
+
+8.text
+text(text, x, y, [maxWidth], [color], [fill])
+text(string text, float x, float y)
+text(string text, float x, float y, int maxWidth)
+text(string text, float x, float y, string color)
+text(string text, float x, float y, string color, bool fill)
+text(string text, float x, float y, int maxWidth, string color, bool fill)
+text(object parameters)
+
+9.pattern(image img):以1~248,1~263范围填充图片img_1
+var pattern=jc.pattern(img_1);
+jc.rect(1,1,248,263,pattern,1);
+
+10.layer，把元素加入到层
+layer(string idLayer)
+返回id=idLayer的层或者创建，如果不存在的时候 

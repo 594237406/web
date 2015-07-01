@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>jsonexpress</title>
+		<script>
+			//如果要兼容，引用json2.js文件
+			var str = '{"name":"hello"}'; //一定是严格的JSON形式
+			var json = JSON.parse(str);
+			alert(json.name);
+			var json = {
+				name : "hello"
+			};
+			var str = JSON.stringify(json);
+			alert(str);
+		</script>
+	</head>
+
+	<body>
+	</body>
+</html>

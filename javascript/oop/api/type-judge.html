@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>type-judge</title>
+		<script>
+			//instanceof\constructor\type\toString都可以做类型判断
+			
+			alert(1 instanceof Number);				//1不是对象，所以返回false
+			alert(new Number(1) instanceof Number);	//1是对象，所以返回true
+			
+			function Aaa(){
+				alert(Object.prototype.toString.call(arguments))
+			}
+			var a1 = new Aaa();
+			
+			//alert( a1 instanceof Object );  //true
+			var arr = [];
+			alert(typeof(arr));
+			
+			var reg = /[hbc]at/gi;
+			alert(Object.prototype.toString.call(reg));
+			
+			alert(Object.prototype.toString.call(Array));
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
+
+

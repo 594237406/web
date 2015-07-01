@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>selector</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<style type="text/css">
+		
+			/*fuzzy search*/
+			[id*=section1]{
+				background: red;
+				width:50px;
+				height:50px;
+			}
+			/*begin search*/
+			[id^=section1]{
+				background: blue;
+				width:50px;
+				height:50px;
+			}
+			/*end search*/
+			[id$=section1]{
+				background: #DDDDDD;
+				width:50px;
+				height:50px;
+			}
+			
+			/*HTML*/
+			:root {
+				background: yellow;
+			}
+			
+			/*exclude span*/
+			body *:not(span){
+				background: limegreen;
+			}
+			
+			/*div:empty:没有子节点*/
+			div:empty:after{
+ 				border: 1px solid black; 
+				content:"null"
+			}
+						
+		</style>
+	</head>
+	<body>
+		<div id="aaasection1aaa"></div>
+		<div id="section1aaa"></div>
+		<div id="aaasection1"></div>
+		<span>exclude limegreen</span>
+		
+		<br/>
+		<br/>
+		<div>Archaeologists excavated twice, complete human skull unearthed in two, broken bones mammals 18000 pieces of a single tooth of more than 500 pieces, animal fossils 13 genus or species.</div>
+		<div>div2</div>
+		<div>div3</div>
+		<div></div>
+	</body>
+</html>

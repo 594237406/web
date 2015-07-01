@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>extend</title>
+    <style>
+        .parent {
+            color: red;
+            height: 100px;
+            background: #DDD;
+        }
+
+        /*继承父级属性值*/
+        .child {
+            background: inherit;
+        }
+    </style>
+    <script type="text/javascript">
+        function getStyle(obj, attr) {
+            if (obj.currentStyle) {
+                //IE、Opera
+                return obj.currentStyle[attr];
+            }
+            else {
+                //FF、chrome、safari
+                return getComputedStyle(obj, false)[attr];
+            }
+        }
+
+        window.onload = function () {
+            //alert(getStyle(document.getElementById("child"),"background-color"));
+        }
+    </script>
+</head>
+<body>
+<div class="parent" id="parent">
+    parent
+    <div class="child" id="child">child</div>
+    end
+</div>
+</body>
+</html>

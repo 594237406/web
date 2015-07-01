@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>outfloat</title>
+    <style type="text/css">
+        .div1 {
+            width: 100px;
+            height: 100px;
+            float: left;
+            background: red;
+        }
+
+        .div2 {
+            width: 200px;
+            height: 200px;
+            background: blue;
+        }
+    </style>
+</head>
+<body>
+<!-- 脱离文档流,div2文字被挤出，div1提升层级半层，只够放入div2的下层层级，上层层级div2文字被挤出-->
+<div class="div1">div1</div>
+<div class="div2">div2</div>
+</body>
+</html>

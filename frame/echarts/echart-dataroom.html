@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+<div id="main" style="height: 400px;"></div>
+</body>
+<script src="echarts-all.js"></script>
+<script>
+	var myChart = echarts.init(document.getElementById('main'));
+
+	option = {
+	    tooltip : {
+	        trigger: 'axis'
+	    },
+	    toolbox: {
+	        show : true,
+	        feature : {
+	            mark : {show: true},
+	            dataZoom : {show: true},
+	            dataView : {show: true},
+	            magicType : {show: true, type: ['line', 'bar']},
+	            restore : {show: true},
+	            saveAsImage : {show: true}
+	        }
+	    },
+	    dataZoom : {
+	        show : true,
+	        realtime : true,
+	        //x: 0,
+	        y: 36,
+	        height: 20,
+	        start : 40,
+	        end : 60
+	    },
+	    xAxis : [
+	        {
+	            type : 'category',
+	            boundaryGap : false,
+	            data : function (){
+	                var list = [];
+	                var n = 0;
+	                while (n++ < 150) {
+	                    list.push(n);
+	                }
+	                return list;
+	            }()
+	        }
+	    ],
+	    yAxis : [
+	        {
+	            type : 'value'
+	        }
+	    ],
+	    series : [
+	        {
+	            name:'dz',
+	            type:'line',
+	            data:function (){
+	                var list = [];
+	                for (var i = 1; i <= 150; i++) {
+	                    list.push(Math.round(Math.random()* 30));
+	                }
+	                return list;
+	            }()
+	        }
+	    ],
+	    calculable:false
+	};
+
+	myChart.setOption(option);
+</script>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>栅格矩阵</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<script>
+			window.onload=function(){
+				var c=getCanvas();
+					
+				//绘制网格纵线
+				for(var hor=0.5;hor<=500;hor+=10){
+					c.moveTo(hor,0);
+					c.lineTo(hor,500);			
+				}
+				
+				//绘制网格横线
+				
+				for(var ver=0.5;ver<=500;ver+=10){
+					c.moveTo(0,ver);
+					c.lineTo(500,ver);			
+				}
+				c.strokeStyle="#eee";
+				c.stroke();
+				
+				//绘制线和箭头
+				
+				var line_paddingTop=40;
+				var line_paddingLeft=40;
+				//绘制横线
+				c.beginPath();
+				c.moveTo(0,line_paddingTop);
+				c.lineTo(240,line_paddingTop);
+				c.moveTo(260,line_paddingTop);
+				c.lineTo(500,line_paddingTop);
+				
+				//绘制箭头
+				c.moveTo(495,line_paddingTop-5);
+				c.lineTo(500,line_paddingTop);
+				c.lineTo(495,line_paddingTop+5);
+				
+				//绘制横线
+				c.moveTo(line_paddingLeft,0);
+				c.lineTo(line_paddingLeft,240);
+				c.moveTo(line_paddingLeft,260);
+				c.lineTo(line_paddingLeft,500);
+				
+				//绘制箭头
+				c.moveTo(line_paddingLeft-5,495);
+				c.lineTo(line_paddingLeft,500);
+				c.lineTo(line_paddingLeft+5,495);
+				
+				c.strokeStyle="#000";
+				c.stroke();
+				
+				//绘制文字
+				c.font="bold 12px sans-serif";
+				c.fillText("x",248,45);
+				c.fillText("y",36,252);
+				
+				c.textBaseline="top";
+				c.fillText("(0,0)",5,5);
+				
+				c.textAlign="right";
+				c.textBaseline="bottom";
+				c.fillText("(500,500)",495,495);
+				
+				c.fillRect(0,0,3,3);
+				c.fillRect(497,497,3,3);
+			}
+			
+			function getCanvas(){
+				var elem = document.getElementById('myCanvas');    
+				if (elem && elem.getContext) {    
+					var context = elem.getContext('2d');
+					return context;
+				}
+			}
+		</script>
+		<style>
+			canvas{
+				border: 1px solid black;	
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="myCanvas" width="500" height="500">    
+			Fallback content, in case the browser does not support Canvas.    
+		</canvas>  
+	</body>
+</html>
+
+
+
+
+

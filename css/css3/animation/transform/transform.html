@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>example</title>
+		<style>
+			*{margin:0;padding:0;}
+/*		 	设置变换					*/
+/* 			transform ： none | <transform-function> [ <transform-function> ]*  */
+/* 			transform: rotate | scale | skew | translate |matrix; */
+
+/* 			设置变换中心 */
+/* 			transform-origin:20px 20px;				*/
+/* 			transform-origin: bottom left;			*/
+
+/* 			设置矩阵变换：横向拉伸、y轴倾斜、x轴倾斜、垂直拉伸、水平位移、垂直位移 */
+/* 			transform:matrix(1,0,0,1.5,20,20); 		*/
+/* 			http://www.zhangxinxu.com/wordpress/2012/06/css3-transform-matrix-%E7%9F%A9%E9%98%B5/ */
+/* 			matrix不会按顺序执行， scale(1.1,1.2) translate(50px,50px)会按书写顺序执行 */
+
+			.transform{width:100px;height:100px;background: red;
+					/*设置变换中心20px,20px */
+/* 					transform-origin:20px 20px; */
+					/*旋转45度，水平放大1.1倍，位移150px，垂直放大1.2倍，位移50px,x轴倾斜60度，y轴倾斜-30度*/
+/*  				transform:rotate(45deg) scale(1.1,1.2) translate(150px,50px) skew(60deg,-30deg);   */
+					
+ 					transform:matrix(1,1,-1,1,50,50); 
+			}
+		</style>
+		
+		<script>
+		</script>
+		</head>
+	<body>
+		<div class="transform">
+		</div>
+	</body>
+</html>

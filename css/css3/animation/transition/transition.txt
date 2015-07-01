@@ -1,0 +1,22 @@
+1.位置：
+过度到当前css的位置。比如div样式为a,click后样式为b,需要在b增加过度。如果click后样式为a和b，只需要在a增加过渡即可。
+hover同理，因为hover伪类继承原&类，所以只需要在原&增加即可。
+如果需要hover前后过渡效果不同，可以在hover内部与&均增加过渡，&过渡为鼠标移出过渡，hover过渡为鼠标移入过渡。
+
+2.详细属性描述
+属性			描述								CSS
+transition	简写属性，用于在一个属性中设置四个过渡属性。	3
+transition-property	规定应用过渡的 CSS 属性的名称。	3
+transition-duration	定义过渡效果花费的时间。默认是 0。	3
+transition-timing-function	规定过渡效果的时间曲线。默认是 "ease"。	3
+	transition-timing-function的值允许你根据时间的推进去改变属性值的变换速率，transition-timing-function有6个可能值：
+	1、ease：（逐渐变慢）默认值，ease函数等同于贝塞尔曲线(0.25, 0.1, 0.25, 1.0).
+	2、linear：（匀速），linear 函数等同于贝塞尔曲线(0.0, 0.0, 1.0, 1.0).
+	3、ease-in：(加速)，ease-in 函数等同于贝塞尔曲线(0.42, 0, 1.0, 1.0).
+	4、ease-out：（减速），ease-out 函数等同于贝塞尔曲线(0, 0, 0.58, 1.0).
+	5、ease-in-out：（加速然后减速），ease-in-out 函数等同于贝塞尔曲线(0.42, 0, 0.58, 1.0)
+	6、cubic-bezier：（该值允许你去自定义一个时间曲线）， 特定的cubic-bezier曲线。 (x1, y1, x2, y2)四个值特定于曲线上点P1和点P2。所有值需在[0, 1]区域内，否则无效。
+transition-delay	规定过渡效果何时开始。默认是 0。	3
+
+
+简写：transition: width 1s linear 2s;

@@ -1,0 +1,110 @@
+body {
+	padding: 0px;
+	margin: 0px;
+}
+
+.big_pic {
+	width: 400px;
+	height: 320px;
+	background: #222;
+	position: relative;
+	padding: 0px;
+	margin: 0px;
+	border: none;
+}
+
+.big_pic li {
+	width: 400px;
+	height: 320px;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: url(images/loading.gif) no-repeat center center;
+}
+
+.big_div{
+	position:absolute;
+	left:0px;
+	top:320px;
+	margin: 0px;
+	width: 400px;
+	height: 100px;
+	overflow:hidden;
+}
+
+.small_pic {
+	margin: 0px;
+	padding: 0px;
+	position:absolute;
+	left:0px;
+}
+
+.small_pic li {
+	width: 100px;
+	height: 80px;
+	float: left;
+	overflow: hidden;
+	background: url(images/loading.gif) no-repeat center center;
+	cursor: pointer;
+	list-style: none;
+	float: left;
+	filter: alpha(opacity = 60);
+	opacity: 0.6;
+	padding: 0px;
+}
+
+.small_pic img {
+	width: 120px;
+	height: 80px;
+}
+
+.mark_left {
+	width: 200px;
+	height: 320px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background: red;
+	filter: alpha(opacity : 0);
+	opacity: 0;
+	z-index: 10000;
+}
+
+.mark_right {
+	width: 200px;
+	height: 320px;
+	position: absolute;
+	left: 200px;
+	top: 0;
+	background: green;
+	filter: alpha(opacity : 0);
+	opacity: 0;
+	z-index: 10000;
+}
+
+.prev {
+	width: 60px;
+	height: 60px;
+	background: url(images/btn.gif) no-repeat;
+	position: absolute;
+	top: 130px;
+	left: 10px;
+	z-index: 10001;
+	cursor: pointer;
+	filter: alpha(opacity :     0);
+	opacity: 0;
+}
+
+.next {
+	width: 60px;
+	height: 60px;
+	background: url(images/btn.gif) no-repeat 0 -60px;
+	position: absolute;
+	top: 130px;
+	right: 10px;
+	z-index: 10001;
+	cursor: pointer;
+	filter: alpha(opacity :     0);
+	opacity: 0;
+}

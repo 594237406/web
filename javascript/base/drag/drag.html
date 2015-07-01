@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>drag.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+	<style type="text/css">
+		#drag{
+			width:100px;
+			height:100px;
+			position: absolute;
+			background: red;
+			left:0px;
+			top:0px;
+		}
+	</style>
+	
+	<script>
+		window.onload=function(){
+			var drag=document.getElementById("drag");
+			
+			drag.onmousedown=function(ev){
+				var e=ev||event;
+			
+				var disX=e.clientX-drag.offsetLeft;
+				var disY=e.clientY-drag.offsetTop;
+				
+				console.log(disX);
+				console.log(disY);
+				
+				//如果换成drag,则移出时不移动
+				document.onmousemove=function(ev){
+					var e=ev||event;
+					
+					var l=e.clientX-disX;
+					var t=e.clientY-disY;
+					
+					if(l<0){
+						l=0;
+					}else if(l>document.documentElement.clientWidth-drag.offsetWidth){
+						l=document.documentElement.clientWidth-drag.offsetWidth;
+					}
+					
+					if(t<0){
+						t=0;
+					}else if(t>document.documentElement.clientHeight-drag.offsetHeight){
+						t=document.documentElement.clientHeight-drag.offsetHeight;
+					}
+					
+					drag.style.left=l+"px";
+					drag.style.top=t+"px";
+				}
+				
+				document.onmouseup=function(){
+					document.onmousemove=null;
+					document.onmouseup=null;
+				}
+				
+				return false;	//阻止默认行为，解决火狐二次拖拽bug
+			}
+		}
+	</script>
+  </head>
+  
+  <body style="height: 2000px;">
+   	<div id="drag"></div>
+  </body>
+</html>

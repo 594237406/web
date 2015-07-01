@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>extend-prototype</title>
+		<script>
+		
+		var a = {
+			name : '小明'
+		};
+		
+		var b = cloneObj(a);
+		
+		b.name = '小强';
+		
+		//alert( b.name );
+		alert( a.name );
+		
+		function cloneObj(obj){
+			
+			var F = function(){};
+			
+			F.prototype = obj;
+			
+			return new F();
+			
+		}
+		//a对象》F原型对象》F对象
+		/*
+	 		拷贝继承:  通用型的  有new或无new的时候都可以,可以复制对象和类,对象forin:prototype,类forin:类属性
+			类式继承:  new构造函数，只可以复制类
+			原型继承:  无new的对象，只可以复制对象
+		*/
+		
+		</script>
+	</head>
+	
+	<body>
+	</body>
+</html>

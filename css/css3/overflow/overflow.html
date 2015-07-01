@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Text Overflow CSS3</title>
+		<style>
+			#box {
+			   
+			    -o-text-overflow: ellipsis;
+			    overflow:hidden;
+			    border: 1px solid black;
+			    width: 400px;
+			    height:100px;
+			    
+			    padding: 20px;
+			    -webkit-transition: all .5s;
+			    color: rgba(0, 0, 0, .7);
+			    cursor: pointer;
+			    
+			    overflow:hidden;
+			    white-space: nowrap;
+			    text-overflow:ellipsis;
+			}
+			#box:hover {
+			    white-space: normal;
+			    color: rgba(0, 0, 0, 1);
+			    background: #e3e3e3;
+			    border: 1px solid #666;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+		 ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+		  ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+		   ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi 
+		    ut aliquip ex ea commodo consequat.  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+		     ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+	</body>
+</html>

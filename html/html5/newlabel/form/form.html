@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+	<style>
+		input {
+			margin: 10px;
+		}
+	</style>
+	<body>
+		<form id="testform" action="x.jsp">Text<input
+			placeholder="input me" autocomplete list="greetings" required /><br />
+		<datalist id="greetings" style="height:300px;width:200px;">
+		<option value="hello">hello</option>
+		<option value="good afternoon">good afternoon</option>
+		<option value="good evening">good evening</option>
+		</datalist>
+		 <select multiple>
+			<option>111</option>
+			<option>111</option>
+			<option>111</option>
+		</select><br />
+		Pattern<input type="text" pattern="[0-9]{10}" /><br />
+		Search <input type="search" /><br />
+		Tel<input type="tel" /><br />
+		URL<input type="url" /><br />
+		Email<input type="email" placeholder="example@163.com" /><br />
+		Datetime<input type="datetime" /><br />
+		Date<input type="date" value="2014-01-01" /><br />
+		Month<input type="month" /><br />
+		Week<input type="week" /><br />
+		Time<input type="time" /><br />
+		Datatime-local<input type="datatime-local" /><br />
+		Number<input type="number" min="10" max="100" step="5" /><br />
+		Range<input name="range" type="range" min="10" max="200" step="5"
+			value="30" /><br />
+		<output onforminput="value=range.value">30</output> <br />
+		Color<input type="color" /><br />
+		File<input type="file" /><br />
+		Progress <progress value="25" max="100">25%</progress> <br />
+		Key <keygen name="abcdefg"> <br />
+		Output:10 + 5 = <output name="sum"></output> <br />
+		<textarea form="testform" autofocus></textarea> <br />
+		<input type="submit" formaction="a.jsp" value="save to drafts" /></form>
+	</body>
+</html>
+
+

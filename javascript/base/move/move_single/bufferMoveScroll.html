@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>buffer Move Scroll</title>
+<style type="text/css">
+	#div1{
+		width:100px;
+		height:100px;
+		background: red;
+		position: absolute;
+		right: 0px;
+	}
+</style>
+<script type="text/javascript">
+	var timer;
+
+	window.onscroll=window.onload=function(){
+		var div1=document.getElementById("div1");
+		var srollTop1=document.documentElement.scrollTop||document.body.scrollTop;
+		var target=Math.floor(srollTop1+(document.documentElement.clientHeight-div1.offsetHeight)/2);
+		startMove(target);
+	}
+	
+	function startMove(target){
+		var div1=document.getElementById("div1");
+		clearInterval(timer);
+		timer=setInterval(function(){
+			var speed=(target-div1.offsetTop)/4;
+			speed=speed>0?Math.ceil(speed):Math.floor(speed);
+			
+			if(div1.offsetTop==target){
+				clearInterval(timer);
+			}else{
+				div1.style.top=div1.offsetTop+speed+"px";
+			}
+		},30)
+	}
+</script>
+</head>
+<body style="height:2000px;">
+<div id="div1"></div>
+</body>
+</html>

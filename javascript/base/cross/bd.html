@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>无标题文档</title>
+    <style>
+        #q {
+            width: 300px;
+            height: 30px;
+            padding: 5px;
+            border: 1px solid #f90;
+            font-size: 16px;
+        }
+
+        #ul1 {
+            border: 1px solid #f90;
+            width: 310px;
+            margin: 0;
+            padding: 0;
+            display: none;
+        }
+
+        li a {
+            line-height: 30px;
+            padding: 5px;
+            text-decoration: none;
+            color: black;
+            display: block;
+        }
+
+        li a:hover {
+            background: #f90;
+            color: white;
+        }
+    </style>
+    <script src="jquery-1.10.2.min.js"></script>
+    <script>
+        function Rain(data) {
+            var $detail=$("#ul1");
+            var html = '';
+            if (data.s.length) {
+                $detail.show();
+                var items=data.s;
+                for (var i in items) {
+                    var item=items[i];
+                    html += '<li><a target="_blank" href="http://www.baidu.com/s?wd=' + item + '">' + item + '</a></li>';
+                }
+                $detail.html(html);
+            } else {
+                $detail.hide();
+            }
+        }
+
+        $(function(){
+            var $search=$("#q");
+            $(document).on("keyup","#q",function(ev){
+                if(!$(this).val()) {
+                    $detail.hide();
+                    return;
+                }else{
+                    $.ajax({
+                        type : "get",
+                        async:false,
+                        url : "http://suggestion.baidu.com/su",
+                        dataType : "jsonp",
+                        data:{wd:this.value},
+                        jsonp: "cb",//传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(默认为:callback)
+                        jsonpCallback:"Rain",//自定义的jsonp回调函数名称，默认为jQuery自动生成的随机函数名
+                        success : function(json){
+                            console.log(JSON.stringify(json));
+                        },
+                        error:function(){
+                            alert('fail');
+                        }
+                    });
+                }
+            });
+
+        });
+    </script>
+</head>
+
+<body>
+<input type="text" id="q"/>
+<ul id="ul1"></ul>
+</body>
+</html>

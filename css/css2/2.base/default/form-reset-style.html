@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+	<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>form-reset-style</title>
+		<style>
+			/*ie6下双form边距*/
+			form{margin:0;}
+			/*input 外边距 2，内边距1，边框2,*/
+			input{margin:0;padding:0;}
+			/*不支持高*/
+			select{margin:0;}
+			textarea{margin:0; padding:0;resize:none; overflow:auto; outline:none;}
+			form{border:1px solid red;}
+		</style>
+	</head>
+	<body>
+		<form action="http://www.miaov.com/" method="get" target="_blank">
+			提交按钮：<input type="submit" value="提交OK" name="" />
+			<br/><br/>
+			文本框：<input type="text" name="" />
+			<br/><br/>
+			密码框：<input type="password" name="" />
+			<br/><br/>
+			
+			单选按钮：
+			<input type="radio" name="gender" id="a" /><label for="a">男</label>
+			
+			<input type="radio" name="gender" id="b" /><label for="b">女</label>
+			<br/><br/>
+			
+			<!-- 
+			checked  默认选中
+			disabled 禁用
+			 -->
+			复选框：
+			<input type="checkbox" name="" disabled />宅
+			<input type="checkbox" name="" disabled />腐
+			<input type="checkbox" name="" />逛街
+			<input type="checkbox" name="" />健身
+			<input type="checkbox" name="" />直排
+			<input type="checkbox" name="" checked/>旅游
+			<input type="checkbox" name="" />美食
+			
+			<br/><br/>
+			<hr/>
+			上传：<input type="file" name="" />
+			<br/><br/>
+			图片：<input src="sun.jpg" type="image" name="" />
+			<br/><br/>
+			按钮：<input  type="button" name="" />
+			<br/><br/>
+			重置：<input  type="reset" name="" />
+			<br/><br/>
+			隐藏：<input  type="hidden" name="" />
+			<br/><br/>
+			<hr/>
+			下拉选框：
+			<select>
+				<option>1999</option>
+			  <option>1998</option>
+			  <option selected>1997</option>
+			  <option>1996</option>
+			  <option>1995</option>
+			</select>
+			<br/><br/>
+			文本域：<textarea></textarea>
+		</form>
+		<form>form2</form>
+	</body>
+</html>

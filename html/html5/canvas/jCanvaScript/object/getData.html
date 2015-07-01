@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<script type="text/javascript" src="../jCanvaScript.1.5.18.js"></script>
+		<script type="text/javascript">
+			function simpleExample() {
+				jc.start("canvas_1", true);
+		        jc.circle(50,50,50,'#ff0000',1);
+		        jc.rect(150,0,100,100,'#00ff00',1);
+		        jc.imageData(100,100).id('myImageData_1').putData(0,100);
+				jc.start("canvas_1");
+			}
+			
+			function rect(){
+			    jc('#myImageData_1').getData(140,0,100,100);
+			}
+			
+			function circle(){
+				jc('#myImageData_1').getData(0,0,100,100);
+			}
+		</script>
+	<head>
+	<body onload="simpleExample()">
+		<canvas height="300px" width="500px" id="canvas_1" style="border:1px solid black;"></canvas>
+		<br />
+		<input onclick="rect()" type="button" value="方块"/>
+		<input onclick="circle()" type="button" value="圆形" />
+	</body>
+</html>

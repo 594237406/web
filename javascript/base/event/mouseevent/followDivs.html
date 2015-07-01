@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<title>followDivs.xhtml</title>
+		<meta http-equiv="keywords" content="enter,your,keywords,here" />
+		<meta http-equiv="description"
+			content="A short description of this page." />
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+		<!--<link rel="stylesheet" type="text/css" href="styles.css">-->
+		<style>
+			div {
+				width: 10px;
+				height: 10px;
+				background: red;
+				position: absolute;
+			}
+		</style>
+		<script>
+			window.onload = function() {
+				var divs= document.getElementsByTagName("div");
+			
+				var x, y;
+				document.onmousemove = function(ev) {
+					var e = ev || event;
+			
+					var scrollLeft = document.documentElement.scrollLeft
+							|| document.body.scrollLeft;
+					var scrollTop = document.documentElement.scrollTop
+							|| document.body.scrollTop;
+			
+					x = e.clientX || x; //因为onscroll 事件无法获得鼠标当前位置，所以取上次鼠标位置
+					y = e.clientY || y;
+					
+					divs[0].style.left=x+scrollLeft+"px"; 
+					divs[0].style.top=y+scrollTop+"px";
+					
+					for(var i=divs.length-1;i>0;i--){
+						divs[i].style.left=divs[i-1].style.left;
+						divs[i].style.top=divs[i-1].style.top;
+					}
+				}
+			}
+		</script>
+	</head>
+	<body style="height: 2000px;">
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+	</body>
+</html>

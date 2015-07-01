@@ -1,0 +1,68 @@
+<html>
+	<head>
+		<script language="javascript">
+			//预加载的文件数组
+			var files = [ 'a.js', 'b.css', 'bg.png'];
+		
+			window.onload=function(){
+				preload(files);
+				alert(load1);
+			}
+			function preload(files) {
+				//如果传入的参数files不是数组，返回
+				if (Object.prototype.toString.call(files) !== "[object Array]") {
+					return;
+				}
+				
+				//加载图片
+				for ( var i = 0, l = files.length; i < l; i++) {
+					var file=files[i];
+					var regImg=/\.jpg|\.png|\.gif$/;
+					var regCss=/\.css$/;
+					var regJs=/\.js$/;
+					
+					if(regImg.test(file)){
+						var img = new Image();
+						img.src = file;
+						continue;
+					}
+					
+					if(regCss.test(file)){
+						loadcss(file);
+					}
+					
+					if(regJs.test(file)){
+						loadjs(file);
+					}
+				}
+			}
+		
+			//预加载css文件
+			function loadcss(path) {
+				if (!path || path.length === 0) {
+					throw new Error('argument "path" is required !');
+				}
+				var head = document.getElementsByTagName('head')[0];
+				var link = document.createElement('link');
+				link.href = path;
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				head.appendChild(link);
+			}
+		
+			//预加载js文件
+			function loadjs(path) {
+				if (!path || path.length === 0) {
+					throw new Error('argument "path" is required !');
+				}
+				var head = document.getElementsByTagName('head')[0];
+				var script = document.createElement('script');
+				script.src = path;
+				script.type = 'text/javascript';
+				head.appendChild(script);
+			}
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

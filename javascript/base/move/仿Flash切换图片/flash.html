@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<style>
+#div1 {width:100px; height:100px; background:red;}
+
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Flash</title>
+<script type="text/javascript" src="move.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+<script>
+	window.onload=function(){
+		//ul
+		var bigPic=document.getElementById("big_pic");
+		var smallPic=document.getElementById("small_pic");
+		prevNextBtn(bigPic);
+		var iNow=0;
+		var iMinZindex=1;
+		//li
+		var bigLis=bigPic.getElementsByTagName("li");
+		var smallLis=smallPic.getElementsByTagName("li");
+		
+		smallPic.style.width=smallLis[0].offsetWidth*smallLis.length+"px";
+		
+		
+		//设置点击左右按钮
+		var prev=getByClass(bigPic,"prev")[0];
+		var next=getByClass(bigPic,"next")[0];
+		
+		prev.onclick=function(){
+			if(iNow==0){
+				return;
+			}
+			iNow--;
+			tab();
+		}
+		
+		next.onclick=function(){
+			if(iNow==smallLis.length-1){
+				return;
+			}
+			iNow++;
+			tab();
+		}
+		
+		//设置点击小图片
+		for(var i=0,j=smallLis.length;i<j;i++){
+			var smallLi=smallLis[i];
+			smallLi.index=i;
+			smallLi.onmouseover=function(){
+				MoveActionUtil.action(this,"opacity",100);
+			};
+			smallLi.onmouseout=function(){
+				if(iNow!=this.index){
+					MoveActionUtil.action(this,"opacity",60);
+				}
+			};
+			
+			smallLi.onclick=function(){
+				if(this.index==iNow){
+					return;
+				}
+				
+				//设置当前索引
+				iNow=this.index;
+				tab();
+			}
+		}
+		
+		function tab(){
+			for(var k=0,l=smallLis.length;k<l;k++){
+				MoveActionUtil.action(smallLis[k],"opacity",60);
+			}
+			MoveActionUtil.action(smallLis[iNow],"opacity",100);
+			//增加层级与下拉效果
+			bigLis[iNow].style.zIndex=iMinZindex++;
+			bigLis[iNow].style.height="0px";
+			MoveActionUtil.action(bigLis[iNow],"height",bigPic.offsetHeight);
+			
+			//设置让UL滚动
+			if(iNow==0){
+				MoveActionUtil.action(smallPic,"left",0);
+			}else if(iNow==j-1){
+				MoveActionUtil.action(smallPic,"left",-(iNow-3)*smallLi.offsetWidth);
+			}else if(iNow==j-2){
+				MoveActionUtil.action(smallPic,"left",-(iNow-2)*smallLi.offsetWidth);
+			}else{
+				MoveActionUtil.action(smallPic,"left",-(iNow-1)*smallLi.offsetWidth);
+			}
+		}
+	}
+	
+	function prevNextBtn(bigPic){
+		var prev=getByClass(bigPic,"prev")[0];
+		var next=getByClass(bigPic,"next")[0];
+		var	markLeft=getByClass(bigPic,"mark_left")[0];
+		var markRight=getByClass(bigPic,"mark_right")[0];
+		markLeft.onmouseover=prev.onmouseover=function(){
+			MoveActionUtil.action(prev,"opacity",100);
+		};
+		
+		markLeft.onmouseout=prev.onmouseout=function(){
+			MoveActionUtil.action(prev,"opacity",0);
+		};
+		
+		markRight.onmouseover=next.onmouseover=function(){
+			MoveActionUtil.action(next,"opacity",100);
+		};
+		
+		markRight.onmouseout=next.onmouseout=function(){
+			MoveActionUtil.action(next,"opacity",0);
+		};
+	}
+	
+	function getByClass(parentDocument,className){
+		var tags=parentDocument.getElementsByTagName("*");
+		var elements=[];
+		for(var i=0,j=tags.length;i<j;i++){
+			var tag=tags[i];
+			if(tag.className==className){
+				elements.push(tag);
+			}
+		}
+		return elements;		
+	}
+	
+	var EventUtil={
+		addEventHandler : function (oTarget, sEventType, fnHandler) {
+		    if (oTarget.addEventListener) {
+		        oTarget.addEventListener(sEventType, fnHandler, false);
+		    }else if (oTarget.attachEvent) {
+		        oTarget.attachEvent("on" + sEventType, fnHandler);
+		    }else{
+		        oTarget["on" + sEventType] = fnHandler;
+		    };
+		}
+	}
+</script>
+</head>
+
+<body>
+    <ul id="big_pic" class="big_pic">
+		<div class="prev"></div>
+		<div class="next"></div>
+		<div class="mark_left"></div>
+		<div class="mark_right"></div>
+        <li style="z-index:1;"><img src="images/1.jpg" /></li>
+        <li><img src="images/2.jpg" /></li>
+        <li><img src="images/3.jpg" /></li>
+        <li><img src="images/4.jpg" /></li>
+        <li><img src="images/5.jpg" /></li>
+        <li><img src="images/6.jpg" /></li>
+    </ul>
+    <div id="big_div" class="big_div">
+		<ul id="small_pic" class="small_pic">
+			<li style="filter: 100; opacity: 1;"><img src="images/1.jpg" /></li>
+			<li><img src="images/2.jpg" /></li>
+			<li><img src="images/3.jpg" /></li>
+			<li><img src="images/4.jpg" /></li>
+			<li><img src="images/5.jpg" /></li>
+			<li><img src="images/6.jpg" /></li>
+		</ul>
+	</div>
+</body>
+</html>

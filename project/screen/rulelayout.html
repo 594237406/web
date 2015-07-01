@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>Target Customer Screen</title>
+
+<link rel="stylesheet" id="screenCss" type="text/css">
+<link rel="stylesheet" href="css/easyui.css" type="text/css">
+<link rel="stylesheet" href="css/zTreeStyle/zTreeStyle.css" type="text/css">
+
+<script type="text/javascript" src="js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="js/screen.js"></script>
+<script type="text/javascript" src="js/screen_util.js"></script>
+<script type="text/javascript" src="js/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="js/jquery.ztree.core-3.5.js"></script>
+<script type="text/javascript">
+	
+	var segId=1;
+	
+	var skinColor=0;
+	var colors={blue:0,gray:1};
+	//页面加载
+	$(document).ready(function(){
+		//segId=10035;
+		screen_data.parentId=segId;
+		
+		rule_part_create.createLeftPart();
+		rule_part_create.createRightPart();
+		
+		//加载用户数据
+		user_data_util.loadUserData();
+		
+		//换肤
+		setSkinColor(skinColor);
+	});
+	
+	//设置皮肤颜色
+	function setSkinColor(skinColor){
+		var cssFile=document.getElementById("screenCss");
+		if(colors.blue==skinColor){
+			cssFile.href="css/screen_blue.css?t="+Math.random();
+		}else{
+			cssFile.href="css/screen_gray.css?t="+Math.random();
+		}
+	}
+	
+	function refreshUserData(){
+		user_data_util.loadUserData();
+	}
+</script>
+</head>
+<body>
+
+<div id="entity" class="entity"></div>
+	
+</body>
+</html>

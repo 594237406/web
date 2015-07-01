@@ -1,0 +1,54 @@
+<!DOCTYPE>
+	<html>
+		<head>
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+			<title>example</title>
+			<script>
+				window.onload=function(){
+					var canvas=document.getElementById("canvas");
+					//获得绘图环境,目前没有3D，使用webgl制作3D绘图
+					var ce=canvas.getContext("2d");
+					
+					ce.translate(100,100);
+					var num=0;
+					
+					var num2=0;
+					var value=1;
+					
+					
+					setInterval(function(){
+						num++;
+						ce.save();		//如果不保存路径，则旋转角度会累加，1,1+2,1+2+3
+						ce.clearRect(-100,-100,canvas.width,canvas.height);
+						
+						if(num2>=100){
+							value=-1;
+						}else if(num2<=0){
+							value=1;
+						}
+						
+						num2+=value;
+						ce.scale(num2/50,num2/50);
+						ce.rotate(num*Math.PI/180);
+						ce.translate(-50,-50);
+						ce.fillRect(0,0,100,100);
+						ce.restore();
+					},30)
+				} 
+			</script>
+			<style type="text/css">
+				body{background: black;	}
+				
+				/*默认300*150*/
+				canvas{background: white;}
+				
+				span{background: white;}
+			</style>
+		</head>
+	<body>
+		<!-- 标签上写宽高，style设置会等比例缩放，比如设置成300*300，则画布元素纵向会被缩放2倍 -->
+		<canvas width="400" height="400" id="canvas">
+			<span>浏览器不支持canvas</span>
+		</canvas>
+	</body>
+</html>

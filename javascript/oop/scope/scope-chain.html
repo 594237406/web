@@ -1,0 +1,24 @@
+<script>
+	var a="3.14";
+	
+	//活动对象在最开始时只包含两个变量，即arguments对象（全局环境中不存在）与this对象。
+	//作用域链中的下一个变量对象来自包含的环境，而再下一个变量对象则来着下一个包含环境。
+	function say(obj){
+		//override globle vir
+		this.b=1;
+		console.log(a);
+		var a=3;
+		console.log(a);
+		
+		function hello(){
+			var c=2;
+			//this.b=2;	//会覆盖b变量
+			//可访问a,b,c
+			console.log("a:"+a+",b:"+b+",c:"+c)
+		}
+		
+		hello();
+	}
+	console.log(a);
+	say(4);
+</script>

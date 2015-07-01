@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>pre-load</title>
+		
+		<script type="text/javascript">
+			window.onload=function(){
+				var img=new Image();
+				img.onload=function(){
+					alert("预加载完成");
+				}
+				
+				img.onerror=function(){
+					alert("预加载失败");
+				}
+				img.src="http://img0.bdstatic.com/img/image/65cf597d22fb0a2d70584d9834ceec551408350929.jpg";
+				
+			}
+		</script>
+	</head>
+	<body>
+		<img src="http://img0.bdstatic.com/img/image/shouye/mxlss-11768371880.jpg"
+		onmouseover="this.src='http://img0.bdstatic.com/img/image/65cf597d22fb0a2d70584d9834ceec551408350929.jpg'"
+		onmouseout="this.src='http://img0.bdstatic.com/img/image/shouye/mxlss-11768371880.jpg'"/>
+<!-- 		onload="alert('完成')" onerror="alert('失败')"/>  -->
+	</body>
+</html>

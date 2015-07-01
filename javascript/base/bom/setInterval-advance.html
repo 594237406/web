@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>setInterval-advance</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <script type="text/javascript">
+// 	    function test() {
+// 	        for (var i = 0; i < 500000; i++) {
+// 	            var div = document.createElement('div');
+// 	            div.setAttribute('id', 'testDiv');
+// 	            document.body.appendChild(div);
+// 	            document.body.removeChild(div);
+// 	        }
+// 	    }
+// 	    setInterval(test, 10);
+// 	    var num = 0;
+// 	    var i = setInterval(function() {
+// 	        num++;
+// 	        var date = new Date();
+// 	        document.write(date.getMinutes() + ':' + date.getSeconds() + ':' + date.getMilliseconds() + '<br>');
+// 	        if (num > 10)
+// 	            clearInterval(i);
+// 	    }, 1000);
+	    
+// 	    47:9:222
+// 	    47:12:482
+// 	    47:16:8
+// 	    47:19:143
+// 	    47:22:631
+// 	    47:25:888
+// 	    47:28:712
+// 	    47:32:381
+// 	    47:34:146
+// 	    47:35:565
+// 	    47:37:406
+	    
+// 	    这下效果明显了，差距甚至都超过了3秒，而且差距很不一致。
+// 	    我们可以可以把JavaScript想象成在时间线上运行。当页面载入的时候首先执行的是页面生命周期后面要用的方法和变量声明和数据处理，在这之后JavaScript进程将等待更多代码执行。
+//	   当进程空闲的时候，下一段代码会被触发
+// 	    除了主JavaScript进程外，还需要一个在进程下一次空闲时执行的代码队列。随着页面生命周期推移，代码会按照执行顺序添加入队列，例如当按钮被按下的时候他的事件处理程序会被添加到队列中，并在下一个可能时间内执行。在接到某个Ajax响应时，回调函数的代码会被添加到队列。JavaScript中没有任何代码是立即执行的，但一旦进程空闲则尽快执行。定时器对队列的工作方式是当特定时间过去后将代码插入，这并不意味着它会马上执行，只能表示它尽快执行。
+// 	    知道了这些后，我们就能明白，如果想要精确的时间控制，是不能依赖于JavaScript的setTimeout函数的。
+
+// 		setTimeout(function () {
+//     		//code
+//      	setTimeout(arguments.callee, interval);
+//      }, interval);
+        
+		//这样每次函数执行的时候都会创建一个新的定时器，第二个setTimeout（）调用使用了agrument.callee 来获取当前实行函数的引用，
+		//并设置另外一个新定时器。这样做可以保证在代码执行完成前不会有新的定时器插入，并且下一次定时器代码执行之前至少要间隔指定时间，避免连续运行。
+		
+		setTimeout(function () {
+            var div = document.getElementById('moveDiv');
+            var left = parseInt(div.style.left) + 5;
+            div.style.left = left + 'px';
+            if (left < 200) {
+                setTimeout(arguments.callee, 50);
+            }
+        }, 50);
+		
+    </script>
+  </head>
+  <body>
+  	<div id="moveDiv" style='position:absolute;width:100px;height:100px;background: red;left:0px;'>1</div>
+  </body>
+</html>

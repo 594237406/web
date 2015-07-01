@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="jCanvaScript.1.5.18.js"></script>
+<script type="text/javascript">
+	var interval_1 = 0;
+	function startShow() {
+		var r = Math.floor(Math.random() * (254)), g = Math
+				.floor(Math.random() * (254)), b = Math
+				.floor(Math.random() * (254)), x = Math
+				.floor(Math.random() * (439)), y = Math
+				.floor(Math.random() * (554)), color = "rgba(" + r + ", " + g
+				+ ", " + b + ", 0.5)", filled = true, radius = 1;
+		jc.circle(x, y, radius, color, filled).animate({
+			radius : 100,
+			opacity : 0.1
+		}, 1500, function() {
+			this.del();
+		});
+	}
+	function onload_1() {
+		jc.start("canvas_1", true);
+		interval_1 = setInterval(startShow, 200);
+	}
+	function start_1(idCanvas) {
+		if (interval_1)
+			return;
+		onload_1();
+	}
+	function stop_1(idCanvas) {
+		clearInterval(interval_1);
+		interval_1 = 0;
+		jc.clear(idCanvas);
+	}
+</script>
+
+<head>
+
+<body onload="onload_1()">
+	<canvas height="300px" width="500px" id="canvas_1"></canvas>
+</body>
+</html>

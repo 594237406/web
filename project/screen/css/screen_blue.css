@@ -1,0 +1,356 @@
+body{
+	height: 100%;
+	width:1085px;
+	overflow:hidden;
+	background:#E4E4E4 url("../img/screen_bg.png") no-repeat;
+}
+
+/*控件DIV*/
+.entity{
+	width:1085px;
+	height:510px;
+	border:none;
+	background:url("../img/blue/bg-head.png") no-repeat!important; 
+}
+
+/*左侧菜单*/
+.leftMenu {
+	width: 200px;
+	height: 500px;
+	float: left;
+	overflow:hidden;
+	border: 1px solid #C6E7F5;
+}
+
+/*搜索部分*/
+.searchPart {
+	width: 200px;
+	height: 58px;
+}
+
+/*搜索输入框*/
+.searchTxt {
+	width: 100px;
+	height: 20px;
+	float: left;
+	margin-top: 12px;
+	margin-left: 10px;
+}
+
+/*搜索按钮*/
+.searchBtn {
+	width: 65px;
+	height: 16px;
+	border: none;
+	padding-left: 20px;
+	text-align: left;
+	margin-top: 15px;
+	margin-left: 5px;
+	background: url("../img/blue/search.png") no-repeat;
+}
+
+/*分组树形菜单*/
+.zTree {
+	overflow: auto;
+}
+
+/*树部分*/
+.treePart {
+	width: 200px;
+	height: 130px;
+	border-bottom: 1px solid #C6E7F5;
+	border-top: 1px solid #C6E7F5;
+}
+
+/*左侧属性拖拽部分*/
+.attributeTemplatePart {
+	margin: 0px;
+	height: 320px;
+	width: 200px;
+	text-align: center;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+/*右侧主编辑区部分*/
+.mainControlPart {
+	width: 870px;
+	height: 500px;
+	border: 1px solid #C6E7F5;
+	float: left;
+	margin-left: 10px;
+}
+
+/*单行属性样式*/
+.singleAttributeTemplate {
+	width: 185px;
+	height: 20px;
+	background: #FFFFFF;
+	line-height: 20px;
+	background-image: url("../img/candrap.png");
+	padding-left: 15px;
+	text-align: left;
+	cursor: pointer;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+/*双行属性样式*/
+.doubleAttributeTemplate {
+	width: 185px;
+	height: 20px;
+	background: #EFF2F6;
+	line-height: 20px;
+	padding-left: 15px;
+	background-image: url("../img/candrap.png");
+	text-align: left;
+	cursor: pointer;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+/*属性实例*/
+.attributeInstance{
+	width: 185px;
+	height: 20px;
+	background: #FFFFFF;
+	line-height: 20px;
+	padding-left: 15px;
+	text-align: left;
+	cursor: pointer;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+/*主操作菜单区*/
+.mainMenuPart {
+	width: 870px;
+	height: 60px;
+}
+
+/*右侧主编辑区属性行部分：单行*/
+.singleAttributeRowPart {
+	width: 2000px;
+	height: 24px;
+	overflow: hidden;
+	background: #EFF2F6;
+	display: inline-block;
+}
+
+/*右侧主编辑区属性部分：双行*/
+.doubleAttributeRowPart {
+	width: 2000px;
+	height: 24px;
+	overflow: hidden;
+	background: #FFFFFF;
+	display: inline-block;
+}
+
+/*选择属性复选框*/
+.checkAttribute {
+	margin-left: 10px;
+	display: inline;
+	visibility: hidden;
+}
+
+/*左括号区*/
+.leftBracket {
+	width: 20px;
+	margin-left: 5px;
+	display: inline-block;
+	height: 20px;
+	line-height: 20px;
+	visibility: hidden;
+}
+
+/*属性实例区*/
+.attributeInstancePart {
+	width: 200px;
+	height: 20px;
+	display: inline-block;
+	line-height: 20px;
+	border-left:1px dashed #64beee;
+	border-right:1px dashed #64beee;
+}
+
+/*运算符区*/
+.operatorSelSpan{
+	width:75px;
+	visibility: hidden;
+	margin-left: 5px;
+	position: relative;
+}
+
+/*运算符*/
+.operatorSel{
+	width:75px;
+	height:18px;
+	line-height:18px;
+	position: relative;
+	top:-2px;
+}
+
+/*属性值区*/
+.attributeValueSpan{
+	width:auto;
+	margin-left: 5px;
+	display:inline;
+	position: relative;
+}
+
+/*属性值文本框*/
+.attributeValueText{
+	width:120px;
+	position: relative;
+	top:-3px;
+}
+
+/*属性值下拉框*/
+.attributeValueSelect{
+	width:120px;
+	height:22px;
+	line-height: 22px;
+}
+
+/*右括号区*/
+.rightBracket {
+	width: 20px;
+	margin-left: 5px;
+	display: inline-block;
+	height: 20px;
+	line-height: 20px;
+	visibility: hidden;
+}
+
+/*关系*/
+.relationBtn {
+	width: 30px;
+	height: 16px;
+	line-height: 16px;
+	margin-left: 5px;
+	border: none;
+	text-align: left;
+	padding-left: 5px;
+	visibility: hidden;
+}
+
+/*上箭头*/
+.upBtn {
+	width: 16px;
+	height: 16px;
+	border: none;
+	margin-left: 10px;
+	line-height: 16px;
+	display: inline-block;
+	visibility: hidden;
+	background: url("../img/blue/up.png");
+}
+
+/*下箭头*/
+.downBtn {
+	width: 16px;
+	height: 16px;
+	border: none;
+	margin-left: 10px;
+	line-height: 20px;
+	display: inline-block;
+	visibility: hidden;
+	background-image: url("../img/blue/down.png");
+}
+
+/*删除*/
+.deleteBtn {
+	width: 16px;
+	height: 16px;
+	border: none;
+	margin-left: 10px;
+	line-height: 16px;
+	display: inline-block;
+	visibility: hidden;
+	background-image: url("../img/blue/delete.png");
+}
+
+/*括号*/
+.bracketBtn {
+	height: 16px;
+	border: none;
+	text-align: left;
+	padding-left: 20px;
+	margin-right: 5px;
+	background: url("../img/bracket.png") no-repeat;
+	float: left;
+	visibility: hidden;
+}
+
+/*全部符合*/
+.allAccordBtn {
+	width: 60px;
+	height: 16px;
+	border: none;
+	text-align: left;
+	padding-left: 20px;
+	margin-right: 2px;
+	float: left;
+	background: url("../img/blue/all.png") no-repeat;
+}
+
+/*单个符合*/
+.singleAccordBtn {
+	height: 16px;
+	border: none;
+	text-align: left;
+	padding-left: 20px;
+	margin-right: 2px;
+	float: left;
+	background: url("../img/blue/single.png") no-repeat;
+}
+
+/*导入用户数据*/
+.importUserDataBtn {
+	height: 16px;
+	border: none;
+	text-align: left;
+	padding-left: 20px;
+	margin-right: 2px;
+	float: left;
+	background: url("../img/blue/import.png") no-repeat;
+}
+
+/*自定义*/
+.customBtn {
+	height: 16px;
+	border: none;
+	text-align: left;
+	padding-left: 20px;
+	margin-right: 2px;
+	float: left;
+	background: url("../img/blue/custom.png") no-repeat;
+}
+
+/*保存用户数据*/
+.saveUserDataBtn {
+	height: 16px;
+	border: none;
+	padding-left: 20px;
+	text-align: left;
+	margin-right: 2px;
+	float: left;
+	background: url("../img/blue/save.png") no-repeat;
+}
+
+/*按钮组*/
+.btnControl {
+	width: 500px;
+	margin-left: 300px;
+}
+
+/*主操作区属性编排区*/
+.mainAttributeRowPartArea {
+	height: 440px;
+	width: 870px;
+	overflow-x: auto;
+	overflow-y: hidden;
+}

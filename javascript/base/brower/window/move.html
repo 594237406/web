@@ -1,0 +1,22 @@
+<html>
+	<head>
+		<title> call-apply </title>
+	</head>
+	<script type="text/javascript">
+		function moveFun(){
+			//正值
+			//window.moveTo(-1,-1);
+			window.moveBy(-1,-1);
+			//相对屏幕，正值
+			//window.resizeTo(window.screen.availWidth/2,window.screen.availHeight/2);
+			window.resizeBy(1,1);
+			if(window.screenLeft<=-200||screenTop<=-200){
+				window.clearInterval(intervalId);
+			}
+		}
+		var intervalId=window.setInterval(moveFun,10);
+	</script>
+	<body>
+		
+	</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>example-html</title>
+		<script type="text/javascript">
+			window.onload=function(){
+				var div=document.getElementById("div");
+				//var reg=/<.+>/g;		//从<匹配到最后一个>,所以会全匹配掉,正则特性：查找最大值（贪婪查找）
+				//var reg=/<a[^<>]+>/g;	//替换所有a标签
+				var reg=/<[^<>]+>/g;	//替换所有a标签,通常用来偷小说,因为小说不让编辑，不让复制，只能拷贝源码，源码会有很多标签
+				div.innerHTML=div.innerHTML.replace(reg,"");
+				//alert(div.innerHTML)
+			}
+		</script>
+	</head>
+	<body>
+		<div id="div">
+			<li class="current"><a href="http://www.jb51.net">首页</a></li>
+			<li><a href="http://www.jb51.net/web/">网页制作</a></li>
+			<li><a href="http://www.jb51.net/list/index_96.htm">脚本专栏</a></li>
+			<li><a href="http://www.jb51.net/jiaoben/">脚本下载</a></li>
+			<li><a href="http://www.jb51.net/list/index_1.htm">网络编程</a></li>
+			<li><a href="http://www.jb51.net/list/index_104.htm">数据库</a></li>
+			<li><a href="http://www.jb51.net/cms/">CMS教程</a></li>
+			<li><a href="http://www.jb51.net/books/">电子书籍</a></li>
+			<li><a href="http://www.jb51.net/pingmian/">平面设计</a></li>
+			<li><a href="http://www.jb51.net/media/">媒体动画</a></li>
+			<li><a href="http://www.jb51.net/os/">操作系统</a></li>
+			<li><a href="http://www.jb51.net/yunying/">网站运营</a></li>
+			<li class="last"><a href="http://www.jb51.net/hack/">网络安全</a></li>
+		</div>
+	</body>
+</html>

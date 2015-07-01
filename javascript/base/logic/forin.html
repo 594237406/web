@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>extend</title>
+		<script>
+			for(var i in window){
+				//console.log(i+":"+window[i]);
+			}
+			
+			//forin 可以打印自身属性与原型链上的属性,不会打印Oject的属性
+			function P(){
+				this.p="p";
+			}
+			
+			P.pattr=function(){};
+			P.prototype.pfn=function(){};
+			
+			function A(){
+				this.a=1;
+				P.call(this);
+			}
+			//A.prototype=P.prototype;
+			for(var i in P.prototype){
+				A.prototype[i]=P.prototype[i];
+			}
+			//A.prototype=new P();
+			A.b=function(){};
+			A.prototype.c=function(){}
+			
+			var a=new A();
+			a.d=2;
+			for(var i in a){
+				//获取自身属性
+				if(a.hasOwnProperty(i)){
+					console.log("a是否在A原型链中："+A.prototype.isPrototypeOf(a));
+					console.log("forin a对象属性："+i+"，自身属性");
+				}else{
+					//因为A只让原型链添加P的原型链的属性与方法，并没有相等，如果A.prototype=P.prototype返回true
+					console.log("a是否在P原型链中："+P.prototype.isPrototypeOf(a));
+					console.log("forin a对象属性："+i+",原型或原型链属性");
+				}
+				
+			}
+		</script>
+</head>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+	<head>
+		<title>lineCap</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	</head>
+	<script>
+		window.onload=function(){
+			var elem = document.getElementById('myCanvas');    
+			if (elem && elem.getContext) {    
+				var ctx = elem.getContext('2d');   
+				ctx.lineWidth=20;
+				//端点样式：round:圆角，butt:默认，square:加长
+				ctx.lineCap="round";
+				ctx.moveTo(20,20);
+				ctx.lineTo(200,200);
+				ctx.stroke();
+			}  
+		}
+	</script>
+	<style>
+		canvas{
+			border: 1px solid black;	
+		}
+	</style>
+	<body>
+		<canvas id="myCanvas" width="400" height="400">    
+			Fallback content, in case the browser does not support Canvas.    
+		</canvas>  
+	</body>
+</html>
+

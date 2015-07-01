@@ -1,0 +1,34 @@
+<!DOCTYPE>
+	<html>
+		<head>
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+			<title>draw</title>
+			<script>
+				window.onload=function(){
+					var canvas=document.getElementById("canvas");
+					var ce = canvas.getContext('2d');
+					var num=0;
+					setInterval(function(){
+						num++;
+						ce.clearRect(0,0,canvas.width,canvas.height);
+						ce.fillRect(num,num,50,50);
+					},10);
+					
+				}
+			</script>
+			<style type="text/css">
+				body{background: black;	}
+				
+				/*默认300*150*/
+				canvas{background: white;margin: 100px;}
+				
+				span{background: white;}
+			</style>
+		</head>
+	<body>
+		<!-- 标签上写宽高，style设置有bug-->
+		<canvas width="300" height="300" id="canvas">
+			<span>浏览器不支持canvas</span>
+		</canvas>
+	</body>
+</html>

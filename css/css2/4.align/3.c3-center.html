@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>box-space</title>
+    <style>
+        /*
+            box-pack 对盒子富裕的空间进行管理
+                Start 所有子元素在盒子左侧显示，富裕空间在右侧
+                End 所有子元素在盒子右侧显示，富裕空间在左侧
+                Center 所有子元素居中
+                Justify 富余空间在子元素之间平均分布
+
+            box-align 在垂直方向上对元素的位置进行管理
+                Star 所有子元素在据顶
+                End 所有子元素在据底
+                Center 所有子元素居中
+        */
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+
+        .box {
+            height: 100%;
+            background: rbga(200, 200, 200, 0.3);
+            display: -webkit-box;
+            font-size: 20px;
+            color: #fff;
+            -webkit-box-pack: center;
+            -webkit-box-align: center;
+        }
+
+        .box div {
+            width: 100px;
+            height: 100px;
+            background: red;
+            border: 1px solid #fff;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+</div>
+</body>
+</html>

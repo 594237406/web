@@ -1,0 +1,40 @@
+<script>
+
+	function loadXMLDoc(){
+		
+		var xmlhttp=createXmlHttp();
+		
+		/*   与 POST 相比，GET 更简单也更快，并且在大部分情况下都能用。
+			   然而，在以下情况中，请使用 POST 请求：
+			 •无法使用缓存文件（更新服务器上的文件或数据库）
+			 •向服务器发送大量数据（POST 没有数据量限制）
+			 •发送包含未知字符的用户输入时，POST 比 GET 更稳定也更可靠
+		*/
+		//xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	xmlhttp.onreadystatechange=function()
+	  {
+	  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+	    {
+	    document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+	    }
+	  }
+		xmlhttp.open("GET","test1.txt?t="+ Math.random(),true);
+		xmlhttp.send();
+
+	}
+	
+	function createXmlHttp(){
+		var xmlhttp;
+		if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+		  xmlhttp=new XMLHttpRequest();
+		}
+		else{// code for IE6, IE5
+		  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		return xmlhttp;
+	}
+</script>
+
+
+<div id="myDiv"><h3>Let AJAX change this text</h3></div>
+<button type="button" onclick="loadXMLDoc()">Change Content</button>

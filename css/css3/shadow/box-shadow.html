@@ -1,0 +1,42 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>box-shadow</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<style type="text/css">
+			#div1{
+				border:5 solid blue;
+				background-color: orange;
+				width:144px;
+				height:144px;
+				border-radius:20px;
+				box-shadow:rgba(100,200,300,0.5) 10px 10px 20px  ;
+			}
+			#div2{
+				border:5 solid blue;
+				background-color: orange;
+				width:144px;
+				height:144px;
+				border-radius:20px;
+				box-shadow:rgba(0,0,0,1) 0px -4px 10px inset ;
+			}
+		</style>
+	<!--
+		  box-shadow：color|x|y|indistinct|spread|(inset)
+	详细介绍：
+          a: color指的是阴影颜色值，定义时可以这样定义#000,或者也可以这样定义 (rgba(0,0,0,0.4) /*fox,opera,chrome*/),后者的定义好处是可以控制阴影的透明度
+          b:x阴影水平偏移值（可取正负值）；
+          c:y阴影垂直偏移值（可取正负值）；
+          d: indistinct 阴影模糊值；
+          e: spread水平和垂直延伸值（可取正负值）；
+          f: (inset)不定义时 默认为向外阴影，定义inset时内嵌阴影
+	-->
+	</head>
+	<body>
+		<div id="div1">
+			&nbsp;
+		</div>
+		<div id="div2">
+			&nbsp;
+		</div>
+	</body>
+</html>

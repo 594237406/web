@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>haslayout</title>
+    <!-- 触发haslayout以后，元素会有默认布局，否则很多元素没有布局。 触发haslayout会重新布局。-->
+    <style>
+        #nofloatbox {
+            border: 1px solid #FF0000;
+            background: #CCC;
+            position: absolute;
+        }
+
+        #floatbox {
+            float: left;
+            width: 100px;
+            height: 100px;
+            border: 1px solid #0000FF;
+            background: #00FF00;
+        }
+    </style>
+</head>
+<body>
+<div id="nofloatbox">
+    <div id="floatbox"></div>
+</div>
+<!-- 		<p style="background: green;zoom:1;"> -->
+<!-- 		<span style="width: 100px; height:100px; background: #DDD;float: left;">1</p>  -->
+</body>
+</html>
