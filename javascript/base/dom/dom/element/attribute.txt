@@ -1,0 +1,32 @@
+1.
+var value = div.getAttribute("my_special_attribute");
+不过，特性的名称是不区分大小写的，即"ID"和"id"代表的都是同一个特性。另外也要注意，根
+据HTML5 规范，自定义特性应该加上data-前缀以便验证。
+
+2.getAttribute("xxx")与dom.xxx不同之处
+
+有三类特殊的特性，它们虽然有对应的属性名，但属性的值与通过getAttribute()返回的值并不相同。
+
+	第一类特性就是style，用于通过CSS 为元素指定样式。在通过getAttribute()访问时，返回的style 
+	特性值中包含的是CSS 文本，而通过属性来访问它则会返回一个对象。由于style 属性是用于以编程方式访问元
+	素样式的（本章后面讨论），因此并没有直接映射到style 特性。
+
+	第二类与众不同的特性是onclick 这样的事件处理程序。当在元素上使用时，onclick 特性中包
+	含的是JavaScript 代码，如果通过getAttribute()访问，则会返回相应代码的字符串。而在访问
+	onclick 属性时，则会返回一个JavaScript 函数（如果未在元素中指定相应特性，则返回null）。这是
+	因为onclick 及其他事件处理程序属性本身就应该被赋予函数值。
+	
+	第三类，自定义属性只能通过getAttribute获取，无法通过属性访问
+	
+3.setAttribute Bug
+在 IE7 及以前版本中，setAttribute()存在一些异常行为。通过这个方法设置
+class 和style 特性，没有任何效果，而使用这个方法设置事件处理程序特性时也
+一样。尽管到了IE8 才解决这些问题，但我们还是推荐通过属性来设置特性
+
+4.总结
+
+  	1:常规属性建议使用 node.XXXX。
+    2:自定义属性建议使用node.getAttribute("XXXX")。
+    3:当获取的目标是JS里的关键字时建议使用node.getAttribute("XXX")，如label中的for。
+    4:当获取的目标是保留字,如：class,请使用className代替。
+    

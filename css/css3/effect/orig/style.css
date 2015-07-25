@@ -1,0 +1,19 @@
+.table{border-collapse:collapse;width:100%;box-shadow:5px 5px 1px 1px #aaaaaa;}
+.table,.table th,.table td{border:solid 1px #7788aa}
+.table th{color:white;background-color:#556677}
+
+#rotateDiv{width:600px}
+#pager{padding-right:10px}
+#pager .button{display:inline-block;width:75px;height:35px;line-height:35px;border:solid 1px #22aaff;text-align:center;vertical-align:center;border-radius:5px}
+#pager .button:hover{background-color:#1188ee;cursor:pointer;color:white;-webkit-transform:scale(1.1,1.1)}
+#pager .button:active{background-color:#0055aa;cursor:pointer;color:white;-webkit-transform:scale(0.95,0.95)}
+
+.animation-rotate-left{-webkit-animation:rotate-left 0.5s ease-in}
+.animation-rotate-left-back{-webkit-animation:rotate-left-back 0.5s ease-out}
+.animation-rotate-right{-webkit-animation:rotate-right 0.5s ease-in}
+.animation-rotate-right-back{-webkit-animation:rotate-right-back 0.5s ease-out}
+
+@-webkit-keyframes rotate-left{0%{-webkit-transform:perspective(1200px) rotateY(0deg);opacity:1} 100%{-webkit-transform:perspective(1200px) rotateY(-90deg);opacity:0.5}}
+@-webkit-keyframes rotate-left-back{0%{-webkit-transform:perspective(1200px) rotateY(90deg);opacity:0.5} 100%{-webkit-transform:perspective(1200px) rotateY(0deg);opacity:1}}
+@-webkit-keyframes rotate-right{0%{-webkit-transform:perspective(1200px) rotateY(0deg);opacity:1} 100%{-webkit-transform:perspective(1200px) rotateY(90deg);opacity:0.5}}
+@-webkit-keyframes rotate-right-back{0%{-webkit-transform:perspective(1200px) rotateY(-90deg);opacity:0.5} 100%{-webkit-transform:perspective(1200px) rotateY(0deg);opacity:1}}

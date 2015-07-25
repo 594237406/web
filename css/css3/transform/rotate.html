@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>rotate</title>
+		<style>
+			.wrap{height:300px;border:1px solid black;display: -webkit-box;
+				-webkit-box-pack:center;
+				-webkit-box-align:center;
+			}
+			
+			.box{width:100px;height:100px;background: red;transition:all 1s;}
+			
+			body:hover .box{-webkit-transform:rotate(360deg);}
+		
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="box"></div>
+		</div>
+	</body>
+</html>

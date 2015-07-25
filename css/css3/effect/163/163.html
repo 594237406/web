@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>163</title>
+		<style>
+			*{transition:all 1.5s;}
+			body,html{margin:0;padding:0;overflow:hidden;height:100%;}
+			
+			.wrap{background: url("bg.png") no-repeat;background-size:cover;height:100%;position: relative;-webkit-perspective:200px;}
+			.wrap .title{margin:0 auto;text-align: center;padding:30px;-webkit-transform:translate(0,-200px);}
+			.wrap .title div{display:inline-block;margin:0 5px;font:20px/25px "微软雅黑";color: #ccc; }
+			.wrap .content{text-align:center;left:50%;top:50%;width:50%;margin-left:-25%;margin-top:-12%;z-index:99;position:absolute;
+				-webkit-transform:translateZ(-200px);opacity:0;
+			}
+			.wrap .content .content_top .top{font-size: 80px;color:#eee;font-weight:lighter;}
+			.wrap .content .content_top .bottom{font-size: 35px;color:#eee;}
+			.wrap .content .content_bottom{font:15px/16px "微软雅黑";color:#94A7C6;margin-top:-30px;}
+			.wrap .bg_email_big{background: url("bg_email_big.png");position: absolute;top:50%;width:100%;height:50%;-webkit-transform:translate(0,500px);}
+			.wrap .bg_email_litter{background: url("bg_email_litter.png");position: absolute;top:25%;;width:100%;height:30%;-webkit-transform:translate(0,500px);transition:all 2.5s;}
+			
+			body:hover .wrap .title{-webkit-transform:translate(0,0);}
+			body:hover .wrap .content{-webkit-transform:translateZ(0px) scale(1.5,1.2);opacity:1;}
+			body:hover .wrap .bg_email_big{-webkit-transform:translate(0,0);}
+			body:hover .wrap .bg_email_litter{-webkit-transform:translate(0,0);}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="title">
+				<div class="left">163网易邮箱免费邮</div>
+				<div class="middle">126网易邮箱免费邮</div>
+				<div class="right">yeah网易邮箱免费邮</div>
+			</div>
+			<div class="content">
+				<div class="content_top"><div class="top">网易邮箱<span style="color:#FFF799;">6.0</span></div><div class="bottom">改变，不止所见。</div></div>
+				<div class="content_bottom">
+					<p class="p11">网易邮箱6.0版——2014年最具创意气质的重量级新邮箱，重生光华，为之瞩目。唯美<br>的视觉设计和视觉化交互，无可替代的独创动态情景皮肤，多项国内创意产品专利技术，<br>成就无与伦比的出众品味，无可比拟的美妙体验。</p>
+				</div>
+			</div>
+			<div class="bg_email_big"></div>
+			<div class="bg_email_litter"></div>
+		</div>
+	</body>
+</html>

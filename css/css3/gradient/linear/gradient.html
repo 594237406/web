@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>gradient</title>
+		<style>
+			/*
+				参数：其共有三个参数，第一个参数表示线性渐变的方向，top 是从上到下、left 是从左到右，如果定义成 left top，
+				那就是从左上角到右下角,也可以使角度deg,从第一象限起偏移角度。第二个和第三个参数分别是起点颜色和终点颜色。你还可以在它们之间插入更多的参数，表示多种颜色
+				的渐变。如图所示：
+			*/
+			
+			.box{display:-webkit-box;display:-moz-box;}
+			/*
+				黑色占10%，从10%处开始渐变，渐变到100%成白色
+			*/
+			.box1{width:300px;height:300px;background:-webkit-linear-gradient(left,rgba(0,0,0,1) 10%,rgba(0,0,0,0) 100%);}
+			.box2{width:300px;height:300px;background:-webkit-linear-gradient(left top,red,blue);}
+			/*
+				之前填充红色，红色从10%开始往蓝色渐变，渐变到30%成蓝色，蓝色从30%开始往黄色渐变，到60%成黄色，黄色从60%往绿色开始渐变，到90%成绿色，之后填充绿色
+			*/
+			.box3{width:300px;height:300px;background:-webkit-linear-gradient(30deg,red 10%,blue 30%,yellow 60%,green 90%);}
+		</style>
+	</head>
+	<body>
+	<div class="box">
+		<div class="box1"></div>
+		<div class="box2"></div>
+		<div class="box3"></div>
+	</div>
+	</body>
+</html>

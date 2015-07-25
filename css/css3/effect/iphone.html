@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>iphone</title>
+		<style>
+			body{background:#000; text-align:center; font:50px/200px "微软雅黑";}
+			#h1{
+				display:inline;color:rgba(255,255,255,0.35); 
+				background:-webkit-linear-gradient(-30deg,rgba(255,255,255,0) 100px,rgba(255,255,255,1) 180px,rgba(255,255,255,1) 240px,rgba(255,255,255,0) 300px) -300px 0 no-repeat; 
+				-webkit-background-clip:text;background-position: -250px;
+			}
+		</style>
+		
+		<script type="text/javascript">
+			window.onload=function(){
+				var oh1=document.getElementById("h1");
+				move(oh1);
+			}
+			
+			var ileft=-250;
+
+			function move(oh1){
+				console.log(oh1.offsetWidth);
+				setInterval(function(){
+					ileft+=10;
+					oh1.style.backgroundPosition=ileft+"px";
+					if(ileft>(oh1.offsetWidth+200))ileft=-250
+				},30);
+			}
+		</script>
+	</head>
+	<body>
+		<div id="h1">请滑动屏幕解锁</div>
+	</body>
+</html>

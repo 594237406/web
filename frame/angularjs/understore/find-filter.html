@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<title>find-filter</title>
+<script src="underscore.js"></script>
+</head>
+<body>
+<div id="div1" name="div1"></div>
+</body>
+<script>
+	/*
+		_.find(list, iterator, [context]) 别名: detect 
+		在 list 里的每一项进行查找, 返回第一个符合 测试(iterator)条件的元素. 此函数只返回第一个符合条件的元素, 并不会遍历整个list.
+	*/
+	
+	var even = _.find([1, 2, 3, 4, 5, 6], function(num){return num % 2 == 0; });
+	
+	/*
+		_.filter(list, iterator, [context]) 别名: select 
+		在 list 里的每一项进行查找, 返回一个符合测试 (iterator) 条件的所有元素的集合. 如果存在原生的 filter 方法, 将采用原生的.
+	*/
+	var evens = _.filter([1, 2, 3, 4, 5, 6], function(num){ return num % 2 == 0; });
+	alert(evens);
+</script>
+
+</html>

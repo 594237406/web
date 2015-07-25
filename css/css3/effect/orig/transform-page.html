@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>transform-style</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<style>
+			body ul{margin:0;padding:0;}
+			.wrap{margin:50px auto;-webkit-perspective: 500px;width: 400px;height:200px;}
+            .picList{width: 100%;height: 100%;-webkit-perspective:800px;-webkit-perspective-origin:left; }
+            li{list-style: none;overflow: hidden;background: #fff;}
+            .picList li{background:#fff; -webkit-transform-origin: left;position: absolute;transition: all 2.5s;-webkit-animation-fill-mode: forwards;width: 400px;height: 200px;border: 1px solid black;border-radius:5px;}
+            .btns{float: right;}
+			.btns li{width: 30px;height: 30px; border-radius: 50%;background: #000;color: white;
+			text-align: center;margin: 5px 10px; float: left;font: italic 20px/30px bold;}
+            
+            .btns .active{background: #f60;}
+            
+            
+          
+            @-webkit-keyframes prep{			
+				0%{		
+                    -webkit-transform:rotateY(0deg);
+				}
+				100%{				
+					-webkit-transform:rotateY(-180deg);
+				}
+			}
+            
+            @-webkit-keyframes next{			
+				0%{		
+                    -webkit-transform:rotateY(-180deg);
+				}
+				100%{				
+					-webkit-transform:rotateY(-0deg);
+				}
+			}
+			
+			.next{-webkit-animation:1s next;}
+			.prep{-webkit-animation:1s prep;}
+			
+		</style>
+        <script>
+            window.onload=function(){
+                
+                var btnList=document.querySelector(".btns");
+                var picList=document.querySelector(".picList");
+
+                
+				var iNow=0;
+
+
+				var config={iNow:0,zIndex:0};
+
+				
+				//添加页面
+				for(var i=0;i<2;i++){
+
+					var li = document.createElement("li");
+					li.style.zIndex=5-i;
+					li.innerHTML=i+1;
+					picList.appendChild(li);
+
+					var liBtn = document.createElement("li");
+					liBtn.innerHTML=i+1;
+					if(!i)liBtn.className+=" active"; 
+					btnList.appendChild(liBtn);
+				}
+				config.zIndex=2;
+				
+
+				var btns=document.querySelectorAll(".btns li");
+				var pics=document.querySelectorAll(".picList li");
+				for(var i=0;i<btns.length;i++){
+					var btn=btns[i];
+					btn.index=i;
+					btn.onclick=function(){
+						if(iNow<this.index){
+							pics[this.index-1].style.zIndex=++config.zIndex;
+							pics[this.index-1].className="prep";
+						}else{
+							pics[this.index].style.zIndex=++config.zIndex;
+							pics[this.index].className="next";
+						}
+					}
+				}
+
+
+
+            }
+        
+        </script>
+	</head>
+
+	<body>
+		<div class="wrap">
+			<ul class="picList">
+            </ul>
+            <ul class="btns">
+            </ul>
+		</div>
+	</body>
+</html>
+
+

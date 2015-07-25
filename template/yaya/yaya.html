@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>yaya</title>
+    <script src="yaya.js"></script>
+    <!-- http://www.uloveit.com.cn/template/ -->
+    <script type="text/template" id="template">
+        if (a+b>0) {
+            {$
+                嘻嘻 {%a+b%}
+            $}
+        }else{
+            {$
+                哈哈 {%a+b%}
+            $}
+        }
+    </script>
+</head>
+<body>
+<div id="resultshow"></div>
+</body>
+<script>
+    var template = YayaTemplate(document.getElementById("template").innerHTML);
+    document.getElementById("resultshow").innerHTML = template.render({
+        a: 0,
+        b: 1
+    });
+</script>
+</html>

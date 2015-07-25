@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="jquery-1.10.2.min.js"></script>
+<title>proxy</title>
+<script type="text/javascript">
+	var EventProxyHandler = {
+		"#test1" : {
+			click : function(ev) {
+				ev.target.style.color = "red";
+			}
+		},
+
+		"#test2" : {
+			mouseover : function(ev) {
+				ev.target.style.color = "#ddd";
+			},
+			mouseout : function(ev) {
+				ev.target.style.color = "blue";
+			}
+		}
+	}
+
+	var EventHandler = {
+		"#test3" : {
+			click : function(ev) {
+				ev.target.style.fontSize = "30px";
+			}
+		}
+	}
+
+	var EventUtil = {
+		proxy : function(parent, target, eventType, eventHandler) {
+			parent.addEventListener(eventType, function(ev) {
+				var cur_target = ev.target;
+				var target1 = document.querySelector(target);
+				if (target1 == cur_target) {
+					eventHandler(ev);
+				}
+			});
+		},
+
+		bind : function(target, eventType, eventHandler) {
+			document.querySelector(target).addEventListener(eventType, eventHandler);
+		}
+	}
+
+	window.onload = function() {
+		for (select in EventProxyHandler) {
+			eventObjs = EventProxyHandler[select];
+			for (type in eventObjs) {
+				fn = eventObjs[type];
+				EventUtil.proxy(document.body, select, type, fn);
+			}
+		}
+
+		for (select in EventHandler) {
+			eventObjs = EventHandler[select];
+			for (type in eventObjs) {
+				fn = eventObjs[type];
+				EventUtil.bind( select, type, fn);
+			}
+		}
+	}
+</script>
+</head>
+<body>
+<div id='test1'>1</div>
+
+<div id='test2'>2</div>
+
+<div id='test3'>3</div>
+</body>
+</html>

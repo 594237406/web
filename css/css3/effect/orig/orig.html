@@ -1,0 +1,117 @@
+<!doctype html>
+<head>
+    <meta charset="utf-8">
+    <title>CSS3 Animation</title>
+    <meta name="description" content="CSS3 Animation">
+    <meta name="author" content="Rex Rao">
+    <script type="text/javascript" src="jquery-1.10.2.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="home">
+    <section id="main">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+        <div id="rotateDiv">
+            <table class="table">
+                <tr>
+                    <th style="width:20%">
+                        列1
+                    </th>
+                    <th style="width:40%">
+                        列2
+                    </th>
+                    <th style="width:40%">
+                        列3
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div id="pager">
+            <div id="prev" class="button">Previous</div>
+            <div id="next" class="button">Next</div>
+        </div>
+    </section>
+    <script>
+        var tdtext = 0;
+    
+        $().ready(function(){
+                $("#prev").click(function() {
+                        var self = $("#rotateDiv table");
+                        self.attr("class", "table");
+                        rotateRight(self);
+                        setTimeout(loadPrev, 500);
+                    }
+                );
+                
+                $("#next").click(function() {
+                        var self = $("#rotateDiv table");
+                        self.attr("class", "table");
+                        rotateLeft(self);
+                        setTimeout(loadNext, 500);
+                    }
+                );
+            }
+        );
+        
+        function rotateLeft(el) {
+            el.addClass("animation-rotate-left");
+        }
+        
+        function rotateLeftBack(el) {
+            el.addClass("animation-rotate-left-back");
+        }
+        
+        function rotateRight(el) {
+            el.addClass("animation-rotate-right");
+        }
+        
+        function rotateRightBack(el) {
+            el.addClass("animation-rotate-right-back");
+        }
+        
+        function loadPrev(){
+            var self = $("#rotateDiv table");
+            tdtext -= 1;
+            self.find("td").html(tdtext)
+            rotateRightBack(self);
+        }
+        
+        function loadNext(){
+            var self = $("#rotateDiv table");
+            tdtext += 1;
+            self.find("td").html(tdtext)
+            rotateLeftBack(self);
+        }
+    </script>
+</body>
+</html>

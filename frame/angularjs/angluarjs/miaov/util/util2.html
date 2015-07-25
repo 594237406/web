@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>util21</title>
+<script src="../jquery-1.10.2.min.js"></script>
+<script src="../angular-min.js"></script>
+<script>
+	//动态加载app,html无法初始化多个app，只能动态加载
+
+	var m1 = angular.module('myApp1', []);
+	var m2 = angular.module('myApp2', []);
+	m1.controller('Aaa', [ '$scope', function($scope) {
+		$scope.name = 'hello';
+	} ]);
+	m2.controller('Bbb', [ '$scope', function($scope) {
+		$scope.name = 'hi';
+	} ]);
+
+	document.onclick = function() {
+
+		var aDiv = document.getElementsByTagName('div');
+
+		angular.bootstrap(aDiv[0], [ 'myApp1' ]);
+		angular.bootstrap(aDiv[1], [ 'myApp2' ]);
+
+	};
+</script>
+</head>
+
+<body>
+	<div ng-controller="Aaa">
+	<p>{{name}}</p>
+	</div>
+	<div ng-controller="Bbb">
+	<p>{{name}}</p>
+	</div>
+</body>
+</html>
+

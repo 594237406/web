@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>photos</title>
+        <style>
+			 @-webkit-keyframes show{			
+				0%{				
+					-webkit-transform:rotateX(-180deg);
+                    opacity:0;
+				}
+				50%{				
+					-webkit-transform:rotateX(15deg);
+					opacity:0.7;
+				}
+				
+				60%{				
+					-webkit-transform:rotateX(-12deg);
+					opacity:0.75;
+				}
+				
+			    70%{				
+					-webkit-transform:rotateX(9deg);
+					opacity:0.8;
+				}
+				
+				80%{				
+					-webkit-transform:rotateX(-6deg);
+					opacity:0.85;
+				}
+				
+				90%{				
+					-webkit-transform:rotateX(3deg);
+					opacity:0.9;
+				}
+				
+				100%{				
+					-webkit-transform:rotateX(0deg);
+					opacity:1;
+				}
+			}
+			
+			@-webkit-keyframes hide{			
+				0%{		
+                    -webkit-transform:rotateX(0deg);
+					opacity:1;
+				}
+				100%{				
+					-webkit-transform:rotateX(180deg);
+					opacity:0;
+				}
+			}
+       
+            
+            .wrap{ width:400px;height:200px; position:relative; margin:40px auto; -webkit-perspective:800px; -webkit-transform-style:preserve-3d;}
+            
+            .wrap img{position: absolute;width: 400px;height: 200px;-webkit-transform: rotateX(-180deg);opacity:0;
+            	-webkit-transform-origin: bottom;-webkit-animation-fill-mode: forwards;}
+            
+            .btn{border-radius: 50%;outline: none;height: 70px;width: 70px;position: absolute;}
+            .btn:nth-of-type(1){margin-top: 50px;left: -100px;}
+            .btn:nth-of-type(2){margin-top: 50px;right: -100px;}
+            
+			.show{-webkit-animation:1s show;}
+    
+            .hide{-webkit-animation:.5s hide;}
+        </style>
+        
+        <script>
+        	window.onload=function(){
+				var oBtns=document.querySelectorAll(".btn");
+                var imgs=document.querySelectorAll("img");
+                var iNow=0;
+                
+                
+                oBtns[0].onclick=function(ev){                   
+                    imgs[iNow].className="hide";
+                    iNow--;
+                    if(iNow<0){
+                        iNow=imgs.length-1;
+                    }                    
+                    imgs[iNow].className="show";                    
+                }
+                
+                oBtns[1].onclick=function(ev){
+                   
+                    imgs[iNow].className="hide";
+                    iNow++;
+                    if(iNow>=imgs.length){
+                        iNow=0;
+                    }                    
+                    imgs[iNow].className="show";                    
+                }
+
+                
+            }
+        </script>
+    </head>
+    <body>
+        <div class="wrap">
+            <input class="btn" type="button" value="上一张"/>
+            <img src="a.jpg" class="show"></img>
+            <img src="b.jpg"></img>
+            <img src="c.jpg"></img>
+            <img src="d.jpg"></img>        
+            <input class="btn" type="button" value="下一张"/> 
+        </div>
+    </body>
+</html>

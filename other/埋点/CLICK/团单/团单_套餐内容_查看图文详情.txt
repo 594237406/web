@@ -1,0 +1,16 @@
+http://m.nuomi.com/s.gif?client_type=WAP_SMART&s=null&channel=zhifang_index%7C%7Ct_click_wap%3Fs%3Df57d9336cc571e0aab672f77c0c2cef4&channel_content=null&target_city=100010000&baiduid=7409BA2247D364907D78D85560DAB03E&user_cookie=91eaac454006aef0eb213fd50992b7fd&sid=1_15_20_28&access_time=1426823812296&href=%2Fwebapp%2Ftuan%2Fmoredetail%3FdealTinyUrl%3Dkiuv02wk%26s%3Da50a8ba9d6c9ca0869daf716973ae2c6&action=click&element_type=nav&deal_id=1197294&da_src={%22page%22:%22detail_local%22,%22area%22:%22moreDetailBtn%22,%22element%22:%22%E6%9F%A5%E7%9C%8B%E5%9B%BE%E6%96%87%E8%AF%A6%E6%83%85%22}
+
+client_type:WAP_SMART
+s:null
+channel:zhifang_index||t_click_wap?s=f57d9336cc571e0aab672f77c0c2cef4
+channel_content:null
+target_city:100010000
+baiduid:7409BA2247D364907D78D85560DAB03E
+user_cookie:91eaac454006aef0eb213fd50992b7fd
+sid:1_15_20_28
+access_time:1426823812296
+href:/webapp/tuan/moredetail?dealTinyUrl=kiuv02wk&s=a50a8ba9d6c9ca0869daf716973ae2c6
+action:click
+element_type:nav
+deal_id:1197294
+da_src:{"page":"detail_local","area":"moreDetailBtn","element":"查看图文详情"}

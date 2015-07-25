@@ -1,0 +1,21 @@
+Attr类
+
+元素的特性在DOM 中以Attr 类型来表示。在所有浏览器中（包括IE8），都可以访问Attr 类型
+的构造函数和原型。从技术角度讲，特性就是存在于元素的attributes 属性中的节点。特性节点具有
+下列特征：
+ nodeType 的值为2；
+ nodeName 的值是特性的名称；
+ nodeValue 的值是特性的值；
+ parentNode 的值为null；
+ 在 HTML 中不支持（没有）子节点；
+ 在 XML 中子节点可以是Text 或EntityReference。
+尽管它们也是节点，但特性却不被认为是DOM 文档树的一部分。开发人员最常使用的是getAttribute()
+、setAttribute()和remveAttribute()方法，很少直接引用特性节点。
+
+Attr 对象有3 个属性：name、value 和specified。其中，name 是特性名称（与nodeName 的
+值相同），value 是特性的值（与nodeValue 的值相同），而specified 是一个布尔值，用以区别特
+性是在代码中指定的，还是默认的。
+
+可以通过下列任何方式访问该
+特性：attributes 属性、getAttributeNode()方法以及getAttribute()方法。其中，attributes
+和getAttributeNode()都会返回对应特性的Attr 节点，而getAttribute()则只返回特性的值。

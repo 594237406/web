@@ -1,0 +1,21 @@
+只有domain 是可以设置的。但由于安全方面的限制，也并非可以给domain 设置任何值。如果URL 中包含一个子域名，例如p2p.wrox.com，那么就只能将domain 设置为"wrox.com"
+（URL 中包含"www"，如www.wrox.com 时，也是如此）。不能将这个属性设置为URL 中不包含的域,如下面的例子所示。
+	//假设页面来自p2p.wrox.com 域
+	document.domain = "wrox.com"; // 成功
+	document.domain = "nczonline.net"; // 出错！
+
+当页面中包含来自其他子域的框架或内嵌框架时，能够设置document.domain 就非常方便了。由于跨域安全限制， 来自不同子域的页面无法通过JavaScript 通信。而通过将每个页面的
+document.domain 设置为相同的值，这些页面就可以互相访问对方包含的JavaScript 对象了。例如，假设有一个页面加载自www.wrox.com，其中包含一个内嵌框架，框架内的页面
+加载自p2p.wrox.com。由于document.domain 字符串不一样，内外两个页面之间无法相互访问对方的JavaScript 对象。但如果将这两个页面的document.domain 值都设置
+为"wrox.com"，它们之间就可以通信了。
+
+
+浏览器对 domain 属性还有一个限制，即如果域名一开始是“松散的”（loose），那么不能将它再设
+置为“紧绷的”（tight）。换句话说，在将document.domain 设置为"wrox.com"之后，就不能再将其
+设置回"p2p.wrox.com"，否则将会导致错误，如下面的例子所示。
+
+//假设页面来自于p2p.wrox.com 域
+document.domain = "wrox.com"; //松散的（成功）
+document.domain = "p2p.wrox.com"; //紧绷的（出错！）
+
+所有浏览器中都存在这个限制，但IE8 是实现这一限制的最早的IE 版本。

@@ -1,0 +1,13 @@
+<html>
+	<head>
+		<title>write-load</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//即使这个文件看起来没错，但字符串"</script>"将被解释为与外部的<script>标签匹配，结果
+			//文本");将会出现在页面中。为避免这个问题，只需加入转义字符\即可
+			document.write("<script type=\"text/javascript\" src=\"file.js\">" +
+			"<\/script>");
+		</script>
+	</body>
+</html>

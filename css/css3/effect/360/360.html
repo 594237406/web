@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>360</title>
+		<style>
+			body{ background:#f9f9f9;}
+			#menu{width:50px;height:50px; position:fixed;right:20px; bottom:20px; }
+			#menu_list{height:42px;width:42px; position:relative;margin:4px;}
+			#menu_list img{ border-radius:21px; position:absolute;left:0;top:0; -webkit-transition:1s all ease;}
+			#home{width:50px;height:50px;background:url(home.png) no-repeat; border-radius:25px; position:absolute; left:0;top:0; 
+			transition:1s;}
+			
+		</style>
+		<script>
+			window.onload=function(){
+				var home=document.getElementById("home");
+				var imgs=document.getElementsByTagName("img");
+				var bOff=true;
+				var r=150;
+				
+				home.onclick=function(){
+					if(bOff)this.style.WebkitTransform="rotate(-360deg)";
+					if(!bOff)this.style.WebkitTransform="rotate(0deg)";
+					bOff=!bOff;
+
+					for(var i=0;i<imgs.length;i++){
+						var img=imgs[i];
+
+						//90/(imgs.length-1)*i：弧度转度/180*Math.PI
+						var x=!bOff?Math.sin(90/(imgs.length-1)*i/180*Math.PI)*r:0;
+						var y=!bOff?Math.sqrt(Math.pow(r,2)-Math.pow(x,2)):0;
+						
+						img.style.left=-x+"px";
+						img.style.top=-y+"px";
+
+						if(bOff)img.style.WebkitTransform="rotate(-360deg)";
+						if(!bOff)img.style.WebkitTransform="rotate(0deg)";
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="menu">
+			<div id="menu_list">
+		    	<img src="prev.png" alt=""/>
+		        <img src="open.png" alt="" />
+		        <img src="clos.png" alt="" />
+		        <img src="full.png" alt="" />
+		        <img src="refresh.png" alt="" />
+		    </div>
+			<div id="home"></div>
+		</div>
+	</body>
+</html>

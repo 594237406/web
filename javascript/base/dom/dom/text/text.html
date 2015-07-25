@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>text</title>
+		<style type="text/css">
+	        .message {
+	            font-weight: bold;
+	            color: #0f0;
+	        }
+	    </style>
+		<script type="text/javascript">
+			window.onload=function(){
+				var element1=document.querySelector("#myList1");
+				alert(element1.textContent);
+				//执行某些操作
+				var textNodeFirst=element1.children[0].firstChild;
+				var textNodeLast=element1.children[0].lastChild;
+				console.log(textNodeFirst.nodeType);
+				console.log(element1.children[0].childNodes[1].nodeType);
+				console.log(textNodeLast.nodeType);
+
+				console.log(textNodeFirst.nodeValue);
+				console.log(textNodeFirst.data);
+
+
+				var textNode = document.createTextNode("Hello world!");
+				element1.className="message";
+				element1.appendChild(textNode);
+				alert(element1.textContent);
+			}
+		</script>
+	</head>
+	<body>
+		<div id="myList1">
+			<div>Item 1 First<div></div>Item 1 Last</div>
+		</ul>
+	</body>
+</html>

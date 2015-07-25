@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>childNodes</title>
+		<script type="text/javascript">
+			window.onload=function(){
+				var element1=document.querySelector("#myList1");
+				var element2=document.querySelector("#myList2");
+				console.log(element1.childNodes.length);
+				//<ul>元素都会有7 个元素，包括3 个<li>元素和4 个文本节点（表示<li>元素之间的空白符）
+				console.log(element2.childNodes.length);
+				for (var i=0, len=element1.childNodes.length; i < len; i++){
+					if (element1.childNodes[i].nodeType == 1){
+						//执行某些操作
+						console.log(element1.childNodes[i].firstChild.data);
+						console.log(element1.childNodes[i].lastChild.data)
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<ul id="myList1">
+			<li>Item 1 First<div></div>Item 1 Last</li>
+			<li>Item 2</li>
+			<li>Item 3</li>
+		</ul>
+		
+		<ul id="myList2"><li>Item 1</li><li>Item 2</li><li>Item 3</li></ul>
+	</body>
+</html>

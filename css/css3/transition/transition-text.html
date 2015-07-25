@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>transition-text</title>
+		<style>
+			.wrap{width:500px;background:#ccc;border:1px solid black;position: absolute;left:300px;top:100px;}
+			.box{width:100px;background:red; white-space:nowrap;text-overflow:ellipsis;overflow:hidden;transition:all .5s;position: absolute;}
+			.box:hover{width:200px;white-space:normal;padding:10px;}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="box">This is a veryveryveryveryveryveryveryveryveryveryveryvery long word</div>
+			<div>nextline</div>
+			<div>nextline</div>
+			<div>nextline</div>
+			<div>nextline</div>
+			<div>nextline</div>
+		</div>
+	</body>
+</html>

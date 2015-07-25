@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>getElementsByClassName.html</title>
+<script type="text/javascript">
+	window.onload = function() {
+		//有IE 9+、Firefox 3+、Safari 3.1+、Chrome 和Opera 9.5+
+		var body =document.getElementsByClassName("page1");
+
+		alert(body);
+	}
+</script>
+</head>
+<body class="page1 page2 page3">
+<ul>
+	<li>1</li>
+	<li>2</li>
+	<li>3</li>
+	<li>4</li>
+</ul>
+</body>
+</html>

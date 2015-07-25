@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>yaya</title>
+    <script src="yaya.js"></script>
+    <script src="jquery-1.10.2.min.js"></script>
+    <script type="text/template" id="template1">
+        var num =1;
+        for (var i in json){
+            {$
+                <li class="li{%num%}">{% i %}{% json[i] %}</li>
+            $}
+            num++;
+        }
+    </script>
+</head>
+<body>
+<div id="list"></div>
+</body>
+<script>
+    var template1 = YayaTemplate(document.getElementById("template1").innerHTML);
+    function page(url){
+        $.ajax({
+            url:url,
+            success :function(responseText,status){
+                document.getElementById("list").innerHTML = template1.render({
+                    "json":JSON.parse(responseText)
+                });
+            }
+        });
+    }
+
+    page("content.txt");
+</script>
+</html>

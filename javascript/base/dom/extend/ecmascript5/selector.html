@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>selector</title>
+<script type="text/javascript">
+	window.onload = function() {
+		/*
+		var body = document.querySelector("body");
+		//取得ID 为"myDiv"的元素
+		var myDiv = document.querySelector("#myDiv");
+		//取得类为"selected"的第一个元素
+		var selected = document.querySelector(".selected");
+		//取得类为"button"的第一个图像元素
+		var img = document.body.querySelector("img.button");
+
+		var ems = document.getElementById("myDiv").querySelectorAll("em");
+		//取得类为"selected"的所有元素
+		var selecteds = document.querySelectorAll(".selected");
+		//取得所有_$t元素中的所有_$tag___元素
+		var strongs = document.querySelectorAll("p strong");
+		 */
+		//不识别的选择器浏览器会报错
+		var lis = document.querySelectorAll("li"), len = lis.length;
+
+		while (len--) {
+			lis[len].innerHTML = lis.length - len;
+		}
+
+		if (matchesSelector(document.body, ".page1")) {
+			//执行操作
+			alert(1)
+		}
+	}
+
+	function matchesSelector(element, selector) {
+		if (element.matchesSelector) {
+			return element.matchesSelector(selector);
+		} else if (element.msMatchesSelector) {
+			return element.msMatchesSelector(selector);
+		} else if (element.mozMatchesSelector) {
+			return element.mozMatchesSelector(selector);
+		} else if (element.webkitMatchesSelector) {
+			return element.webkitMatchesSelector(selector);
+		} else {
+			throw new Error("Not supported.");
+		}
+	}
+</script>
+</head>
+<body class="page1 page2 page3">
+<ul>
+	<li>1</li>
+	<li>2</li>
+	<li>3</li>
+	<li>4</li>
+</ul>
+</body>
+</html>

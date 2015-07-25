@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html ng-app>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>copy-extend</title>
+<script src="../angular-min.js"></script>
+<script>
+	//angular.bind(); -> $.proxy() : 改this指向
+
+	/*function show(n1,n2){
+	 alert(n1);
+	 alert(n2);
+	 alert(this);
+	 }
+
+	 angular.bind(document,show,3)(4);*/
+
+	//angular.copy();  //拷贝对象
+	/*var a = {
+	 name : 'hello'
+	 };
+	 var b = {
+	 age : '20'
+	 };
+
+	 var c = angular.copy(a,b);   //a把所有值覆盖给了b
+
+	 console.log(b);*/
+
+	//angular.extend();   //对象继承
+	var a = {
+		name : 'hello'
+	};
+	var b = {
+		age : '20'
+	};
+
+	var c = angular.extend(b, a);
+
+	console.log(b);
+</script>
+</head>
+
+<body>
+
+
+</body>
+</html>

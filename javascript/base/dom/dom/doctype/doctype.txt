@@ -1,0 +1,22 @@
+DocumentType类型
+DocumentType 类型在Web 浏览器中并不常用，仅有Firefox、Safari 和Opera 支持它①。Document-Type 包含着与文档的doctype 有关的所有信息，它具有下列特征：
+ nodeType 的值为10；
+ nodeName 的值为doctype 的名称；
+ nodeValue 的值为null；
+ parentNode 是Document；
+ 不支持（没有）子节点。
+在 DOM1 级中，DocumentType 对象不能动态创建，而只能通过解析文档代码的方式来创建。支
+持它的浏览器会把DocumentType 对象保存在document.doctype 中。DOM1 级描述了
+DocumentType 对象的3 个属性：name、entities 和notations。其中，name 表示文档类型的名称；
+entities 是由文档类型描述的实体的NamedNodeMap 对象；notations 是由文档类型描述的符号的
+NamedNodeMap 对象。通常，浏览器中的文档使用的都是HTML 或XHTML 文档类型，因而entities
+和notations 都是空列表（列表中的项来自行内文档类型声明）。但不管怎样，只有name 属性是有用
+的。这个属性中保存的是文档类型的名称，也就是出现在<!DOCTYPE 之后的文本。以下面严格型HTML
+4.01 的文档类型声明为例：
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+DocumentType 的name 属性中保存的就是"HTML"：
+alert(document.doctype.name); //"HTML"
+IE 及更早版本不支持DocumentType，因此document.doctype 的值始终都等于null。可是，
+这些浏览器会把文档类型声明错误地解释为注释， 并且为它创建一个注释节点。IE9 会给
+document.doctype 赋正确的对象，但仍然不支持访问DocumentType 类型。

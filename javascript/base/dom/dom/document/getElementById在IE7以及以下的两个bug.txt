@@ -1,0 +1,20 @@
+1.不区分ID大小写
+
+	可以使用下面的代码取得这个元素：
+	var div = document.getElementById("myDiv"); //取得<div>元素的引用
+	但是，下面的代码在除IE7 及更早版本之外的所有浏览器中都将返回null。
+	var div = document.getElementById("mydiv"); //无效的ID（在IE7 及更早版本中可以）
+	IE8 及较低版本不区分ID 的大小写，因此"myDiv"和"mydiv"会被当作相同的元素ID。
+	
+2.name与ID同名，会返回name的引用
+
+	如果页面中多个元素的ID 值相同，getElementById()只返回文档中第一次出现的元素。IE7 及较
+	低版本还为此方法添加了一个有意思的“怪癖”：name 特性与给定ID 匹配的表单元素（<input>、
+	<textarea>、<button>及<select>）也会被该方法返回。如果有哪个表单元素的name 特性等于指
+	定的ID，而且该元素在文档中位于带有给定ID 的元素前面，那么IE 就会返回那个表单元素。来看下面
+	的例子。
+		<input type="text" name="myElement" value="Text field">
+		<div id="myElement">A div</div>
+	基于这段 HTML 代码，在IE7 中调用document.getElementById("myElement ")，结果会返
+	回<input>元素；而在其他所有浏览器中，都会返回对<div>元素的引用。为了避免IE 中存在的这个问
+	题，最好的办法是不让表单字段的name 特性与其他元素的ID 相同。

@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>radial-area</title>
+		<style>
+			/*以左上角偏移100,100px，为圆心，扩散红色，转成蓝色*/
+			.box1{width:200px;height:200px;background:-webkit-radial-gradient(100px 100px,red,blue);}
+			.box2{width:200px;height:200px;background:-webkit-radial-gradient(left top,red,blue);}
+			.box3{width:200px;height:200px;background:-webkit-radial-gradient(20% 10%,red,blue);}
+			
+			/*以左上角偏移100,100px，为圆心，从10%处开始渐变，到30%渐变结束，变成蓝色*/
+			.box4{width:200px;height:200px;background:-webkit-radial-gradient(100px 100px,red 10%,blue 30%,yellow 50%);}
+		</style>
+	</head>
+	<body>
+		<div class="box1"></div>
+		<div class="box2"></div>
+		<div class="box3"></div>
+		<div class="box4"></div>
+	</body>
+</html>

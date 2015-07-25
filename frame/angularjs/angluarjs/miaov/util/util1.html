@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html ng-app>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>util1</title>
+<script src="../jquery-1.10.2.min.js"></script>
+<script src="../angular-min.js"></script>
+<script>
+
+//var a = [];
+
+//console.log(angular.isArray(a));
+//window.onload = function(){
+//	
+//	//console.log(angular.isElement( document.body ));
+//	console.log(angular.isElement( $(document.body) ));
+//	
+//};
+
+//console.log(angular.version);
+
+/*var a = NaN;
+var b = NaN;
+
+console.log(angular.equals(a,b));*/
+
+//var values = ['a','b','c'];
+/*var values = {'name':'hello','age':'20'};
+var result = [];
+angular.forEach(values,function(value,i){
+	//console.log(value);
+	//console.log(i);
+	this.push( value + i );
+},result);
+console.log(result);*/
+
+//JSON.parse() JSON.stringify()
+
+/*var str = '{"name":"hello","age":"20"}';
+
+var json = angular.fromJson(str);
+console.log(json);*/
+
+/*var json = {"name":"hello","age":"20"};
+
+var str = angular.toJson(json,true);
+
+console.log( str );*/
+
+//angular.identity/noop
+
+/*var str = 'hello';
+console.log(angular.identity(str));  //hello
+function identity(str){
+	return str;
+}
+console.log(angular.noop());  //undefined
+function noop(){
+}*/
+
+//console.log(angular.uppercase('hello'));
+
+</script>
+</head>
+
+<body>
+<div id="div1">aaaaaaaa</div>
+<script>
+	var oDiv = document.getElementById('div1');
+	angular.element('#div1').css('background','red');
+	console.log(angular.element === $);
+
+</script>
+</body>
+</html>

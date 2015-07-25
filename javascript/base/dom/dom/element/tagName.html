@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>tagName</title>
+		<script>
+			window.onload=function(){
+				var div=document.querySelector(".wrap");
+
+				alert(div.tagName); //"DIV"
+				alert(div.tagName == div.nodeName); //true
+
+				if (element.tagName == "div"){ //不能这样比较，很容易出错！
+					//在此执行某些操作
+				}
+				if (element.tagName.toLowerCase() == "div"){ //这样最好（适用于任何文档）
+					//在此执行某些操作
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div class="wrap">
+		</div>
+	</body>
+</html>

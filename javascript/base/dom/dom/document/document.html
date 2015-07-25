@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- document -->
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>document</title>
+		<script type="text/javascript">
+			var html = document.documentElement; //取得对<html>的引用
+			alert(Object.prototype.toString.call(document.querySelectorAll("body")))
+			alert(document.childNodes[1].nodeType); //8,comment
+			alert(html === document.firstChild);	//false, document.firstChild为doctype
+			alert(html === document.lastChild); 	//true
+
+			var doctype = document.doctype;
+
+			alert(doctype)
+		</script>
+	</head>
+	<body>
+	
+	</body>
+</html>

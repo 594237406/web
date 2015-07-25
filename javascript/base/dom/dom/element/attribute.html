@@ -1,0 +1,43 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>attribute</title>
+		<style type="text/css">
+			.wrap{color:red;}
+		</style>
+		<script>
+			window.onload=function(){
+				var div=document.querySelector(".wrap");
+
+				console.log(div.getAttribute("style")); 	//div.getAttribute("style")：返回字符串
+				console.log(div.style.font);				//div.style：返回对象
+
+				div.addEventListener("click",function(){console.log(1);},false);
+
+				div.onclick=function(){console.log(2);}
+
+				console.log(div.onclick);						//div.onclick：返回函数
+
+				console.log(div.dataset.my);			
+
+				console.log(div.getAttribute("data-my"));		
+
+				console.log(div.getAttribute("class"));				
+
+				console.log(div.className);	
+
+				console.log(div.getAttribute("for"));		
+
+				console.log(div.for);		
+
+				//div.setAttribute("onclick",function(){console.log(3);});
+
+				//console.log(div.getAttribute("onclick")); 	//div.getAttribute("style")：返回字符串
+			}
+		</script>
+	</head>
+	<body>
+		<div class="wrap" style="font:bold 15px/20px '微软雅黑';" data-my="123" for="for">test</div>
+	</body>
+</html>

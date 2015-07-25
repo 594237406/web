@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html ng-app="">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>rootscope</title>
+<script type="text/javascript" src="../angular-min.js"></script>
+<script type="text/javascript" src="../jquery-1.10.2.min.js"></script>
+
+<script>
+
+	function Test($scope,$rootScope){}
+
+	//$rootScope:全局作用域
+	function Body($scope,$rootScope){
+		$rootScope.items=[{name:"zhangsan"},{name:"lisi"}];
+		/*
+		setTimeout(function(){
+			$rootScope.$apply(function() {
+				$rootScope.age=30;
+			});
+		},1000);
+
+		$("body").on("click",function(){
+			$rootScope.$apply(function() {
+				$rootScope.age=40;
+			});
+		});*/
+
+		$("button").on("click",function(){
+			$rootScope.$apply(function() {
+				$rootScope.items.push({name:"wangwu"});
+			});
+		});
+	}
+</script>
+</head>
+<body ng-controller="Body">
+	<div ng-controller="Test" >
+		学员：<br>
+		<div ng-repeat="item in items">
+			{{item.name}}
+		</div>
+	</div>
+	<button>添加学员</button>
+</body>
+</html>

@@ -1,0 +1,1449 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">  
+    <head>
+		<!-- {{bdCadsNoadreason}}|{{bdAllRetAdType}} -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>百度网盟推广</title>
+        <style type="text/css">
+	    #container a{cursor:pointer;}
+            /*#container{border:5px solid #f00;}*/
+            #container a .normal{position:absolute;}
+            #container a .hover{display:block;width:100%;height:100%;position:relative;}
+            #container a .mask{font-weight:bold;display:block;position:absolute;bottom:3px;height:26px;filter:alpha(opacity=85);-moz-opacity:0.85;opacity:0.85;color:#333;font-size:12px;text-align:center;width:100%;background-color:#fff;line-height:26px;}
+            #container a .line{display:block;position:absolute;bottom:0;height:3px;width:100%;background-color:#00e6ee;_overflow:hidden;}
+            #container a.narrow .mask, #container a.narrow .line{display:none !important;}
+            #container a:link .hover{display:none;}
+            #container a:link .normal{display:block;}
+            
+            #container a.no-pic:link .hover/*, #container a.little:link .hover*/{display:block;background-color:#41a1e2;}
+            #container a.block1-no-pic:hover .hover, #container a.block1-no-pic:hover .hover{display:block;background-color:#2c97df;z-index:2;}
+            /*
+            #container a.no-pic:hover .hover, #container a.little:hover .hover{display:block;background-color:#2c97df;z-index:2;}
+            */
+            #container a.narrow:hover .hover{display:block;background-color:#2c97df;z-index:2;}
+            #container a.no-pic .mask{display:none;}
+            #container a.no-pic .line{display:none;}
+            
+            #container a.narrow:hover .normal{display:none;}
+            
+            /*fix ie6/7 half margin bug*/
+            #container a.block1, #container a.little{
+                *text-align:left !important;    
+            }
+            #container a.block1 .hover, #container a.little .hover{
+                *text-align:center !important;    
+            }
+            #container .little .hover .mid{
+                display: block;
+				text-align:center;
+            } 
+			#container .block1 .hover .mid{
+                display: block;
+				text-align:center;
+            }
+            #container .little .hover .mid, #container .block1 .hover .mid{
+                _visibility: hidden;
+            }
+            #container .little-no-pic .hover .mid, #container .block1-no-pic .hover .mid{
+                _visibility: visible;
+            }
+            #container .narrow:hover .hover .mid{
+                _visibility: visible;
+            }
+            #container a:hover .mask{
+                color: #fff;
+                background-color: #2c97df;
+                filter:alpha(opacity=100);-moz-opacity:1;opacity:1;
+            }
+            #container .block1 .hover {
+            /*    font-size: 24px;*/
+            }
+            #container .block1 .hover .mid{
+                margin-top: auto;
+                height: auto;
+            }
+            #container .block2 {
+                font-size: 14px;
+                line-height: 14px;
+            }
+            #container .block3 {
+                font-size: 12px;
+                line-height: 12px;
+            }
+            #container .little {
+            }
+			{{>TemplateEngine_baseCss}}
+            body{margin:0;padding:0;} 
+            .container{position:relative;}
+            a {
+                display:inline-block;
+                position:absolute;
+                background:#fff;
+                text-align:center;
+                overflow:hidden;
+                color:#ddd;
+                font-family:"微软雅黑";
+                text-decoration:none;
+            }
+            .little{font-size:12px;}
+            .block1 {font-size:12px;}
+            .block2 {font-size:12px;}
+            .block2_5 {font-size:12px;}
+            .block2_6 {font-size:12px;}
+            .block2_7 {font-size:12px;}
+            .block3 {font-size:12px;}
+            .wide{width:200px;}
+        </style>
+    </head>
+       
+    <body>
+        <div id="container" class="container"><a class='bd-logo' href='http://wangmeng.baidu.com/' title='百度网盟推广' target='_blank'
+         onfocus='this.blur()'>container</a> </div>
+       	<script type="text/javascript">
+	
+		ads = [
+			//block取所有数据
+			{
+				"bid" : "",
+				"curl" : "",
+				"desc" : "1",
+				"dspw" : "",
+				"height" : 100,
+				"iconurl" : "",
+				"isHb" : false,
+				"lpId" : 3,
+				"surl" : "",
+				"title" : "1",
+				"type" : "text",
+				"width" : 1150,
+				"word_src" : "2"
+			},
+			{
+				"bid" : "",
+				"curl" : "",
+				"desc" : "2",
+				"dspw" : "",
+				"height" : 100,
+				"iconurl" : "",
+				"isHb" : false,
+				"lpId" : 3,
+				"surl" : "",
+				"title" : "2",
+				"type" : "text",
+				"width" : 1150,
+				"word_src" : "e"
+			},
+			{
+				"bid" : "",
+				"curl" : "",
+				"desc" : "3",
+				"dspw" : "",
+				"height" : 100,
+				"iconurl" : "",
+				"isHb" : false,
+				"lpId" : 3,
+				"surl" : "",
+				"title" : "3",
+				"type" : "text",
+				"width" : 1150,
+				"word_src" : "d"
+			},
+			{
+				"bid" : "",
+				"curl" : "",
+				"desc" : "4",
+				"dspw" : "",
+				"height" : 100,
+				"iconurl" : "",
+				"isHb" : false,
+				"lpId" : 3,
+				"surl" : "",
+				"title" : "4",
+				"type" : "text",
+				"width" : 1150,
+				"word_src" : "e"
+			},
+			{
+				"bid" : "",
+				"curl" : "",
+				"desc" : "5",
+				"dspw" : "",
+				"height" : 100,
+				"iconurl" : "",
+				"isHb" : false,
+				"lpId" : 3,
+				"surl" : "",
+				"title" : "5",
+				"type" : "text",
+				"width" : 1150,
+				"word_src" : "d"
+			},
+			{
+				"bid" : "",
+				"curl" : "",
+				"desc" : "双玻百叶隔断",
+				"dspw" : "",
+				"height" : 100,
+				"iconurl" : "",
+				"isHb" : false,
+				"lpId" : 3,
+				"surl" : "",
+				"title" : "6",
+				"type" : "text",
+				"width" : 1150,
+				"word_src" : "d"
+			},
+			{
+				"bid" : "",
+				"curl" : "",
+				"desc" : "家居彩妆膜",
+				"dspw" : "",
+				"height" : 100,
+				"iconurl" : "",
+				"isHb" : false,
+				"lpId" : 3,
+				"surl" : "",
+				"title" : "7",
+				"type" : "text",
+				"width" : 1150,
+				"word_src" : "d"
+			},
+			{
+				"bid" : "",
+				"curl" : "",
+				"desc" : "石塑地板",
+				"dspw" : "",
+				"height" : 100,
+				"iconurl" : "",
+				"isHb" : false,
+				"lpId" : 3,
+				"surl" : "",
+				"title" : "8",
+				"type" : "text",
+				"width" : 1150,
+				"word_src" : "e"
+			},
+			
+			
+			//litter（带图片的）取最后4个数据源
+			{
+				"bid" : "",
+				"curl" : "",
+				"desc" : "酒店室内设计",
+				"dspw" : "",
+				"height" : 100,
+				"iconurl" : "http://ubmcmm.baidustatic.com/media/v1/0f000P7eSV2sJ31n0fJSE6.jpg",
+				"isHb" : false,
+				"lpId" : 3,
+				"surl" : "",
+				"title" : "9",
+				"type" : "text",
+				"width" : 1150,
+				"word_src" : "e"
+			},
+				
+			{
+				"bid" : "",
+				"curl" : "",
+				"desc" : "玻璃百叶隔断",
+				"dspw" : "",
+				"height" : 100,
+				"iconurl" : "http://ubmcmm.baidustatic.com/media/v1/0f000aNoZvEJ9-QvfrNrCf.jpg",
+				"isHb" : false,
+				"lpId" : 3,
+				"surl" : "",
+				"title" : "10",
+				"type" : "text",
+				"width" : 1150,
+				"word_src" : "1"
+			},
+			{
+				"bid" : "",
+				"curl" : "",
+				"desc" : "足球培训班",
+				"dspw" : "",
+				"height" : 100,
+				"iconurl" : "http://ubmcmm.baidustatic.com/media/v1/0f000KK8VUZ9V4lv88Altf.jpg",
+				"isHb" : false,
+				"lpId" : 3,
+				"surl" : "",
+				"title" : "11",
+				"type" : "text",
+				"width" : 1150,
+				"word_src" : "e"
+			},
+			{
+				"bid" : "",
+				"curl" : "",
+				"desc" : "短租房",
+				"dspw" : "",
+				"height" : 100,
+				"iconurl" : "http://ubmcmm.baidustatic.com/media/v1/0f000ZJqLBRTa4DRredbb6.jpg",
+				"isHb" : false,
+				"lpId" : 3,
+				"surl" : "",
+				"title" : "12",
+				"type" : "text",
+				"width" : 1150,
+				"word_src" : "1"
+			} ];
+	var config = {
+		"at" : 128,			//adDataType?
+		"aurl" : "",		//前一页URL
+		"cad" : 1,			//是否显示公共广告：代码没用
+		"conOP" : 0.3,		//container透明度：代码没用
+		"conbw" : 1,		//边框宽度
+		"imgtabcloudbigcell" : 1.200000047683716,
+		"imgtabcloudmidcell" : 0.8000000119209290,
+		"imgtabcloudsmacell" : 0.6000000238418579,
+		"imgtabcloudwordper" : 50,
+		"iteBCA" : "#79404d,#795161,#795161,#de8886,#d19997,#673844,#674754,#674754,#BE7370,#B3827F",
+		"lunum" : 6,
+		"n" : "50071140_cpr",
+		"rad" : "",
+		"rsi0" : 1150,
+		"rsi1" : 100,
+		"rsi5" : 4,
+		"rss0" : "",
+		"rss1" : "",
+		"rss2" : "",
+		"rss3" : "",
+		"rss4" : "",
+		"rss6" : "",
+		"rss7" : "",
+		"scale" : "",
+		"skin" : "tabcloud_skin_13"
+	};
+
+	ads = ads.concat(ads);
+</script>
+        <script type="text/javascript">
+
+        	/*
+        	 * 添加样式文件
+        	*/
+            var addClass = function(cssString) {
+                var doc = document;
+                var style = doc.createElement("style");
+                style.setAttribute("type", "text/css");
+                if (style.styleSheet) { // IE
+                    style.styleSheet.cssText = cssString;
+                } else { // w3c
+                    var cssText = doc.createTextNode(cssString);
+                    style.appendChild(cssText);
+                }
+                var heads = doc.getElementsByTagName("head");
+                if (heads.length) heads[0].appendChild(style);
+                else doc.documentElement.appendChild(style);
+            };
+
+
+           
+            if (config.conbw != undefined && config.conbw != 0) {		 //如果container边框宽度不为0，设置边框样式
+                if (config.conbs == undefined || config.conbs == "") {
+                    config.conbs = "solid";
+                }
+                if (config.rss0 == undefined || config.rss0.toLowerCase() == "#ffffff" || config.rss0 == "") {
+                     config.rss0 = "#000000";
+                }
+                var bordercss = ".container {border:" + config.conbw + "px "+config.conbs +" "+config.rss0+";overflow:hidden;}";
+                addClass(bordercss);					//设置container样式
+				config.rsi0 -= config.conbw*2;			//设置模板宽度
+				config.rsi1 -= config.conbw*2;			//设置模板高度
+            }
+            var attempted = 0;
+
+         	/*
+        	 * 定义模板
+        	*/             	
+            var thisPage = {
+                cWidth: config.rsi0,
+                cHeight: config.rsi1,
+                isShort: true,						//是否是短模板
+                minBlockHeight: 25,
+                minBlockWidth: 100,
+                blockBorderWidth: 2,
+				block1Scale: 10, 								//block1块占总单元格比例
+				block2Scale: 10, 								//block2块占总单元格比例
+				block1Weight:config.imgtabcloudbigcell ? parseFloat(config.imgtabcloudbigcell) : 0.8,
+				block2Weight:config.imgtabcloudmidcell ? parseFloat(config.imgtabcloudmidcell) : 0.7,
+				block3Weight:config.imgtabcloudsmacell ? parseFloat(config.imgtabcloudsmacell) : 1,
+				block1WordPercent:config.imgtabcloudwordper ? parseFloat(config.imgtabcloudwordper) : 0,
+                flag: false,
+				shouldInsertLittle: false,
+				hasOddRows: false,
+				attempted: 0,
+                initialize: function (forceNoLittle) {
+                    this.attempted = 0;
+                    this.minBlockWidth = 90;
+                    this.maxBlockWidth = 120;
+                    this.minBlockHeight = 25;
+                    this.maxBlockHeight = 29;
+                    
+                    if(this.cWidth  < 300 || this.cHeight < 150){		//设置block边框宽度
+                        this.blockBorderWidth = 1;
+                    }
+					if (this.cWidth > 160 && this.cWidth <= 170) {		//如果宽度在160~170之间，显示一列
+						this.maxBlockWidth = 160;
+					}
+					if (this.cWidth > 170 && this.cWidth <= 185) {		//如果宽度在170~185之间，显示两列
+						this.minBlockWidth = 80;
+					}
+                    var sizeParams = this.sizeParams = this.calCellSize();
+                    this.hasOddRows = sizeParams.hasOddRows;
+                    this.shouldInsertLittle = !forceNoLittle && sizeParams.shouldInsertLittle;
+					this.rowNum = sizeParams.rowNum;
+                    this.colNum = sizeParams.colNum;                    
+                    this.blockObj = {
+                        little: {
+                            initNum: this.isShort?Math.ceil(this.colNum/3):Math.floor(this.rowNum/2),
+                            renderNum: 0
+                        },
+                        block1: {
+                            initNum: Math.floor(this.rowNum*(this.colNum)*this.block1Weight/(this.block1Weight*4+this.block2Weight*2+this.block3Weight)),
+                            renderNum: 0
+                        },
+                        block2: {
+                            initNum: Math.floor(this.rowNum*(this.colNum)*this.block2Weight/(this.block1Weight*4+this.block2Weight*2+this.block3Weight)),
+                            renderNum: 0
+                        }
+                    };
+
+					if (this.blockObj.block1.initNum > Math.floor(this.rowNum / 4) * this.colNum) {
+						this.blockObj.block1.initNum = Math.floor(this.rowNum / 4) * this.colNum;
+					}
+					//max middle num
+					var max_middle_num = ((this.rowNum % 2 > 0 ? this.rowNum - 1: this.rowNum) * this.colNum - this.blockObj.block1.initNum * 4) / 2;
+                    if(this.blockObj.block2.initNum > max_middle_num){
+                        this.blockObj.block2.initNum = max_middle_num;
+                    }
+                    this.iteBCA=config.iteBCA.split(",");
+                    this.hoverColor=this.iteBCA[this.iteBCA.length-1];
+                    this.adContainer = document.getElementById("container");
+                    this.adContainer.style.width = this.cWidth + "px";
+                    this.adContainer.style.height = this.cHeight + "px";
+                    
+                    if(this.shouldInsertLittle){
+                        //add one column to make room for the little blocks
+                        this.colNum++;
+                        this.littleInit();
+                        
+                    }
+                    if(this.isShort){
+                        this.adCount = sizeParams.adCount;    
+                    }else{
+                        this.adCount = (this.rowNum * this.colNum) - (this.shouldInsertLittle*this.blockObj.little.initNum*1+this.blockObj.block1.initNum*3+this.blockObj.block2.initNum*1);
+                        if(this.shouldInsertLittle){
+                            if(this.rowNum%2===1){
+                                this.adCount--;
+                            }
+                        }
+                    }
+                    
+                    if(this.shouldAdjust){
+					    this.blockWidth = Math.floor((this.cWidth + this.blockBorderWidth) / this.colNum) - this.blockBorderWidth;
+					    this.widthRemainder %= this.colNum;
+                    }
+                    this.blockArr = new Array(this.rowNum);
+                    for(var i=0;i<this.rowNum;i++){
+                        this.blockArr[i] = new Array(this.colNum);
+                    }
+                },
+                getRandomArray: function(n){
+                    var arr = new Array(n);
+                    for(var i=0;i<n;i++){
+                        arr[i] = i;
+                    }
+                    for(var i=0;i<n;i++){
+                        var r = i+Math.floor(Math.random()*(n-i));
+                        if(r !== i){
+                            var t = arr[i];
+                            arr[i] = arr[r];
+                            arr[r] = t;    
+                        }
+                    }
+                    return arr;
+                },
+                littleInit: function(){
+                    if(this.shouldInsertLittle){
+                        var sizeParams = this.sizeParams;
+                        var lbc = this.littleBlockCount = sizeParams.littleBlockCount;
+                        var lbsArr = this.littleBlockSizes = new Array(this.littleBlockCount);
+                        for(var i=0,len=lbc;i<len;i++){lbsArr[i] = 2;}
+                        if(this.hasOddRows){
+                            lbsArr[Math.floor(Math.random()*lbc)] = 3;
+                        }
+                        var rndArr;
+                        if(this.colNum >= this.rowNum){
+                            //use different cols
+                            rndArr = this.getRandomArray(this.colNum);
+                            rndArr.length = this.littleBlockCount;
+                        }else{
+                            rndArr = new Array(this.colNum);
+                            for(var i=0;i<lbc;i++){
+                                rndArr[i] = Math.floor(this.colNum*Math.random());    
+                            }    
+                        }
+                        var lbpArr = this.littleBlockPoses = rndArr;//new Array(this.littleBlockCount);
+                        var offsetArray = this.offsetArray = new Array(this.rowNum);
+                        for(var i=0,len=lbc,idx = 0;i<len;i++){
+                            var offset = lbpArr[i];
+                            for(var j=0,size=lbsArr[i];j<size;j++,idx++){
+                                offsetArray[idx] = offset;
+                            }
+                        }
+                    }
+                },
+
+                /*
+                 * 计算单元格个数：
+                 * return:行、列、总共个数
+                */
+				calCellSize: function() {
+					var result = {};
+				    if(this.cWidth * this.cHeight < 36000){
+                        this.blockBorderWidth = 1;
+                    }
+					var totalWidth = this.cWidth + this.blockBorderWidth;
+					var totalHeight = this.cHeight + this.blockBorderWidth;
+					if(this.isShort){
+					    var bestWidth = totalWidth;		//列宽
+					    var bestRmdr = totalWidth;		//？
+					    var bestCount = 0;				//列数
+					    //var bestIndex = 0;
+					    for(var blockWidth = 90;blockWidth<=120;blockWidth++){
+					        var len = totalWidth;
+					        var count = 0;			//列数
+
+					        for(var idx = 0;len>=0;idx++){			//循环计算列数
+					            var nextBlockWidth;
+					            if(idx % 3 === 0){
+					                nextBlockWidth = this.cHeight + this.blockBorderWidth;
+					            }else{
+					                nextBlockWidth = blockWidth + this.blockBorderWidth;
+					            }
+					            if(len < nextBlockWidth){
+					                break;    
+					            }else{
+					                len -= nextBlockWidth;
+					                count++;
+					            }
+					        }
+					        if(len < bestRmdr){
+					            bestRmdr = len;
+					            bestWidth = blockWidth;
+					            bestCount = count;
+					        }
+					        if(len === 0){
+					            break;    
+					        }
+					    }
+
+					    //计算总共块个数
+					    var bestRounds = Math.floor(bestCount/3),
+					        rmd = bestCount % 3;
+					    var blockCount = 5 * bestRounds;
+					    if(rmd === 1){
+					        blockCount += 1;  
+					    }else if(rmd === 2){
+					        blockCount += 3;
+					    }
+					    var commonColCount = bestRounds * 2;
+					    if(rmd === 1){
+					        commonColCount += 0;  
+					    }else if(rmd === 2){
+					        commonColCount += 1;
+					    }
+					    this.blockWidth = Math.floor(bestWidth + bestRmdr / commonColCount);
+					    this.blockHeight = Math.floor((this.cHeight - this.blockBorderWidth)/2);
+					    this.widthRemainder = bestRmdr % bestCount;
+
+					    return {
+                            rowNum: 2,
+                            colNum: bestCount,
+                            adCount: blockCount   
+					    };
+					}
+
+					//非短模板逻辑
+					var bestBlockWidth = totalWidth;
+					var bestRmdr = totalWidth;
+					
+					for(var i=this.minBlockWidth;i<this.maxBlockWidth;i++){
+					    var rmdr = totalWidth % (i+this.blockBorderWidth);
+					    if(rmdr < bestRmdr){
+					        bestRmdr = rmdr;
+					        bestBlockWidth = i;
+					        if(rmdr === 0){
+					            break;    
+					        }
+					    }
+					}
+					this.widthRemainder = bestRmdr;
+					
+					var bestBlockHeight = totalHeight;
+					var bestHRmdr = totalHeight;
+					for(var i=this.minBlockHeight;i<this.maxBlockHeight;i++){
+					    var rmdrH = totalHeight % (i+this.blockBorderWidth);
+					    if(rmdrH < bestHRmdr){
+					        bestHRmdr = rmdrH;
+					        bestBlockHeight = i;
+					        if(rmdrH === 0){
+					            break;    
+					        }
+					    }
+					}
+					this.heightRemainder = bestHRmdr;
+					
+                    this.blockWidth = bestBlockWidth;
+                    this.blockHeight = bestBlockHeight;
+                    var _colNum = Math.floor(totalWidth / (this.blockWidth+this.blockBorderWidth));
+                    
+                    var _rowNum = Math.floor(totalHeight/(this.blockHeight+this.blockBorderWidth));
+                    var heightRemainder = totalHeight % (this.blockHeight+this.blockBorderWidth);
+                    this.blockHeight += Math.floor(heightRemainder / _rowNum);
+                    this.heightRemainder = heightRemainder % _rowNum;
+                    
+                    
+					var _cellNum = _rowNum * _colNum;
+					
+					result.rowNum = _rowNum;
+					result.colNum = _colNum;
+					result.hasOddRows = _rowNum % 2 === 1;
+					if(this.widthRemainder >= 45){
+					    result.shouldInsertLittle = true;    
+					    result.littleBlockCount = Math.floor(result.rowNum / 2);
+					}else{
+					    result.shouldInsertLittle = false;
+					    this.shouldAdjust = true;
+
+					}
+                    var block1Count = Math.floor(result.rowNum*(result.colNum-result.shouldInsertLittle)*this.block1Weight/(this.block1Weight*4+this.block2Weight*2+this.block3Weight));
+                    var block2Count = Math.floor(result.rowNum*(result.colNum-result.shouldInsertLittle)*this.block2Weight/(this.block1Weight*4+this.block2Weight*2+this.block3Weight));
+					var adsNeeded = (result.rowNum * result.colNum) - (block1Count*3 + block2Count*1);
+					if(adsNeeded > ads.length){
+					    var zoomRate = Math.sqrt(adsNeeded / ads.length);
+					    
+					    this.minBlockWidth = Math.ceil(this.minBlockWidth*zoomRate);
+					    this.maxBlockWidth = Math.ceil(this.maxBlockWidth*zoomRate);
+					    this.minBlockHeight = Math.ceil(this.minBlockHeight*zoomRate);
+					    this.maxBlockHeight = Math.ceil(this.maxBlockHeight*zoomRate);
+					    return arguments.callee.call(this);
+					    
+					}
+					return result;
+				},
+				reset: function(){
+				    this.blockObj.little.renderNum = this.blockObj.block1.renderNum = this.blockObj.block2.renderNum = 0;
+                    this.blockArr = new Array(this.rowNum);
+                    for(var i=0;i<this.rowNum;i++){
+                        this.blockArr[i] = new Array(this.colNum);
+                    }
+				},
+				nextPlace: function(type){
+				    var maxRowIndex = this.rowNum;
+				    var maxColIndex = this.colNum;
+				    
+				    if (type === 'block1A') {
+						maxRowIndex = this.rowNum - 1;
+					} else if(type === 'block1'){
+				        maxRowIndex = this.rowNum - 3;
+				    }else if(type === 'block2'){
+				        maxRowIndex = this.rowNum - 1;
+				    }else if(type === 'block3'){
+				        maxRowIndex = this.rowNum;
+				    }
+				    for(var i=0;i<maxRowIndex;i++){
+				        for(var j=0;j<maxColIndex;j++){
+				            if(this.canRender(type,i,j)){/*console.log(type,i,j);*/return [i,j];}
+				        }
+				    }    
+				    
+				    return null;
+				},
+				canRender: function(type,x,y){
+				    var barr = this.blockArr;
+				    switch(type){
+						case 'block1A':
+							return !barr[x][y] && !barr[x+1][y] && !barr[x][y+1] && !barr[x+1][y+1];
+							break;
+				        case 'block1':
+				            return !barr[x][y] && !barr[x+1][y] && !barr[x+2][y] && !barr[x+3][y];
+				            break;
+				        case 'block2':
+				            return !barr[x][y] && !barr[x+1][y];
+				            break;
+				        case 'block3':
+				            return !barr[x][y];
+				            break;
+				        default:
+				            return false;    
+				    }
+				    return false;
+				},
+				render: function(){
+				    var startTime = +new Date;
+				    var maxExecTime = 200;
+				    this.initialize();
+
+				   
+				    var MAX_ATTEMPTS = 500;
+				    var done = false;
+
+				    //process the little ads
+				    if((this.shouldInsertLittle || this.isShort ) && this.blockObj.little && this.blockObj.little.initNum){
+				        var littleArray = ads.slice(-this.blockObj.little.initNum);
+				        ads = littleArray.concat(ads.slice(0,-this.blockObj.little.initNum));
+				    }
+				    this.renderAttempt(true);
+		
+				},
+                getTitleLength:  function(tit) {
+                    var len = 0;
+                    for (var i = 0; i < tit.length; i++) {
+                        if (tit.charCodeAt(i) >= 0 && tit.charCodeAt(i) <= 255) {
+                            len += 0.5;
+                        } else {
+                            len += 1;
+                        }
+                    }
+                    return Math.ceil(len);
+                },
+                calcFontSize1: function (width, height, title, fact) {
+                    var titlen = this.getTitleLength(title);
+                    titlen = titlen < 4 ? 4 : titlen;
+					var fs = 0;
+                    if (width / titlen < height) {
+                        fs = Math.floor(width / titlen * fact);
+                    } else {
+                        fs = Math.floor(height * fact);
+                    }
+					return fs > 24 ? 24 : fs;
+                },
+				calcFontSize2: function (width, height, title, fact) {
+                    var titlen = 7;
+					var fs = 0;
+                    if (width / titlen < height) {
+                        fs = Math.floor(width / titlen);
+                    } else {
+                        fs = Math.floor(height);
+                    }
+					if (fs >= Math.floor(height * fact)) {
+						fs = Math.floor(height * fact);
+					}
+					return fs > 24 ? 24 : fs;
+                },
+                renderAttempt: function (ensureOK) {
+                    var links = [];
+				    if(this.isShort){
+				        var littleArr = ads.slice(0,this.blockObj.little.initNum);		//获取little数据源
+				        var commonArr = ads.slice(this.blockObj.little.initNum);		//获取普通数据源
+				        var left = 0;
+				        for(var i=0;i<this.colNum;i++){
+				            if(i%3 === 0){												//生成litter
+				                var ad = littleArr.shift();
+                                var currA = document.createElement("a");
+				currA.hideFocus = true;
+                                currA.className = 'little';
+                                currA.style.lineHeight = this.cHeight + 'px';
+                                currA.href = ad.curl;
+                                currA.target = "_blank";
+                                var linkObject = {
+                                  title: ad.title,
+                                  anchor: currA,
+                                  x: -1,
+                                  y: -1
+                                };
+                                currA.link = linkObject;
+                                linkObject.anchor = currA;
+                                currA.innerHTML = '<div class="hover"><span>'+ad.title+'</span></div><div class="mask normal">'+ad.title+'</div><div class="line normal"></div>';
+                                currA.style.background = (ad.iconurl?'url('+ad.iconurl+')':'')+' center center no-repeat';
+                                currA.style.backgroundSize ="100% 100%";
+                                linkObject.type = 'little';
+								
+                                currA.style.fontSize = this.calcFontSize1((i !== this.colNum - 1? this.cHeight:this.cHeight + this.widthRemainder)- 10, this.cHeight, ad.title, 1) + "px";
+                                if(!ad.iconurl){linkObject.noPic = true;}
+                                this.renderAd(this.renderLittle, 0, 0, currA,{
+                                    little: true,
+                                    width: i !== this.colNum - 1? this.cHeight:this.cHeight + this.widthRemainder,
+                                    height:this.cHeight,
+                                    left: left,
+                                    top: 0
+                                });
+                                links.push(linkObject);
+                                this.blockObj.little.renderNum++;
+                                left += this.cHeight + this.blockBorderWidth;
+				            }else{														//生成block
+				                var ad1 = commonArr.shift();
+				                var ad2 = commonArr.shift();
+                                var currA1 = document.createElement("a");
+				currA1.hideFocus = true;
+                                currA1.href = ad1.curl;
+                                currA1.target = "_blank";
+                                currA1.style.lineHeight = this.blockHeight + 'px';
+                                var linkObject1 = {
+                                  title: ad1.title,
+                                  anchor: currA1,
+                                  x: -1,
+                                  y: -1
+                                };
+                                currA1.link = linkObject1;
+                                linkObject1.anchor = currA1;
+                                currA1.innerHTML = ad1.title;
+                                currA1.style.fontSize = this.calcFontSize2(i !== this.colNum - 1? this.blockWidth:this.blockWidth + this.widthRemainder, this.blockHeight, ad1.title, 0.6) + "px";
+                                this.renderAd(this.renderBlock3, 0, 0, currA1,{
+                                    x: -1,
+                                    y: -1,
+                                    width: i !== this.colNum - 1? this.blockWidth:this.blockWidth + this.widthRemainder,
+                                    height:this.blockHeight,
+                                    left: left,
+                                    top: 0,
+                                    bgcolorIndex: Math.floor(Math.random() * 2)+1
+                                });
+                                var currA2 = document.createElement("a");
+				currA2.hideFocus = true;
+                                currA2.href = ad2.curl;
+                                currA2.target = "_blank";
+                                var linkObject2 = {
+                                  title: ad2.title,
+                                  anchor: currA2,
+                                  x: -1,
+                                  y: -1
+                                };
+                                currA2.link = linkObject2;
+                                currA2.style.lineHeight = (this.cHeight - this.blockHeight) + 'px';
+                                linkObject2.anchor = currA2;
+                                currA2.innerHTML = ad2.title;
+                                currA2.style.fontSize = this.calcFontSize2(i !== this.colNum - 1? this.blockWidth:this.blockWidth + this.widthRemainder, this.cHeight - this.blockBorderWidth - this.blockHeight, ad2.title, 0.6) + "px";
+                                this.renderAd(this.renderBlock3, 0, 0, currA2,{
+                                    x: -1,
+                                    y: -1,
+                                    width: i !== this.colNum - 1? this.blockWidth:this.blockWidth + this.widthRemainder,
+                                    height: this.cHeight - this.blockBorderWidth - this.blockHeight,
+                                    left: left,
+                                    top: this.blockHeight + this.blockBorderWidth,
+                                    bgcolorIndex: Math.floor(Math.random() * 2)+1
+                                });
+                                links.push(linkObject1);
+                                links.push(linkObject2);
+                                left += this.blockBorderWidth + this.blockWidth;
+				            }
+				        }
+				    }else{
+                        if(this.shouldInsertLittle && ensureOK){
+                            var offsetArray = this.offsetArray;
+                            for(var i=0,len=offsetArray.length;i<len;i++){
+                                offsetArray[i] = this.colNum -1;
+                            }    
+                        }
+                        var idx = 0;
+                        thisPage.links = links;
+                        for (k = 0,i=0, l = this.adCount; k < l; k++,i++) {
+                            this.flag = false;
+                            var currA = document.createElement("a");
+			    currA.hideFocus = true;
+                            var ad = ads[k];
+                            currA.href = ad.curl;
+                            currA.target = "_blank";
+                            var linkObject = {
+                              title: ad.title,
+                              anchor: currA,
+                              x: -1,
+                              y: -1
+                            };
+                            currA.link = linkObject;
+                            links.push(linkObject);
+                            var nextPlace;
+                            var renderOptions = {};
+                            if(!ad.iconurl){linkObject.noPic = true;}
+                            if (this.shouldInsertLittle && this.blockObj.little.renderNum != this.blockObj.little.initNum) {
+                                currA.innerHTML = '<div class="hover"><span>'+ad.title+'</span></div><div class="mask normal">'+ad.title+'</div><div class="line normal"></div>';
+                                currA.style.background =  (ad.iconurl?'url('+ad.iconurl+')':'')+' center center no-repeat';
+                                currA.style.backgroundSize ="100% 100%";
+                                linkObject.type = 'little';
+                                currA.style.fontSize = this.calcFontSize1((thisPage.widthRemainder) - 10, thisPage.blockHeight * 2, ad.title, 1) + "px";
+                                if(this.renderAd(this.renderLittle, this.littleBlockSizes[i]-1, 0, currA,{
+                                    x:idx,
+                                    y: this.offsetArray[idx],
+                                    rows: this.littleBlockSizes[i],
+                                    little: true    
+                                })){
+                                    this.blockObj.little.renderNum++;
+                                    idx += this.littleBlockSizes[i];
+                                }
+                            }
+                            else if (this.blockObj.block1.renderNum != this.blockObj.block1.initNum) {
+                                currA.innerHTML = '<div class="hover"><span>'+ad.title+'</span></div><div class="mask normal">'+ad.title+'</div><div class="line normal"></div>';
+                                currA.style.background =  (ad.iconurl?'url('+ad.iconurl+')':'')+' center center no-repeat';
+                                currA.style.backgroundSize ="100% 100%";
+                                if (this.blockObj.block1.renderNum < Math.floor(this.blockObj.block1.initNum * this.block1WordPercent / 100)) {
+                                    linkObject.noPic = true;
+                                }
+								if (!linkObject.noPic) {
+									linkObject.type = 'block1';
+									if(ensureOK){
+										nextPlace = this.nextPlace('block1');
+										if(nextPlace){
+											renderOptions.x = nextPlace[0];
+											renderOptions.y = nextPlace[1];
+										}
+									}
+									currA.style.fontSize = "24px";
+									if(this.renderAd(this.renderBlock1, 3, 0, currA,renderOptions)){
+										this.blockObj.block1.renderNum++;
+									}else{
+										for(var j=0,len=links.length;j<len;j++){
+											var link = links[j];
+											var anchor = link.anchor;
+											link.anchor = null;
+											anchor.link = null;
+											if(anchor.parentNode)anchor.parentNode.removeChild(anchor);
+										}
+										return false;
+									}
+								} else {
+									linkObject.type = 'block1A';
+									if(ensureOK){
+										nextPlace = this.nextPlace('block1');
+										if(nextPlace){
+											renderOptions.x = nextPlace[0];
+											renderOptions.y = nextPlace[1];
+										}
+										currA.style.fontSize = this.calcFontSize1(thisPage.blockWidth - 10, thisPage.blockHeight * 2, ad.title, 1) + "px";
+										renderOptions.is_nopic = true;
+										if(this.renderAd(this.renderBlock1, 3, 0, currA,renderOptions)){
+											this.blockObj.block1.renderNum++;
+										}else{
+											for(var j=0,len=links.length;j<len;j++){
+												var link = links[j];
+												var anchor = link.anchor;
+												link.anchor = null;
+												anchor.link = null;
+												if(anchor.parentNode)anchor.parentNode.removeChild(anchor);
+											}
+											return false;
+										}
+									} else {
+										currA.style.fontSize = "24px";
+										if(this.renderAd(this.renderBlock1A, 1, 1, currA,renderOptions)){
+											this.blockObj.block1.renderNum++;
+										}else{
+											for(var j=0,len=links.length;j<len;j++){
+												var link = links[j];
+												var anchor = link.anchor;
+												link.anchor = null;
+												anchor.link = null;
+												if(anchor.parentNode)anchor.parentNode.removeChild(anchor);
+											}
+											return false;
+										}
+									}	
+								}
+                            }
+                            else if (this.blockObj.block2.renderNum != this.blockObj.block2.initNum) {
+                                currA.innerHTML = ad.title;
+                                linkObject.type = 'block2';
+                                if(ensureOK){
+                                    nextPlace = this.nextPlace('block2');
+                                    if(nextPlace){
+                                        renderOptions.x = nextPlace[0];
+                                        renderOptions.y = nextPlace[1];
+                                    }
+                                }
+                                currA.style.fontSize = this.calcFontSize1(thisPage.blockWidth - 10, thisPage.blockHeight * 2, ad.title, 1) + "px";
+                                if(this.renderAd(this.renderBlock2, 1, 0, currA,renderOptions)){
+                                    this.blockObj.block2.renderNum++;
+                                }else{
+                                    for(var j=0,len=links.length;j<len;j++){
+                                        var link = links[j];
+                                        var anchor = link.anchor;
+                                        link.anchor = null;
+                                        anchor.link = null;
+                                        if(anchor.parentNode)anchor.parentNode.removeChild(anchor);
+                                    }
+                                    return false;
+                                }
+                                
+                            }
+                            else {
+                                currA.innerHTML = ad.title;
+                                linkObject.type = 'block3';
+                                if(ensureOK){
+                                    nextPlace = this.nextPlace('block3');
+                                    if(nextPlace){
+                                        renderOptions.x = nextPlace[0];
+                                        renderOptions.y = nextPlace[1];
+                                    }
+                                }
+                                currA.style.fontSize = this.calcFontSize2(thisPage.blockWidth, thisPage.blockHeight, ad.title, 0.6) + "px";
+                                this.renderAd(this.renderBlock3, 0, 0, currA,renderOptions);
+                            }
+                        }
+                        
+                        links.length = this.adCount;
+				    }
+
+                    var isOK = true;
+                    if(!this.isShort && !ensureOK){
+                        //check if ok
+                        var table = new Array(this.rowNum);
+                        for(var i=0,len=table.length;i<len;i++){
+                            table[i] = new Array(this.shouldInsertLittle?this.colNum-1:this.colNum);
+                        }
+                        for(var i=0,len=links.length;i<len;i++){
+                            var link = links[i];
+                            var type = link.type;
+                            var x = link.x, y = link.y;
+                            if(this.shouldInsertLittle && this.offsetArray[x] < y){
+                                y--;
+                            }
+                            switch(type){
+								case 'block1A':
+									table[x][y]=table[x+1][y]=table[x][y+1]=table[x+1][y+1]=true;
+									break;
+                                case 'block1':
+                                    table[x][y] = table[x+1][y] = table[x+2][y] = table[x+3][y] = true;
+                                    break;
+                                case 'block2':
+                                    table[x][y] = table[x+1][y] = true;
+                                    break;
+                                case 'block3':
+                                    table[x][y] = true;
+                                    break;
+                                default:;    
+                            }
+                        }
+                        rowsLoop:
+                        for(var i=0,rows = table.length;i<rows;i++){
+                            var row = table[i];
+                            for(var j=0,cols = row.length;j<cols;j++){
+                                if(!table[i][j]){
+                                    isOK = false;
+                                    break rowsLoop;    
+                                }    
+                            }    
+                        }
+                    }
+                    if(!isOK){
+                        for(var i=0,len=links.length;i<len;i++){
+                            var link = links[i];
+                            var anchor = link.anchor;
+                            link.anchor = null;
+                            anchor.link = null;
+                            if(anchor.parentNode)anchor.parentNode.removeChild(anchor);
+                        }
+                    }else{
+                        for(var i=0,len=links.length;i<len;i++){
+                            var link = links[i];
+                            var anchor = link.anchor;
+                            var x = link.x, y = link.y;
+                            if(this.offsetArray && this.offsetArray.length && this.offsetArray[x] < y){
+                                anchor.style.left = (parseInt(anchor.style.left,10) - (this.blockWidth - this.widthRemainder)) + 'px';
+                            }
+                            if(link.type === 'little' || link.type === 'block1' || link.type === 'block1A'){
+                                var tcParent = anchor.getElementsByTagName('div')[0];
+                                tcParent.style.display = 'block';
+                                var textContainer = tcParent.getElementsByTagName('span')[0];
+                                var origWidth = textContainer.offsetWidth;
+                                
+                                if(origWidth > anchor.offsetWidth*0.8){
+                                    var shrinkedWidth = Math.floor(anchor.offsetWidth*0.8);
+                                    textContainer.style.width = shrinkedWidth;
+                                    
+                                }
+                                textContainer.className = 'mid';
+                                if(tcParent.style.removeProperty){
+                                    tcParent.style.removeProperty('display');
+                                }else{
+                                    tcParent.style.display = '';
+                                }
+                                
+                                if(link.noPic){
+                                    anchor.className += ' no-pic';
+                                    if(link.type === 'block1' || link.type === 'block1A'){
+                                        anchor.className += ' block1-no-pic';
+                                    }else if(link.type === 'little'){
+                                        anchor.className += ' little-no-pic';
+                                    }
+                                }
+
+                                
+                            }
+                            anchor.style.visibility = 'visible';
+
+                        }
+                    }
+                    this.attempted++;
+                    return isOK;
+                },
+                
+                /*绘制广告*/
+                renderAd: function (renderBlock, blockNeedRowNum, blockNeedColNum, currA, options) {
+                    options = options || {};
+                    var thisOptions = {
+                        left: options.left,
+                        top: options.top,
+                        width: options.width,
+                        height: options.height,
+						is_nopic: options.is_nopic || false
+                    };
+                    if(options.hasOwnProperty('bgcolorIndex')){thisOptions.bgcolorIndex = options.bgcolorIndex;}
+                    var link = currA.link;
+                    if(options.little){
+                        var x = options.x;
+                        var y = options.y;
+                        link.x = x;
+                        link.y = y;
+                        return renderBlock(x, y, currA,{
+                            rows: options.rows,
+                            left: options.left,
+                            top: options.top,
+                            width: options.width,
+                            height: options.height    
+                        });
+                    }
+                    if(options.hasOwnProperty('x') && options.hasOwnProperty('y')){
+                        link.x = options.x;
+                        link.y = options.y;
+                        thisOptions.x = options.x;
+                        thisOptions.y = options.y;
+                        return renderBlock(options.x, options.y, currA,thisOptions);
+                    }else{
+                        var positions = new Array(this.rowNum * this.colNum);
+                        for(var i=0,len=positions.length;i<len;i++){
+                            positions[i] = i;    
+                        }
+                        for(var i=0;i<len;i++){
+                            var j = Math.floor(Math.random()*len);
+                            var t = positions[i];
+                            positions[i] = positions[j];
+                            positions[j] = t;
+                        }
+                        for(var i=0;i<len;i++){
+                            var pos = positions[i];
+                            var x = Math.floor(pos/this.colNum);
+                            if(x >= this.rowNum - blockNeedRowNum){
+                                continue;    
+                            }
+                            var y = pos%this.colNum;
+                            if(y >= this.colNum - blockNeedColNum){
+                                continue;    
+                            }
+                            var renderResult = renderBlock(x, y, currA,thisOptions);
+                            if (renderResult){
+                                link.x = x;
+                                link.y = y;
+                                return true;
+                            }
+                        }
+                        
+                        if (i == len/*300*/) {
+                            for (var x = 0; x < this.rowNum - blockNeedRowNum; x++) {
+                                for (var y = 0; y < this.colNum - blockNeedColNum; y++) {
+                                    if (renderBlock(x, y, currA,thisOptions)) {
+                                        link.x = x;
+                                        link.y = y;
+                                        x = this.rowNum;
+                                        return true;
+                                    }
+                                }
+                            }
+                        }
+                        return false;
+                        //console.log(renderBlock === this.renderLittle ,renderBlock === this.renderBlock1 , renderBlock === this.renderBlock2);
+                        if (!this.flag) {
+                            for (var x = 0; x < this.rowNum; x++) {
+                                for (var y = 0; y < this.colNum; y++) {
+                                    if (this.renderBlock3(x, y, currA,thisOptions)) {
+                                        link.x = x;
+                                        link.y = y;
+                                        x = this.rowNum;
+                                        return true;
+                                    }
+                                }
+                            }
+                        }
+                        return false;
+                    }
+                    return false;
+                },
+                renderLittle: function(x,y,currA,options){
+                    options = options || {};
+                    thisPage.blockArr[x] = thisPage.blockArr[x] || [];
+                    thisPage.blockArr[x + 1] = thisPage.blockArr[x + 1] || [];
+                    thisPage.blockArr[x + 2] = thisPage.blockArr[x + 2] || [];
+                    thisPage.blockArr[x + 3] = thisPage.blockArr[x + 3] || [];
+                    thisPage.blockArr[x - 1] = thisPage.blockArr[x - 1] || [];
+                    thisPage.blockArr[x - 2] = thisPage.blockArr[x - 2] || [];
+                    var bgcolorIndex = Math.floor(Math.random() * 2)+3;
+                    if(thisPage.isShort){
+                        var wordCount = Math.ceil(currA.link.title.replace(/[^\x00-\xff]/g, "ci").length / 2);
+                        currA.className = "little little_" + wordCount;
+                        currA.setAttribute('_little','1');
+                        thisPage.addAdStyle(-1,-1,height,1,currA,bgcolorIndex,{
+                            width: options.width,
+                            height: options.height,
+                            top: options.top,
+                            left: options.left
+                        });
+                        return true;
+                    }else{
+                        if (!thisPage.blockArr[x][y] && !thisPage.blockArr[x + 1][y] && x < thisPage.rowNum - 1) { 
+                            var isBig = options.rows === 3;
+                            thisPage.blockArr[x][y] = thisPage.blockArr[x + 1][y] = "little";
+                            if(isBig){
+                                thisPage.blockArr[x + 2][y] = "little";
+                            }
+                            var wordCount = Math.ceil(currA.link.title.replace(/[^\x00-\xff]/g, "ci").length / 2);
+                            currA.className = "little little_" + wordCount;
+                            currA.setAttribute('_little','1');
+                            var height = 2;
+                            if(isBig){height = 3;}
+                            thisPage.addAdStyle(x,y,height,1,currA,bgcolorIndex,{
+                                width: thisPage.widthRemainder
+                            });
+                            thisPage.flag = true;
+                            return true;
+    
+                        }
+                    }
+
+
+                    return false;
+                },
+				renderBlock1A: function (x, y, currA, options) {
+                    var ensureOK = false;
+                    if(options.hasOwnProperty('x') && options.hasOwnProperty('y')){
+                        x = options.x;
+                        y = options.y;   
+                        ensureOK = true; 
+                    }
+                    thisPage.blockArr[x] = thisPage.blockArr[x] || [];
+                    thisPage.blockArr[x + 1] = thisPage.blockArr[x + 1] || [];
+                    thisPage.blockArr[x + 2] = thisPage.blockArr[x + 2] || [];
+                    thisPage.blockArr[x - 1] = thisPage.blockArr[x - 1] || [];
+                    
+                    if(!ensureOK && ((thisPage.blockArr[x-1][y]=="block1A" && thisPage.blockArr[x-1][y+1]=="block1A")
+									||(thisPage.blockArr[x+2][y]=="block1A" && thisPage.blockArr[x+2][y+1]=="block1A")
+									||(thisPage.blockArr[x][y+2]=="block1A" && thisPage.blockArr[x+1][y+2]=="block1A")
+									||(thisPage.blockArr[x][y-1]=="block1A" && thisPage.blockArr[x+1][y-1]=="block1A")
+									||(x>thisPage.rowNum-2)
+									||(y>thisPage.colNum-2))){
+                         return false;
+                    }
+					if (x>thisPage.rowNum-2 || y>thisPage.colNum-2) {
+						return false;
+					}
+                    if (!thisPage.blockArr[x][y] ) {
+                        if (!thisPage.blockArr[x][y] && !thisPage.blockArr[x+1][y] && !thisPage.blockArr[x][y+1]  && !thisPage.blockArr[x+1][y+1]) {
+                            thisPage.blockArr[x][y] = thisPage.blockArr[x+1][y] = thisPage.blockArr[x][y+1] = thisPage.blockArr[x+1][y+1] = "block1A"; 
+                            currA.className = "block1";
+                            thisPage.addAdStyle(x,y,2,2,currA,0); 
+                            thisPage.flag = true;
+                            return true;
+                        }
+                    }
+                    return false;
+                },
+                renderBlock1: function (x, y, currA, options) {
+               
+                    var ensureOK = false;
+                    if(options.hasOwnProperty('x') && options.hasOwnProperty('y')){
+                        x = options.x;
+                        y = options.y;   
+                        ensureOK = true; 
+                    }
+                    thisPage.blockArr[x] = thisPage.blockArr[x] || [];
+                    thisPage.blockArr[x + 1] = thisPage.blockArr[x + 1] || [];
+                    thisPage.blockArr[x + 2] = thisPage.blockArr[x + 2] || [];
+                    thisPage.blockArr[x + 3] = thisPage.blockArr[x + 3] || [];
+					thisPage.blockArr[x + 4] = thisPage.blockArr[x + 4] || [];
+                    thisPage.blockArr[x - 1] = thisPage.blockArr[x - 1] || [];
+                    
+                    if(!ensureOK && ((thisPage.blockArr[x-1][y]=="block1")
+									||(thisPage.blockArr[x+4][y]=="block1")
+									||(thisPage.blockArr[x][y+1]=="block1" && thisPage.blockArr[x+1][y+1]=="block1" && thisPage.blockArr[x+2][y+1]=="block1" && thisPage.blockArr[x+3][y+1]=="block1")
+									||(thisPage.blockArr[x][y-1]=="block1" && thisPage.blockArr[x+1][y-1]=="block1" && thisPage.blockArr[x+2][y-1]=="block1" && thisPage.blockArr[x+3][y-1]=="block1")
+									||(x>thisPage.rowNum-4)
+									||(y>thisPage.colNum-1))){
+                         return false;
+                    }
+                    if (!thisPage.blockArr[x][y] ) {
+                        if (!thisPage.blockArr[x][y] && !thisPage.blockArr[x+1][y] && !thisPage.blockArr[x+2][y]  && !thisPage.blockArr[x+3][y]) {
+                            thisPage.blockArr[x][y] = thisPage.blockArr[x+1][y] = thisPage.blockArr[x+ 2][y ] = thisPage.blockArr[x+ 3][y ] = "block1"; 
+                            currA.className = "block1";
+							if (options.hasOwnProperty('is_nopic') && options.is_nopic == true) {
+								thisPage.addAdStyle(x,y,4,1,currA,0); 
+							} else {
+								thisPage.addAdStyle(x,y,4,1,currA,null); 
+							}
+                            thisPage.flag = true;
+                            return true;
+                        }
+                    }
+                    return false;
+                },
+                renderBlock2: function (x, y, currA, options) {
+                    var ensureOK = false;
+                    if(options.hasOwnProperty('x') && options.hasOwnProperty('y')){
+                        x = options.x;
+                        y = options.y;   
+                        ensureOK = true; 
+                    }
+                    thisPage.blockArr[x] = thisPage.blockArr[x] || [];
+                    thisPage.blockArr[x + 1] = thisPage.blockArr[x + 1] || [];
+                    thisPage.blockArr[x + 2] = thisPage.blockArr[x + 2] || [];
+                    thisPage.blockArr[x - 1] = thisPage.blockArr[x - 1] || [];
+                    if(!ensureOK && ((thisPage.blockArr[x -1][y]=="block2")
+									||(thisPage.blockArr[x+2][y]=="block2")
+									||(thisPage.blockArr[x][y-1]=="block2" && thisPage.blockArr[x+1][y-1]=="block2")
+									||(thisPage.blockArr[x][y+1]=="block2" && thisPage.blockArr[x+1][y+1]=="block2")
+									||(x>thisPage.rowNum-2)
+									||(y>thisPage.colNum-1))){
+                        return false;
+                    }
+                    if (!thisPage.blockArr[x][y] && !thisPage.blockArr[x + 1][y] ) {   
+                        thisPage.blockArr[x][y] = thisPage.blockArr[x + 1][y] = "block2";
+                        var wordCount = Math.ceil(currA.link.title.replace(/[^\x00-\xff]/g, "ci").length / 2);
+                        currA.className = "block2 block2_" + wordCount;
+                        var bgcolorIndex = Math.floor(Math.random() * 2)+1;
+                        thisPage.addAdStyle(x,y,2,1,currA,bgcolorIndex);
+                        thisPage.flag = true;
+                        return true;
+
+                    }
+                    return false;
+                },
+                renderBlock3: function (x, y, currA, options) {
+                    options = options || {};
+                    var bgcolorIndex = options.hasOwnProperty('bgcolorIndex')?options.bgcolorIndex:Math.floor(Math.random() * (Math.floor(thisPage.iteBCA.length/2)-3))+3;
+                    if(thisPage.isShort){
+                        currA.className = "block3";
+                        thisPage.addAdStyle(-1,-1,1,1,currA,bgcolorIndex,{
+                            width: options.width,
+                            height: options.height,
+                            top: options.top,
+                            left: options.left
+                        });
+                        if(options.hasOwnProperty('x') && options.hasOwnProperty('y') && options.x !== -1 && options.y !== -1){
+                            thisPage.blockArr[x][y] = 1;
+                        }
+                        thisPage.flag = true;
+                        return true;
+                    }else{
+                        thisPage.blockArr[x] = thisPage.blockArr[x] || [];
+                        if (!thisPage.blockArr[x][y]) {
+                            thisPage.blockArr[x][y] = 1;
+                            currA.className = "block3";
+                            thisPage.addAdStyle(x,y,1,1,currA,bgcolorIndex);
+                            thisPage.flag = true;
+                            return true;
+                        }
+                    }
+
+                    return false;
+                },
+                addAdStyle:function(x,y,adBlockNeedRowNum,adBlockNeedColNum,currA,bgcolorIndex, options){   
+                    options = options || {};
+                    if(x === -1 && y === -1){
+                        //console.log(currA);
+                        currA.style.top = options.top + 'px';    
+                        currA.style.left = options.left + 'px';    
+                        currA.style.width = options.width + 'px';    
+                        currA.style.height = options.height + 'px';    
+                    }else{
+                        currA.style.top = (thisPage.blockHeight + thisPage.blockBorderWidth) * x + "px";
+                        currA.style.left = (thisPage.blockWidth + thisPage.blockBorderWidth) * y + "px";
+                        currA.style.height = currA.style.lineHeight = thisPage.blockHeight*adBlockNeedRowNum+thisPage.blockBorderWidth*(adBlockNeedRowNum-1) +"px";
+                        var width = options.hasOwnProperty('width')?options.width:thisPage.blockWidth*adBlockNeedColNum+ thisPage.blockBorderWidth*(adBlockNeedColNum-1);
+                        currA.style.width = width + "px";
+                        var link = currA.link;
+                        /*
+                        if((link.type === 'little' || link.type === 'block1') && width < 60){
+                            currA.className += ' narrow';    
+                        }
+                        */
+                    }
+                    var bgcolor = 'transparent';
+                    var hoverColor = 'transparent';
+                    if(bgcolorIndex !== null){
+                        bgcolor = thisPage.iteBCA[bgcolorIndex];
+                        if(currA.link.type !== 'little'){
+                            currA.style.backgroundColor = bgcolor;
+                        }
+                        hoverColor = thisPage.iteBCA[bgcolorIndex+Math.floor(thisPage.iteBCA.length/2)];
+                    }
+                    thisPage.adContainer.appendChild(currA);
+                    if(!this.isShort){
+                        if (x+(adBlockNeedRowNum-1) == (thisPage.rowNum - 1)) {
+                            currA.style.height= currA.style.lineHeight = thisPage.cHeight - (thisPage.blockHeight + thisPage.blockBorderWidth) * x + "px";
+                        }
+                    }
+
+                    
+                    if(!this.shouldInsertLittle){
+                        if (y+(adBlockNeedColNum-1) == (thisPage.colNum - 1)) {
+                            currA.style.width = thisPage.cWidth - (thisPage.blockWidth + thisPage.blockBorderWidth) * y + "px";
+                        } 
+                    }
+                    if(currA.link.type === 'block1'){
+                        var hoverElement = currA.getElementsByTagName('DIV')[0];
+						var maskElement = currA.getElementsByTagName('DIV')[1];
+						if (hoverElement && hoverElement.className === 'hover') {
+							hoverElement.style.backgroundColor = bgcolor;
+						}
+                        var onMouseOver = function(){
+                            currA.style.backgroundColor = hoverColor;
+                            if('zoom' in currA.style){currA.style.zoom = 1;}
+							if (hoverElement && hoverElement.className === 'hover') {
+								hoverElement.style.backgroundColor = hoverColor;
+							}
+                            if(hoverElement && hoverElement.className === 'hover' && (((currA.className.indexOf('block1') === -1) && currA.className.indexOf('little') === -1) ||(currA.className.indexOf('no-pic') != -1))){
+                                hoverElement.style.display = 'block';
+                            }
+                        };
+                        var onMouseOut;
+                        if(currA.link.type !== 'little'){
+                            onMouseOut = function(){
+                                currA.style.backgroundColor = bgcolor;
+								if (hoverElement && hoverElement.className === 'hover') {
+									hoverElement.style.backgroundColor = bgcolor;
+								}
+                                if(hoverElement && hoverElement.className === 'hover' && currA.className.indexOf('no-pic') === -1){
+                                    hoverElement.style.display = 'none';
+                                }
+                            };
+                        }else{
+                            onMouseOut = function(){
+                                currA.style.backgroundColor = 'transparent';
+								if (hoverElement && hoverElement.className === 'hover') {
+									hoverElement.style.backgroundColor = bgcolor;
+								}
+                                if(hoverElement && hoverElement.className === 'hover' && currA.className.indexOf('no-pic') === -1){
+                                    hoverElement.style.display = 'none';
+                                }
+                            };
+                        }
+                        if('onmouseenter' in currA){
+                            currA.onmouseenter=onMouseOver;
+                        }else{
+                            currA.onmouseover=onMouseOver;
+                        }
+                        if('onmouseleave' in currA){
+                            currA.onmouseleave=onMouseOut;
+                        }else{
+                            currA.onmouseout=onMouseOut;
+                        }
+                    }     
+                }
+                
+            }
+            
+            var tests = 1;
+            for(var i=0;i<tests;i++){
+            	thisPage.render();
+            }
+        </script>
+    </body>
+
+</html>

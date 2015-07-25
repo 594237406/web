@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>innerText</title>
+<script type="text/javascript">
+	var div = document.createElement("div");
+
+	div.innerHTML = 'div.innerHTML = "Hello & welcome,_$tag _$t\"reader\"!_$ta";';
+	//以上操作得到的结果：_$tag_____________Hello &amp; welcome, _$t&quot;reader&quot;!_$ta</div>
+	window.onload = function() {
+		document.body.appendChild(div);
+
+		//忽略html标签
+		alert(div.innerText);
+
+		//忽略html标签
+		div.innerText = 'div.innerHTML = "Hello & welcome,_$tag _$t\"reader\"!_$ta";';
+
+		/*设置 innerText 永远只会生成当前节点的一个子文本节点，而为了确保只生成一个子文本节点，
+		就必须要对文本进行HTML 编码。利用这一点，可以通过innerText 属性过滤掉HTML 标签。方法是
+		将innerText 设置为等于innerText，这样就可以去掉所有HTML 标签：*/
+		div.innerText = div.innerText;
+
+	}
+
+	/*
+		这两个函数都接收一个元素作为参数，然后检查这个元素是不是有textContent 属性。如果有，
+		那么typeof element.textContent 应该是"string"；如果没有，那么这两个函数就会改为使用
+		innerText。可以像下面这样调用这两个函数。
+	*/
+	function getInnerText(element) {
+		return (typeof element.textContent == "string") ? element.textContent
+				: element.innerText;
+	}
+	
+	function setInnerText(element, text) {
+		if (typeof element.textContent == "string") {
+			element.textContent = text;
+		} else {
+			element.innerText = text;
+		}
+	}
+
+
+</script>
+</head>
+<body>
+</body>
+</html>

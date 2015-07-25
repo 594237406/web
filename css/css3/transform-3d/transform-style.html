@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>transform-style</title>
+		<style>
+			#div1 {
+				width: 500px;
+				height: 500px;
+				position: absolute;
+				border: 1px solid black;
+				background-color: red;
+				/*顺时针旋转60度，斜边500px,则可视边长,即宽度：x/500=cos60,x=250*/
+				-webkit-transform: rotateY(60deg); /* Safari and Chrome */
+				/*使当前元素带有3D空间，子元素也带有3Ｄ效果，如无此设置，子元素基于最外层元素进行旋转，如果有此设置，子元素基于此元素旋转*/
+				-webkit-transform-style: preserve-3d;
+			}
+			
+			#div2 {
+				width: 300px;
+				height: 200px;
+				position: absolute;
+				border: 1px solid black;
+				background-color: yellow;
+				/*同父元素一起旋转，斜边300px,则可视边长,即宽度：x/300=cos60,x=150*/
+				/*如果不加子元素3D效果，即-webkit-transform-style:flat，则宽度为150，div2基于外层元素body旋转30度，x/150=cos30,x=129.9
+				-webkit-transform: rotateY(30deg);	*/
+				/*如果加上3D效果，即-webkit-transform-style:preserve-3d;则宽度为150，，div2基于外层元素div1旋转10度*/
+				-webkit-transform: rotateY(10deg);
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="div1">
+			<div id="div2"></div>
+		</div>
+	</body>
+</html>
+
+

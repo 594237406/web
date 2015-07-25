@@ -1,0 +1,15 @@
+http://m.nuomi.com/s.gif?client_type=WAP_SMART&s=null&channel=zhifang_index%7C%7Ct_click_wap%3Fs%3Df57d9336cc571e0aab672f77c0c2cef4&channel_content=null&target_city=100010000&baiduid=7409BA2247D364907D78D85560DAB03E&user_cookie=91eaac454006aef0eb213fd50992b7fd&sid=1_15_20_28&access_time=1426819368127&href=%2Fwebapp%2Fuser%2Flogin%3FbackUrl%3D%252Fbj%252Fdeal%252Fkiuv02wk%253Fs%253Da50a8ba9d6c9ca0869daf716973ae2c6&action=click&element_type=nav&da_src={%22page%22:%22detail_local%22,%22area%22:%22login%22,%22element%22:%22login%22}
+
+client_type:WAP_SMART
+s:null
+channel:zhifang_index||t_click_wap?s=f57d9336cc571e0aab672f77c0c2cef4
+channel_content:null
+target_city:100010000
+baiduid:7409BA2247D364907D78D85560DAB03E
+user_cookie:91eaac454006aef0eb213fd50992b7fd
+sid:1_15_20_28
+access_time:1426819368127
+href:/webapp/user/login?backUrl=%2Fbj%2Fdeal%2Fkiuv02wk%3Fs%3Da50a8ba9d6c9ca0869daf716973ae2c6
+action:click
+element_type:nav
+da_src:{"page":"detail_local","area":"login","element":"login"}

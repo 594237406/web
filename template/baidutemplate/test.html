@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>test</title>
+
+    <!-- 引入baiduTemplate -->
+    <script type="text/javascript" src="baiduTemplate.js"></script>
+    <script>
+        window["mid_page_param"] ={
+            "sub_title":"揭秘李晨如何拿下范冰冰，盘点两人秀恩爱照揭秘李晨如何拿下范冰冰，盘点两人秀恩爱照揭秘李晨如何拿下范冰冰，盘点两人秀恩爱照",     //替换成$subject_title$，下同
+            "sub_desc":"揭秘李晨如何拿下范冰冰，盘点两人秀恩爱照揭秘李晨如何拿下范冰冰，盘点两人秀恩爱照揭秘李晨如何拿下范冰冰，盘点两人秀恩爱照揭秘李晨如何拿下范冰冰，盘点两人秀恩爱照揭秘李晨如何拿下范冰冰，盘点两人秀恩爱照揭秘李晨如何拿下范冰冰，盘点两人秀恩爱照,盘点两人秀恩爱照盘点两人秀恩爱照盘点两人秀恩爱照盘点两人秀恩爱照",
+            "sub_image":"1.png",
+            "sub_url":"http://www.baidu.com"
+        }
+
+
+    </script>
+</head>
+<body>
+<div id='ad'></div>
+
+<!-- 模板1开始，可以使用script（type设置为text/html）来存放模板片段，并且用id标示 -->
+<script id="adTemplate" type="text/html">
+    <%
+        //sub_title=sub_title.replace("范冰冰","<span style='color:red;'>范冰冰</span>") ;
+    %>
+
+    <div>
+        <div class="sub_title">
+            <a href="<%=sub_url%>" target="_blank"><%=sub_title.length>29?sub_title.substr(0,29)+"...":sub_title%></a>
+        </div>
+        <div class="sub_content">
+            <img class="sub_image" src="<%=sub_image%>"><%=sub_desc.length>129?sub_desc.substr(0,129)+"...":sub_desc%>
+        </div>
+    </div>
+    <style>
+        #ad{width: 642px;height: 172px;padding: 13px;border: 2px solid #ddd;}
+        .sub_title{margin-bottom: 12px;margin-top: 16px;}
+        .sub_content{height: 98px;overflow: hidden;line-height: 20px;}
+        .sub_content .sub_image{height: 98px;width: 146px;border: 0;margin-right: 10px;
+            vertical-align: text-top;float: left;}
+     </style>
+</script>
+<!-- 模板1结束 -->
+
+<!-- 使用模板 -->
+<script type="text/javascript">
+    var bt=baidu.template;
+    var a=1;
+    //最简使用方法
+    var html=bt('adTemplate',window["mid_page_param"]);
+    //渲染
+    document.getElementById('ad').innerHTML=html;
+</script>
+
+</body>
+</html>

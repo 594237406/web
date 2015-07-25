@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<title>noop</title>
+<script src="underscore.js"></script>
+</head>
+<body>
+<div id="div1" name="div1"></div>
+</body>
+<script>
+	/*
+		_.noop()
+        Returns undefined irrespective of the arguments passed to it.
+        Useful as the default for optional callback arguments.
+	*/
+	
+	var obj=new Object();
+
+	obj.initialize = _.noop;
+	alert(obj.initialize);
+</script>
+
+</html>

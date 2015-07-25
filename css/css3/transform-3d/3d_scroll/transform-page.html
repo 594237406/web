@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>transform-style</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<style>
+			body ul{margin:0;padding:0;}
+			.wrap{margin:50px auto;-webkit-perspective: 500px;width: 400px;height:200px;}
+            .picList{width: 100%;height: 100%;-webkit-perspective:1800px;}
+            li{list-style: none;overflow: hidden;background: #fff;}
+            .picList li{position: absolute;transition: all 2.5s;-webkit-animation-fill-mode: forwards;width: 400px;height: 200px;border: 1px solid black;border-radius:5px;}
+            .picList li:nth-of-type(1){-webkit-transform-origin: left;}
+            .btns{float: right;}
+			.btns li{width: 30px;height: 30px; border-radius: 50%;background: #000;color: white;
+			text-align: center;margin: 5px 10px; float: left;font: italic 20px/30px bold;}
+            
+            .btns .active{background: #f60;}
+            
+            body:hover li:nth-of-type(1){-webkit-transform:rotateY(-180deg);}
+            
+            /*
+            @-webkit-keyframes prep{			
+				0%{		
+                    -webkit-transform:rotateY(0deg);
+				}
+				100%{				
+					-webkit-transform:rotateY(-180deg);
+				}
+			}
+            
+            @-webkit-keyframes next{			
+				0%{		
+                    -webkit-transform:rotateY(-180deg);
+				}
+				100%{				
+					-webkit-transform:rotateY(-0deg);
+				}
+			}
+			
+			.next{-webkit-animation:1s next;}
+			.prep{-webkit-animation:1s prep;}
+			*/
+		</style>
+        <script>
+            window.onload=function(){
+                /*
+                var btns=document.querySelectorAll(".btns li");
+                var picList=document.querySelectorAll(".picList li");
+
+                
+				var iNow=0;
+
+				var leftZindex=0;
+				var rightZindex=0;
+				var iZindex=0;
+
+				
+
+				for(var i=0;i<btns.length;i++){
+					btns[i].index=i;
+					btns[i].onclick=function(index){
+						if(iNow<this.index){
+							picList[this.index-1].className="prep";
+							
+						}else{
+							picList[this.index].className="next";
+						}
+						iNow=this.index;
+					};
+				}
+				*/
+            }
+        
+        </script>
+	</head>
+
+	<body>
+		<div class="wrap">
+			<ul class="picList">
+            	<li>1</li>
+           		<li>3</li>
+<!--            	<li>4</li>-->
+<!--            	<li>5</li>-->
+                <span></span>
+                <span></span>
+            </ul>
+            <ul class="btns">
+                <li class="active">1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+            </ul>
+		</div>
+	</body>
+</html>
+
+

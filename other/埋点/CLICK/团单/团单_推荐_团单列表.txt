@@ -1,0 +1,17 @@
+http://m.nuomi.com/s.gif?client_type=WAP_SMART&s=null&channel=zhifang_index%7C%7Ct_click_wap%3Fs%3Df57d9336cc571e0aab672f77c0c2cef4&channel_content=null&target_city=100010000&baiduid=7409BA2247D364907D78D85560DAB03E&user_cookie=91eaac454006aef0eb213fd50992b7fd&sid=1_15_20_28&page_index=2&access_time=1426824002618&href=%2Fbj%2Fdeal%2Frecgviyk&action=click&element_type=nav&deal_id=1197294&da_src={%22page%22:%22detail_local%22,%22area%22:%22buyRecom%22,%22element%22:%22recgviyk%22,%22position%22:%221%22,%22s%22:%22f57d9336cc571e0aab672f77c0c2cef4%22}
+
+client_type:WAP_SMART
+s:null
+channel:zhifang_index||t_click_wap?s=f57d9336cc571e0aab672f77c0c2cef4
+channel_content:null
+target_city:100010000
+baiduid:7409BA2247D364907D78D85560DAB03E
+user_cookie:91eaac454006aef0eb213fd50992b7fd
+sid:1_15_20_28
+page_index:2
+access_time:1426824002618
+href:/bj/deal/recgviyk
+action:click
+element_type:nav
+deal_id:1197294
+da_src:{"page":"detail_local","area":"buyRecom","element":"recgviyk","position":"1","s":"f57d9336cc571e0aab672f77c0c2cef4"}

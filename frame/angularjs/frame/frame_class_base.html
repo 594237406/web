@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>frame_class_base</title>
+<script type="text/javascript">
+	var Class = (function() {
+		var _mix = function(r, s) {
+			for ( var p in s) {
+				if (s.hasOwnProperty(p)) {
+					r[p] = s[p]
+				}
+			}
+		}
+
+		var _extend = function() {
+
+			//开关 用来使生成原型时,不调用真正的构成流程init
+			this.initPrototype = true;
+			var prototype = new this();
+			this.initPrototype = false;
+
+			var items = Array.prototype.slice.call(arguments) || []
+			var item;
+
+			//支持混入多个属性，并且支持{}也支持 Function
+			while (item = items.shift()) {
+				_mix(prototype, item.prototype || item)
+			}
+
+			// 这边是返回的类，其实就是我们返回的子类
+			function SubClass() {
+				if (!SubClass.initPrototype && this.init)
+					this.init.apply(this, arguments);//调用init真正的构造函数
+			}
+
+			// 赋值原型链，完成继承
+			SubClass.prototype = prototype;
+
+			// 改变constructor引用
+			SubClass.prototype.constructor = SubClass;
+
+			// 为子类也添加extend方法
+			SubClass.extend = _extend;
+
+			return SubClass;
+		}
+		//超级父类
+		var Class = function() {}
+		//为超级父类添加extend方法
+		Class.extend = _extend
+		return Class;
+	})();
+
+	var Util = {
+		_bind : function(dom, eventType, handler) {
+			dom.addEventListener(eventType, handler, false);
+		},
+		_getTextNum : function(dom) {
+			var value = dom.value;
+			return value.length + " count";
+		}
+	}
+
+	var Base = Class.extend( {
+		init : function(config) {
+			//自动保存配置项
+			this.config = config;
+			this.addEvent();
+			this.render();
+		},
+		//可以使用get来获取配置项
+		get : function(key) {
+			return this.config[key];
+		},
+		//可以使用set来设置配置项
+		set : function(key, value) {
+			this.config[key] = value;
+		},
+		addEvent : function() {},
+		render : function() {},
+		//定义销毁的方法，一些收尾工作都应该在这里
+		destroy : function() {}
+	});
+
+	var Text = Base.extend( {
+
+		addEvent : function() {
+			var _this = this;
+			Util._bind(this.get("input"), "keyup", function() {
+				_this.render();
+			});
+			return this;
+		},
+
+		render : function() {
+			var num = this.get("num");
+			if (!num) {
+				num = document.createElement("span");
+				this.get("input").parentNode.appendChild(num);
+				this.set("num", num);
+			}
+			num.innerHTML = Util._getTextNum(this.get("input"));
+			return this;
+		}
+	})
+
+	window.onload = function() {
+		var text = new Text( {
+			input:document.getElementById("J_text");
+		});
+		text.addEvent();
+	}
+</script>
+</head>
+<body>
+<input id="J_text">
+</body>
+</html>

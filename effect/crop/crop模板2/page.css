@@ -1,0 +1,140 @@
+@charset "utf-8";
+/* 
+ * CSS Document:
+ */
+
+body,p,h1{
+	 margin: 0;
+	 padding: 0;
+	 font-size:12px;font-family:arial,'宋体',\5b8b\4f53,sans-serif;s
+}
+h1,h2,h2,h3,h4,h5,h6{
+	 font-weight: normal;
+}
+body *{font-size: 100%;}
+
+img{
+	border: 0;
+	display: inline;
+}
+ul,li{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+a{
+	 text-decoration: none;
+	 color: #8C8C8C;
+}
+.clear{
+	zoom: 1;
+}
+.clear:after{
+	 content: "";
+	 display: block;
+	 clear: both;
+}
+.g-ad{
+	margin: 100px auto;
+	/* width:800px;*/
+	 height: 140px;
+	 background: #fff;
+	 border-radius: 10px;
+	 border: 1px solid #919191;
+	 overflow: hidden;
+}
+.g-ad .m-tt{
+	 float: left;
+	 width:19px;
+	 border-right: 1px solid #919191;
+	 background: #f4f4f4;
+	 text-align: center;
+}
+.m-tt h1{
+	  width:19px;
+	  height: 140px;
+	  padding: 5px 0 0 0;
+	  color: #8c8c8c; 
+}
+.m-tt .Fff7f00{
+	 color: #ff7f00;
+}
+.g-ad .m-list1{
+	
+	height: 140px;
+	 float: left;
+	 background: #f1f1f1;
+}
+.m-list1 .list1-tt{
+	width: 58px;
+	height: 140px;
+	 float: left;
+	 background: #f1f1f1;
+	
+}
+
+.m-list1 .list1-tt a{
+	width: 100%;
+	height: 24px;
+	line-height: 24px;
+	display: block;
+	border-bottom: 1px solid #8C8C8C;
+	text-align: center;
+	color: #000;
+}
+
+.m-list1 .list1-tt a:last-child{
+	border-bottom: none;
+}
+.g-ad .m-sd1{
+	float: left;
+	padding-top: 10px;
+	width: 165px;
+	padding: 0 2px;
+	background: #ededed;
+}
+.m-sd1 .sd1-pic{
+	position: relative;
+	
+}
+.m-sd1 .sd1-pic a{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	display: block;
+	width: 100%;
+	height: 20px;
+	line-height: 20px;
+	background: #fff;
+	color: #000;
+	text-align: center;
+	opacity: .5;
+}
+
+.m-sd1 .sd1-list1 span{
+	 padding: 0 4px;
+	 float: left;
+	 width: 44%;
+	height: 20px;
+	line-height: 20px;
+}
+.m-sd1 .sd1-list1 a{
+	width: 100%;
+	height: 20px;
+	line-height: 20px;
+	border: 1px solid #8C8C8C;
+	border-radius: 5px;
+	background: #FFFFFF;
+	text-align: center;
+	float: left;
+	 
+}
+.m-sd1 .sd1-list1 a:hover{
+	 text-decoration: underline;
+	 background: #0066FF;
+	 color: #FFFFFF;
+}
+.m-list1 .ist1-txt1{
+	 width: 298px;
+}
+			

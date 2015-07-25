@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>transform-3d</title>
+		<style>
+			.wrap{height:100px;width:100px;padding:50px;margin:30px auto;
+				border:5px solid black;
+				/*3D环境*/
+				-webkit-transform-style:preserve-3d;
+				/*景深：100像素，图像位于我们100像素的3D环境中*/
+				-webkit-perspective:100px;
+			}
+			
+			.box{height:100px;width:100px;transition:all .5s;background:red;}
+			
+			.wrap:hover .box{-webkit-transform:translateZ(-100px) rotateY(180deg) rotateX(180deg);
+		
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="box">11</div>
+		</div>
+	</body>
+</html>

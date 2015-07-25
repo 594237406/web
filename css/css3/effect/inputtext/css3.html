@@ -1,0 +1,109 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="css3.css">
+	</head>
+	
+	<body>
+		<div class="masthead segment">
+			<div class="ui page grid">
+				<div class="column">
+					<div class="introduction">
+						<a class="ui black version label transition visible"
+							href="https://github.com/Semantic-Org/Semantic-UI/blob/master/RELEASE-NOTES.md"
+							style=""> 1.12.2 </a>
+						<h1 class="ui inverted header">
+							<span class="library transition visible" style=""> Semantic UI </span> 
+							<b data-text="User Interface" class="transText"></b> 
+							<span class="typed-cursor">|</span> <span class="text">is the language of the web.</span>
+						</h1>
+						<div class="ui hidden divider"></div>
+						<a href="https://github.com/Semantic-Org/Semantic-UI/archive/1.12.2.zip"
+							class="ui huge basic inverted teal download button"> Download Now </a>
+					</div>
+				</div>
+				<div class="head"></div>
+			</div>
+		</div>
+	</body>
+	
+	<script>
+		window.onload=function(){
+			var wrap=document.querySelector(".masthead");
+			wrap.className+=" masthead_init";
+	
+			setTimeout(function(){
+				var title=document.querySelector(".library");
+				title.className+=" title_init";
+	
+				title.addEventListener('transitionend',titleEnd,false);
+			
+				
+			},3000);
+	
+			var transText=document.querySelector(".transText");
+			var at="User Interface";
+			transText.innerHTML="HTML";
+	
+			var t=null,step=300;
+			t=setInterval(function(ev){
+				var ot=transText.innerHTML;
+				transText.innerHTML=ot.substr(0,ot.length-1);
+				if(!transText.innerHTML){
+					clearInterval(t);
+					var i=0;
+					t=setInterval(function(ev){
+						transText.innerHTML+=at.charAt(i++);
+						if(i==at.length){
+							clearInterval(t);
+						}
+					},step);
+				} 
+			},step);
+	
+			var typedCursor=document.querySelector(".typed-cursor");
+			typedCursor.style.position="relative";
+			typedCursor.style.left="-15px";
+			
+			var flag=true;
+			setInterval(function(ev){
+				if(flag){
+					flag=false;
+					typedCursor.style.opacity="0";
+					return ;
+				}
+				if(!flag){
+					flag=true;
+					typedCursor.style.opacity="1";
+					return ;
+				}
+			},step*2.2);
+	
+			
+	
+		    document.addEventListener('DOMMouseScroll',scrollFunc,false);
+			window.onmousewheel=document.onmousewheel=scrollFunc;
+		}
+	
+		function titleEnd(){
+			var version=document.querySelector(".version");
+			version.className+=" version_init";
+		}
+	
+		function scrollFunc(ev){
+			var head=document.querySelector(".head");
+			var scrollTop=getScrollTop();
+			if(scrollTop){
+				head.className="head scroll_head";
+			}else{
+				head.className=head.className.replace(" scroll_head","");
+				
+			}
+		}
+
+		function getScrollTop(){
+		    return window.scrollY;
+		}
+	</script>
+</html>
+

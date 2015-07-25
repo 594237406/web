@@ -1,0 +1,15 @@
+http://m.nuomi.com/s.gif?client_type=WAP_SMART&s=null&channel=zhifang_index%7C%7C&channel_content=null&target_city=100010000&baiduid=A8B4CFAA7EF75ACB59C9C7A8C245195C&user_cookie=42edd93e0d262ff92906c421f7950d24&sid=2_8_15_19_27&access_time=1426673115035&href=http%3A%2F%2Fhuodong.static.nuomi.com%2Fzt%2Feveryday%2Fw.html%3Fchannel%3Ddijia_tlbanner_wap&action=click&element_type=nav&da_src={%22page%22:%22index%22,%22area%22:%22topBanner%22,%22element%22:%22http://huodong.static.nuomi.com/zt/everyday/w.html?channel%22}
+
+client_type:WAP_SMART
+s:null
+channel:zhifang_index||
+channel_content:null
+target_city:100010000
+baiduid:A8B4CFAA7EF75ACB59C9C7A8C245195C
+user_cookie:42edd93e0d262ff92906c421f7950d24
+sid:2_8_15_19_27
+access_time:1426673115035
+href:http://huodong.static.nuomi.com/zt/everyday/w.html?channel=dijia_tlbanner_wap
+action:click
+element_type:nav
+da_src:{"page":"index","area":"topBanner","element":"http://huodong.static.nuomi.com/zt/everyday/w.html?channel"}

@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html ng-app>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>mvvm</title>
+<script type="text/javascript" src="../angular-min.js"></script>
+<script type="text/javascript" src="../jquery-1.10.2.min.js"></script>
+
+<script>
+
+	function Test($scope,$rootScope,$timeout){
+		$scope.name="lhj";
+
+		//方法1
+		/*
+		setTimeout(function(){
+			$scope.$apply(function(){
+				$scope.name="zy";
+			})
+		},1000);
+		*/
+
+		$timeout(function(){
+			$scope.$apply(function(){
+				$scope.name="zy";
+			})
+		},1000);
+
+		$scope.show=function(ev){
+			//alert(this)
+		}
+	}
+</script>
+</head>
+<body>
+	<div ng-controller="Test" ng-click="show()">
+		<input ng-model="name" />
+		{{name}}
+	</div>
+</body>
+</html>

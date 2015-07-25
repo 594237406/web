@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>panel</title>
+<style type="text/css">
+	#container{width:300px;height:200px;background: #eee;}
+</style>
+<script type="text/javascript" src="util.js"></script>
+<script type="text/javascript" src="class.js"></script>
+<script type="text/javascript" src="event.js"></script>
+<script type="text/javascript" src="enum.js"></script>
+<script type="text/javascript" src="base.js"></script>
+<script type="text/javascript" src="panel.js"></script>
+<script type="text/javascript">
+	window.onload=function(){
+		var config={
+			container:"#container"
+		}
+		
+		var panel=new Panel(config);
+	}
+</script>
+</head>
+<body>
+	<div id="container"></div>
+</body>
+</html>

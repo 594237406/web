@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>elementNode</title>
+
+</head>
+<body>
+<ul class="page1">
+	<li>1</li>
+	<li>2</li>
+	<li>3</li>
+	<li>4</li>
+</ul>
+</body>
+
+<script type="text/javascript">
+	var element=document.querySelector("ul");
+
+	//老版本
+	var i, len, child = element.firstChild;
+	while (child != element.lastChild) {
+		if (child.nodeType == 1) { //检查是不是元素
+			processChild(child);
+		}
+		child = child.nextSibling;
+	}
+
+	function processChild(element){
+		element.style.background="red";
+	}
+
+
+	//新版本
+	var i, len, child = element.firstElementChild;
+	while (child != element.lastElementChild) {
+		processChild(child); //已知其是元素
+		child = child.nextElementSibling;
+	}
+</script>
+</html>

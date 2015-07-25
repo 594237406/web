@@ -1,0 +1,16 @@
+CDATASection类型
+CDATASection 类型只针对基于XML 的文档，表示的是CDATA 区域。与Comment 类似，
+CDATASection 类型继承自Text 类型，因此拥有除splitText()之外的所有字符串操作方法。
+CDATASection 节点具有下列特征：
+ nodeType 的值为4；
+ nodeName 的值为"#cdata-section"；
+ nodeValue 的值是CDATA 区域中的内容；
+ parentNode 可能是Document 或Element；
+ 不支持（没有）子节点。
+CDATA 区域只会出现在XML 文档中，因此多数浏览器都会把CDATA 区域错误地解析为Comment
+或Element。以下面的代码为例：
+<div id="myDiv"><![CDATA[This is some content.]]></div>
+这个例子中的<div>元素应该包含一个CDATASection 节点。可是，四大主流浏览器无一能够这样
+解析它。即使对于有效的XHTML 页面，浏览器也没有正确地支持嵌入的CDATA 区域。
+在真正的 XML 文档中，可以使用document.createCDataSection()来创建CDATA 区域，只需
+为其传入节点的内容即可。

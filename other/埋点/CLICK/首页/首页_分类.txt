@@ -1,0 +1,17 @@
+http://m.nuomi.com/s.gif?client_type=WAP_SMART&s=null&channel=dijia_tlbanner_wap%7C%7C&channel_content=&target_city=100010000&baiduid=7409BA2247D364907D78D85560DAB03E&user_cookie=91eaac454006aef0eb213fd50992b7fd&sid=1_15_20_28&access_time=1426681498093&href=%2Fbj%2F326%2F0-0%2F0-0-0-0-0&action=click&element_type=nav&da_src={%22page%22:%22index%22,%22area%22:%22class%22,%22element%22:%22class%22,%22position%22:%221%22,%22content%22:%22%E7%BE%8E%E9%A3%9F%22}
+
+client_type:WAP_SMART
+s:null
+channel:dijia_tlbanner_wap||
+channel_content:
+target_city:100010000
+baiduid:7409BA2247D364907D78D85560DAB03E
+user_cookie:91eaac454006aef0eb213fd50992b7fd
+sid:1_15_20_28
+access_time:1426681498093
+href:/bj/326/0-0/0-0-0-0-0
+action:click
+element_type:nav
+da_src:{"page":"index","area":"class","element":"class","position":"1","content":"美食"}
+
+其他的position变成别的值

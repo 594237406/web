@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>appendChild</title>
+		<script>
+			window.onload=function(){
+				var wrap=document.querySelector(".wrap");
+				var child=document.querySelectorAll(".child");
+		
+				var child2=document.createElement("div");
+
+				//如果插入元素已经存在，则把存在元素插到父节点最后
+				var returnNode=wrap.appendChild(child[0]);
+
+				alert(returnNode==wrap.children[wrap.children.length-1]);
+			}
+		</script>
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="child" id="c1">1</div>
+			<div class="child" id="c2">2</div>
+		</div>
+	</body>
+</html>
