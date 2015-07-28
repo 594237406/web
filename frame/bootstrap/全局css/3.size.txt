@@ -1,0 +1,9 @@
+	        超小屏幕 手机 (<768px)	小屏幕 平板 (≥768px)	    中等屏幕桌面显示器 (≥992px)	 大屏幕大桌面显示器 (≥1200px)
+.container  最大宽度	None （自动）	750px	                970px	                      1170px
+类前缀	      .col-xs-	              .col-sm-	              .col-md-	                  .col-lg-
+列（column）数	12
+最大列（column）宽	自动              	~62px	                 ~81px	                  ~97px
+内距（padding）宽	  30px （每列左右均有 15px）
+可嵌套	          是
+偏移（Offsets）	  是
+列排序	          是
