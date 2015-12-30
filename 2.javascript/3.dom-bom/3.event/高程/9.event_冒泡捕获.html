@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<button id="myBtn">test</button>
+</body>
+
+<script>
+//    当单击这个例子中的按钮时，首先执行的事件处理程序是在捕获阶段触发的添加到document.body
+//    中的那一个，结果会弹出一个警告框显示表示eventPhase 的1。接着，会触发在按钮上注册的事件处
+//    理程序，此时的eventPhase 值为2。最后一个被触发的事件处理程序，是在冒泡阶段执行的添加到
+//    document.body 上的那一个，显示eventPhase 的值为3。而当eventPhase 等于2 时，this、target
+//    和currentTarget 始终都是相等的。
+
+//    只有在事件处理程序执行期间，event 对象才会存在；一旦事件处理程序执行完
+//    成，event 对象就会被销毁
+    var btn = document.getElementById("myBtn");
+    btn.onclick = function(event){
+        alert(event.eventPhase); //2
+    };
+    document.body.addEventListener("click", function(event){
+        alert(event.eventPhase); //1
+    }, true);
+    document.body.onclick = function(event){
+        alert(event.eventPhase); //3
+    };
+</script>
+</html>

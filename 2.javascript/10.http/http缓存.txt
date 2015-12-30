@@ -1,0 +1,89 @@
+　　流程
+　　当资源第一次被访问的时候，HTTP头部如下
+(Request-Line)  GET /a.html HTTP/1.1
+Host    127.0.0.1
+User-Agent  Mozilla/5.0 (X11; U; Linux i686; zh-CN; rv:1.9.0.15) Gecko/2009102815 Ubuntu/9.04 (jaunty) Firefox/3.0.15
+Accept              text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language     zh-cn,zh;q=0.5
+Accept-Encoding     gzip,deflate
+Accept-Charset      gb2312,utf-8;q=0.7,;q=0.7
+Keep-Alive          300
+Connection          keep-alive
+HTTP返回头部如下
+(Status-Line)       HTTP/1.1 200 OK
+Date                Thu, 26 Nov 2009 13:50:54 GMT
+Server              Apache/2.2.11 (Unix) PHP/5.2.9
+Last-Modified       Thu, 26 Nov 2009 13:50:19 GMT
+Etag                "8fb8b-14-4794674acdcc0"
+Accept-Ranges       bytes
+Content-Length      20
+Keep-Alive          timeout=5, max=100
+Connection          Keep-Alive
+Content-Type        text/html
+当资源第一次被访问的时候，http返回200的状态码，并在头部携带上当前资源的一些描述信息，如
+Last-Modified      // 指示最后修改的时间
+Etag                // 指示资源的状态唯一标识
+Expires             // 指示资源在浏览器缓存中的过期时间
+　　接着浏览器会将文件缓存到Cache目录下，并同时保存文件的上述信息
+　　当第二次请求该文件时，浏览器会先检查Cache目录下是否含有该文件，如果有，并且还没到Expires设置的时间，即文件还没有过期，那么此时浏览器将直接从Cache目录中读取文件，而不再发送请求
+　　如果文件此时已经过期，则浏览器会发送一次HTTP请求到WebServer，并在头部携带上当前文件的如下信息
+If-Modified-Since   Thu, 26 Nov 2009 13:50:19 GMT
+If-None-Match       "8fb8b-14-4794674acdcc0"
+　　即把上一次修改的时间，以及上一次请求返回的Etag值一起发送给服务器。服务器在接收到这个请求的时候，先解析Header里头的信息，然后校验该头部信息。
+　　如果该文件从上次时间到现在都没有过修改或者Etag信息没有变化，则服务端将直接返回一个304的状态，而不再返回文件资源，状态头部如下
+(Status-Line)       HTTP/1.1 304 Not Modified
+Date                Thu, 26 Nov 2009 14:09:07 GMT
+Server              Apache/2.2.11 (Unix) PHP/5.2.9
+Connection          Keep-Alive
+Keep-Alive          timeout=5, max=100
+Etag                "8fb8b-14-4794674acdcc0"
+　　这样，就能够很大程度上减少网络带宽以及提升用户的浏览器体验。
+　　当然，如果服务器经过匹配发现文件修改过了，就会将文件资源返回，并带上新文件状态信息。
+　　基本字段
+　　Pragma
+　　Pragma头域用来包含实现特定的指令，最常用的是Pragma:no-cache。在HTTP/1.1协议中，它的含义和Cache- Control:no-cache相同。
+　　Expires
+　　文件在本地缓存的过期时间，如果浏览器发现缓存中的文件没有过期，则不发送请求（有例外，后面介绍）
+　　Cache-Control
+　　Cache -Control指定请求和响应遵循的缓存机制。
+　　在请求消息或响应消息中设置 Cache-Control并不会修改另一个消息处理过程中的缓存处理过程。请求时的缓存指令包括
+no-cache、no-store、max-age、 max-stale、min-fresh、only-if-cached
+响应消息中的指令包括
+public、private、no-cache、no- store、no-transform、must-revalidate、proxy-revalidate、max-age
+　　各个消息中的指令含义如下：
+Public指示响应可被任何缓存区缓存。
+Private指示对于单个用户的整个或部分响应消息，不能被共享缓存处理。这允许服务器仅仅描述当用户的部分响应消息，此响应消息对于其他用户的请求无效。
+no-cache指示请求或响应消息不能缓存
+no-store用于防止重要的信息被无意的发布。在请求消息中发送将使得请求和响应消息都不使用缓存。
+max-age指示客户机可以接收生存期不大于指定时间（以秒为单位）的响应。
+min-fresh指示客户机可以接收响应时间小于当前时间加上指定时间的响应。
+max-stale指示客户机可以接收超出超时期间的响应消息。如果指定max-stale消息的值，那么客户机可以接收超出超时期指定值之内的响应消息。
+　　Etag/If-None-Match
+　　一对验证文件实体的标记“Entity Tag”的响应/请求头Apache中，ETag的值，默认是对文件的索引节（INode），大小（Size）和最后修改时间（MTime）进行Hash后得到的
+　　Last-Modified/If-Modified-Since
+　　一对验证文件的修改时间的响应/请求头
+　　Expires、Cache-Control、Last-Modified、ETag是RFC 2616（HTTP/1.1）协议中和网页缓存相关的几个字段。
+　　前两个用来控制缓存的失效日期，浏览器可通过它来判定，需不需要发出HTTP请求；
+　　后两个用来验证网页的有效性，服务器端利用它来验证这个文件是否需要重新返回
+　　Last-Modified VS Etag
+　　既然有了Last-Modified，为什么还要用ETag字段呢？因为如果在一秒钟之内对一个文件进行两次更改，Last-Modified就会不正确。因此，HTTP/1.1利用Entity Tag头提供了更加严格的验证。
+　　不同的情况
+　　上面描述的是一个普通的浏览器缓存状态，在实际应用中，如页面跳转（点击页面链接跳转，window.open，在地址栏敲回车，刷新页面）等操作，会有一些区别
+　　普通页面跳转
+　　普通页面跳转包括链接点击跳转，用js脚本打开新页面（window.open）
+　　无缓存情况下，请求会返回所有资源结果
+　　设置Expires并且未过期时，浏览器将不会发出http请求
+　　如果Expires过期，则会发送相应请求，并附带上Last-Modifed等信息，供服务器校验
+　　页面刷新(F5)
+　　这种情况一下，一般会看到很多304的请求，就是说即便资源设置了Expires且未过期，浏览器也会发送相应请求
+　　IE和FF稍有区别
+　　IE:
+If-Modified-Since   Wed, 18 Nov 2009 15:54:52 GMT
+If-None-Match   "2360492659"
+Pragma: no-cache    // 禁止缓存
+　　FF:
+If-Modified-Since   Wed, 18 Nov 2009 15:54:52 GMT
+If-None-Match   "2360492659"
+Cache-Control   max-age=0   // 文件立即过期
+　　强制刷新(Ctrl+F5)
+　　效果和无缓存时候一致，返回200的结果

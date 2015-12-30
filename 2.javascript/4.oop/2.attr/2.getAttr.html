@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>getset</title>
+		<script type="text/javascript">
+			function Field(val){  
+				//调用了set方法
+			    this.value = val;  
+			} 
+			Field.prototype = {  
+				name:1,
+				age:2
+			};
+			
+			var field=new Field(1);
+			
+			
+			alert(Object.keys(field));	                //实例属性
+			alert(Object.keys(Field.prototype));		//原型属性
+			alert(Object.getOwnPropertyNames(Field.prototype));	//原型属性（包括不可枚举）
+		</script>
+	</head>
+	<body>
+	
+	</body>
+</html>

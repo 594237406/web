@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>prototype-json</title>
+		<script>
+			//原型的简单写法
+			function Person(){}
+			
+			Person.prototype={
+				//填写属性
+				//constructor:Person,
+				a:1,
+				b:2,
+				show:function(){}
+			};
+			var a=new Person();
+			alert(a.constructor);	//会弹出object，因为把原型赋值了Object对象，需要修改 constructor
+			alert(a.a);
+			alert(a.b);
+			alert(a.show);
+			
+			//原生的类constructor不可枚举，需要
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

@@ -1,0 +1,4 @@
+div{width: 100px;height: 50px;float: left;}
+#img1{background: url("./img/1.png?__sprite");}
+#img2{background: url("./img/2.png?__sprite");}
+#img3{background: url("./img/3.png?__sprite");}

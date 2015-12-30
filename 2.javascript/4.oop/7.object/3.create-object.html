@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>object-create</title>
+<script type="text/javascript">
+	//ECMA使用最广泛，认同度最高的自建类型的方法：构造函数与原型模式混合
+	function createPerson(name,sex){
+		//系统自动完成
+		//var this=new Object();
+		
+		this.name=name;
+		this.sex=sex;
+		
+		//系统自动完成
+		//return this;
+	}
+	createPerson.prototype={
+		constructor:createPerson,
+		show:function(){
+			alert(this.name+this.sex);
+		}
+	}
+	
+	var p1=new createPerson('lhj','1');
+	var p2=new createPerson('zy','0');
+	p1.show();
+	p2.show();
+	//不相等，因为name是this，也就是对象上的属性
+	alert(p1.name==p2.name);
+	//加载原型链上的同名函数是相等的，都指向原型链上的方法
+	alert(p1.show==p2.show);
+</script>
+</head>
+<body>
+
+</body>
+</html>

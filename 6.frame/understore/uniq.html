@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>each</title>
+    <script src="underscore.js"></script>
+</head>
+<body>
+<div id="div1" name="div1"></div>
+</body>
+<script>
+    /*
+     _.each(list, iterator, [context]) 别名: forEach
+     对一个 list 的所有元素进行迭代, 对每一个元素执行 iterator 函数. iterator 和 context 对象绑定, 如果传了这个参数. 每次 iterator 的调用将会带有三个参数:
+     (element, index, list). 如果 list 是一个 JavaScript 对象, iterator 的参数将会是 (value, key, list). 如果有原生的 forEach 函数 就会用原生的代替.
+     */
+
+    //list是你要循环迭代的集合，iterator是迭代器，context是迭代器的上下文，也就是迭代器中this的指向，例如：
+
+    function uniq(arr) {
+
+        function isEqual(a,b){
+            if(a.lng== b.lng&& a.lat== b.lat){
+                return true;
+            }
+            return false;
+        }
+        var array = [arr[0]], has = false;
+        for (var i = 1; i < arr.length; i++) {
+            has=false;
+            var obj = arr[i];
+            for (var j = 0; j < array.length; j++) {
+                if (isEqual(array[j], arr[i])) {
+                    has = true;
+                }
+            }
+
+            if (!has) {
+                array.push(obj);
+
+            }
+        }
+
+        return array;
+    }
+
+
+
+
+    uniq([
+        {"lng": "116.5072", "lat": "40.1722", "count": "30.0", "show_count": "3"},
+        {"lng": "116.5072", "lat": "42.1722", "count": "30.0", "show_count": "2"},
+        {"lng": "116.5072", "lat": "40.1722", "count": "30.0", "show_count": "1"},
+        {"lng": "116.5072", "lat": "40.1722", "count": "30.0", "show_count": "3"},
+        {"lng": "116.5072", "lat": "41.1722", "count": "30.0", "show_count": "3"}
+    ]);
+
+    //console.log(_.isEqual(array[j],arr[i]));
+</script>
+
+</html>

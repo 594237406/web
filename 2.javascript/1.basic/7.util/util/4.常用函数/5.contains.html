@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        window.onload=function(){
+            console.log(document.documentElement.contains(document.body));
+            console.log(document.querySelector(".d1").contains(document.querySelector(".d2")));
+            console.log(document.querySelector(".d2").contains(document.querySelector(".d3")));
+            console.log(document.querySelector(".d2").contains(document.querySelector(".d1")));
+
+
+//            1 无关（给定的节点不在当前文档中）
+//            2 居前（给定的节点在DOM树中位于参考节点之前）
+//            4 居后（给定的节点在DOM树中位于参考节点之后）
+//            20 包含（给定的节点是参考节点的祖先）
+//            16 被包含（给定的节点是参考节点的后代）
+            console.log(document.querySelector(".d1").compareDocumentPosition(document.querySelector(".d2")));
+            console.log(document.querySelector(".d2").compareDocumentPosition(document.querySelector(".d3")));
+            console.log(document.querySelector(".d2").compareDocumentPosition(document.querySelector(".d1")));
+            console.log(document.querySelector(".d3").compareDocumentPosition(document.querySelector(".d2")));
+        }
+    </script>
+</head>
+<body>
+
+<div class="d1"></div>
+<div class="d2">
+    <div class="d3"></div>
+</div>
+
+</body>
+</html>

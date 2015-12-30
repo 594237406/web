@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>ajaxform</title>
+		<script type="text/javascript" src="jquery-2.0.3.js"></script>
+		<script type="text/javascript" src="ajaxform.js"></script>
+		<script type="text/javascript">
+			$(function(){
+//					$('#submit').click(function() {
+//						$('.parent').fadeIn();
+//						$('.wait').fadeIn();
+//						var options = {
+//							success: function() {
+//								$("form").ajaxSubmit();
+//								$('.wait').fadeOut();
+//								$('.success').fadeIn();
+//								setTimeout("$('.parent').fadeOut()",3000);
+//							},
+//							error: function() {
+//								$('.parent').fadeOut(0);
+//								alert('出错');
+//								return false;
+//							}
+//						};
+//
+//						$('form').ajaxForm(options);
+//					});
+                $("form").ajaxSubmit();
+			});
+			 
+		</script>
+		<style type="text/css">
+			.parent{width:100%;height:100%;position: absolute;left:0;top:0;display:none;}
+			.success{position:absolute;left:50%;top:50%;background:url('success.png');width:540px;height:32px;margin-left:-270px;margin-top:-16px;}
+			.wait{position:absolute;left:50%;top:50%;background:url('wait.png');width:540px;height:32px;margin-left:-270px;margin-top:-16px;}
+		</style>
+	</head>
+	
+	
+	<body>
+		<form action="sendpage.html" method="post">
+			用户名：<input name="name" value="name"/><br/>
+			密码：<input name="pwd" value="pwd"/><br/>
+			<input type="submit" value="提交" id="submit"/>
+		</form>
+		
+		<div class="parent">
+			<div class="success"></div>
+			<div class="wait"></div>
+		</div>
+	</body>
+</html>

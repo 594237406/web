@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+	<html>
+		<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>new</title>
+		<script type="text/javascript">
+			function A(){
+				this.a=1;
+				this.b=2;
+				var o=new Object();
+				//return o;
+                return 1;
+			};
+			
+			A.prototype.c=function(){
+				alert("c");
+			};
+			
+			A.d=function(){
+				alert("d");
+			};
+			
+			//已经有返回时，返回的是基本类型，则返回this,若是引用类型，则返回引用对象。
+			//没有返回时，返回this，this包含属性，原型链
+			var a=new A();
+			alert(a);
+//			a.c();
+//			A.d();
+//			a.d();
+
+		</script>
+	</head>
+	<body>
+	
+	</body>
+</html>

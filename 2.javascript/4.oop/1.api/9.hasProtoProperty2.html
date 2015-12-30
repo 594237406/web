@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>hasProtoProperty</title>
+		<script>
+		
+			//in 操作符，如果属性在对象或者对象的原型链中，返回true
+
+			function A(){
+			    this.a=1;
+			}
+			
+            A.prototype.b=2;
+
+            Object.prototype.hasProtoProperty=function(attrName){
+                return attrName in this&&!this.hasOwnProperty(attrName);
+            }
+
+            var a=new A();
+            alert(a.hasProtoProperty("a"));
+            alert(a.hasProtoProperty("b"));
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

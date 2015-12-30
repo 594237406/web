@@ -1,0 +1,26 @@
+<body>
+
+</body>
+<Script>
+
+function tmpl(o,regexp){
+
+  return  o.string.replace(regexp || /\\?\{([^{}]+)\}/g, function (match, name) {
+    return (o.data[name] === undefined) ? '' : o.data[name];
+
+  });
+
+}
+
+var config = {
+
+  data : {value : '123',text:'abc'},
+
+  string: '<label>{text}</label><input type="text" value="{value}"/>'
+
+};
+
+var str = tmpl(config);
+
+alert(str);
+</script>

@@ -1,0 +1,20 @@
+<!--在 DOM2 级中，Node 类型包含下列特定于命名空间的属性。-->
+<!-- localName：不带命名空间前缀的节点名称。-->
+<!-- namespaceURI：命名空间URI 或者（在未指定的情况下是）null。-->
+<!-- prefix：命名空间前缀或者（在未指定的情况下是）null。-->
+<!--当节点使用了命名空间前缀时，其nodeName 等于prefix+":"+ localName。以下面的文档为例：-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Example XHTML page</title>
+</head>
+<body>
+<s:svg xmlns:s="http://www.w3.org/2000/svg" version="1.1"
+       viewBox="0 0 100 100" style="width:100%; height:100%">
+    <s:rect x="0" y="0" width="100" height="100" style="fill:red"/>
+</s:svg>
+</body>
+</html>
+<!--NamespaceExample.xml-->
+<!--对于<html>元素来说，它的localName 和tagName 是"html"，namespaceURI 是"http://www.-->
+<!--w3.org/1999/xhtml"，而prefix 是null。对于<s:svg>元素而言，它的localName 是"svg"，-->
+    <!--tagName 是"s:svg"，namespaceURI 是"http://www.w3.org/2000/svg"，而prefix 是"s"。-->

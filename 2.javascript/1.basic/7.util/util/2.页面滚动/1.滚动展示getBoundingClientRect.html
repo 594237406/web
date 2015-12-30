@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <style>
+        .div{width: 200px;height: 300px;background: #ccc;margin-top: 50px;}
+        .buttons{position: fixed;top: 0;left:0;height: 30px;background: #fff;}
+    </style>
+</head>
+
+<body style="height: 5000px;">
+    <div class="buttons">
+        请输入要查看的div模块<input id="pageNum">
+        <button id="toPage">查询</button>
+    </div>
+    <div class="div1 div">1</div>
+    <div class="div2 div">2</div>
+    <div class="div3 div">3</div>
+    <div class="div4 div">4</div>
+    <div class="div5 div">5</div>
+    <div class="div6 div">6</div>
+    <div class="div7 div">7</div>
+    <div class="div8 div">8</div>
+    <div class="div9 div">9</div>
+    <div class="div10 div">10</div>
+
+</body>
+<script>
+
+    var Scroll=(function(){
+        var t,win=window.innerHeight,scrollElements=[];
+        
+        function scrollDiv(){
+            $(".div").each(function(index,item){
+                var rect= item.getBoundingClientRect();
+                if(rect.top>=0&&rect.top<=win||rect.bottom>=0&&rect.bottom<=win||rect.top<0&&rect.bottom>0 ){
+                    var elementId=$(item).html();
+                    scrollElements.push(elementId);
+                }
+            });
+            console.log(scrollElements);
+        }
+
+        return {
+            scrollView:function(){
+                $(window).on("scroll", function () {
+                    if(t){
+                        return;
+                    }
+                    scrollElements=[];
+                    t=setTimeout(function(){
+                        scrollDiv();
+                        t=null;
+                    },500);
+
+                })
+            },
+            scrollTo:function(dom){
+                dom.scrollIntoView();
+            }
+        }
+    })();
+
+    Scroll.scrollView();
+
+
+    window.toPage.onclick=function(){
+        var id=window.pageNum.value;
+        Scroll.scrollTo(document.querySelector(".div"+id));
+    }
+</script>
+</html>

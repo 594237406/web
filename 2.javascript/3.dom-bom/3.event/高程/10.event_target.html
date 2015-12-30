@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #myDiv {
+            width: 100px;
+            background: red;
+        }
+    </style>
+
+</head>
+<body>
+<div id="myDiv">
+    <button id="myBtn">test</button>
+</div>
+</body>
+
+<script>
+    var btn = document.getElementById("myBtn");
+
+    //currentTarget:指向绑定事件元素
+    //target:指向触发事件元素
+
+    btn.onclick = function (event) {
+        alert("btn,currentTarget:" + (event.currentTarget)); //true
+        alert("btn,target:" + (event.target )); //true
+    };
+
+    document.body.onclick = function (event) {
+        alert("body,currentTarget:" + (event.currentTarget)); //true
+        alert("body,target:" + (event.target)); //true
+    };
+
+    document.querySelector("#myDiv").onclick = function (event) {
+        alert("myDiv,currentTarget:" + (event.currentTarget)); //true
+        alert("myDiv,target:" + (event.target)); //true
+    };
+</script>
+</html>

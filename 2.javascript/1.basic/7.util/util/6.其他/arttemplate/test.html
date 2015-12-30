@@ -1,0 +1,103 @@
+<!doctype>
+<html>
+<head>
+	<meta charset="utf-8"/>
+
+
+</head>
+<body>
+<div id="top"></div>
+<script id="topTmpl" type="text/html">
+<h1 class="title"><%=title%></h1>
+<ul>
+ 
+    <%for (var i=0;i<list.length;i++) {%>
+        <div class="aaa"><%=i%>. <%=list[i]%></div>
+    <%}%>
+</ul>
+</script>
+
+<div id="footer"></div>
+<script id="footerTmpl" type="text/html">
+<h1><%=title%></h1>
+<ul>
+ 
+    <%for (var i=0;i<list.length;i++) {%>
+        <div class="bbb"><%=i%>. <%=list[i]%></div>
+    <%}%>
+</ul>
+</script>
+</body>
+<script type="text/javascript" src="zepto.js"></script>
+<script type="text/javascript" src="util.js"></script>
+<!-- <script type="text/javascript" src="event.js"></script> -->
+<script type="text/javascript" src="arttemplate.js"></script>
+<script type="text/javascript" src="basemodule.js"></script>
+<script type="text/javascript">
+	var EventHandler={
+		topModule:{
+			"clickAaa":function(ev){
+				console.log(ev.target.className)
+			}
+		},
+		footerModule:{
+			"clickBbb":function(ev){
+				console.log(ev.target.className)
+			}
+		}
+	}
+
+
+	var data = {
+	    title: '标签',
+	    list: ['文艺', '博客', '摄影', '电影', '民谣', '旅行', '吉他']
+	};
+	var topModule=new BaseModule({
+		containerId:"top",
+		templateId:"topTmpl",
+		events:{
+			"click":{
+				".aaa":EventHandler.topModule.clickAaa
+			},
+			"mouseover":{
+				".title":EventHandler.topModule.clickAaa
+			}
+		}
+	});
+
+	topModule.run({
+		data:data
+	});
+
+	var data = {
+	    title: '标签',
+	    list: ['文艺', '博客']
+	};
+
+	var topModule=new BaseModule({
+		containerId:"top",
+		templateId:"topTmpl",
+		sty:"add"
+	});
+
+	topModule.run({
+		data:data
+	});
+
+
+	var data = {
+	    title: '标签',
+	    list: ['文艺', '博客', '摄影']
+	};
+	var footerModule=new BaseModule({
+		containerId:"footer",
+		templateId:"footerTmpl"
+	});
+
+	footerModule.run({
+		data:data
+	},function(){
+		//alert(this.options.templateId)	
+	});
+</script>
+</html>

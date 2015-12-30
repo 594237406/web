@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+</head>
+<body>
+    <div id="test">test</div>
+</body>
+<script>
+    var addEvent=function(ele,type,handler){
+        if(window.addEventListener){
+            addEvent=function(ele,type,handler){
+                ele.addEventListener(type,handler,false);
+            }
+        }else if(window.attachEvent){
+            addEvent=function(ele,type,handler){
+                ele.attachEvent("on"+type,handler);
+            }
+        }
+        addEvent(ele,type,handler);
+    };
+
+    var div=document.querySelector("#test");
+
+    addEvent(div,"click",function(){
+        console.log(1);
+    });
+
+    addEvent(div,"click",function(){
+        console.log(2);
+    });
+</script>
+</html>

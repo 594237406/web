@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+</head>
+<body>
+    <s:svg xmlns:s="http://www.w3.org/2000/svg" version="1.1"  id="svg1"
+           viewBox="0 0 100 100" style="width:100%; height:100%">
+        <s:rect x="0" y="0" width="100" height="100" style="fill:red"/>
+    </s:svg>
+</body>
+<script>
+
+    alert(document.body.isDefaultNamespace("http://www.w3.org/1999/xhtml")); //true
+    //假设svg 中包含着对<s:svg>的引用
+    var svg = document.getElementById('svg1');
+    alert(svg.lookupPrefix("http://www.w3.org/2000/svg")); //"s"
+    alert(svg.lookupNamespaceURI("s")); //"http://www.w3.org/2000/svg"
+
+</script>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        //扩展object对象函数，实现类型jq迭代器
+        Object.prototype.each = function (fn) {
+            for (var i in this) {
+                var item = this[i];
+                if (this.hasOwnProperty(i)) {
+                    var value = fn.call(item, item, i);
+                    if (value == false) {
+                        break;
+                    } else if (value == true) {
+                        continue;
+                    }
+                }
+            }
+        };
+
+        var arr = [1, 2, 3];
+        arr.each(function (item, index) {
+            if (index == 1) {
+                return false;
+            }
+            console.log(index + ":" + item);
+        });
+
+        var json = {a: 1, b: 2};
+        json.each(function (item, index) {
+            if (index == "b") {
+                return false;
+            }
+            console.log(index + ":" + item);
+        });
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

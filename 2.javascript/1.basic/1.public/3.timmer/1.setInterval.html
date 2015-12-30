@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>setInterval</title>
+		<script type="text/javascript">
+			//页面加载完毕后执行
+			setTimeout(function() {
+				
+				var li = document.createElement('li');
+				li.innerHTML = "test";
+				var ul = document.all.ul;
+				ul.appendChild(li);
+			}, 0);
+		</script>
+	</head>
+	<body>
+		<ul id="ul">
+			<li style="width: 100px; height: 30px;">页面信息</li>
+            <li style="width: 100px; height: 30px;">页面信息</li>
+            <li style="width: 100px; height: 30px;">页面信息</li>
+		</ul>
+	</body>
+</html>

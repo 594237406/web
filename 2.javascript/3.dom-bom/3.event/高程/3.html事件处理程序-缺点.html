@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+
+</head>
+<body>
+<!--1.假设showMessage()函数是在按钮下方、页面的最底部定义的。如果用户在页面解-->
+<!--析showMessage()函数之前就单击了按钮，就会引发错误。为此，很多HTML 事件处理程序都会被封-->
+<!--装在一个try-catch 块中，以便错误不会浮出水面，如下面的例子所示：-->
+
+<!--2.另一个缺点是，这样扩展事件处理程序的作用域链在不同浏览器中会导致不同结果。不同JavaScript-->
+<!--引擎遵循的标识符解析规则略有差异，很可能会在访问非限定对象成员时出错。-->
+
+<!--3.通过 HTML 指定事件处理程序的最后一个缺点是HTML 与JavaScript 代码紧密耦合。如果要更换事-->
+<!--件处理程序，就要改动两个地方：HTML 代码和JavaScript 代码。而这正是许多开发人员摒弃HTML 事-->
+<!--件处理程序，转而使用JavaScript 指定事件处理程序的原因所在。-->
+
+<input type="button" value="Click Me" onclick="try{showMessage(event.type,value);}catch(ex){}">
+</body>
+<script type="text/javascript">
+    function showMessage(a,b){
+        console.log(a,b);
+    }
+
+</script>
+</html>

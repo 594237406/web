@@ -1,0 +1,29 @@
+<script>
+
+    function loadXMLDoc() {
+        var xmlhttp = createXmlHttp();
+        //xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                document.getElementById("myDiv").innerHTML = xmlhttp.responseText;
+            }
+        }
+        xmlhttp.open("GET", "data.txt?t=" + Math.random(), true);
+        xmlhttp.send();
+
+    }
+
+    function createXmlHttp() {
+        var xmlhttp;
+        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        }
+        else {// code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        return xmlhttp;
+    }
+</script>
+
+<button type="button" onclick="loadXMLDoc()">Change Content</button>
+<div id="myDiv"><h3></h3></div>

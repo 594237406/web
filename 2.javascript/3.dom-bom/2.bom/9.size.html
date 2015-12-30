@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+</head>
+<body>
+<div style="width: 200%;height: 2000px;"></div>
+</body>
+
+<script>
+
+    //获得窗口位置，IE,opear下正常，其他浏览器需要resize窗体才能获得
+    var leftPos=(typeof window.screenLeft=="number")?window.screenLeft:window.screenX;
+    console.log("窗口距左边距离为："+leftPos);
+
+    var topPos=(typeof window.screenTop=="number")?window.screenTop:window.screenY;
+    console.log("窗口距上边距离为："+topPos);
+
+    //      在IE，ff，Opera，Chrome，safari中，document.documentElement.clientWidth和docuemnt.documentElement.clientHeight中保存了视图页面的视口的消息。但在IE6中，
+    //      这些属性必须是标准模式下才有效，如果是混杂模式，就必须通过document.body.clientWidth和document.body.cilentHeight取得相同信息。而对于混杂模式下的Chrome，则无论通过
+    //      document.documentElement，还是document.body中的clientWidth和clientHeight属性，都可以取得视窗的大小。
+
+
+    function getWindowMsg() {
+        var d = document,
+                dd = d.documentElement, db = d.body,
+                dc = d.compatMode == 'CSS1Compat',
+                dx = dc ? dd : db;
+
+        var cw = window.innerWidth, ch = window.innerHeight, sw, sh, sl, st;
+
+        if (typeof cw != "number") {
+            cw = dx.clientWidth;
+            ch = dx.clientHeight;
+        }
+
+        sw = db.scrollWidth;
+        sh = db.scrollHeight;
+        sl = db.scrollLeft;
+        st = db.scrollTop;
+
+        return {
+            cw:cw,ch:ch,sw:sw,sh:sh,sl:sl,st:st
+        }
+    }
+
+//    window.onscroll = function () {
+//
+//    }
+    console.log(JSON.stringify(getWindowMsg()))
+
+</script>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>copy</title>
+		<script type="text/javascript">
+			//浅克隆，会拷贝父类对象属性，不会拷贝属性中的属性
+			function copy(obj){
+				var newObj={};
+				for(var attr in obj){
+					newObj[attr]=obj[attr];
+				}
+				return newObj;
+			}
+		
+			//深克隆，会拷贝父类对象属性，会拷贝属性中的属性
+			function deepCopy(obj){
+				if(typeof obj!="object"){
+					return obj;
+				}
+				
+				var newObj={};
+				for(var attr in obj){
+					newObj[attr]=deepCopy(obj[attr]);
+				}
+				return newObj;
+			}
+			
+			var a={a:{b:5}};
+			var b=deepCopy(a);
+			b.a.b=10;
+			alert("深拷贝:a:"+a.a.b);
+			alert("深拷贝:b:"+b.a.b);
+			
+			var c=copy(a);
+			c.a.b=10;
+			alert("浅拷贝:a:"+a.a.b);
+			alert("浅拷贝:c:"+c.a.b);
+		</script>
+	</head>
+	<body>
+	
+	</body>
+</html>

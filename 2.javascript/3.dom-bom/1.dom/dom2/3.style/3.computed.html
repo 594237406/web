@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+
+
+        window.onload=function(){
+            var myDiv = document.getElementById("myDiv");
+
+//            IE 不支持getComputedStyle()方法，但它有一种类似的概念。在IE 中，每个具有style 属性
+//            的元素还有一个currentStyle 属性。这个属性是CSSStyleDeclaration 的实例，包含当前元素全
+//            部计算后的样式。取得这些样式的方式也差不多，如下面的例子所示。
+            var computedStyle = myDiv.currentStyle?myDiv.currentStyle:getComputedStyle(myDiv, null); //或者window.getComputedStyle
+            alert(computedStyle.backgroundColor); // 颜色
+            alert(computedStyle.width); // "100px"
+            alert(computedStyle.height); // "200px"
+            alert(computedStyle.border); // 在某些浏览器中是"1px solid black"
+        }
+
+    </script>
+    <style>
+        .div1{
+            width: 100px;
+            height: 100px;
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="div1" id="myDiv"></div>
+</body>
+</html>

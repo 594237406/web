@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>transition-bezier</title>
+		<style>
+			/*贝塞尔曲线运动：http://matthewlein.com/ceaser/ */
+			/*贝塞尔曲线运动：http://www.w3school.com.cn/cssref/pr_transition-timing-function.asp */
+			.box{width:100px;height:100px;background:red;
+			transition:1s width cubic-bezier(0.705, 0.325, 0.265, 1.5);}
+			.box:hover{width:500px;}
+		</style>
+	</head>
+	<body>
+		<div class="box"></div>
+	</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>fn-special</title>
+<script>
+
+	//方法参数
+	function funArgs(){
+		for(var i in arguments){
+			console.log("args["+i+"]:"+arguments[i]);	//arguments[0]:1,2,3 arguments[1]:Object arguments[2]:false
+		}
+	}
+	funArgs([1,2,3],{a:"test"},false);
+
+	//方法名调用：打印方法内容
+	function funName(funName){							//打印a,b方法内部内容
+		console.log("method content:"+funName);			//打印内容
+		console.log("method return:"+funName());		//打印返回值
+	}
+	funName(function(){
+		return 1;
+	});
+
+	//回调函数，为函数的参数
+	var ar=[];
+	function funCallBack(a,b,c,callback){
+		var ar=[];
+		for(var i=0;i<arguments.length;i++){
+			if(typeof(arguments[i])!="function"){
+				ar[i]=callback(arguments[i]*2);
+				console.log("arrs:"+ar[i]);	//输出4,6,8
+			}else{
+				callback(100);
+			}
+		}
+	}
+	funCallBack(1,2,3,function(x){
+		var ret=x+2;
+		console.log("fun:"+ret);	//输出4,6,8,102
+		return ret;
+	})
+
+	//自调用函数:http://www.cnblogs.com/snandy/archive/2011/02/28/1966664.html
+	void function(selfCall) {
+		selfCall = selfCall-1;
+		console.log("selfCall:"+selfCall);
+	}(9);
+
+	//返回函数
+	function funReturnVar(){
+		console.log("CallfunReturnVar");
+		return function(){
+			console.log("funReturn");
+		}
+	}
+	var funReturn=funReturnVar();
+	funReturn();							//调用返回的方法
+
+	function funOverWrite(){				//重写函数，第一次调用原函数，第二次调用新函数
+		console.log("funOverWrite");
+        var name= /function\s+(\w+)/.exec(arguments.callee.toString())[1];
+        window[name]=function(){
+			console.log("funOverWriteAfter");
+		}
+	}
+	funOverWrite();
+	funOverWrite();
+</script>
+</head>
+<body>
+
+</body>
+</html>

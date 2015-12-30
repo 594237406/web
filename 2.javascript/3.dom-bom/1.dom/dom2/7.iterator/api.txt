@@ -1,0 +1,49 @@
+检测：
+var supportsTraversals = document.implementation.hasFeature("Traversal", "2.0");
+var supportsNodeIterator = (typeof document.createNodeIterator == "function");
+var supportsTreeWalker = (typeof document.createTreeWalker == "function");
+
+
+1.NodeIterator 类型是两者中比较简单的一个，可以使用document.createNodeIterator()方
+    法创建它的新实例。这个方法接受下列4 个参数。
+     root：想要作为搜索起点的树中的节点。
+     whatToShow：表示要访问哪些节点的数字代码。
+     filter：是一个NodeFilter 对象，或者一个表示应该接受还是拒绝某种特定节点的函数。
+     entityReferenceExpansion：布尔值，表示是否要扩展实体引用。这个参数在HTML 页面
+    中没有用，因为其中的实体引用不能扩展。
+    whatToShow 参数是一个位掩码，通过应用一或多个过滤器（filter）来确定要访问哪些节点。这个
+    参数的值以常量形式在NodeFilter 类型中定义，如下所示。
+     NodeFilter.SHOW_ALL：显示所有类型的节点。
+     NodeFilter.SHOW_ELEMENT：显示元素节点。
+     NodeFilter.SHOW_ATTRIBUTE：显示特性节点。由于DOM结构原因，实际上不能使用这个值。
+     NodeFilter.SHOW_TEXT：显示文本节点。
+     NodeFilter.SHOW_CDATA_SECTION：显示CDATA 节点。对HTML 页面没有用。
+     NodeFilter.SHOW_ENTITY_REFERENCE：显示实体引用节点。对HTML 页面没有用。
+     NodeFilter.SHOW_ENTITYE：显示实体节点。对HTML 页面没有用。
+     NodeFilter.SHOW_PROCESSING_INSTRUCTION：显示处理指令节点。对HTML 页面没有用。
+     NodeFilter.SHOW_COMMENT：显示注释节点。
+     NodeFilter.SHOW_DOCUMENT：显示文档节点。
+     NodeFilter.SHOW_DOCUMENT_TYPE：显示文档类型节点。
+     NodeFilter.SHOW_DOCUMENT_FRAGMENT：显示文档片段节点。对HTML 页面没有用。
+     NodeFilter.SHOW_NOTATION：显示符号节点。对HTML 页面没有用。
+
+    NodeIterator 类型的两个主要方法是nextNode()和previousNode()。顾名思义，在深度优先
+    的DOM 子树遍历中，nextNode()方法用于向前前进一步，而previousNode()用于向后后退一步。
+
+
+2.TreeWalker 是NodeIterator 的一个更高级的版本。除了包括nextNode()和previousNode()
+在内的相同的功能之外，这个类型还提供了下列用于在不同方向上遍历DOM 结构的方法。
+     parentNode()：遍历到当前节点的父节点；
+     firstChild()：遍历到当前节点的第一个子节点；
+     lastChild()：遍历到当前节点的最后一个子节点；
+     nextSibling()：遍历到当前节点的下一个同辈节点；
+     previousSibling()：遍历到当前节点的上一个同辈节点。
+
+
+3.如果应该访问给定的节点，该方法返回NodeFilter.FILTER_ACCEPT，如果不应该访问给
+定的节点，该方法返回NodeFilter.FILTER_SKIP。由于NodeFilter 是一个抽象的类型，因此不能
+直接创建它的实例。除了NodeFilter.FILTER_ACCEPT 和NodeFilter.
+    FILTER_SKIP 之外，还可以使用NodeFilter.FILTER_REJECT。在使用NodeIterator 对象时，
+    NodeFilter.FILTER_SKIP 与NodeFilter.FILTER_REJECT 的作用相同：跳过指定的节点。但在使
+    用TreeWalker 对象时，NodeFilter.FILTER_SKIP 会跳过相应节点继续前进到子树中的下一个节点，
+    而NodeFilter.FILTER_REJECT 则会跳过相应节点及该节点的整个子树。

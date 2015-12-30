@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+//         click：在用户单击主鼠标按钮（一般是左边的按钮）或者按下回车键时触发。这一点对确保
+//        易访问性很重要，意味着onclick 事件处理程序既可以通过键盘也可以通过鼠标执行。
+//         dblclick：在用户双击主鼠标按钮（一般是左边的按钮）时触发。从技术上说，这个事件并不
+//        是DOM2 级事件规范中规定的，但鉴于它得到了广泛支持，所以DOM3 级事件将其纳入了标准。
+//         mousedown：在用户按下了任意鼠标按钮时触发。不能通过键盘触发这个事件。
+//         mouseenter：在鼠标光标从元素外部首次移动到元素范围之内时触发。这个事件不冒泡，而且
+//        在光标移动到后代元素上不会触发。DOM2 级事件并没有定义这个事件，但DOM3 级事件将它
+//        纳入了规范。IE、Firefox 9+和Opera 支持这个事件。
+//         mouseleave：在位于元素上方的鼠标光标移动到元素范围之外时触发。这个事件不冒泡，而且
+//        在光标移动到后代元素上不会触发。DOM2 级事件并没有定义这个事件，但DOM3 级事件将它
+//        纳入了规范。IE、Firefox 9+和Opera 支持这个事件。
+//         mousemove：当鼠标指针在元素内部移动时重复地触发。不能通过键盘触发这个事件。
+//         mouseout：在鼠标指针位于一个元素上方，然后用户将其移入另一个元素时触发。又移入的另
+//        一个元素可能位于前一个元素的外部，也可能是这个元素的子元素。不能通过键盘触发这个事件。
+//         mouseover：在鼠标指针位于一个元素外部，然后用户将其首次移入另一个元素边界之内时触
+//        发。不能通过键盘触发这个事件。
+//         mouseup：在用户释放鼠标按钮时触发。不能通过键盘触发这个事件。
+    </script>
+    <style>
+        .mouse{
+            width: 200px;
+            height: 200px;
+            background: red;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var mouse=document.querySelector(".mouse");
+            var Events=["over","move","enter","leave","out","up","down"];
+
+            //移入触发:over,enter(不冒泡),移动触发:move(多次),离开触发:out,leave(不冒泡)
+            Events.forEach(function(item){
+                mouse["onmouse"+item]=function(ev){
+                    console.log(ev.type);
+                }
+            });
+
+            //双击时触发:down,up,click,down,up,click,dblclick
+            mouse["onclick"]=function(ev){
+                console.log(ev.type);
+            }
+
+            mouse["ondblclick"]=function(ev){
+                console.log(ev.type);
+            }
+        }
+    </script>
+</head>
+<body>
+      <div class="mouse"></div>
+</body>
+</html>

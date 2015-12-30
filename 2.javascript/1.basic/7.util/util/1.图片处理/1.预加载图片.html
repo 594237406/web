@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+</head>
+<body>
+    <img id="img1" />
+</body>
+<script>
+    alert(window.img1);
+
+    var preLoad=(function(){
+        var img=document.getElementById("img1");
+        return function(src){
+            img.src=src;
+        }
+    })();
+
+    var proxyPreLoad=(function(){
+        var image=new Image();
+
+        image.onload=function(){
+            preLoad(this.src);
+        };
+
+        return function(src){
+            image.src=src;
+            preLoad("loading.gif");
+        }
+    })();
+
+    proxyPreLoad("http://img.shendu.com/forum/201402/27/1957260geqncmatbtzqmg6.jpg");
+</script>
+</html>

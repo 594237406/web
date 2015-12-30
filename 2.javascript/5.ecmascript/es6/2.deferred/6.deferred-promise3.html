@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+    <title></title>
+
+    <script>
+        var dtd = $.Deferred(); // 生成Deferred对象
+        var wait = function(dtd){
+            var tasks = function(){
+                alert("执行完毕！");
+                dtd.resolve();
+            };
+            setTimeout(tasks,1000);
+        };
+        dtd.promise(wait);
+        wait.done(function(){ alert("哈哈，成功了！"); })
+                .fail(function(){ alert("出错啦！"); });
+        wait(dtd);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

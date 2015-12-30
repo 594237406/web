@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>prototype</title>
+		<script>
+			//prototype的概念
+			//prototype是构造函数的一个属性, 该属性指向一个对象. 而这个对象将作为该构造函数所创建的所有实例的基引用(base reference),
+			//可以把对象的基引用想像成一个自动创建的隐藏属性. 当访问对象的一个属性时, 首先查找对象本身, 找到则返回; 若不, 
+			//则查找基引用指向的对象的属性(如果还找不到实际上还会沿着原型链向上查找,  直至到根Object). 只要没有被覆盖的话, 对象原型的属性就能在所有的实例中找到.
+			//原型默认为Object的新实例, 由于仍是对象, 故可以给该对象添加新的属性
+		
+			//原型 : 去改写对象下面公用的方法或者属性 , 让公用的方法或者属性在内存中存在一份 ( 提高性能 )
+			//原型 : CSS中的class
+			//普通方法 : CSS中的style
+			//原型 : prototype : 要写在构造函数的下面
+			var arr = [1,2,3,4,5];
+			var arr2 = [2,2,2,2,2];
+
+			
+			//如果不加原型，则只能通过类去调用
+			Array.prototype.sum = function(){
+				var result = 0;
+				for(var i=0;i<this.length;i++){
+					result += this[i];
+				}
+				return result;
+			};
+			
+			alert( arr.sum() );  //15
+			alert( arr2.sum() );  //10
+		
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

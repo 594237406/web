@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{margin: 0;}
+        .div1 {
+            width: 100px;
+            height: 100px;
+            background: #ccc;
+            position: absolute;
+            left: 0;
+        }
+        .div2 {
+            width: 100px;
+            height: 100px;
+            background: #ccc;
+            position: absolute;
+            left: 0;
+            top: 200px;
+        }
+    </style>
+    <script>
+        var tween = {
+            //开始、结束、持续时间、总时间       eastOut
+            //匀速
+            linear: function (s, e, n, t) {
+                return s + n / t * (e-s);
+            },
+            //加速
+            eastIn: function (s, e, n, t) {
+                return s + (n/= t)*n*n*n * (e-s);
+            },
+            //减速
+            eastOut:function (s, e, n, t) {
+                return s + ((n=n / t-1)*n*n*n*n+1) * (e-s);
+            },
+        };
+
+        var Util = {
+            getStyle: function (obj, attr) {
+                if (obj.currentStyle) {
+                    return obj.currentStyle[attr];
+                }
+                else {
+                    return getComputedStyle(obj, false)[attr];
+                }
+            }
+        }
+
+        function Animate(dom) {
+            this.dom = dom;
+            this.startTime = 0;
+            this.startPos = 0;
+            this.endPos = 0;
+            this.propertyName = null;
+            this.easing = null;
+            this.duration = null;
+        }
+
+        Animate.prototype.start = function (propertyName, endPos, duration, easing) {
+            this.startTime = +new Date;
+            this.propertyName = propertyName;
+            this.startPos = this.dom.getBoundingClientRect()[propertyName];
+            this.endPos = endPos;
+            this.easing = tween[easing];
+
+            this.duration = duration;
+
+            var t = setInterval(function () {
+                if (this.step()) {
+                    clearInterval(t);
+                }
+            }.bind(this), 19);
+        };
+
+        Animate.prototype.step = function () {
+            this.curPos = this.easing(this.startPos, this.endPos, +new Date - this.startTime, this.duration);
+            this.update(this.curPos);
+            if(this.curPos>=this.endPos){
+                this.update(this.endPos);
+                return true;
+            }
+        };
+
+        Animate.prototype.update = function (curPos) {
+            this.dom.style[this.propertyName] = curPos + "px";
+        };
+
+        window.onload = function () {
+            var animate1 = new Animate(document.querySelector(".div1"));
+            animate1.start("left", 300, 2000, 'eastOut');
+            var animate2 = new Animate(document.querySelector(".div2"));
+            animate2.start("left", 300, 2000, 'eastIn');
+        }
+    </script>
+</head>
+<body>
+<div class="div1"></div>
+<div class="div2"></div>
+</body>
+</html>

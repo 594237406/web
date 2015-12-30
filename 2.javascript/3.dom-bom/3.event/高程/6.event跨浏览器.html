@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        var EventUtil = {
+            addHandler: function(element, type, handler){
+                if (element.addEventListener){
+                    element.addEventListener(type, handler, false);
+                } else if (element.attachEvent){
+                    element.attachEvent("on" + type, handler);
+                } else {
+                    element["on" + type] = handler;
+                }
+            },
+            removeHandler: function(element, type, handler){
+                if (element.removeEventListener){
+                    element.removeEventListener(type, handler, false);
+                } else if (element.detachEvent){
+                    element.detachEvent("on" + type, handler);
+                } else {
+                    element["on" + type] = null;
+                }
+            },
+            getEvent: function(event){
+                return event ? event : window.event;
+            },
+            getTarget: function(event){
+                return event.target || event.srcElement;
+            },
+            preventDefault: function(event){
+                if (event.preventDefault){
+                    event.preventDefault();
+                } else {
+                    event.returnValue = false;
+                }
+            },
+            stopPropagation: function(event){
+                if (event.stopPropagation){
+                    event.stopPropagation();
+                } else {
+                    event.cancelBubble = true;
+                }
+            }
+        };
+
+
+
+        window.onload=function(){
+
+            var btn = document.getElementById("myBtn");
+            var handler = function(){
+                alert("Clicked");
+            };
+            EventUtil.addHandler(btn, "click", handler);
+            //这里省略了其他代码
+            //EventUtil.removeHandler(btn, "click", handler);
+        }
+    </script>
+</head>
+<body>
+     <button id="myBtn">test</button>
+</body>
+</html>

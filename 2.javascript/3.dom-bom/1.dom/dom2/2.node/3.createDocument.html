@@ -1,0 +1,15 @@
+<script>
+    var doc = document.implementation.createDocument("", "root", null);
+//    这行代码会创建一个没有命名空间的新文档，文档元素为<root>，而且没有指定文档类型。要想
+//    创建一个XHTML 文档，可以使用以下代码。
+    var doctype = document.implementation.createDocumentType("html",
+            " -//W3C//DTD XHTML 1.0 Strict//EN",
+            "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd");
+    var doc = document.implementation.createDocument("http://www.w3.org/1999/xhtml",
+            "html", doctype);
+
+    var htmldoc = document.implementation.createHTMLDocument("New Doc");
+    alert(htmldoc.title); //"New Doc"
+    alert(typeof htmldoc.body); //"object"
+
+</script>

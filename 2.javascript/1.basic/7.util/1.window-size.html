@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        function getViewport(){
+            if (document.compatMode == "BackCompat"){
+                return {
+                    width: document.body.clientWidth,
+                    height: document.body.clientHeight
+                };
+            } else {
+                return {
+                    width: document.documentElement.clientWidth,
+                    height: document.documentElement.clientHeight
+                };
+            }
+        }
+        console.log(getViewport().width,getViewport().height)
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>isPrototypeOf</title>
+		<script>
+			//isPrototypeOf用来判断对象是否在函数的原型链之内，
+			//是则返回true，否则返回false。
+			function A(){}
+
+            function B(){}
+
+            B.prototype=new A();
+            B.prototype.constructor=B;
+
+            var b=new B();
+
+            alert(A.prototype.isPrototypeOf(b));
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

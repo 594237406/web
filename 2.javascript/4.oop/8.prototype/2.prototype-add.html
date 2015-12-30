@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>prototype-add</title>
+		<script>
+			function Gadget(name,color){
+				this.name=name;
+				this.color=color;
+			}
+			
+			Gadget.prototype.price=10;
+			Gadget.prototype.get=function(what){
+				return this[what];
+			}
+			
+			var a=new Gadget('orange','yellow');
+			
+			console.log(a.get("name"));
+			console.log(a.get("color"));
+			console.log(a.get("price"));
+		
+			//返回构造器原型
+			console.log(a.constructor.prototype);
+			//返回构造器原型的构造器
+			console.log(a.constructor.prototype.constructor);
+            console.log(a.constructor.prototype==a.constructor.prototype.constructor.prototype);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

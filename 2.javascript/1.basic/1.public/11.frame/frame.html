@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+	<head>
+		<title>frame</title>
+		
+		<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+		<meta http-equiv="description" content="this is my page">
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<script>
+            var a="parent";
+			window.onload=function(){
+				//如果页面中有frames，则每个frames都拥有自己的window对象，并且保存在frames对象中。
+				//可以用window.frames[0]或者window.frames[framesName]来引用框架
+
+				//需运行在服务器环境下
+				//document.getElementsByName("top")[0].contentWindow.document.getElementById("top").appendChild(dom)
+
+                console.log(window.frames[0].document.getElementById("top").innerHTML);
+                console.log(window.frames["topframe"].document.getElementById("top").innerHTML);
+                console.log(document.getElementById("topframe").contentWindow.document.getElementById("top").innerHTML);
+
+//                框架和内嵌框架分别用HTMLFrameElement 和HTMLIFrameElement 表示，它们在DOM2级中都有
+//                了一个新属性，名叫contentDocument。这个属性包含一个指针，指向表示框架内容的文档对象。在此
+//                之前，无法直接通过元素取得这个文档对象（只能使用frames 集合）。可以像下面这样使用这个属性。
+                var iframe = document.getElementById("myIframe");
+                var iframeDoc = iframe.contentDocument; //在IE8 以前的版本中无效
+//                IFrameElementExample.htm
+//                由于contentDocument 属性是Document 类型的实例，因此可以像使用其他HTML 文档一样使
+//                用它，包括所有属性和方法。Opera、Firefox、Safari 和Chrome 支持这个属性。IE8 之前不支持框架中
+//                的contentDocument 属性，但支持一个名叫contentWindow 的属性，该属性返回框架的window 对
+//                象，而这个window 对象又有一个document 属性。因此，要想在上述所有浏览器中访问内嵌框架的文
+//                档对象，可以使用下列代码。
+                var iframe = document.getElementById("myIframe");
+                var iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+                //所有浏览器都支持contentWindow 属性。
+			}
+		</script>
+	</head>
+  
+	<frameset rows="160,*">
+		<frame src="top.html" name="topframe" id="topframe"/>
+		<frameset cols="50%,50%">
+  			<frame src="left.html" name="left">
+  			<frame src="right.html" name="right">
+		</frameset>
+	</frameset>
+</html>

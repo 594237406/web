@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        var NanShen={
+            name:"男神",
+            height:180,
+            request:function(obj){
+                var random=Math.random();
+                if(random>0.3){
+                    obj.success();
+                }else{
+                    obj.error();
+                }
+            }
+        };
+
+
+
+        var Request=function(persons,success){
+            var idx=0;
+
+            var request=function(){
+                if(persons[idx]){
+                    NanShen.request({
+                        success:function(){
+                            console.log("讨好："+persons[idx]+"成功！");
+                            idx++;
+                            request();
+                        },error:function(){
+                            console.log("讨好："+persons[idx]+"失败，再试一次！");
+                            request();
+                        }
+                    })
+                }else{
+                    success();
+                }
+            };
+            request();
+        };
+
+        var req=Request(["伯父","伯母","哥哥"],function(){
+            NanShen.request({
+                success:function(){
+                    console.log("求婚女神成功！");
+                },error:function(){
+                    console.log("女神不同意，求婚失败！");
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+
+</body>
+</html>

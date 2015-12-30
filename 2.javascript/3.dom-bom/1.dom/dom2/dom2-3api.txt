@@ -1,0 +1,63 @@
+DOM1 级主要定义的是HTML 和XML 文档的底层结构。DOM2 和DOM3 级则在这个结构
+的基础上引入了更多的交互能力，也支持了更高级的XML 特性。为此，DOM2 和DOM3
+级分为许多模块（模块之间具有某种关联），分别描述了DOM 的某个非常具体的子集。这些模块
+如下。
+DOM2 级核心（DOM Level 2 Core）：在1 级核心基础上构建，为节点添加了更多方法和属性。
+DOM2 级视图（DOM Level 2 Views）：为文档定义了基于样式信息的不同视图。
+DOM2 级事件（DOM Level 2 Events）：说明了如何使用事件与DOM文档交互。
+DOM2 级样式（DOM Level 2 Style）：定义了如何以编程方式来访问和改变CSS 样式信息。
+DOM2 级遍历和范围（DOM Level 2 Traversal and Range）：引入了遍历DOM 文档和选择其特定
+部分的新接口。
+DOM2 级 HTML（DOM Level 2 HTML）：在1 级HTML 基础上构建，添加了更多属性、方法和
+新接口。
+本章探讨除“DOM2 级事件”之外的所有模块，“DOM2 级事件”模块将在第13 章进行全面讲解。
+
+1.检测方法
+var supportsDOM2Core = document.implementation.hasFeature("Core", "2.0");
+var supportsDOM3Core = document.implementation.hasFeature("Core", "3.0");
+var supportsDOM2HTML = document.implementation.hasFeature("HTML", "2.0");
+var supportsDOM2Views = document.implementation.hasFeature("Views", "2.0");
+var supportsDOM2XML = document.implementation.hasFeature("XML", "2.0");
+
+2.验证方法
+isDefaultNamespace(namespaceURI)：在指定的namespaceURI 是当前节点的默认命名空
+间的情况下返回true。
+lookupNamespaceURI(prefix)：返回给定prefix 的命名空间。
+lookupPrefix(namespaceURI)：返回给定namespaceURI 的前缀。
+
+
+3.元素操作
+DOM2 级中的Document 类型也发生了变化，包含了下列与命名空间有关的方法。
+createElementNS(namespaceURI, tagName)：使用给定的tagName 创建一个属于命名空
+间namespaceURI 的新元素。
+createAttributeNS(namespaceURI, attributeName)：使用给定的attributeName 创
+建一个属于命名空间namespaceURI 的新特性。
+getElementsByTagNameNS(namespaceURI, tagName)：返回属于命名空间namespaceURI
+的tagName 元素的NodeList。
+
+4.属性操作
+“DOM2 级核心”中有关Element 的变化，主要涉及操作特性。新增的方法如下。
+getAttributeNS(namespaceURI,localName)：取得属于命名空间namespaceURI 且名为
+localName 的特性。
+getAttributeNodeNS(namespaceURI,localName)：取得属于命名空间namespaceURI 且
+名为localName 的特性节点。
+getElementsByTagNameNS(namespaceURI, tagName)：返回属于命名空间namespaceURI
+的tagName 元素的NodeList。
+hasAttributeNS(namespaceURI,localName)：确定当前元素是否有一个名为localName
+的特性，而且该特性的命名空间是namespaceURI。注意，“DOM2 级核心”也增加了一个
+hasAttribute()方法，用于不考虑命名空间的情况。
+removeAttriubteNS(namespaceURI,localName)：删除属于命名空间namespaceURI 且名
+为localName 的特性。
+setAttributeNS(namespaceURI,qualifiedName,value)：设置属于命名空间namespace-
+URI 且名为qualifiedName 的特性的值为value。
+setAttributeNodeNS(attNode)：设置属于命名空间namespaceURI 的特性节点。
+
+5.NamedNodeMap 类型的变化
+NamedNodeMap 类型也新增了下列与命名空间有关的方法。由于特性是通过NamedNodeMap 表示
+的，因此这些方法多数情况下只针对特性使用。
+ getNamedItemNS(namespaceURI,localName)：取得属于命名空间namespaceURI 且名为
+localName 的项。
+ removeNamedItemNS(namespaceURI,localName)：移除属于命名空间namespaceURI 且名
+为localName 的项。
+ setNamedItemNS(node)：添加node，这个节点已经事先指定了命名空间信息。
+由于一般都是通过元素访问特性，所以这些方法很少使用。

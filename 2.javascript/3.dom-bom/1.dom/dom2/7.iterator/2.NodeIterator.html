@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>NodeIterator Example</title>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+        <script type="text/javascript">
+
+            var filter = {
+                acceptNode: function(node){
+                    return node.tagName.toLowerCase() == "p" ?
+                    NodeFilter.FILTER_ACCEPT :
+                    NodeFilter.FILTER_SKIP;
+                }
+            };
+
+            var filter = function(node){
+                return node.tagName.toLowerCase() == "p" ?
+                        NodeFilter.FILTER_ACCEPT :
+                        NodeFilter.FILTER_REJECT;
+            };
+
+
+           function makeList() {
+               var div = document.getElementById("div1");
+               var iterator = document.createNodeIterator(document.documentElement,
+                       NodeFilter.SHOW_ELEMENT, filter, false);
+
+               var node = iterator.nextNode();
+               while (node !== null) {
+                   console.log(node.tagName);
+                   node = iterator.nextNode();
+               }
+
+           }
+
+        </script>
+    </head>
+    <body>
+        <div id="div1">
+            <p><b>Hello</b> world!</p>
+            <ul>
+                <li>List item 1</li>
+                <li>List item 2</li>
+                <li>List item 3</li>
+            </ul>
+        </div>
+        <textarea rows="10" cols="40" id="text1"></textarea><br />
+        <input type="button" value="Make List" onclick="makeList()" />
+    </body>
+</html>

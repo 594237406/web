@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<!--由于这个值是JavaScript，因此不能在其中使用未经转义的HTML 语法字符，-->
+<!--例如和号（&）、双引号（""）、小于号（<）或大于号（>）。为了避免使用HTML 实体，这里使用了单-->
+<!--引号。如果想要使用双引号，那么就要将代码改写成如下所示：-->
+<input type="button" value="Click Me" onclick="alert(&quot;Clicked&quot;)"/>
+
+<!--关于这个动态创建的函数，另一个有意思的地方是它扩展作用域的方式。在这个函数内部，可以像-->
+<!--访问局部变量一样访问document 及该元素本身的成员。这个函数使用with 像下面这样扩展作用域：-->
+<!--function(){-->
+    <!--with(document){-->
+        <!--with(this){-->
+        <!--//元素属性值-->
+        <!--}-->
+    <!--}-->
+<!--}-->
+<input type="button" value="Click Me" onclick="alert(type+&quot;,&quot;+event.type+','+value)"/>
+</body>
+</html>

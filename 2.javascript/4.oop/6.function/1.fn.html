@@ -1,0 +1,40 @@
+<script>
+	//函数是对象，函数名是指针
+	function Person(){
+		this.name='xxx';
+		this.age=1;
+	}
+	
+	var sum=Person;
+	
+	//Person不再指向函数对象，而sum仍然指向函数对象
+	Person=function(){
+		this.sex='man';
+	};
+
+	
+	alert(sum)
+	
+	//同理
+// 	var a={};
+// 	b=a;
+// 	a=null;
+// 	alert(b)
+
+	//声明当代码读取就会加载
+	function x() {alert("0");}
+	x();//输出1
+	function x() {alert("1");}
+	x();//输出1
+
+	//表达式调用时候才会加载
+	x = function() {alert("0");};
+	x();//输出0
+	x = function() {alert("1");};
+	x();//输出1
+	
+	sum();	//报错，因为函数表达式没有声明，而对于声明函数，js引擎会将函数提到源代码顶部
+	var sum = function() {alert("1");}
+	
+	
+</script>

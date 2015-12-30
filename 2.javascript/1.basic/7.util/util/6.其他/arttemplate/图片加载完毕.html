@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .wrap{display: none;}
+        .wrap .img {
+            float: left;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+<!-- 预加载图片位：每当图片加载完毕时，刷新图片位，不会出现图片下载的刷新效果 -->
+<div class="wrap">
+    <img class="img" data-src="http://img2.3lian.com/2014/f6/170/d/98.jpg"/>
+    <img class="img" data-src="http://img2.3lian.com/2014/f6/170/d/99.jpg"/>
+    <img class="img" data-src="http://img2.3lian.com/2014/f6/170/d/100.jpg"/>
+    <img class="img" data-src="http://img2.3lian.com/2014/f6/170/d/101.jpg"/>
+    <img class="img" data-src="http://img2.3lian.com/2014/f6/170/d/102.jpg"/>
+</div>
+</body>
+<script>
+
+    var Util={
+        toArray:function(arr){
+            return [].slice.call(arr);
+        }
+    }
+
+    //加载图片函数
+    var loadImg = (function () {
+        var i = 0,srcs=[];
+
+        function Interator(imgArray) {
+            Util.toArray(imgArray).forEach(function (item) {
+                item.src=item.dataset.src;
+                srcs.push(item.src);
+            });
+        }
+
+        return function (imgArray, callback) {
+            Interator(imgArray);
+            if(typeof callback=='function'){
+                callback.call(srcs);
+            }
+        }
+    })();
+
+    //加载图片函数代理
+    var loadImgProxy = (function () {
+        var img = new Image();
+        var imgs , i = 0, loadState = [];
+
+        function onload(imgArray,callback) {
+            loadState.push(this);
+            if (loadState.length == imgs.length) {
+                loadImg(imgArray);
+                if(typeof callback=='function'){
+                    callback();
+                }
+                return;
+            }
+            img.src = Interator();
+        }
+
+        function Interator() {
+            return imgs[i++];
+        }
+
+        function setImgs() {
+            var arr = [];
+            [].slice.call(arguments).forEach(function (item) {
+                arr.push(item.dataset.src);
+            });
+            return arr;
+        }
+
+        return function (imgArray, callback) {
+            imgs = setImgs.apply(null, imgArray);
+            img.src = Interator();
+            img.onload = onload.bind(img,imgArray, callback.bind(imgs));
+        }
+    })();
+
+    //图片加载完毕后处理函数：可以先隐藏图片，然后再处理函数中展示
+    var loadend = function () {
+        var sheet = document.styleSheets[0];
+        var rules = sheet.rules || sheet.cssRules;
+        rules[0].style.display = "block";
+
+        console.log("所有图片加载完毕,图片路径：" + this);
+    };
+    //loadImgProxy(document.querySelectorAll(".img"), loadend);
+    loadImg(document.querySelectorAll(".img"), loadend);
+</script>
+
+</html>

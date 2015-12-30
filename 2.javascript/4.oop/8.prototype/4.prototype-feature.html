@@ -1,0 +1,44 @@
+<html> 
+	<head> 
+  		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  		<title>prototype-feature</title> 
+		<script>
+			var f1 = {echo: function() { console.log("sound"); } };
+			function Foo() {};
+            Foo.prototype = f1;
+			var foo = new Foo(); // foo的基引用指向Object实例
+
+			
+			Foo.prototype.echo=function(){console.log("video")};
+			/* 如果先实例化出一个对象, 再为构造函数prototype赋予一个不同的对象,
+			 将会: 已经创建的对象的基引用不变, 将来创建的对象的基引用为新的原型对象: */
+			console.log(foo.echo);
+			
+			var foo2 = new Foo();   // foo2的基引用指f1对象
+			foo2.echo();            // output: video
+			
+			//由于引用对象的特性，会修改被引用的对象
+			f1.echo();              // output: sound
+			
+			//另一方面, Object构造函数也有prototype属性(该属性只能修改，不能重置),
+			Object.prototype.test = function() {
+				console.log("test");
+			}
+			
+			
+			// echo属性将增加到所有对象固有对象和自定义对象
+			var arr = new Array();
+			arr.test();
+			Array.test();
+			
+			//故因此可以有多层的原型链, 但原型链的根必定会是Object.prototype,
+			//这意味着给Object.prototype增加属性影响到所有对象
+			function ObjCons()    {
+			    this.dummy = "d";
+			}
+			var obj = new ObjCons();
+			obj.test();
+			ObjCons.test();
+		</script>
+	</head>
+</html>

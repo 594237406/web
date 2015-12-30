@@ -1,0 +1,75 @@
+1.document对象
+
+	当前html外围对象，第一个节点是!,第二个节点是html。虚拟对象不存在。
+	
+2.window对象
+
+	当前浏览器对象
+	
+3.获得浏览器可视区宽高方法（兼容）
+
+http://www.jb51.net/article/32679.htm
+
+在声明了DOCTYPE的浏览器中，Quirks
+document.body.clientHeight				//可见区
+document.documentElement.clientHeight	//0
+
+没声明了DOCTYPE的浏览器中，Quirks
+document.body.clientHeight				//可见区
+document.documentElement.clientHeight	//所有
+
+在声明了DOCTYPE的浏览器中，IE8
+document.body.clientHeight				//所有
+document.documentElement.clientHeight	//可见区
+
+没声明了DOCTYPE的浏览器中，IE8
+document.body.clientHeight				//所有
+document.documentElement.clientHeight	//可见区
+
+声明了DOCTYPE的浏览器中，IE10
+document.body.clientHeight				//所有
+document.documentElement.clientHeight	//可见区
+
+没声明了DOCTYPE的浏览器中，IE10
+document.body.clientHeight				//所有
+document.documentElement.clientHeight	//可见区
+
+
+
+在声明了DOCTYPE的浏览器中，非IE
+document.body.clientHeight				//所有
+document.documentElement.clientHeight	//可见区
+
+
+没声明了DOCTYPE的浏览器中，非IE
+document.body.clientHeight				//可见区
+document.documentElement.clientHeight	//所有
+
+IE，FF，Safari皆支持该方法，opera虽支持该属性，但是返回的是页面尺寸；
+同时，除了IE以外的所有浏览器都将此信息保存在window对象中，可以用以下获取： 代码如下复制代码 
+复制代码 代码如下:
+window.innerWidth 
+window.innerHeight
+
+4.
+不要用var body=document.body||document.documentElement;
+因为document.body永远不会为空，所以该段代码只会走前面
+
+5.
+页面具有 DTD，或者说指定了 DOCTYPE 时，使用 document.documentElement。 
+页面不具有 DTD，或者说没有指定了 DOCTYPE，时，使用 document.body。 
+在 IE 和 Firefox 中均是如此。 
+为了兼容，不管有没有 DTD，可以使用如下代码： 
+ 
+var scrollTop = window.pageYOffset  //用于FF
+                || document.documentElement.scrollTop || document.body.scrollTop || 0;
+ 
+ 
+body是DOM对象里的body子节点，即 <body> 标签； 
+documentElement 是整个节点树的根节点root，即<html> 标签；
+ 
+DOM把层次中的每一个对象都称之为节点，就是一个层次结构，你可以理解为一个树形结构，就像我们的目录一样，一个根目录，根目录下有子目录，子目录下还有子目录。
+ 
+以HTML超文本标记语言为例：整个文档的一个根就是,在DOM中可以使用document.documentElement来访问它，它就是整个节点树的根节点。而body是子节点，
+要访问到body标签，在脚本中应该写：document.body。
+ 

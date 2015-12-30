@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script>
+
+
+        (function(){
+            function $(){
+                return new Person();
+            }
+
+            function Person(){
+                this.name='lhj';
+                this.init();
+            }
+
+            Person.fn=Person.prototype={
+                init:function(){
+                    return [];
+                }
+            };
+
+            window.$=$;
+
+        })();
+
+        alert($().name)
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>insertAdjacentHTML</title>
+<script type="text/javascript">
+
+	var div=document.createElement("div");
+
+	div.innerHTML='div.innerHTML = "Hello & welcome,<br/> <b>\"reader\"!</b>";';
+	//以上操作得到的结果：<div id="content">Hello &amp; welcome, <b>&quot;reader&quot;!</b></div>
+	window.onload=function(){
+		document.body.appendChild(div);
+
+
+
+		//作为前一个同辈元素插入
+		div.insertAdjacentHTML("beforebegin", "<p>Hello world!</p>");
+		//作为第一个子元素插入
+		div.insertAdjacentHTML("afterbegin", "<p>Hello world!</p>");
+		//作为最后一个子元素插入
+		div.insertAdjacentHTML("beforeend", "<p>Hello world!</p>");
+		//作为后一个同辈元素插入
+		div.insertAdjacentHTML("afterend", "<p>Hello world!</p>");
+	}
+</script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="../prefixfree.min.js"></script>
+    <style>
+        .div1{
+            width: 200px;
+            height: 200px;
+            background: #eee;
+            transform-style:preserve-3d;
+            perspective:900px;
+            padding-top: 1px;
+            perspective-origin:top right;
+        }
+
+        .div2{
+            margin: 50px auto;
+            width: 100px;
+            height: 100px;
+            background: pink;
+            transform: rotateY(-60deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div1">
+        <div class="div2"></div>
+    </div>
+</body>
+</html>
+
+

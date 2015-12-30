@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>attr</title>
+		<script type="text/javascript">
+			var a={};
+			Object.defineProperty(a,"name",{
+				configurable:false, //不能删除
+				enumerable:false,	//不能迭代
+				writable:false,		//不能重写
+				value:"lhj"
+			});
+			
+			alert(a.name);
+
+			//重写
+			a.name="lhj1";
+			//删除
+			delete a.name
+			alert(a.name);
+			//迭代:Object的属性与方法都被标记为不可迭代，所以 forin不会打印Object原型链的属性与方法
+			for(var i in a){
+				alert(a[i])
+			}
+		</script>
+	</head>
+	<body>
+	
+	</body>
+</html>

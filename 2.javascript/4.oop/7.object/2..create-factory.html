@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>object-add-factory</title>
+<script type="text/javascript">
+	function createPerson(name,sex){
+		//原料
+		var person=new Object();
+		
+		//加工
+		person.name=name;
+		person.sex=sex;
+		
+		person.show=function(){
+			alert(this.name+this.sex);
+		}
+		
+		//出厂
+		return person;
+	}
+	
+	//无法解决识别对象的问题
+	var p1=createPerson('lhj','1');
+	var p2=createPerson('zy','0');
+	p1.show();
+	p2.show();
+
+    alert(p1.show==p2.show)
+</script>
+</head>
+<body>
+
+</body>
+</html>

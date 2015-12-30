@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+
+
+        function A() {
+            this.a = 1;
+
+        }
+
+        A.prototype.c=3;
+
+        function B() {
+            A.call(this);
+            this.b=2;
+        }
+
+
+        B.prototype=new A();
+        B.prototype.d=4;
+        B.prototype.constructor=B;
+
+        B.prototype.say=function(){
+             console.log(this.a,this.b,this.c,this.d)
+        };
+
+        var a=new A();
+        var b=new B();
+
+        console.log(b.hasOwnProperty("a"));      //a,b属于B函数
+        console.log(b.hasOwnProperty("b"));
+        console.log(b.hasOwnProperty("c"));      //d属于B函数原型对象，c属于A函数原型对象
+        console.log(b.hasOwnProperty("d"));
+        console.log(b.__proto__.hasOwnProperty("c"));
+        console.log(b.__proto__.hasOwnProperty("d"));
+        b.say();
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

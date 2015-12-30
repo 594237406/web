@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>pre-load</title>
+		
+		<script type="text/javascript">
+
+            var src="http://www.phpernote.com/uploadfiles/editor/201107240502201179.jpg";
+            loadImage(src,function(){
+                alert('图片的宽度为：'+this.width+'；图片的高度为：'+this.height);
+                document.body.appendChild(this)
+            });
+            function loadImage(url, callback) {
+                var img = new Image(); //创建一个Image对象，实现图片的预下载
+                img.src = url;
+
+                if(img.complete) { // 如果图片已经存在于浏览器缓存，直接调用回调函数
+                    callback.call(img);
+                    return; // 直接返回，不用再处理onload事件
+                }
+                img.onload = function () { //图片下载完毕时异步调用callback函数。
+                    callback.call(img);//将回调函数的this替换为Image对象
+                };
+            };
+		</script>
+	</head>
+	<body>
+
+	</body>
+</html>

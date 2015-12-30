@@ -1,0 +1,82 @@
+<script>
+
+	//函数是值传递
+	function sum(){
+		console.log("valueTransferSum");
+	}
+	
+	var otherSum=sum;
+	sum=null;
+	otherSum();
+	
+	//函数没有重载，代码会覆盖
+	function addNumber(num){
+		return num+100;
+	}
+	
+	function addNumber(num){
+		return num+200;
+	}
+	
+	console.log(addNumber(1));
+	
+	//函数声明会被放在代码树顶部
+	callFunctionBefore();
+	function callFunctionBefore(){
+		console.log("callFunctionBefore");
+	}
+	
+	//但是无法对已声明的函数放在顶部
+//	callFunctionBeforeDeclare();
+// 	var callFunctionBeforeDeclare=function(){
+// 		console.log("callFunctionBeforeDeclare");
+// 	}
+
+	//返回值函数的使用方法
+	function createComFun(propertyName){
+		return function(obj1,obj2){
+			var val1=obj1[propertyName];
+			var val2=obj2[propertyName];
+			if(val1<val2){
+				return -1;
+			}else if(val1>val2){
+				return 1;
+			}else{
+				return 0;
+			}
+		}
+	}
+	
+	var data=[{name:"zachary",age:28},{name:"nich",age:29}];
+	data.sort(createComFun("name"));
+	data.sort(createComFun("age"));
+	
+	//this指的的调用方法的对象
+	var color="red";
+	var o={color:"blue"};
+	
+	function sayColor(){
+		console.log(this.color);
+	}
+	sayColor();
+	o.sayColor=sayColor;
+	o.sayColor();
+	
+	//打印出调用当前函数的函数
+	function outer(){
+		inner();
+	}
+	
+	function inner(){
+		console.log(arguments.callee.caller);
+	}
+
+    outer();
+	
+	//形参与实参个数
+	function argsLentg(a,b,c,d){
+		console.log(arguments.callee.length);
+		console.log(arguments.length);
+	}
+	argsLentg(1,true);
+</script>

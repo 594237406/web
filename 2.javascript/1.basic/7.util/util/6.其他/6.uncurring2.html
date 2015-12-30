@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        //函数泛化
+        Function.prototype.uncurring=function(){
+            var self=this;
+            return function(){
+                var obj=[].shift.call(arguments);
+                return self.apply(obj,arguments);       //相对于：Array.prototype.push.apply(arguments,[4]);
+            }
+        };
+
+        for(var i= 0,arr=["push","shift","forEach"];fn=arr[i++];){
+            Array[fn]= Array.prototype[fn].uncurring();
+        }
+
+        var a=[1,2,3];
+
+        Array.shift(a);
+        Array.push(a,4);
+        Array.forEach(a,function(item){
+            console.log(item)
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>

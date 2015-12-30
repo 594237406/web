@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>transform-box</title>
+		<style>
+			body{height:500px;}
+			.wrap{height:100px;width:100px;padding:100px;margin:100px auto;
+				border:1px solid black;
+				-webkit-perspective:200px;
+				-webkit-transform:scale(1.5);
+				-webkit-perspective-origin:left;
+			}
+			
+			.box{height:100px;width:100px;position:relative;transition:2s;
+			-webkit-transform-style:preserve-3d;
+			-webkit-transform-origin:center center -50px; }
+			.box div{height:100px;width:100px;position:absolute;
+			font:18px/1.5em arial,verdana,微软雅黑;text-align: center;line-height: 100px;color:#fff;}
+			
+			.box div:nth-of-type(1){left:0;top:-100px;background: #f64b85;-webkit-transform-origin:bottom;-webkit-transform:rotateX(90deg);}
+			.box div:nth-of-type(1):hover{-webkit-transform:rotateX(-50deg);}
+			.box div:nth-of-type(2){left:-100px;top:0;background: #75aff7;-webkit-transform-origin:right;-webkit-transform:rotateY(-90deg);}
+			.box div:nth-of-type(3){left:0;top:0;background: #f25de9;}
+			.box div:nth-of-type(4){left:100px;top:0;background: #76f25d;-webkit-transform-origin:left;-webkit-transform:rotateY(90deg);}
+			.box div:nth-of-type(5){left:0;top:100px;background: #f6224f;-webkit-transform-origin:top;-webkit-transform:rotateX(-90deg);}
+			.box div:nth-of-type(6){left:0;top:0;background: #5afdff;-webkit-transform:translateZ(-100px) rotateX(180deg);}
+			
+			.wrap:hover .box{-webkit-transform:rotateX(180deg);}
+		
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="box">
+				<div>1</div>
+				<div>2</div>
+				<div>3</div>
+				<div>4</div>
+				<div>5</div>
+				<div>6</div>
+			</div>
+		</div>
+	</body>
+</html>

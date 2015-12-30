@@ -1,0 +1,7 @@
+1.jquery
+
+$(dom).data("events")
+
+2.chrome控制台
+
+getEventListeners(target)

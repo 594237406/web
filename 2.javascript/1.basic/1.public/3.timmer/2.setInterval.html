@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>setInterval</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <script type="text/javascript">
+	    var num = 0;
+	    var i = setInterval(function() {
+	        num++;
+	        var date = new Date();
+	        document.write(date.getMinutes() + ':' + date.getSeconds() + ':' + date.getMilliseconds() + '<br>');
+	        if (num > 10)
+	            clearInterval(i);
+	    }, 1000);
+	    
+// 	    4:53:292 	
+// 	    4:54:293
+// 	    4:55:293
+// 	    4:56:293
+// 	    4:57:293
+// 	    4:58:294
+// 	    4:59:294
+// 	    5:0:294
+// 	    5:1:294
+// 	    5:2:295
+// 	    5:3:295
+
+// 		时间间隔几乎是1000毫秒，但不精确，这是为什么呢？原因在于我们对JavaScript定时器存在一个误解，
+//      JavaScript其实是运行在单线程的环境中的，这就意味着定时器仅仅是计划代码在未来的某个时间执行，
+// 		而具体执行时机是不能保证的，因为页面的生命周期中，不同时间可能有其他代码在控制JavaScript进程。在页面下载完成后代码的运行、事件处理程序、Ajax回调函数都是使用同样的线程，实际上浏览器负责进
+// 		行排序，指派某段程序在某个时间点运行的优先级。
+    </script>
+
+  </head>
+  
+  <body>
+
+  </body>
+</html>

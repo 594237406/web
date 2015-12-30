@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>operator</title>
+		<script type="text/javascript">
+			//1.相等操作符
+//			  ==操作符 ，null==undefined NaN!=NaN true==1 true!=2 "5"==5 false==0
+//            == 对象与对象比较永远不相等
+//            对象与字符串比较,先将对象转成字符串 []==""
+//            对象与Boolean比较，对象转成字符串，然后转成数字，Boolean也转化成数字比较
+//            对象与数字比较，对象转成字符串，转数字，然后与数字比较
+//            数字==布尔，布尔转成数字
+//            字符串==数字，字符串转数字
+//            字符串==布尔，都转化成数字
+//            null==undefined,true,与其他所有类型都不等
+//            ===比较数据类型
+			
+			var str='null==undefined NaN!=NaN true==1 true!=2 "5"==5 false==0'
+			
+			var strs=str.split(" ");
+			
+			for(var i in strs){
+				console.log("相等测试："+strs[i]+ ":" + eval(strs[i]))
+			}
+			
+			//2.全等操作符
+			//如果不想发生转型，使用===或者!==
+				
+			var str='null===undefined NaN===NaN true===1 true===2 "5"===5 false===0'
+			
+			var strs=str.split(" ");
+			
+			for(var i in strs){
+				console.log("全等测试："+strs[i]+ ":" + eval(strs[i]))
+			}
+			
+			//3.赋值操作符
+			//+= -+ *= /+ %= <<= >>= >>>=
+				
+			var num=10;
+			
+			var str='num+=5 num-=5 num*=5 num/=5 num%=5';
+			var strs=str.split(" ");
+			
+			for(var i in strs){
+				console.log("赋值测试："+strs[i]+ ":" + eval(strs[i]));
+			}
+			
+			//4.逗号操作符:取最后一个值赋给num3
+			var num1=1,num2=2,num3=(3,4,5);
+			console.log(num3);
+			
+			
+			//for没有作用域，无论()与{}
+			for(var i=0,j=0;i<5,j<10;i++,j++){
+				var numx=1;
+			}
+			
+			console.log(i+":"+j+":"+numx);
+				
+		</script>
+	</head>
+	<body>
+	
+	</body>
+</html>

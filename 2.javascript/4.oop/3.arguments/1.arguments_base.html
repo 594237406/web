@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>arguments_base</title>
+		<script type="text/javascript">
+			//解析器不会验证命名参数,arguments的值与命名参数保持同步，如果参数个数少于命名参数的个数，
+			//修改arguments不会修改命名参数，反之也成立
+			//当像参数传递基本类型的值时，被传递的值会被赋给一个局部变量（即命名参数，
+			//也就是arguments中的一个属性），像参数传递引用类型的值时，会把这个值的内存中引用的地址赋给一个局部变量
+			function doAdd(num1,num2){
+                console.log(typeof arguments);
+				arguments[0]=5;
+				console.log(num1);
+				
+				arguments[1]=10;
+				console.log(num2);
+				return num1+num2;
+			}
+			
+			alert(doAdd(1,2));
+			alert(doAdd(1));  //NaN,如果实参个数少于命名参数，修改arguments不会修改命名参数，
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

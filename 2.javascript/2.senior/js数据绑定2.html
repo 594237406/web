@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        function parseElement(element) {
+            for (var i=0; i<element.attributes.length; i++) {
+                parseAttribute(element.attributes[i]);
+            }
+
+            for (var i=0; i<element.children.length; i++) {
+                parseElement(element.children[i]);
+            }
+        }
+
+        function parseElement(element, vm) {
+            var model = vm;
+
+            if (element.getAttribute("vm-model")) {
+                model = bindModel(element.getAttribute("vm-model"));
+            }
+
+            for (var i=0; i<element.attributes.length; i++) {
+                parseAttribute(element, element.attributes[i], model);
+            }
+
+            for (var i=0; i<element.children.length; i++) {
+                parseElement(element.children[i], model);
+            }
+        }
+
+        function bindModel(modelName) {
+            thin.log("model" + modelName);
+
+            var model = thin.use(modelName, true);
+            var instance = new model();
+
+            return instance;
+        }
+
+
+        thin.define("Person", [], function() {
+            function Person() {
+                this.name = "Tom";
+                this.age = 5;
+            }
+
+            Person.prototype = {
+                growUp: function() {
+                    this.age++;
+                }
+            };
+
+            return Person;
+        });
+
+
+    </script>
+</head>
+<body>
+    <div vm-model="Person">
+        <input type="text" vm-value="name"/>
+        <input type="text" vm-value="age"/>
+        <input type="button" vm-click="growUp" value="Grow Up"/>
+    </div>
+</body>
+</html>

@@ -1,9 +1,0 @@
-1.get post优缺点
-
-	get 容量小，安全性低，数据走url。用来获取数据，便于分享。会缓存。
-	
-	post 安全性一般，容量大，数据不走url。用来提交数据，不便于分享。不会缓存。
-	
-document.getElementById('need_hide').onclick = function(e) {
-    stopPropagation(e);
-}
