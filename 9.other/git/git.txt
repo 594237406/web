@@ -1,0 +1,27 @@
+1.新建目录，进入目录-命令行
+git init 到工作目录
+
+2.工作目录：
+git add .   //提交所有改动到缓存区
+.gitignore  //忽略:里面写正则表达式忽略文件名,通过git bush-vim .gitignore-创建
+
+3.缓存区index  git commit -m "代码提交信息"  //提交到head仓库
+
+4.git remote add origin 远程推送地址        //只对init目录执行，设置远程提交地址
+
+5.git push origin master                   //推送到远程地址
+
+6.git status                               //看状态
+
+7.不用输入用户名密码，方法：
+
+git remote rm origin                       //删除推送地址重新设置
+
+git remote add origin https://594237406:jdkn45263@github.com/594237406/node.git
+
+8.add与commit合并:git commit -a -m ""
+
+9.更新代码 git pull
+
+10.对比代码 git diff
+
