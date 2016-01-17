@@ -1,9 +1,0 @@
-默认发布关于路径
-
-	1.page以及widget会传到template文件夹下面
-	2.静态文件会传到static下面
-	3.smarty插件传到plugin下面
-	4.枚举配置传到config下面
-	5.访问路径：
-		地址栏访问template\下，如：http://127.0.0.1:8080/home/page/page1访问pc-demo\home\page\page1.tpl,page1.tpl继承自login.tpl。
-
