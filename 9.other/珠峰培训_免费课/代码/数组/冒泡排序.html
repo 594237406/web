@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        var a=[3,5,3,2,4,12,4];
+
+        for(var i=0;i< a.length-1;i++){
+
+            for(var j=0;j< a.length-i-1;j++){
+                if(a[j]>a[j+1]){
+                    a[j]=a[j]+a[j+1];
+                    a[j+1]=a[j]-a[j+1];
+                    a[j]=a[j]-a[j+1];
+                }
+            }
+        }
+        alert(a);
+
+
+        for(var i=0;i< a.length-1;i++){
+
+            for(var j=0;j< a.length-i-1;j++){
+                if(a[j]<a[j+1]){
+                    a[j]=a[j]+a[j+1];
+                    a[j+1]=a[j]-a[j+1];
+                    a[j]=a[j]-a[j+1];
+                }
+            }
+        }
+
+        alert(a);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

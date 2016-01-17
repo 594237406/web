@@ -1,0 +1,15 @@
+1.变量：可变的量
+
+    1.变量：可变的量，用来存储值和代表值
+    2.定义方法:后台定义方法，前台定义方法
+    3.=是赋值操作，左侧是变量名，右侧是存储的值
+    4.松散数据类型
+
+2.数据类型：
+    1.typeof用来判断六中数据类型
+    2.基本数据类型：number,string,boolean,null,undefined
+    3.引用数据类型：object,array,function,regexp,Date,包装对象,Math,Globle
+
+
+
+

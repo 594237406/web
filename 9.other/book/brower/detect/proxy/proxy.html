@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>proxy</title>
+<script type="text/javascript" src="client.js"></script>
+<script type="text/javascript">
+
+var engine=client.engine;
+
+//内容打出
+// for(var i in engine){
+// 	var e=engine[i];
+// 	console.log(i+":"+e);
+// }
+
+if(client.engine.webkit){   
+    if (client.browser.chrome) {
+    	console.log('您使用的浏览器为:chrome,版本为：'+client.browser.ver);
+    }else if (client.browser.safari){
+    	console.log('您使用的浏览器为:safari,版本为：'+client.browser.ver);
+    }
+} else if (client.engine.gecko) {
+    if (client.browser.firefox) {
+    	console.log('您使用的浏览器为:firefox,版本为：'+client.browser.ver);
+    }else{
+　　　　console.log('您使用的浏览器为:FF,版本为：'+client.browser.ver);
+    }
+}else if(client.engine.ie){
+	console.log('您使用的浏览器为:IE,版本为：'+client.browser.ver);
+}
+
+if(client.system.win){
+	console.log('您使用的平台为：'+client.system.win);
+}else if(client.system.mac){
+	console.log('您使用的平台为：'+client.system.mac);
+}else if(client.system.xll){
+	console.log('您使用的平台为：'+client.system.xll);
+}
+
+
+</script>
+</head>
+<body>
+</body>
+</html>

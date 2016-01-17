@@ -1,0 +1,47 @@
+1.调试器:
+
+    1.打开方式：控制台打开：浏览器F12打开控制台，要养成用谷歌浏览器进行前端开发，每次打开网页就F12的习惯
+
+    2.调试器内容：
+        1.e1ement：是页面中所有元素的集合，通常我们用它来调试样式，查找绑定事件。（调试样式方法）
+        2.network：所有与服务器的交互。包含所有html,js,css请求，图片文件，和我们向后台发起的请求。
+            我们可以对加载时间过长的文件进行优化，可以查看http请求和状态码。可以拍照时间快照
+        3.sources：包含了我们项目中的所有html,js,css请求后的下载到本地源代码，
+            如果你想爬一个网站，可以在这里找到所有源代码，调试bug（爬虫）
+        4.resources:当前网站本地存储数据（cookie,storage）
+        5.console:页面输出内容
+        6.查找\全文搜索\移动端
+
+
+
+2.emmet，console的常用方法:
+    console.log("这是log");
+    console.info("这是info");
+    console.debug("这是debug");
+    console.warn("这是warn");       //输出一个警告框
+    console.error("这是error");     //输出一个错误
+        throw new Error("抛出异常")
+    console.dir({name:"lhj"});      //输出对象的详细信息
+    console.table({name:"lhj"});    //把一个json按对象的方式输出
+
+3.占位符（扩展知识）
+
+    1.支持字符（%s）、整数（%d或%i）、浮点数（%f）、对象(%o)四种
+    2.例子：console.log("今年是%d年%d月%d日",2015,10,1);
+
+4.innerHTML,innerText:
+
+    1.innerHTML能识别html标签：兼容所有浏览器
+    2.innerText不能识别html标签，Firefox不兼容
+    3.项目中不使用innerText，使用innerHTML
+
+5.alert
+    1.把内容转化成字符串，然后再输出
+    2.confirm的用法
+    3.prompt的用法
+
+6.document.write
+    1.文档流
+        将窗体自上而下分成一行行, 并在每行中按从左至右的顺序排放元素,即为文档流.(自己的理解是从头到尾按照文档的顺序，该在什么位置就在什么位置，也可以按照上面的意思理解，自上而下，自左到右的顺序)
+    2.执行顺序（不要在页面执行完毕输出页面内容，因为文档流会关闭，再调用document.write会重新创建一个文档流对象，把之前的文档流覆盖掉）
+    3.作用：往页面中插入广告

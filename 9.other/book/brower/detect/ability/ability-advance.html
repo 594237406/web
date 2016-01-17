@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ability-advance</title>
+<script type="text/javascript">
+// 	function hasCreateElement(){
+// 		alert(typeof document.createElement);//IE9以下会返回object
+// 		return  typeof document.createElement =="function";  
+// 	}
+	
+// 	alert(hasCreateElement());
+	
+	
+ 	var xhr=new ActiveXObject("Microsoft.XMLHttp");
+// 	if(xhr.open){ //error，直接把函数作为属性会报js错误	
+// 	    alert("exist open")
+// 	}
+
+    function hasMethod(object, property) {
+        var t = typeof object[property];
+        return t == 'function' ||
+            (!!(t == 'object' && object[property])) ||
+                t == 'unknown';
+    }
+
+    result = hasMethod(window, "open"); //true
+    alert(result);
+    result = hasMethod(window, "location"); //true
+    alert(result);
+    result = hasMethod(window, "foo"); //false
+    alert(result);
+</script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,87 @@
+1.介绍
+
+   大家好，李宏吉，来自百度糯米。
+
+   QQ：594237406
+
+   Mobile：18513622209
+
+2.我们以后能做什么？
+
+    Web前端攻城狮\Web高级前端攻城狮
+
+    码字猴\程序猿\挨踢民工\产品狗
+
+    运营\项目领导 - PM（axure,原型图）- UED（UE\UI-psd） - 切图\制作页面:html+css
+
+    JS增加页面交互：动画\事件\验证\跳转\浏览器操作……  闭包、oop、setIntverval………
+
+    JS增加与后台交互：Ajax,跨域(Java\php\python\c#(asp.net)\c++\node)
+
+3.前端包含哪些技术？
+
+    html(hypertext markup language)
+
+    css(cascading style sheet)
+
+    javascript
+
+    移动端html5\webapp混合开发
+
+    nodejsIO密集型操作（文件操作）
+
+    nodejs搭建服务器
+
+4.常用浏览器：
+
+    Chrome(推荐)
+
+    IE，360/360急速，搜狗，QQ，UC浏览器，猎豹
+
+    IE/netscape:w3c
+
+    w3c（父亲）：制定\推出标准，我们叫做接口，其他浏览器去实现
+
+    IE,Chrome,Firefox,Oprea,Safari
+
+    移动端：chrome,safari
+
+5.常用编译器
+
+    axure,illustrator,photoshop,cad,3dmax,maya,flashbulder
+
+    eclipse/myeclispe,phpstorm,sublime(php/linux,web),hbulder(C,web),dreamweaver(html+css),vs, ueditor,editplus
+
+    推荐webstorm
+
+6.推荐书籍
+
+    javascript高级程序设计第三版（人民邮电出版社）
+
+7.推荐网站
+
+    w3cschool
+
+8.自学方法：
+
+    api(application interface) ,hd(help document)
+
+9.考试：
+
+    考试安排：
+    1、上机题：必考:选项卡+99乘法表（时间40分钟）
+    2、上机题：选考:数组去重和数组冒泡排序 考过-100学费（时间20分钟）
+    3、笔试题：必考：笔试 》=80（含80分）可以-100学费（时间60分钟）
+    10月17号和18号下完课后，准备好就可以考试上机，（这两天只考试上机）
+    10月24，25号下完课后，开始考试上机和笔试（这两天上机和笔试都会考，而且全部都要考试）
+    10月27号全日制正式课开班（周二）
+    10月31号周末班正式课开班（周六）
+
+
+
+
+
+
+
+
+

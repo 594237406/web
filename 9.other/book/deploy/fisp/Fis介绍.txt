@@ -1,0 +1,26 @@
+1.前端集成解决方案
+
+	1.1前端框架：框架、类库、UI、图形化
+	1.2模板框架
+	1.3自动化工具
+	1.4辅助工具：调试工具
+
+2.FIS(0依赖)
+
+	2.1资源定位：开发路径与上线路径不一致，FIS会有配置文件做定义
+	（没有强制目录规范），加MD5戳，加域。
+
+	FIS会对script,link,img,style,audio,video等标签src,data-src,href属性进行分析，找到具体路径。
+
+	css import,background-url,filter属性做资源定位
+
+
+	2.2资源嵌入:资源合并，base64
+
+		资源加?_liline，对编码做base64嵌入
+	
+	2.3依赖声明:require,解决资源管理需求
+
+		会加入map.json，详见map.json
+
+

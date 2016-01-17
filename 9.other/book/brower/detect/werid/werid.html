@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>werid</title>
+<script type="text/javascript">
+	//与能力检测类似，怪癖检测 (quirks detection) 的目标是识别浏览器的特殊行为。但与能力检测确认浏览器支持什么能力不同，怪癖检测是想要知道浏览器存在
+	//什么缺陷("怪癖"也就是 bug)。这通常需要运行一小段代码，以确定某一特性不能正常工作。例如，IE中存在一个 bug ，即如果某个实例属性与标记为 
+	//[[DontEnum]] 的某个原型属性同名，那么该实例属性将不会出现在 for-in 循环当中。可以使用如下代码来检测这种 "怪癖"
+	var hasDontEnumQuirk = function() {
+		var o = {
+			toString : function() {
+			}
+		};
+		for ( var prop in o) {
+			if (prop == "toString") {
+				return false;
+			}
+		}
+		return true;
+	}();
+	var hasEnumShadowsQuirk = function() {
+		var o = {
+			toString : function() {
+			}
+		};
+		var count = 0;
+		for ( var prop in o) {
+			if (prop == "toString") {
+				count++;
+			}
+		}
+		return (count > 1);
+	}();
+	alert(navigator.userAgent)
+</script>
+</head>
+<body>
+</body>
+</html>

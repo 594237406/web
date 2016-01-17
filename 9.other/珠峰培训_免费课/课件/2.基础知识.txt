@@ -1,0 +1,48 @@
+1.html,css复习
+
+    行元素\块元素
+    盒子模型
+    对其
+    隐藏
+
+2.javascript历史
+
+    1.javascript诞生于1995年，距今已经20年的历史。
+        javascript为什么诞生?在95年拨号上网的时代，每次填写表单，对表单进行验证都是发送到
+            后台进行验证。网景公司通过javascript来解决了这个问题。
+
+    2.如今的javacript已经远远不是当初的表单验证那么点功能，javascript已经从一个验证的脚本
+        语言向标准面向对象语言发展，并且在前端没有任何竞争对手（actionscript已于2014年大部分
+        退出前端舞台），处于前端霸主地位。
+
+    3.javascript能做什么？
+        页面元素操作（特有：html、css能做的，javascript都可以做）
+        特效\动画\特效制作：图形绘制，canvas,svg
+        浏览器操作（特有）
+        与后台交互，异步操作
+        跨域操作、cookie操作
+        移动端\Web\APP混合开发
+
+    4.javascript不能做什么？
+        多线程操作\分布式操作
+        搭建服务器(NodeJS)
+        可以但是不推荐的操作：
+            1.文件操作（不推荐除了上传、下载以外的其他操作）
+            2.数据库操作
+
+
+2.javascript包含哪几部分内容，版本
+    1.EcmaScript（操作平台和内容的方式）：ecma3,ecma5,ecma6,ecma7
+        定义：语法结构：命名规范、变量、数据类型、操作符、逻辑控制语句、对象等核心内容
+    2.DOM（内容document object model）：dom0,dom2,dom3级结构,document对象，(document函数查看方法)
+        html
+        head/body
+        ...
+
+        各种树讲解
+    3.BOM（brower object model）
+
+
+
+
+

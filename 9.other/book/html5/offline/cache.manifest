@@ -1,0 +1,20 @@
+CACHE MANIFEST 
+
+#version 7 
+#cache
+CACHE:
+other.html
+hello.js
+hello.html
+cat.png
+d1.html
+
+#not chche
+NETWORK
+http://Lulingniu/NotOffline
+NotOffline.asp
+*
+
+#can't connect
+FALLBACK
+online.js locale.js

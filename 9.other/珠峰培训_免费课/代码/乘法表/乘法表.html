@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        html, body, ul {
+            width: 100%;
+            height: 100%;
+            display: table;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        body {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        .wrap {
+            margin: 0 auto;
+            display: inline-block;
+            text-align: left;
+            font-weight: bold;
+            /*background: -webkit-linear-gradient(top, #C1F3F2, #CAF7B6);*/
+        }
+
+        .wrap span {
+            display: inline-block;
+            width: 80px;
+            text-align: center;
+            padding: 5px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <ul class="chengfabiao">
+    </ul>
+</div>
+<script>
+    console.time("a");
+
+    //方法1：
+//     for(var i=1;i<=9;i++){     //控制行
+//         var row=document.createElement("li");
+//         if(i%3==1){
+//             row.style.background="#31B0D5";
+//         }else if(i%3==2){
+//             row.style.background="#67B168";
+//         }else{
+//             row.style.background="#AC2925";
+//         }
+//
+//         for(var j=1;j<=i;j++){ //控制列
+//             var col=document.createElement("span");
+//             col.innerHTML=j+"*"+i;
+//             row.appendChild(col);
+//
+//         }
+//         document.querySelector(".chengfabiao").appendChild(row);
+//     }
+
+
+
+    var str = "";
+    for (var i = 1; i <= 9; i++) {     //控制行
+
+        str += "<li class='rows'>";
+        for (var j = 1; j <= i; j++) { //控制列
+            var col = document.createElement("span");
+            col.innerHTML = j + "*" + i;
+            str += "<span>";
+            str+=j+"*"+i;
+            str+="</span>";
+        }
+
+        str += "</li>";
+    }
+    document.querySelector(".chengfabiao").innerHTML = str;
+
+    var rows=document.querySelectorAll("span");
+
+    for (var i = 0; row=rows[i++];) {     //控制行
+        var k=i-1;
+        if(!(k%3)){
+            row.style.background="#31B0D5";
+        }else if(k%3==1){
+            row.style.background="#67B168";
+        }else{
+            row.style.background="#AC2925";
+        }
+    }
+
+    console.timeEnd("a");
+</script>
+</body>
+</html>

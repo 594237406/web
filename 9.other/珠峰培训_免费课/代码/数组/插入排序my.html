@@ -1,0 +1,47 @@
+<script>
+
+    // http://baike.baidu.com/image/d57e99942da24e5dd21b7080
+    // http://baike.baidu.com/view/396887.htm
+    var a1 = [200,55,44,4];
+
+//    [55,200,44,4];
+//
+//    [44,55,200,4];
+//
+//    [4,44,55,200]
+
+    function sortInsert(arr){
+        //声明变量
+
+        var nowIdx=1,len=arr.length,curNum,compIdx;
+
+        //循环数组
+
+        for(nowIdx;nowIdx<len;nowIdx++){
+            //获取当前元素
+            curNum=arr[nowIdx];
+            //获取比较元素序列
+            compIdx=nowIdx-1;
+
+            //循环被比较元素
+            while(compIdx>-1){
+
+                //如果被比较元素比当前元素大，则当前元素换成被比较元素
+                if(arr[compIdx]>curNum){
+                    arr[compIdx+1]=arr[compIdx];
+                }else{    //如果被比较元素比当前元素小，则退出循环操作
+                    break;
+                }
+                compIdx--;
+            }
+
+            //被比较元素最大元素替换成当前元素
+            arr[compIdx+1]= curNum;
+        }
+    }
+
+    sortInsert(a1);
+
+    console.log(a1);
+
+</script>

@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>storage-event</title>
+		<script>
+			window.onload = function(){
+				var aInput = document.getElementsByTagName('input');
+				aInput[0].onclick = function(){
+					window.localStorage.setItem('name',aInput[2].value);
+				};
+		
+				aInput[1].onclick = function(){
+					alert(window.localStorage.getItem('name'));
+				};
+				
+				//当前页面的事件不会触发,与其共享storage的相同页面会触发,Chrome不生效
+				window.addEventListener('storage',function(ev){  
+					//alert(123);
+					/*	Key : 修改或删除的key值，如果调用clear(),key为null
+						newValue  :  新设置的值，如果调用removeStorage(),key为null
+						oldValue :  调用改变前的value值
+						storageArea : 当前的storage对象
+						url :  触发该脚本变化的文档的url */
+
+					console.log( ev.key );
+					console.log( ev.newValue );
+					console.log( ev.oldValue );
+					console.log( ev.storageArea );
+					console.log( ev.url );
+				},false);
+			};
+		</script>
+	</head>
+
+	<body>
+		<input type="button" value="设置" />
+		<input type="button" value="获取" />
+		<input type="text" />
+	</body>
+</html>

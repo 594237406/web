@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>frame_event</title>
+<script type="text/javascript">
+	var Class = (function() {
+		var _mix = function(r, s) {
+			for ( var p in s) {
+				if (s.hasOwnProperty(p)) {
+					r[p] = s[p]
+				}
+			}
+		}
+
+		var _extend = function() {
+
+			//开关 用来使生成原型时,不调用真正的构成流程init
+			this.initPrototype = true;
+			var prototype = new this();
+			this.initPrototype = false;
+
+			var items = Array.prototype.slice.call(arguments) || []
+			var item;
+
+			//支持混入多个属性，并且支持{}也支持 Function
+			while (item = items.shift()) {
+				_mix(prototype, item.prototype || item)
+			}
+
+			// 这边是返回的类，其实就是我们返回的子类
+			function SubClass() {
+				if (!SubClass.initPrototype && this.init)
+					this.init.apply(this, arguments);//调用init真正的构造函数
+			}
+
+			// 赋值原型链，完成继承
+			SubClass.prototype = prototype;
+
+			// 改变constructor引用
+			SubClass.prototype.constructor = SubClass;
+
+			// 为子类也添加extend方法
+			SubClass.extend = _extend;
+
+			return SubClass;
+		}
+		//超级父类
+		var Class = function() {
+		}
+		//为超级父类添加extend方法
+		Class.extend = _extend
+		return Class;
+	})();
+
+	var Event = Class.extend( {
+		on : function(key, listener) {
+			if (!this.events) {
+				this.events = {};
+			}
+			if (!this.events[key]) {
+				this.events[key] = [];
+			}
+			if (this.events[key].indexOf(listener) === -1
+					|| typeof listener === "function") {
+				this.events[key].push(listener);
+			}
+
+			return this;
+		},
+
+		fire : function(key) {
+			if (!this.events || !this.events[key])
+				return;
+			var args = Array.prototype.slice.call(arguments, 1) || [];
+			var listeners = this.events[key];
+			var i = 0, l = listeners.length
+			for (i; i < l; i++) {
+				listeners[i].apply(this, args);
+			}
+			return this;
+		},
+
+		off : function(key, listener) {
+			if (!key && !listener) {
+				this.events = {}
+			}
+			//不传监听函数，就去掉当前key下面的所有的监听函数
+			if (key && !listener) {
+				delete this.events[key]
+			}
+
+			if (key && listener) {
+				var listeners = this.events[key]
+				var index = _indexOf(listeners, listener)
+				(index > -1) && listeners.splice(index, 1)
+			}
+			return this;
+		}
+	});
+
+	var a = new Event();
+
+	a.on("click", function() {
+		alert(1);
+	});
+
+	a.fire("click");
+	a.off("click");
+
+	a.fire("click");
+</script>
+</head>
+<body>
+</body>
+</html>

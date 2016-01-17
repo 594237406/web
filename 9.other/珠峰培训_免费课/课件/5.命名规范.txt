@@ -1,0 +1,24 @@
+命名规范（中国人起名规范)
+
+   1.严格区分大小写 test Test
+   2.数字、字母、下划线、$，不能以数字开头
+   3.JS关键字、保留字不能命名（什么叫关键字、保留字）
+   4.习惯：驼峰命名法，不要以汉语拼音命名，更不要以不要以中英文结合命名
+   5.常用命名技巧(扩展知识)：
+        5.1:2,4，代表to,for
+        5.2:辅音缩写法
+        5.3:变量类型前缀
+        5.4:常量命名法
+        5.5:函数命名法
+           add,create,push
+           delete,remove
+           update,modify
+           select,query
+
+        5.6:常见变量名：
+           handler,class,util,each,proxy,flag
+           desc,msg,stat,cache,rsl,args,prop,...
+
+        5.7：i,j,k,l,m,n不要命名
+
+

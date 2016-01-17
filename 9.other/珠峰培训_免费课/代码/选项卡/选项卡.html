@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        html,body,ul{margin: 0;padding: 0;list-style: none;}
+        .wrap{margin: 100px auto;width: 500px;}
+        .wrap .title{border: 1px solid #ddd;border-bottom: none;}
+        .wrap .title li{width: 58px;height: 36px;text-align: center;border-right:1px solid #ddd;line-height: 36px;float: left;
+            box-sizing: border-box;
+        }
+        .wrap .title li.select{
+            border-top:2px solid #FF8400;
+            background: #FFF38F;
+        }
+
+        .clear{
+            zoom:1;
+        }
+
+        .clear:after{
+            clear: both;
+            display: block;
+            content: "";
+        }
+        .content .item{
+            height: 200px;
+            line-height: 200px;
+            border: 1px solid #ddd;
+            border-top: none;
+            text-align: center;
+            font-size: 18px;
+            display: none;
+            background: #FFF38F;
+        }
+
+        .content .item.select{
+           display: block;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <ul class="title clear">
+        <li class="select">
+            视频
+        </li>
+        <li>
+            综艺
+        </li>
+        <li>
+            电影
+        </li>
+    </ul>
+    <div class="content">
+        <div class="item select">骨头、小骨、杀阡陌</div>
+        <div class="item">中国好声音第四季-腾讯独家播放</div>
+        <div class="item">小黄人备受大家好评</div>
+    </div>
+</div>
+</body>
+<script>
+
+    var titles=document.querySelectorAll("li");
+    var items=document.querySelectorAll(".item");
+
+    for(var i=0;i<titles.length;i++){
+        var title=titles[i];
+        title.index=i;
+        title.onmouseover=function(ev){
+            changeTab(this.index);
+        }
+    }
+
+    function changeTab(i){
+        for(var k in items){
+            if(items.hasOwnProperty(k)){
+                items[k].classList.remove("select");
+                titles[k].classList.remove("select");
+            }
+        }
+        items[i].classList.add("select");
+        titles[i].classList.add("select");
+    }
+
+</script>
+</html>

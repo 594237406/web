@@ -1,0 +1,40 @@
+<script>
+
+    // http://baike.baidu.com/image/d57e99942da24e5dd21b7080
+    // http://baike.baidu.com/view/396887.htm
+    var array1 = [200,55,44,4];
+
+    //    [55,200,44,4];
+    //
+    //    [44,55,200,4];
+    //
+    //    [4,44,55,200]
+
+    function sortInsert(array){
+        //首次从第二个元素开始，
+        var now=1,             //当前元素索引
+                len=array.length,
+                curNum,            //当前元素
+                nowIndex;          //当前比较元素索引
+
+        //循环n-1次
+        for(now;now<len;now++){
+            nowIndex = now;
+            curNum=array[now];
+            while(nowIndex>-1){      //如果索引超出数组范围
+                nowIndex--;          //取当前元素前一个元素
+                if(array[nowIndex]>curNum){       //如果前一个元素大于当前元素
+                    array[nowIndex+1]=array[nowIndex];      //当前元素换成前一个元素
+                }else{
+                    break;
+                }
+            }
+            array[nowIndex+1]=curNum;                       //当前元素赋给第一个值
+        }
+    }
+
+    sortInsert(array1);
+
+    console.log(array1);
+
+</script>

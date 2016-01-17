@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        var a=[3,5,3,134,2,4,12,4];
+
+        var len= a.length;
+        //方法1：
+//        for(var i=0;i< len-1;i++){
+//            for(var j=i+1;j<len;j++){
+//                k++;
+//                if(a[i]==a[j]){
+//                    a.splice(j,1);
+//                }
+//            }
+//        }
+        //alert(a)
+
+        //方法2：
+//        var aObj={};
+//        for(var i=0;i< a.length;i++){
+//             var item=a[i];
+//             if(!aObj[a[i]]){
+//                 aObj[a[i]]=true;
+//             }else{
+//                 a.splice(i,1);
+//             }
+//        }
+//        alert(a)
+
+        //方法3：
+        var newArr=[];
+        for(var i=0;i< a.length;i++){
+             if(newArr.indexOf(a[i])==-1){
+                 newArr.push(a[i]);
+             }
+        }
+        alert(newArr)
+    </script>
+</head>
+<body>
+
+</body>
+</html>

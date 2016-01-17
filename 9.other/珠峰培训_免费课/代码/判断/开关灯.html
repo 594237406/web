@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        html,body{
+            margin: 0;
+            height: 100%;
+        }
+
+    </style>
+</head>
+<body style="background: white;">
+
+</body>
+<script>
+    var body1=document.body;
+    var Bodybg=body1.style;
+
+    body1.onclick=function(){
+
+        if(Bodybg.background==""){
+            Bodybg.background="black";
+        }else if(Bodybg.background=="black"){
+            Bodybg.background="white";
+        }else if(Bodybg.background=="white"){
+            Bodybg.background="black";
+        }
+
+//        bg.background=='white'?bg.background='black':bg.background="white";
+
+//        switch(bg.background){
+//            case "white":
+//                bg.background="black";
+//                break;
+//            case "black":
+//                bg.background="white";
+//                break;
+//
+//        }
+
+    }
+
+</script>
+</html>

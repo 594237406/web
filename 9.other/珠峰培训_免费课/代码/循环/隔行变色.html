@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        ul {
+            margin: 20px auto;
+            list-style: none;
+            width: 500px;
+        }
+
+        li {
+            height: 25px;
+
+            background: #eee;
+        }
+
+    </style>
+</head>
+<body>
+<ul>
+    <li class="row"></li>
+    <li class="row"></li>
+    <li class="row"></li>
+    <li class="row"></li>
+    <li class="row"></li>
+    <li class="row"></li>
+    <li class="row"></li>
+    <li class="row"></li>
+    <li class="row"></li>
+    <li class="row"></li>
+    <li class="row"></li>
+    <li class="row"></li>
+    <li class="row"></li>
+    <li class="row"></li>
+    <li class="row"></li>
+    <li class="row"></li>
+    <li class="row"></li>
+    <li class="row"></li>
+    <li class="row"></li>
+    <li class="row"></li>
+    <li class="row"></li>
+    <li class="row"></li>
+    <li class="row"></li>
+    <li class="row"></li>
+    <li class="row"></li>
+    <li class="row"></li>
+    <li class="row"></li>
+    <li class="row"></li>
+    <li class="row"></li>
+    <li class="row"></li>
+
+</ul>
+</body>
+<script>
+    var oLis = document.querySelectorAll(".row");
+
+    for (var i = 0, item; item = oLis[i++];) {
+
+        if (i % 2) {            //奇数行
+            item.style.background = "#ffbaf0";
+        } else {
+            item.style.background = "#7f5dff";
+        }
+
+        item.bg = item.style.background;
+        item.onmouseover = function () {
+            this.style.background = "#aaa";
+        };
+
+        item.onmouseout = function () {
+            this.style.background = this.bg;
+        };
+    }
+
+</script>
+</html>

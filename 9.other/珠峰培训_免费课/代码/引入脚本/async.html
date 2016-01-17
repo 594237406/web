@@ -1,0 +1,16 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>async</title>
+		<script type="text/javascript" src="defer.js" defer="defer"></script>
+		<script type="text/javascript" src="jquery-2.0.3.js" async="async"></script>	
+		<script type="text/javascript">
+			//先弹出load，再弹出defer,再弹出jq。defer是延迟加载，页面元素加载完毕时执行，而异步则与页面同时加载，所以晚于延时加载
+			alert('load');
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

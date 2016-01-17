@@ -1,0 +1,28 @@
+1.4个判断语法
+
+    1.if、else:能完成所有的判断
+        if判断条件可以是表达式，也可以是一个值，也可以是多个表达式
+
+        重点：判断代码块内部声明的变量外部也可以访问，所以全局变量不要以i~n字母命名
+
+    2.三元运算符:多值单条件判断
+        false?console.log("1"):void(0)
+
+    3.switch:单值多条件判断
+        break与不写break
+        条件判断：===
+
+    4.&&:多值单条件简单判断
+        &&和|| 多值判断
+
+2.js判断的应用（开关灯）
+
+    1.获取body
+        document：上下文context
+        document.getElementById:只能获得一个
+            get element by id
+
+    2.让body有个点击事件
+    3.点击时候让body颜色改变
+    4.用if else switch 三元运算符来实现
+

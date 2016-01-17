@@ -1,0 +1,31 @@
+1.添加方法
+    push:
+    shift:
+    pop:
+    unshift:
+    splice(实现shift,pop,unshift,push)
+
+2.查询和复制方法
+    slice(实现复制)
+    concat(实现复制)
+
+
+3.转字符串
+    toString
+    join
+        实现求和：eval(join("+"))
+
+4.数组排序和排列
+    reverse
+    sort:原有数组也改变：只能处理10以内的数字排序
+
+    //由小到大
+    sort(function(a,b){
+        //a,b a代表每次循环当前项，b代表每次循环后续项
+
+        //通过冒泡排序的思想实现
+        return a-b;                               //如果前面比后面大，这样就交换位置
+    });
+
+5.不兼容方法
+    map,forEach,indexOf等方法

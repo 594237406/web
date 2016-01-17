@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>frame_process</title>
+<script type="text/javascript">
+	//这段代码跑也是可以跑的，但是呢，各种变量混乱，没有很好的隔离作用域,当页面变的复杂的时候,会很难去维护。目前这种代码基本是用不了的。
+	//当然少数的活动页面可以简单用用。
+	window.onload=function(){
+		var input=document.getElementById("J_text");
+
+		function getTextCount(){
+			var value=input.value;
+			return value.length+" count";
+		}
+
+		function render(){
+			var num=document.getElementById("num");
+
+			if(!num){
+				var num=document.createElement("span");
+				num.id="num";
+				input.parentNode.appendChild(num);
+			}
+			num.innerHTML=getTextCount();
+		}
+
+		input.addEventListener("keyup",function(){
+			render()
+		},false);
+		
+		render()
+	}
+</script>
+</head>
+<body>
+<input id="J_text">
+</body>
+</html>

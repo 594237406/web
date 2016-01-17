@@ -1,0 +1,15 @@
+1.字符串
+    1.定义
+    2.转义符
+        \n \r \t \b  \\ \' \''
+    3.转字符串：
+       .toString()
+        String()
+    4.字符串是不可变的引用类型
+    5.字符串常用方法（API）：
+        substr
+        substring
+        replace
+        replaceAll
+
+

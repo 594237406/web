@@ -1,0 +1,14 @@
+1.Object
+
+    1.由多组属性名\属性值组成（多个键值对key\value组成）
+    2.对象的两种创建方式（json字面量创建，new实例创建）
+    3.JSON类型：JSON.parse,JSON.stringify
+    4.数组类型：Array，常用属性和方法，访问方法
+
+    5.属性增删改查,属性不能重复
+        两种方式访问属性
+        假删除\真删除
+
+    6.对象细分：Object,RegExp,String,Boolean,Date,Array,Function,Math等对应的实例
+        对象、类、实例
+
