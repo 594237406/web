@@ -7,18 +7,36 @@
 
     <script>
 
-        var dtd = $.Deferred(); // 新建一个deferred对象
-        var wait = function (dtd) {
-            var tasks = function () {
-                alert("执行完毕！");
-                dtd.reject(); // 改变deferred对象的执行状态
-            };
-            setTimeout(tasks, 2000);
-            return dtd;
+
+
+        var wait1 = function () {
+            var dtd = $.Deferred(); // 新建一个deferred对象
+            setTimeout(function(){
+                console.log(1)
+                dtd.resolve();
+            },1000);
+            return dtd.promise();
         };
 
-        $.when(wait(dtd)).done(function(){ alert("哈哈，成功了！"); })
-        .fail(function(){ alert("出错啦！"); });
+        var wait2 = function () {
+            var dtd1 =new $.Deferred(); // 新建一个deferred对象
+            setTimeout(function(){
+                console.log(2)
+                dtd1.resolve();
+            },1000);
+            return dtd1.promise();
+        };
+
+
+        $.when(wait1()).then(function(){
+            console.log("哈哈，成功了1！");
+            return $.when(wait2())
+        }).then(function(){
+            console.log("哈哈，成功了2！");
+        })
+
+
+
     </script>
 </head>
 <body>
