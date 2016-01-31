@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        setTimeout(function(){
+            console.log(1)
+        },0);
+   </script>
+    <!--注释这句话试试-->
+   <script src="http://apps.bdimg.com/libs/accounting.js/0.3.2/accounting.min.js"></script>
+   <script>
+       //JavaScript其实是运行在单线程的环境中的，这就意味着定时器仅仅是计划代码在未来的某个时间执行，
+       // 而具体执行时机是不能保证的，因为页面的生命周期中，不同时间可能有其他代码在控制JavaScript进程。
+       //页面下载完成后代码的运行、事件处理程序、Ajax回调函数都是使用同样的线程，实际上浏览器负责进行排序，
+       // 指派某段程序在某个时间点运行的优先级。
+        window.onload=function(){
+            console.log(2)
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
