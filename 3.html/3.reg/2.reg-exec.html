@@ -11,22 +11,22 @@
 	"cup of tea that is being continuously diluted.";
 	var reg=/A(p)a(rt)/g;
 	//如果有分组，返回数组，数组[0]为匹配字符串，数组[1,……,n]为匹配分组字符串
-	alert(reg.exec(text));			//返回Apart,p,rt
+	console.log(text.match(reg));			//返回Apart,p,rt
 	
 	
 	//匹配捕获
 	reg1=/every(?:time|thing)/g;
 	//'industr(?:y|ies) 就是一个比 'industry|industries' 更简略的表达式。
-	alert(text.match(reg1));			//匹配everything,everytime,不会匹配everyone
-	//alert(reg1.exec(text));
+	console.log(text.match(reg1));			//匹配everything,everytime,不会匹配everyone
+	//console.log(reg1.exec(text));
 	
 	//匹配不捕获
 	reg1=/every(?=time|thing)/g;
-	alert(text.match(reg1));			//匹配everything,everytime中的every,不会匹配everyone中的every
+	console.log(text.match(reg1));			//匹配everything,everytime中的every,不会匹配everyone中的every
 	
 	//反向匹配不捕获
 	reg1=/every(?!time|thing)/g;
-	alert(text.match(reg1));			//匹配everyone中的every,不匹配everything,everytime中的every
+	console.log(text.match(reg1));			//匹配everyone中的every,不匹配everything,everytime中的every
 	
 
     reg1=/a/g;

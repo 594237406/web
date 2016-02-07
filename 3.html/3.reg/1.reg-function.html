@@ -13,10 +13,10 @@
 			reg=/fd/g;							//返回第一次出现的位置
 			console.log(str.search(reg));
 			
-			reg=/A23/g;							//返回第一次匹配字符串，添加到长度为1的数组内
-			console.log(reg.exec(str)[0]);
+			reg=/A23/g;							//返回第一次匹配字符串，添加到长度为1的数组内,可以用来匹配组
+			console.log(reg.exec(str)[0]);      //返回[匹配内容,匹配组,匹配位置,全部字符串]
 			
-			reg=/\d+/g;							//返回所有数字 g:globle
+			reg=/\d+/g;							//返回所有匹配结果
 			console.log(str.match(reg));
 			
 			reg=/a/ig;							//忽略大小写，把所有a替换成b，顺序可以颠倒
@@ -33,6 +33,19 @@
 			
 			reg=/[^0-9a-z]/ig;					//除了数字、字母
 			console.log(str.replace(reg,""));
+
+            //compile方法可以编译指定的正则表达式，编译之后的正则表达式执行速度将会提高，如果正则表达式多次被调用，
+            //那么调用compile方法可以有效的提高代码的执行速度，如果该正则表达式只能被使用一次，则不会有明显的效果
+            var str="Every man in the world! Every woman on earth!";
+
+            var patt=/man/g;
+            str2=str.replace(patt,"person");
+            console.log(str2);
+
+            patt=/(wo)?man/g;
+            patt.compile(patt);
+            str2=str.replace(patt,"person");
+            console.log(str2);
 			
 		</script>
 	</head>
