@@ -1,0 +1,114 @@
+1.设计一个组件化，思路如何（架构设计，解决方案，目录层级，组件交互与前后端交互等）
+
+2.FIS的主要功能？（资源定位，资源合并与模块化）
+
+那么FIS如何实现资源定位和模块化(解释下resource-map以及mod原理）
+
+Webpack与gulp如何分工，实现webpack工程化应该注意哪些？
+
+3.谈谈移动端适配
+（我的答案：文字：方案1:响应式+rem缩放，即根据媒体查询响应缩放1rem的像素值，方案2：固定像素，根据dpi自动缩放,
+盒子模型，横向百分比+纵向固定像素或者设置device-width为固定值，宽高均按设计搞）
+
+4.移动端的坑
+1px bug
+点击穿透300ms延迟
+fixed定位与transform、input冲突
+单击无法冒泡到body标签
+滚动（屏）卡顿
+
+5.移动端低版本
+移动端手势、滚动，滑屏，动画交互如何实现才能避免h5在安卓低版本的卡顿，iscroll如何实现的？
+
+低版本安卓对css3特效如何支持？使用css如何变性环形进度条？（径向渐变）
+
+做过canvas与svg么？百度地图如何实现地图绘制，简述如何提高css3动画效率，简单描述下requestAnimationFrame
+
+6.canvas制作特效,环行进度条，1px
+
+7.性能优化方案，说出有哪些大类，用过什么检测平台与工具
+如何搭建本地DNS服务器
+CDN节点搭建以及配置
+如何配置小型服务器
+
+react-native以及node如何做性能优化，react和angular性能优化以及渲染区别
+
+8.Promise同步处理方案，ajax1与2的区别，http1.1和https，描述下ssl和长连接
+
+跨域的几种方法,post跨域怎么做
+
+9.快速排序时间复杂度,如何判断算法的时间复杂度是多少。简述一些出名的游戏算法和游戏引擎（如碰撞检测，缓冲运动，白鹭引擎）
+
+10.你所做过的项目，挑一个最出彩的介绍一下。技术难点在哪？如何有效的与各方沟通？
+
+11.你带过多少人，每个人如何协同合作与分支管理
+
+12.linux和mac了解多少，用过vim编辑器嘛？
+
+
+
+JS问题
+
+1.原生JS手写发布订阅模式与观察者模式，实现公有\私有事件添加（单例模式）、移出以及触发
+
+2.输出什么内容？
+var a=1;
+function f(){
+	var a=2;
+	console.log(this.a+a);
+}
+f();
+
+
+3.输出什么内容？
+function f1(){console.log(this.a);}
+function f2(){this.a=1;}
+fun2.prototype.a=2;
+fun1.call(new fun2);
+
+4.问题1：用户点击页面，输出什么内容？
+var flag=true;
+
+function fn(next){
+	if(flag){	
+		flag=false;
+		document.body.addEventListener("click",function(){
+			next();		
+		},false);
+	
+	}
+}
+
+var fn1=function(){
+	console.log("Hello");
+}
+
+var fn2=function(){
+	console.log("Hello");
+}
+
+fn(fn1);
+
+fn(fn2);
+
+问题2：next回调取自于参数，参数fn2已经存在闭包内,为什么没有执行fn2。
+
+5.用正则写出"123456789"转化成"$123,456,789"的转换函数
+
+6.用正则实现ES6的String.trim函数，去掉字符串的首位空格
+
+7.编写函数，实现isType('number')(15)返回true，其中number,15为变量
+
+8.编写函数add，使得console.log(add(1)(2))输出3，console.log(add(1)(2)(3))输出6
+
+9.写出你所知道的所有操作DOM的函数
+
+10.写出你知道的移动端所有事件（PC事件除外），以及触发关系，并且写出如何消除300ms延迟
+
+11.设计一个微信红包算法，做到M个人分N元红包，每个人分到的概率相等，保证公平性
+
+12.写出一种算法函数，实现M个数字，取出N个，一共有多少种不同的组合方式，并且把组合方式输出。
+
+13.写出一种算法函数，实现数组去重，使之时间复杂度为O（注意json键只能为字符串）
+
+14.实现一个简易的模块化，谈谈commonjs，exports与module.exports的区别在哪里？
