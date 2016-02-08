@@ -1,3 +1,4 @@
+//定义模块基础路径以及自定义路径
 requirejs.config({
     baseUrl: 'js/lib',
     paths: {
@@ -7,7 +8,5 @@ requirejs.config({
 
 requirejs(['jquery', 'app/sub'],
 function   ($, sub) {
-    //jQuery, canvas and the app/sub module are all
-    //loaded and can be used here now.
 	alert(sub.sub(1,2));
 });
