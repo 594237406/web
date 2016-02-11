@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+    var worker=new Worker("线程1.js");
+    worker.postMessage("主线程数据");
+    worker.onmessage=function(ev){
+        var data=ev.data;
+        worker=new Worker("线程2.js");
+        worker.postMessage(data);
+        worker.onmessage=function(ev){
+            var data=ev.data;
+            worker=new Worker("线程3.js");
+            worker.postMessage(data);
+            worker.onmessage=function(ev){
+                var data=ev.data;
+                console.log(data);
+            }
+        }
+    };
+
+</script>
+</body>
+</html>

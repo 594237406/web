@@ -1,0 +1,18 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>work</title>
+<script type="text/javascript">
+	var worker = new Worker("work1.js");
+
+    worker.onmessage=function(ev){
+		console.log("当前秒:"+ev.data.getSeconds());
+	}
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

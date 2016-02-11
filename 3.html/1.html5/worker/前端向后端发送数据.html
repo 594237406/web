@@ -4,11 +4,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>work</title>
 <script type="text/javascript">
-	var work = new Worker("work.js");
-	
-	work.onmessage=function(ev){
-		alert(ev.data.getSeconds());
-	}
+	var worker = new Worker("work2.js");
+
+    var count=0,timer=setInterval(function() {
+        if(count>=3){
+            clearInterval(timer);
+            timer=null;
+        }else{
+            count++;
+            worker.postMessage(new Date());
+        }
+    }, 1000);
 	
 </script>
 </head>
