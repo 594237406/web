@@ -43,6 +43,8 @@ Webpack与gulp如何分工，实现webpack工程化应该注意哪些？
 （我的答案：文字：方案1:响应式+rem缩放，即根据媒体查询响应缩放1rem的像素值，方案2：固定像素，根据dpi自动缩放,
 盒子模型，横向百分比+纵向固定像素或者设置device-width为固定值，宽高均按设计搞）
 
+淘宝响应式
+
 4.移动端的坑
 1px bug
 点击穿透300ms延迟
@@ -78,7 +80,7 @@ react-native以及node如何做性能优化，react和angular性能优化以及�
 
 12.linux和mac了解多少，用过vim编辑器嘛？
 
-
+13.react和angular问题
 
 ###JS编程问题
 

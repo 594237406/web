@@ -2,13 +2,13 @@
 
 1.nodejs与commonjs
 
-2.html5与css3动画，canvas与svg
+2.html5与css3动画
 
 3.三大mvc框架,react-native
 
-4.性能优化,http，跨域、请求与网络优化
+4.构建工具与工程化
 
-5.构建工具与工程化
+5.性能优化,http，跨域、请求与网络优化
 
 6.设计模式与框架设计
 
