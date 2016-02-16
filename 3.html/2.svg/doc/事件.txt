@@ -1,0 +1,29 @@
+事件对象evt 相关
+􀂾 浏览器事件
+􀂗 clientX 属性、getClientX()方法
+鼠标指针相对于浏览器窗口的客户区X 坐标
+cx = evt.clientX
+或cx = getClient()
+􀂗 clientY 属性、getClientY()方法
+鼠标指针相对域浏览器窗口的客户区的Y 坐标
+cy = evt.clientY
+或cy = evt.getClientY()
+􀂋 注意：
+这两个坐标并没有计算文档的滚动高度或者宽度，如果事件发生在窗口的
+最上边，不管这个文档已经向下滚动了多远，clientX 或clientY 都是0。
+􀂾 屏幕事件
+􀂗 screenX 属性、getScreen()方法
+鼠标指针相对用户显示器左上角的X 坐标
+sx = evt.screenX
+或sx = evt.getScreenX()
+􀂗 screenY 属性、getScreenY()方法
+鼠标指针相对于用户显示器左上角的Y 坐标
+sy = evt.screenY
+或sy = evt.getScreenY()
+􀂗 getCharCode()方法
+获得键盘输入的字符的ASSCII 码
+key = evt.getCharCode()
+􀂗 setData()
+设置数据方法
+􀂗 getData()
+获取数据方法
