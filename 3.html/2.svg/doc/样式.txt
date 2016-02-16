@@ -1,0 +1,13 @@
+􀂾 style 属性、getStyle()方法
+获得某元素的样式值，单独使用没有太大的意义，需要配合后续两个方法一起
+使用。
+style = someElement.style
+或style = someElement.getStyle()
+􀂾 setProperty(Style_Name, Value)方法
+设置某元素的某样式项的值
+someElement.style.setProperty(“fill ”, “red”)
+或someElement.getStyle().setProperty(“fill ”, “red”)
+􀂾 getProperty(Style_Name)方法
+获得某元素的某样式项的值
+someElement.style.getProperty(“fill ”)
+或someElement.getStyle().getProperty(“fill ”)

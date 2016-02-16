@@ -1,0 +1,44 @@
+1.节点操作
+svgDoc = evt.target.ownerDocument;
+svgRoot = svgDoc.rootElement;
+rect = svgRoot.getElementById(“rectId”);
+rects = svgRoot.getElementsByTagName(“rect”);
+显示结果：消息框显示”[object SVGRectElement], [object NodeList]”.
+
+2.节点操作
+􀂗 replaceChild(newElement, oldElement)方法：
+在某元素的子节点中，使用新元素替换旧元素。
+someElement.replaceChild(newNode, oldNode)
+􀂗 removeChild(Element)方法
+删除某元素下的指定元素
+someElement.removeChild(Node)
+􀂗 insertBefore(newElement, refElement)
+newElement 是一个包含新子元素地址的对象，refElement 是参照元素的地
+址，新子元素被插到参照元素之前。如果refElement 参数没有包含在内，
+或者refElement 不是此集合的成员，新的子元素会被插到该元素子元素的
+末尾。
+objDocumentElement = someElement.insertBefor(newNode, oldNode)
+􀂗 cloneNode(true/false)方法
+复制一个新的元素，并且返回对这个元素的引用。
+someElement.cloneNode(true);
+􀂗 firstChild 属性、getFirstChild()方法
+获取某个元素的第一个子元素。
+node = someElement.firstChild;
+或node = someElement.getFirstChild()
+􀂗 childNodes 属性、getChildNodes()方法
+获取某个元素下面所有的子元素
+nodeList = someElement.childNodes
+或nodeList = someElement.getChildNodes()
+􀂗 item(n)方法
+当获得了一个元素集合的时候，需要使用该方法进行引用
+node = someElement.childNodes.item(1)
+􀂗 attributes
+获得某元素的属性集合
+attributes = someElement.attributes
+􀂗 length 属性、getLength()方法
+len = attributes.len
+或len = attributes.getLength()
+
+
+
+
