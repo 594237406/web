@@ -1,5 +1,3 @@
-0.精通正则表达式
-
 1.nodejs与commonjs
 
 2.html5与css3动画
