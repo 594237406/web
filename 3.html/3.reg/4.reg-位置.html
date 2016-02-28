@@ -1,0 +1,18 @@
+<meta charset="utf-8">
+<script>
+    //捕获组结果$1~$9
+    var str="1234561";
+    var re=/(1)(2)(3)/;
+    str=str.replace(re,"$1,$2,$3,"); //返回匹配结果
+    console.log(str);
+
+    console.log(RegExp.$1);
+    console.log(RegExp.$2);
+    console.log(RegExp.$3);
+
+    var str="1234561".replace(/[123]/g,function($0){
+       return $0+",";
+    });
+
+    console.log(str);
+</script>

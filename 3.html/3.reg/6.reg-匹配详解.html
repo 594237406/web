@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //?:匹配且捕获,?=匹配不捕获，?!反向匹配不捕获,?!x相当于?=[^x]
+    var patt1=new RegExp("(?:d)e(?:f)"); //可以双向查找
+    var patt2=new RegExp("e(?=f)");      //前瞻：只能顺序查找
+    var patt3=new RegExp("e(?!f)");      //前瞻：只能顺序查找
+    //var patt4=new RegExp("(?<=d)e");      //JS不支持后顾（后顾：只能反向查找）
+    var patt4= new RegExp("d(e)");       //使用如下方法，可以做到后顾，或者使用字符串逆序+前瞻
+
+    console.log(patt1.exec("abcdefg"));
+    console.log(patt2.exec("abcdefg"));
+    console.log(patt3.exec("abcdefg"));
+    console.log(patt4.exec("abcdefg")[1]);
+</script>
+
+</body>
+</html>
