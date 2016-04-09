@@ -15,4 +15,12 @@
     });
 
     console.log(str);
+
+
+    console.log(/^<(\w+)(\s*)\/?>(?:<\/\1\2>|)$/.exec('<li /></li >'));//["<li /></li >", "li", " "])
+
+    console.log("s1",RegExp.$1);
+//    "li"
+    console.log("s2",RegExp.$2);
+//    " "
 </script>

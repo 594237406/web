@@ -6,12 +6,13 @@
 </head>
 <body>
 <script>
-    //?:匹配且捕获,?=匹配不捕获，?!反向匹配不捕获,?!x相当于?=[^x]
+
+    //?:匹配且捕获,?=匹配不捕获，?!反向匹配不捕获:查找不等于x的内容,例如:?!x相当于?=[^x]
     var patt1=new RegExp("(?:d)e(?:f)"); //可以双向查找
-    var patt2=new RegExp("e(?=f)");      //前瞻：只能顺序查找
-    var patt3=new RegExp("e(?!f)");      //前瞻：只能顺序查找
-    //var patt4=new RegExp("(?<=d)e");      //JS不支持后顾（后顾：只能反向查找）
-    var patt4= new RegExp("d(e)");       //使用如下方法，可以做到后顾，或者使用字符串逆序+前瞻
+    var patt2=new RegExp("e(?=f)");      //匹配不捕获,后顾：只能顺序查找
+    var patt3=new RegExp("e(?!d)");      //后顾：只能顺序查找
+    //var patt4=new RegExp("(?<=d)e");   //JS不支持前瞻（后顾：只能反向查找）
+    var patt4= new RegExp("d(e)");       //使用如下方法，可以做到前瞻，或者使用字符串逆序+后顾
 
     console.log(patt1.exec("abcdefg"));
     console.log(patt2.exec("abcdefg"));
