@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html ng-app="">
+<head>
+    <meta hspanp-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>table</title>
+    <script src="../angular-min.js"></script>
+    <script>
+        function Ctrl($scope) {
+            $scope.userType = 'guest';
+        }
+    </script>
+    <style>
+        .my-form {
+            -webkit-transition:all linear 0.5s;
+            transition:all linear 0.5s;
+            background: transparent;
+        }
+        .my-form.ng-invalid {
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+    <form name="myForm" ng-controller="Ctrl" class="my-form">
+        userType: <input name="input" ng-model="userType" required>
+        <span class="error" ng-show="myForm.input.$error.required">Required!</span><br>
+        <span>userType = {{userType}}</span><br>
+        <span>myForm.input.$valid = {{myForm.input.$valid}}</span><br>
+        <span>myForm.input.$error = {{myForm.input.$error}}</span><br>
+        <span>myForm.$valid = {{myForm.$valid}}</span><br>
+        <span>myForm.$error.required = {{!!myForm.$error.required}}</span><br>
+    </form>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app="mvcModule">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="jquery.js"></script>
+    <style>
+        #div1{
+            width:100px;
+            height:100px;
+            background-color: red;
+            position: absolute;
+            left:20px;
+            top:20px;
+        }
+    </style>
+</head>
+<body>
+<div id="div1" my-drag></div>
+</body>
+<script>
+    var app = angular.module('mvcModule',[]);//定会引起一个模块
+
+    app.directive('myDrag',function(){
+        return {
+          link:function(scpe,element,attr){
+              console.log('x');
+              var x,y;
+            element.on('mousedown',function(event){
+                x = event.pageX - $(this).offset().left;//取得鼠标相对于DOM偏移量
+                y = event.pageY - $(this).offset().top;
+                var self = this;
+                $(document).on('mousemove',function(ev){
+                    console.log(ev.pageX,ev.pageY)
+                    $(self).css('left',(ev.pageX-x));
+                    $(self).css('top',(ev.pageY-y));
+                });
+                $(document).on('mouseup',function(event){
+                    $(document).off();
+                });
+            });
+          }
+        }
+    });
+
+</script>
+</html>

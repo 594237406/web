@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html ng-app>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="../angular-min.js"></script>
+<script type="text/javascript" src="../jquery-1.10.2.min.js"></script>
+
+<script>
+    //watch：监控作用域值变化的函数
+
+    //AngularJS提供了一个非常酷的特性叫做双向数据绑定(Two-way Data Binding)，这个特性大大简化了我们的代码编写方式。
+    //数据绑定意味着当View中有任何数据发生了变化，那么这个变化也会自动地反馈到scope的数据上，也即意味着scope模型会自动地更新。
+    //类似地，当scope模型发生变化时，view中的数据也会更新到最新的值。那么AngularJS是如何做到这一点的呢？当你写下表达式如
+    //{{ aModel }}时，AngularJS在幕后会为你在scope模型上设置一个watcher，它用来在数据发生变化的时候更新view。
+    //这里的watcher和你会在AngularJS中设置的watcher是一样的：
+	function Test($scope){
+		$scope.iphone={
+			money:6000,
+			num:2,
+			fre:10
+		};
+
+		$scope.sum=function(){
+			return $scope.iphone.money*$scope.iphone.num;
+		};
+		
+		$scope.$watch("iphone.money",function(newVal,oldVal){
+			console.log("监控money-新值："+newVal);
+			console.log("监控money-老值："+oldVal);
+		});
+
+		$scope.$watch($scope.sum,function(newVal,oldVal){
+			console.log("监控num-新值："+newVal);
+			console.log("监控num-老值："+oldVal);
+			$scope.iphone.fre=newVal>12000?0:10;
+		});
+
+        //参数3，深度监听,用来监控对象属性
+        $scope.$watch("iphone",function(newVal,oldVal){
+            console.dir(newVal);
+            console.dir(oldVal);
+        },true);
+	}
+</script>
+</head>
+<body>
+	<div ng-controller="Test">
+		单价：<input ng-model="iphone.money" readonly>
+		数量：<input ng-model="iphone.num"><br/>
+		
+		总价：{{iphone.money*iphone.num | currency:'￥'}}
+		价格：{{"￥"+iphone.money*iphone.num}}
+		费用：{{sum() | currency:'￥'}}<br/>
+		运费：{{iphone.fre}}<br/>
+		总价：{{iphone.fre+sum() | currency:'￥'}}
+	</div>
+</body>
+</html>

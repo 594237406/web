@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="starModule">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="bower_components/angular/angular.js"></script>
+    <style>
+        .fa{
+            list-style:none;
+            width:40px;
+            height:40px;
+            display: inline-block;
+            float:left;
+        }
+        .fa-star{
+            background-image: url('star.jpg');
+        }
+        .fa-empty{
+            background-image: url('empty.png');
+        }
+    </style>
+</head>
+<body>
+<div ng-controller="ctrlName">
+<ul>
+    <li class="fa" ng-class="{'fa-star':score>=1,'fa-empty':score<1}" ng-mouseenter="score=1" ng-mouseover="record('',$event)" ng-mouseleave="clear('',$event)"></li>
+    <li class="fa" ng-class="{'fa-star':score>=2,'fa-empty':score<2}" ng-mouseenter="score=2"></li>
+    <li class="fa" ng-class="{'fa-star':score>=3,'fa-empty':score<3}" ng-mouseenter="score=3"></li>
+    <li class="fa" ng-class="{'fa-star':score>=4,'fa-empty':score<4}" ng-mouseenter="score=4"></li>
+    <li class="fa" ng-class="{'fa-star':score>=5,'fa-empty':score<5}" ng-mouseenter="score=5"></li>
+</ul>
+</div>
+<script>
+    var app = angular.module('starModule',[]);
+    app.controller('ctrlName',function($scope){
+        $scope.score = 0;
+        $scope.x = 0;
+        $scope.record =function(first,$event){
+            $scope.x = event.pageX;
+            console.log(event.pageX,$scope.x);
+        }
+        $scope.clear = function(first,$event){
+            console.log(event.pageX,$scope.x);
+            if($event.pageX<$scope.x){
+                $scope.score = 0;
+            }
+        }
+    });
+</script>
+</body>
+</html>

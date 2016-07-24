@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html ng-app="mvcModule">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="bower_components/angular/angular.js"></script>
+</head>
+<body>
+<div ng-controller="GrandFatherController" style="margin:10px;border:solid 1px red">
+    爷爷的余额:{{balance}}
+    <div ng-controller="FatherController" style="margin:10px;border:solid 1px blue">
+        爸爸的余额:{{balance}}<input ng-model="amount"><button ng-click="addMoney()">加钱</button>
+        <div ng-controller="MyController" style="margin:10px;border:solid 1px goldenrod">
+            我的余额:{{balance}}
+        </div>
+    </div>
+</div>
+
+<div ng-controller="ScopeGrandFatherController" style="margin:10px;border:solid 1px red">
+    隔壁爷爷的余额:{{balance}}
+    <div ng-controller="ScopeFatherController" style="margin:10px;border:solid 1px blue">
+        隔壁爸爸的余额:{{balance}}<input ng-model="amount"><button ng-click="addMoney()">加钱</button>
+        <div ng-controller="ScopeMyController" style="margin:10px;border:solid 1px goldenrod">
+            隔壁她的余额:{{balance}}
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    var app = angular.module('mvcModule',[]);
+    app.controller('GrandFatherController',function($scope){
+        $scope.balance = 300;
+        $scope.$on('addMoney',function(event,mny){
+            $scope.balance = $scope.balance+mny;
+        });
+    });
+    app.controller('FatherController',function($rootScope,$scope){
+        $scope.balance = 200;
+        $scope.addMoney = function(){
+			$scope.balance -= 4*parseInt($scope.amount);
+            $rootScope.$broadcast('addMoney',parseInt($scope.amount));
+        }
+    });
+    app.controller('MyController',function($scope){
+        $scope.balance = 100;
+        $scope.$on('addMoney',function(event,mny){
+            $scope.balance = $scope.balance+mny;
+        });
+    });
+
+
+    app.controller('ScopeGrandFatherController',function($scope){
+        $scope.balance = 300;
+        $scope.$on('addMoney',function(event,mny){
+            $scope.balance = $scope.balance+mny;
+        });
+    });
+    app.controller('ScopeFatherController',function($scope){
+        $scope.balance = 200;
+        $scope.addMoney = function(){
+            $scope.balance -= parseInt($scope.amount);
+            $scope.$emit('addMoney',parseInt($scope.amount));
+            $scope.balance -= parseInt($scope.amount);
+            $scope.$broadcast('addMoney',parseInt($scope.amount));
+        }
+    });
+    app.controller('ScopeMyController',function($scope){
+        $scope.balance = 100;
+        $scope.$on('addMoney',function(event,mny){
+            $scope.balance = $scope.balance+mny;
+        });
+    });
+</script>
+</html>

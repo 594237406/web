@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html ng-app>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="../angular-min.js"></script>
+<script type="text/javascript" src="../jquery-1.10.2.min.js"></script>
+
+<script>
+
+	function Test($scope,$rootScope,$timeout){
+		$scope.iphone={
+			money:6000,
+			num:2,
+			fre:10
+		};
+
+		$scope.sum=function(){
+			return $scope.iphone.money*$scope.iphone.num;
+		}
+	}
+</script>
+</head>
+<body>
+	<div ng-controller="Test">
+		单价：<input ng-model="iphone.money">
+		数量：<input ng-model="iphone.num"><br/>
+		
+		总价：{{iphone.money*iphone.num | currency:'￥'}}
+		价格：{{"￥"+iphone.money*iphone.num}}
+		费用：{{sum() | currency:'￥'}}<br/>
+		
+		运费：{{iphone.fre}}<br/>
+		
+		总价：{{iphone.fre+sum() | currency:'￥'}}
+	</div>
+</body>
+</html>

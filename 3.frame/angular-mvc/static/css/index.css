@@ -1,0 +1,22 @@
+.row{float: left;}
+.clearfix{room:1;}
+.clearfix:after{
+    clear: both;
+    display: block;
+    content: "";
+}
+
+.header{
+    height: 10%;
+    width:100%;
+    line-height: 10%;
+    background: #efefef;
+    border-bottom: 1px solid #eee;
+}
+html,body,ul{margin:0;padding:0;list-style: none;height: 100%;}
+ul{left: 50%;float: left;position: relative;height: 100%;}
+ul li{left:-50%;position: relative;padding: 5px 10px;height: 100%;line-height: 100%;}
+
+.main {
+    margin-top: 60px;
+}

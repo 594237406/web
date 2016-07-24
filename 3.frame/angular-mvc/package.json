@@ -1,0 +1,15 @@
+{
+  "name": "datamagic",
+  "version": "1.0.0",
+  "description": "datamagic",
+  "main": "fis-conf.js",
+  "scripts": {
+    "test": "app"
+  },
+  "keywords": [
+    "data",
+    "magic"
+  ],
+  "author": "lihongji",
+  "license": "ISC"
+}

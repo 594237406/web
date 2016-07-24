@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app="mvcModule">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="bower_components/angular/angular.js"></script>
+</head>
+<body>
+<div ng-controller="BookCtrl">
+    <label for="">书名</label>
+    <input type="text" ng-model="bookname"/>
+    <ul ng-repeat="book in books" >
+        <li>{{book.name}}</li>
+    </ul>
+</div>
+</div>
+</body>
+<script>
+    var app = angular.module('mvcModule',[]);
+    app.controller('BookCtrl',function($scope,$timeout,bookService){
+        $scope.books = [{name:'java'},{name:'node.js'}];
+        $scope.$watch('bookname',function(newBookName){
+            var timeout;
+            if(timeout){
+                $timeout.cancel(timeout);
+            }
+            timeout = $timeout(function(){
+                  bookService.addBook(newBookName).success(function(data){
+                      console.log(data);
+                      data.push({name:newBookName});
+                      $scope.books = data;
+                  });
+              },3000);
+        });
+    });
+
+    app.factory('bookService',function($http){
+        return {
+            addBook:function(newBookName){
+                return $http({
+                    url:'package.json',
+                    method:'GET'
+                })
+            }
+        }
+    });
+</script>
+</html>

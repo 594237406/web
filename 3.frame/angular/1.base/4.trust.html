@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html ng-app="test">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="../angular-min.js"></script>
+
+<script>
+
+    var app=angular.module('test',[]);
+
+    app.controller('ngBindHtmlCtrl',  function($scope,$sce) {
+        $scope.myHTML =  $sce.trustAsHtml('I am an <code>HTML</code>string with <a href="#">links!</a> and other <em>stuff</em>');
+    });
+
+    app.controller('GreetingCtrl',  function($scope,$sce) {
+        $scope.greeting = $sce.trustAsHtml('<span style="color:red;">Hi</span>');
+    });
+
+    app.controller('DoubleCtrl', ['$scope', function($scope) {
+        $scope.double = function(value) {
+            $scope.dnum=$scope.num * 2;
+        };
+    }]);
+</script>
+</head>
+<body>
+    <div ng-controller="ngBindHtmlCtrl">
+        <p ng-bind-html="myHTML"></p>
+    </div>
+
+	<div ng-controller="GreetingCtrl" ng-bind-html="greeting">
+
+	</div>
+    <div ng-controller="DoubleCtrl">
+        <input ng-model="num" value="33" /> 翻倍后等于{{dnum}}
+        <button ng-click="double()">翻倍</button>
+    </div>
+</body>
+</html>

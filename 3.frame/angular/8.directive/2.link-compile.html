@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+    <script src="../angular-min.js"></script>
+    <body ng-app="phonecatApp">
+        <div ng-controller="attrtest">
+            <my-attr></my-attr>
+        </div>
+    </body>
+<script>
+    var phonecatApp = angular.module('phonecatApp', []);
+    phonecatApp.controller('attrtest',function($scope) {
+        $scope.naomi = { name: 'Naomi', address: '1600 Amphitheatre' };
+        $scope.vojta = { name: 'Vojta', address: '3456 Somewhere Else' };
+    });
+
+    phonecatApp.directive('myAttr', function() {
+        return {
+            restrict: 'E',
+            template: 'Name: {{naomi.name}} Address: {{naomi.address}}<br>' +
+                'Name: {{vojta.name}} Address: {{vojta.address}}',
+            controller: function($scope, $element){
+                $scope.naomi = { name: 'Naomi', address: '1700 Amphitheatre' };
+            },
+            link: function($scope, $element){
+                $scope.naomi = { name: 'Naomi', address: '1800 Amphitheatre' };
+            }
+        };
+    });
+
+</script>
+</html>

@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en" ng-app="test">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="../angular-min.js"></script>
+
+</head>
+<body>
+    <div ng-hello></div>
+<script>
+
+
+    var app = angular.module('test',[]);
+
+    app.directive('ngHello',function($templateCache){
+        return {
+            restrict:'EACM',
+            transclude:true,
+            templateUrl:"header.html",
+            replace:false
+        }
+    });
+
+
+</script>
+</body>
+</html>

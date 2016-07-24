@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../angular-min.js"></script>
+</head>
+<body >
+<div id="div1" style="border:solid 1px red">
+    <div ng-controller="timeCtrl">
+        <span ng-bind="name"></span>
+    </div>
+</div>
+<div id="div2" style="border:solid 1px blue">
+    <div ng-controller="timeCtrl">
+        <span ng-bind="name"></span>
+    </div>
+</div>
+<script>
+    var app = angular.module('timeModule',[]);
+    app.controller('timeCtrl',function($scope){
+        $scope.name = 'zfpx';
+    });
+
+    //一秒后手动加载模块
+    setTimeout(function(){
+        angular.bootstrap(document.getElementById('div1'),['timeModule']);
+        angular.bootstrap(document.getElementById('div2'),['timeModule']);
+    },1000);
+
+    //点击加载
+    document.onclick=function(){
+        angular.bootstrap(document.getElementById('div1'),['timeModule']);
+        angular.bootstrap(document.getElementById('div2'),['timeModule']);
+    };
+</script>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="mvcModule">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="bower_components/angular/angular.js"></script>
+</head>
+<body>
+<div ng-controller="BookCtrl">
+     {{num}}
+</div>
+</div>
+</body>
+<script>
+    var app = angular.module('mvcModule',[]);//定会引起一个模块
+    app.controller('BookCtrl',function($scope,numService){
+        $scope.num = numService.num;
+    });
+   /* app.config(function(numServiceProvider){
+        numServiceProvider.num = 100;
+    });
+    //第一种 定义provider
+    app.provider('numService',{
+        num:3,
+        $get:function(){
+            return {num:this.num};
+        }
+    });*/
+  /*  app.factory('numService',function(){
+        return 100;
+    });*/
+    //构造函数 返回此构造 函数的实例
+    app.service('numService',function(){
+          this.num = 90;
+    });
+
+</script>
+</html>

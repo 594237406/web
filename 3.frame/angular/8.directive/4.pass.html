@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html ng-app="module">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../angular-min.js"></script>
+</head>
+<body ng-controller="controller">
+<girl flower house></girl>
+</body>
+
+<script>
+    var app=angular.module("module",[]);
+    app.controller("controller",function($scope){
+
+    });
+
+    //restrict:EACM 元素、属性、样式、注释
+    //template:模板
+    app.directive("girl",function(){
+        return {
+            restrict:"E",
+            template:"<div>女神</div>",
+            controller:function($scope){
+
+                $scope.gift=[];
+                this.receive=function(present){
+                    $scope.gift.push(present)
+                }
+            },
+            link:function(scope,element,attrs){
+                element.bind("click",function(){
+                    alert(scope.gift);
+                })
+            }
+        }
+    });
+
+    app.directive("flower",function(){
+        return {
+            require:"^girl",
+            restrict:"A",
+            link:function(scope,element,attrs,controller){
+                controller.receive('flower');
+            }
+        }
+    });
+
+    app.directive("house",function(){
+        return {
+            require:"^girl",
+            restrict:"A",
+            link:function(scope,element,attrs,controller){
+                controller.receive('house');
+            }
+        }
+    })
+</script>
+</html>

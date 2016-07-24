@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html ng-app="mvcModule">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../angular-min.js"></script>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css"/>
+    <style>
+        body{
+            margin:30px;
+        }
+    </style>
+</head>
+<body >
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <div class="panel-title">表单验证</div>
+    </div>
+    <div class="panel-body" ng-controller="userCtrl">
+        <form name="myform"  action=""  role="form" ng-submit="save()">
+            <div class="row form-group">
+                <label for="username" class="col-md-2 control-label">用户名</label>
+                <div class="col-md-4">
+                    <input ng-unique id="username" type="text" name="username" require class="form-control" ng-model="user.username" required/>
+                </div>
+                <div class="help-block col-md-4" ng-show="myform.username.$dirty&&myform.username.$invalid">
+                    <span class="text-danger" ng-show="myform.username.$error.required">请填写用户名</span>
+                </div>
+            </div>
+            <div class="row form-group" ng-class="{'has-error':myform.email.$dirty&&myform.email.$invalid}" >
+                <label for="email" class="col-md-2 control-label">邮箱</label>
+                <div class="col-md-4">
+                    <input id="email" type="email" name="email" class="form-control" ng-model="user.email" required/>
+                </div>
+                <div class="help-block col-md-4" ng-show="myform.email.$dirty&&myform.email.$invalid">
+                    <span class="text-danger" ng-show="myform.email.$error.required">请填写邮箱</span>
+                    <span class="text-danger" ng-show="myform.email.$error.email">请填写正确的格式</span>
+                </div>
+            </div>
+            <div class="row form-group">
+                <button class="btn btn-default" ng-click="set()"
+                        ng-disabled="myform.$invalid||myform.$pristine" >提交</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    var app = angular.module('mvcModule', []);//定会引起一个模块
+    //定义一个控制器 $scope就是这个控制器对应的视图模型
+    app.controller('userCtrl', function ($scope) {
+        $scope.user={};
+        $scope.get = function () {
+            alert($scope.user.email);
+        }
+        $scope.set = function () {
+            $scope.user.email = 'zfpx@126.com'
+        }
+        $scope.reset = function () {
+            $scope.user.email = '';
+        }
+    });
+    //定义的时候不加 -，使用的时候加-
+    app.directive('ngUnique',function($http){
+        return {
+            require:'^ngModel',
+            link:function(scope,element,attr,ngModelCtrl){
+                console.log(attr.ngModel);
+                scope.$watch(attr.ngModel,function(){
+                     var username = scope['user']['username'];
+                    $http({
+                        url:'http://localhost:8080/check',
+                        method:'POST',
+                        //username=qq&age=3
+                        data:{username:username}
+                    }).success(function(data){
+                        console.log(data);
+                        ngModelCtrl.$setValidity('unique',false);
+                    });
+                });
+            }
+        }
+    });
+</script>
+</body>
+</html>

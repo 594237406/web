@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html ng-app="myApp">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script src="../angular-min.js"></script>
+<script>
+
+var m1 = angular.module('myApp',[]);
+
+m1.filter('firstUpper',function(){
+	return function(str){
+		return str.charAt(0).toUpperCase() + str.substring(1);
+	}
+});
+
+m1.controller('filter',['$scope','$filter',function($scope,$filter){
+	
+	$scope.name1 = '723894734.7489545';
+	$scope.name2 = '123123123';
+	$scope.name3 = {"name":"hello","age":"20"};
+	$scope.name4 = ['a','b','c'];
+	$scope.name5 = '3748935795';
+	$scope.name6 = [
+        {name:'kimi',age:3},
+        {name:'cindy',age:4},
+        {name:'anglar',age:4},
+        {name:'shitou',age:6},
+        {name:'tiantian',age:5}
+    ];
+
+    $scope.func = function(e){return e.age>4;};
+
+	$scope.name7 = 'hello';
+    $scope.name8 = 'hello';
+	$scope.name9 = $filter('number')('236478234.3647348',1);
+	$scope.name10 = $filter('date')('236478234','hh');
+
+	$scope.name11 = $filter('firstUpper')('hello');
+}]);
+
+
+
+</script>
+</head>
+
+<body>
+<div ng-controller="filter">
+	<p>{{ name1 | currency:"￥"}}</p>
+    <p>{{ name2 | number : 0 }}</p>
+    <p>{{ name3 | json }}</p>
+    <p>{{ name4 | limitTo : 2 }}</p>
+    <p>{{ name5 | date : 'yyyy' }}</p>
+    <p>{{ name6 | orderBy : 'age' : true  }}</p>
+
+    <p>{{ name6 | filter : 'a' }}</p> <!--匹配属性值中含有a的-->
+    <p>{{ name6 | filter : 4 }}</p> <!--匹配属性值中含有4的 -->
+    <p>{{ name6 | filter : {name : 'a'} }}</p> <!--参数是对象，匹配name属性中含有i的 -->
+    <p>{{ name6 | filter : func }}</p>  <!--参数是函数，指定返回age>4的 -->
+
+    <p>{{ name7 | uppercase }}</p>
+    <p>{{ name8 | firstUpper : 2 }}</p>
+    <p>{{ name9 }}</p>
+    <p>{{ name10 }}</p>
+
+    <p>{{ name11 }}</p>
+</div>
+</body>
+</html>

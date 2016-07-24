@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="mvcModule">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="bower_components/angular/angular.js"></script>
+</head>
+<body>
+    <div ng-controller="provinceCtrl">
+        <input ng-model="countryname">
+        <city say="greet()" countryname="countryname" pname="{{provincename}}"></city>
+    </div>
+</body>
+<script>
+    var app = angular.module('mvcModule',[]);//定会引起一个模块
+    //定义一个控制器 $scope就是这个控制器对应的视图模型
+    var scopes = [];
+
+    app.controller('provinceCtrl',function($scope){
+        $scope.provincename = '广东';
+        $scope.countryname = '中国';
+        $scope.greet = function(){
+            alert('greet');
+        }
+    });
+    app.directive('city',function(){
+        return {
+            template:'<span>{{countryname}}{{provincename}}<input ng-model="cityName"><button ng-click="say()">说话啊</button></button></span>',
+            scope:{
+               // provincename:'@pname',//当前属性作为字符串传递给scope
+                countryname:'=countryname',//把当前属性作为所属的控制器上的scope的属性传递给指令的scope
+                say:'&'//调用父作用域上的一个函数
+            }//创建独立scope,指令之间可以相互独立
+        }
+    });
+</script>
+</html>

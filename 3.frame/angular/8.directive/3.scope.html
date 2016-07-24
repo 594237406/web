@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+    <script src="../angular-min.js"></script>
+    <body ng-app="phonecatApp">
+        <div ng-controller="attrtest">
+            <my-attr info="naomi"></my-attr>
+        </div>
+    <script>
+        var phonecatDirectives = angular.module('phonecatDirectives', []);
+
+        phonecatDirectives.directive('myAttr', function() {
+            return {
+                restrict: 'E',
+                scope: {          //创建独立scope,指令之间可以相互独立
+                    customerInfo: '=info'
+                },
+                template: 'Name: {{customerInfo.name}} Address: {{customerInfo.address}}<br>'
+            };
+        });
+
+        var dtControllers = angular.module('dtControllers', []);
+
+        dtControllers.controller('attrtest',['$scope',
+            function($scope) {
+                $scope.naomi = { name: 'Naomi', address: '1600 Amphitheatre' };
+            }
+        ]);
+
+        var phonecatApp = angular.module('phonecatApp', [
+            'phonecatDirectives',
+            'dtControllers'
+        ]);
+
+    </script>
+    </body>
+</html>

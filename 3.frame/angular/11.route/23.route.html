@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="mvcModule">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+</head>
+<body>
+<ul>
+    <li><a href="#/home">home</a></li>
+    <li><a href="#/student" >student</a></li>
+</ul>
+<div ng-view></div>
+</body>
+<script>
+    var app = angular.module('mvcModule',['ngRoute']);//定会引起一个模块
+    app.config(function($routeProvider){
+        $routeProvider.when('/home',{
+            templateUrl:'tmpl/home.html',
+            controller:'homeCtrl'
+        }).when('/student',{
+            templateUrl:'tmpl/student.html',
+            controller:'studentCtrl'
+        });
+    });
+
+    app.controller('homeCtrl',function($scope){
+        $scope.name = 'home';
+    });
+
+    app.controller('studentCtrl',function($scope){
+        $scope.name = 'student';
+    });
+
+</script>
+</html>

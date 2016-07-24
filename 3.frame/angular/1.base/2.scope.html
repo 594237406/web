@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html ng-app="">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="../angular-min.js"></script>
+
+<script>
+
+	function Test($scope){
+        $scope.name='lhj';
+        $scope.onChange=function(event){
+            console.log(arguments);
+        }
+	}
+
+</script>
+</head>
+<body ng-controller="Test">
+    姓名：<input type="text" ng-model="name"><br>
+    年龄：<input type="number" ng-model="age" ng-change="onChange($event.target)"> <br>
+	<div ng-bind="name"></div>
+    <div ng-bind="age"></div>
+</body>
+</html>
