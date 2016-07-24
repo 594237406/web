@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var money='231232124234123';
+        console.log(money.replace(/(?=\d{3}$)/g,','));     //匹配最后三个数字后的""
+        console.log(money.replace(/(?=(\d{3})+$)/g,','));  //按3位数字结尾分组,匹配连续3位数字后的""
+        console.log(money.replace(/(?=(?!\b)(\d{3})+$)/g,',')); //去掉首位的,
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,1 +1,0 @@
-var show1="show";

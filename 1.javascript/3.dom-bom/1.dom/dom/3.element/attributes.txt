@@ -1,9 +1,0 @@
-1.
-Element 类型是使用attributes 属性的唯一一个DOM 节点类型。attributes 属性中包含一个
-NamedNodeMap，与NodeList 类似，也是一个“动态”的集合。元素的每一个特性都由一个Attr 节
-点表示，每个节点都保存在NamedNodeMap 对象中。NamedNodeMap 对象拥有下列方法。
- getNamedItem(name)：返回nodeName 属性等于name 的节点；
- removeNamedItem(name)：从列表中移除nodeName 属性等于name 的节点；
- setNamedItem(node)：向列表中添加节点，以节点的nodeName 属性为索引；
- item(pos)：返回位于数字pos 位置处的节点。
-attributes 属性中包含一系列节点，每个节点的nodeName

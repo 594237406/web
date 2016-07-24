@@ -1,4 +1,0 @@
-function load(){
-	alert("loada");
-}
-

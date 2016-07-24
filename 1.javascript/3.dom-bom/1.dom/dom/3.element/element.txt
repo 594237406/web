@@ -1,8 +1,0 @@
-Element 类型就要算是Web 编程中最常用的类型了。Element 类型用
-于表现XML或HTML元素，提供了对元素标签名、子节点及特性的访问。Element 节点具有以下特征：
- nodeType 的值为1；
- nodeName 的值为元素的标签名；
- nodeValue 的值为null；
- parentNode 可能是Document 或Element；
- 其子节点可能是Element、Text、Comment、ProcessingInstruction、CDATASection 或
-EntityReference。
