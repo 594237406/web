@@ -1,0 +1,7 @@
+1. 修改下拉层高度：
+	jquery.ui.autocomplete.js 第137行
+	
+2. 修改下拉按钮位置：
+	jquery.ui.button.css: .ui-button 
+	
+3. filterablecombo.js第15行附近，可修改输入框的样式，id和name

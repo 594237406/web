@@ -1,0 +1,51 @@
+<html>
+<head>
+	<script type="text/javascript" src="jquery-1.10.2.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var msgs={module1:'a',module2:'b',module3:'c',module4:'d'};
+			var flag=false;
+			
+			$(".module").on({mouseover:function(ev){
+				var $target=$(ev.target);
+				var $this=$("<div class='tip'></div>").appendTo($target).on({
+					mouseover:function(ev){
+						ev.stopPropagation()
+					},
+					mouseout:function(ev){
+						$(this).remove();
+					}
+				}).html(msgs[$(this).attr('module')]);
+			},
+			click:function(ev){
+				$(".module").animate({width:0,height:0},500,function(){
+					if(!flag){
+						location.href="http://www.baidu.com";
+					}		
+					flag=true;
+					return ;
+				});
+			}});
+		});
+	</script>
+	<style type="text/css">
+		.module{float: left;width:200px;height:200px;background: red;margin: 20px;overflow: hidden;}
+		.tip{width:200px;height:200px;background:#ccc;opacity:0.3;}
+		.clear{zoom:1}
+		.clear:after{display: block;clear: both;content: ""}
+		.wrapper{margin:0 auto;width:480px;}
+	</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="clear">
+				<div class="module" module='module1'></div>
+				<div class="module" module='module2'></div>
+			</div>
+			<div class="clear">
+				<div class="module" module='module3'></div>
+				<div class="module" module='module4'></div>
+			</div>
+		</div>
+	</body>
+</html>

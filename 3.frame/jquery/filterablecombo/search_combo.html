@@ -1,0 +1,41 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" href="css/jquery.ui.all.css">
+
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script src="js/jquery.ui.core.js"></script>
+	<script src="js/jquery.ui.widget.js"></script>
+	<script src="js/jquery.ui.button.js"></script>
+	<script src="js/jquery.ui.position.js"></script>
+	<script src="js/jquery.ui.autocomplete.js"></script>
+	<script src="js/filterablecombo.js"></script>
+	
+	<script type="text/javascript">
+	
+	$(document).ready(function () {	 
+		loadEnterById("pram_entname");  
+	});
+	
+	//query all objects by controlid
+	function loadEnterById(objCtrlid){
+
+	 	$("#"+objCtrlid).combobox();
+	 	
+	}
+	 
+</script>
+<title>可模糊查询下拉框控件</title>
+</head>
+<body>
+          	<select id="pram_entname"  class="input"  name="param._ne_entid" >
+				<option value='1'>aaaa</option>
+				<option value='2'>bbbb</option>
+				<option value='3'>cccc</option>
+				<option value='4'>dddd</option>
+				<option value='5'>eeee</option>
+          	</select>
+</body>
+</html>
