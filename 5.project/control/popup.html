@@ -1,0 +1,130 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>popup</title>
+		<style type="text/css">
+			body{margin: 0px;}
+			
+			.title{ height:30px; background:gray; color:white; }
+			.title .font{ float:left;}
+			.title .close{ float:right;}
+			#mark{ background:black; fitler:alpha(opacity=10); opacity:0.1; position:absolute; left:0; top:0; z-index:1;}
+			.popup{position: absolute;border: 1px solid black;z-index: 2;}
+		</style>
+		
+		<script type="text/javascript">
+			window.onload=function(){
+				var btns=document.getElementsByName("btn");
+				
+				btns[0].onclick=function(ev){
+					var popup1=new Popup();
+					popup1.init({title:"登陆",w:400,h:300,iNow:1});
+				}
+				
+				btns[1].onclick=function(ev){
+					var popup2=new Popup();
+					popup2.init({title:"公告",w:100,h:400,dir:"right",iNow:2});
+				}
+				
+				btns[2].onclick = function(){
+					var popup3=new Popup();
+					popup3.init({mark : true,iNow:3});
+				};
+			}
+		
+			function Popup(){
+				//属性
+				this.popup=null;
+				this.mark=null;
+				//配置参数
+				this.settings={
+					w:200,
+					h:200,
+					dir:"center",
+					title:"title",
+					mark:false
+				};
+			}
+			
+			var json={};
+		
+			Popup.prototype.init=function(config){
+				extend(this.settings,config);
+				if(!json[this.settings.iNow]){
+					this.create();
+					if(this.settings.mark){
+						this.createMark();
+					}
+					this.close();
+				}else{
+					alert("已有类似弹窗，请先关闭");
+				}
+			}
+			
+			Popup.prototype.create=function(){
+				this.popup=document.createElement("div");
+				
+				this.popup.className="popup";
+				this.popup.innerHTML = '<div class="title"><span class="font">'+ this.settings.title +'</span><span class="close" name="close">X</span></div><div class="content"></div>';
+				document.body.appendChild(this.popup);
+				this.setData();
+			}
+			
+			Popup.prototype.close=function(){
+				var This=this;
+				var oClose=this.popup.getElementsByTagName("span")[1];
+				oClose.onclick=function(ev){
+					This.popup.parentNode.removeChild(This.popup);
+					if(This.settings.mark){
+						document.body.removeChild(This.mark );
+					}
+					
+					json[This.settings.iNow]=null;
+				}
+			}
+			
+			Popup.prototype.setData=function(){
+				json[this.settings.iNow]=this.settings.iNow;
+				this.popup.style.width=this.settings.w+"px";
+				this.popup.style.height=this.settings.h+"px";
+				
+				if(this.settings.dir=="center"){
+					this.popup.style.left=(viewWideHigh().w-this.popup.offsetWidth)/2+"px";
+					this.popup.style.top=(viewWideHigh().h-this.popup.offsetHeight)/2+"px"
+				}
+				
+				if(this.settings.dir=="right"){
+					this.popup.style.left=viewWideHigh().w-this.popup.offsetWidth+"px";
+					this.popup.style.top=viewWideHigh().h-this.popup.offsetHeight+"px"
+				}
+			}
+			
+			Popup.prototype.createMark = function(){
+				var oMark = document.createElement('div');
+				oMark.id = 'mark';
+				document.body.appendChild( oMark );
+				this.mark = oMark;
+				oMark.style.width = viewWideHigh().w + 'px';
+				oMark.style.height = viewWideHigh().h + 'px';
+			};
+			
+			function extend(obj1,obj2){
+				for(var attr in obj2){	
+					obj1[attr]=obj2[attr];
+				}
+			}
+			
+			function viewWideHigh(){
+				var height=document.documentElement.clientHeight||document.body.clientHeight;
+				var width=document.documentElement.clientWidth||document.body.clientWidth;
+				return {w:width,h:height};
+			}
+		</script>
+	</head>
+	<body>
+		<input name="btn" type="button" value="1"/>
+		<input name="btn" type="button" value="2"/>
+		<input name="btn" type="button" value="3"/>
+	</body>
+</html>

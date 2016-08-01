@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>customevents</title>
+		<script>
+			
+			//自定义事件 : 主要是跟函数有关系,就是让函数能够具备事件的某些特性
+			
+			window.onload=function(){
+				document.getElementById("input1").addEventListener('click',function(){
+					alert(1);
+				},false);
+				document.getElementById("input1").addEventListener('click',function(){
+					alert(2);
+				},false);
+				
+				//调用函数
+				document.getElementById("input1").click();
+			}
+			
+			
+			
+		</script>
+	</head>
+	
+	<body>
+		<input id="input1"/>
+	</body>
+</html>
